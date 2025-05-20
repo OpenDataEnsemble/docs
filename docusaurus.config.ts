@@ -70,7 +70,7 @@ const config: Config = {
       title: 'ODE',
       logo: {
         alt: 'ODE Logo',
-        src: 'img/logo.svg',
+        src: 'img/ode_logo.png',
       },
       items: [
         {
@@ -103,15 +103,11 @@ const config: Config = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: 'https://stackoverflow.com/questions/tagged/opendataensemble',
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              href: 'https://discordapp.com/invite/opendataensemble',
             },
           ],
         },
@@ -124,12 +120,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/opendataensemble',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Open Data Ensemble. Built with Docusaurus. <img src="img/docusaurus.png" alt="Docusaurus" style="height: 30px;vertical-align: bottom;"/>`,
     },
     prism: {
       theme: prismThemes.github,

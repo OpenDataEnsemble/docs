@@ -11,12 +11,11 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Great for longitudinal studies',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        ODE is a platform for building sophisticated data collection instruments.
       </>
     ),
   },
@@ -25,18 +24,17 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Spend your time designing your data collection instruments instead of 
+        building the infrastructure for it.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Cross platform & open source',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        ODE is available for Android and iOS. It is 100% FLOSS (Free (Libre) Open Source Software)
       </>
     ),
   },

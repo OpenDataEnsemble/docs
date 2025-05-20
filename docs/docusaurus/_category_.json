@@ -1,0 +1,8 @@
+{
+  "label": "Docs site with docusaurus",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "How to set up a docs site with docusaurus."
+  }
+}

@@ -4,11 +4,12 @@ sidebar_position: 1
 
 # Manage Docs Versions
 
-Docusaurus can manage multiple versions of your docs.
+Docusaurus can manage multiple versions of the ODE docs.
+After ver 1.0.0 has been released, the versioned docs will be frozen using the docusaurus version command.
 
 ## Create a docs version
 
-Release a version 1.0 of your project:
+Release a version 1.0 of the ODE docs:
 
 ```bash
 npm run docusaurus docs:version 1.0
@@ -16,7 +17,7 @@ npm run docusaurus docs:version 1.0
 
 The `docs` folder is copied into `versioned_docs/version-1.0` and `versions.json` is created.
 
-Your docs now have 2 versions:
+We now have 2 versions:
 
 - `1.0` at `http://localhost:3000/docs/` for the version 1.0 docs
 - `current` at `http://localhost:3000/docs/next/` for the **upcoming, unreleased docs**

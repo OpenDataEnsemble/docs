@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Formulus
 
 Formulus is an app for Android and iOS that synchronizes with a `synkronus` server. 

@@ -4,14 +4,15 @@ sidebar_position: 1
 
 # ODE
 
-ODE is a ...
+ODE is a platform for building sophisticated data collection instruments.
 
-:::tip[My tip]
 
-Use this awesome feature option
+:::tip[Doing Research?]
+
+Use ODE for you longitudinal studies!
 
 :::
-
+<!-- 
 :::danger[Take care]
 
 This action is dangerous
@@ -48,4 +49,4 @@ export const Highlight = ({children, color}) => (
 
 This is <Highlight color="#25c2a0">Docusaurus green</Highlight> !
 
-This is <Highlight color="#1877F2">Facebook blue</Highlight> !
+This is <Highlight color="#1877F2">Facebook blue</Highlight> ! -->

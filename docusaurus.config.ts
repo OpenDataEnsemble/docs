@@ -67,9 +67,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'ODE',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'ODE Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -77,11 +77,10 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Documentation',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/opendataensemble',
           label: 'GitHub',
           position: 'right',
         },

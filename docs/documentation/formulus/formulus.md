@@ -1,10 +1,6 @@
----
-sidebar_position: 4
----
+# formulus
 
-# Formulus
-
-Formulus is an app for Android and iOS that synchronizes with a `synkronus` server. 
+formulus is an app for Android and iOS that synchronizes with a `synkronus` server. 
 It;
 - Downloads and displays your 'custom_app' as the main entry into the app
 - Authenticates with `synkronus`

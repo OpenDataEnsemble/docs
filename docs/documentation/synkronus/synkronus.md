@@ -1,10 +1,10 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Synkronus
+# synkronus
 
-Synkronus is a server for ODE built in Go.
+synkronus is a server for ODE built in Go.
 It is used to synchronize data and attachments between the ODE server and the Formulus app.
 It supports the follow data type:
 - `custom_app`: The versioned app bundle for your custom application

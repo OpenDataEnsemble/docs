@@ -1,17 +1,37 @@
 ---
 sidebar_position: 1
+title: "OpenDataEnsemble (ODE)"
 ---
 
-# ODE
+# Welcome to OpenDataEnsemble (ODE)
+
+**OpenDataEnsemble (ODE)** is a modern, flexible toolkit designed to simplify **robust mobile data collection and management**. Built for researchers, health professionals, implementers, and developers alike, ODE empowers users to design sophisticated forms, manage data securely, and synchronize seamlessly across devices—even in offline conditions.
+
+ODE stands out through its:
+
+* **Simplicity & Efficiency:** Quickly create complex, validated forms using a powerful yet intuitive JSON-based approach.
+* **Advanced Offline Sync:** Reliable and conflict-resilient synchronization powered by [WatermelonDB](https://watermelondb.dev).
+* **Flexible & Extensible UI:** Customize form presentation and interaction effortlessly with [JSON Forms](https://jsonforms.io), enabling rich, interactive user experiences.
+
+Inspired by pioneering open-source projects, ODE leverages cutting-edge frameworks to deliver unparalleled ease-of-use and flexibility, especially suited for challenging environments where reliable offline performance is crucial.
+
+Whether you're capturing health data in remote clinics, conducting longitudianl studies or field research in areas with limited connectivity, or building data-intensive mobile applications, **ODE** is your reliable, scalable, and modern platform for creating powerful data instruments.
+
+## Current Members of the Ensemble
+
+* [formulus](./documentation/formulus/formulus.md): The Android and iOS app for data collection and form interaction.
+* [synkronus](./documentation/synkronus/synkronus.md): The robust server backend managing synchronization and data storage.
+* [synkronus-cli](./documentation/synkronus-cli/cli.md): Command-line interface for convenient server management and administrative tasks.
+
+:::tip[Ready to get started?]
+
+Check out the [Quick Start guide](./quick-start/quick-start.md)!
+
+:::
 
 ODE is a platform for building sophisticated data collection instruments.
 
 
-:::tip[Doing Research?]
-
-Use ODE for you longitudinal studies!
-
-:::
 <!-- 
 :::danger[Take care]
 

@@ -1,0 +1,71 @@
+# App-bundle (API: /app-bundle)
+
+The app-bundle system is designed to serve and manage frontend assets (likely a React/Angular/Vue app) with the following core features:
+
+Versioned Deployments: Each bundle is versioned with a timestamp identifier (e.g., "20250507-123456")
+Caching Support: Uses ETags for efficient client-side caching
+Admin Controls: Only admins can push new bundles or switch between versions
+Read-only Access: Regular users can access the bundles but can't modify them
+
+
+Endpoint Overview
+1. /app-bundle/manifest (GET)
+Returns metadata about all files in the current app bundle including paths, sizes, hashes
+Includes ETag support for caching
+Available to all authenticated users (read-only or higher)
+2. /app-bundle/{path} (GET)
+Serves individual files from the bundle
+Path parameter specifies which file to retrieve
+Has ETag support for efficient caching
+Returns appropriate MIME types
+Available to all authenticated users
+3. /app-bundle/versions (GET)
+Lists all available bundle versions (timestamps)
+Sorted with newest first
+Available to all authenticated users
+4. /app-bundle/push (POST)
+Uploads a new app bundle as a ZIP file
+Creates a timestamp-based version
+Automatically becomes the active version
+Cleans up old versions beyond configured maximum
+Admin-only access
+5. /app-bundle/switch/{version} (POST)
+Switches the active bundle to a specified version
+Admin-only access
+Error handling for non-existent versions
+
+
+📦 App Bundle Structure
+Each app-bundle.zip must contain the following directory structure:
+
+
+```bash
+app-bundle.zip
+├── app/
+│   └── index.html (entry-point)
+│   └── ... (other app files: js/css/assets)
+├── forms/
+│   └── {formName}/
+│       └── schema.json
+│       └── ui.json
+├── cells/
+    └── {cellName}/
+        └── cell.jsx
+```
+
+🔢 Versioning Scheme
+Every successfully uploaded app-bundle will receive a numeric, auto-incrementing version number (e.g., 0001, 0002, …). 
+All forms and cells in a bundle implicitly inherit this bundle version number.
+All observations (form data instances) created using this app bundle version explicitly reference the version number of their originating app-bundle.
+
+🛡️ Server-side Validation
+Upon uploading an app-bundle, the following validation occurs:
+- App-bundle File Structure Validation
+  - The ZIP must match the required structure (app/index.html, forms/{formName}/formSpec.json, cells/{cellName}/cell.jsx).
+  - The ZIP may not contain other root elements than "app", "forms", and "cells"
+- Form Spec Validation
+  - core_* fields within each form must not change compared to the most recent version. (The server maintains hashes of these fields to enforce immutability.)
+  - Form specs cannot reference non-existing cell types; all referenced cells must be present in the bundle.
+
+### Error Handling
+If validation fails (structure mismatch, core_* field changes, missing cells), the bundle is rejected with clear error messages describing the issue.

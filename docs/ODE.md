@@ -5,6 +5,15 @@ title: "OpenDataEnsemble (ODE)"
 
 # Welcome to OpenDataEnsemble (ODE)
 
+:::danger[Take care]
+
+ODE is not yet publicly available. Our developers are working hard to get the final touches just right!  
+This also means, this documentation is only for inspiration and used internally by the developers at this stage.
+
+The **preliminary** release date for ODE is set to August 1st 2025, so watch this space!
+
+:::
+
 **OpenDataEnsemble (ODE)** is a modern, flexible toolkit designed to simplify **robust mobile data collection and management**. Built for researchers, health professionals, implementers, and developers alike, ODE empowers users to design sophisticated forms, manage data securely, and synchronize seamlessly across devices—even in offline conditions.
 
 ODE stands out through its:

@@ -25,7 +25,7 @@ Whether you're capturing health data in remote clinics, conducting longitudianl 
 
 :::tip[Ready to get started?]
 
-Check out the [Quick Start guide](./quick-start/quick-start.md)!
+Check out the [Quick Start guide](./quick-start/index.md)!
 
 :::
 

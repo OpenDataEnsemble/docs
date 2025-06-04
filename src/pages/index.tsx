@@ -24,6 +24,7 @@ function HomepageHeader() {
             ODE Documentation (work in progress) - 3min ⏱️
           </Link>
         </div>
+        <img src={require('@site/static/img/ensemble.png').default} className={styles.featureImg} alt="The Open Data Ensemble" />
       </div>
     </header>
   );

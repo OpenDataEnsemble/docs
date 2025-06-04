@@ -1,18 +1,18 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  image: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Great for longitudinal studies',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Great for longitudinal field studies',
+    image: require('@site/static/img/fieldworder_scenery.png').default,
     description: (
       <>
         ODE is a platform for building sophisticated data collection instruments.
@@ -20,31 +20,30 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Focus on what matters',
+    image: require('@site/static/img/planner_scenery.png').default,
     description: (
       <>
-        Spend your time designing your data collection instruments instead of 
-        building the infrastructure for it.
+        Spend your time designing your data collection instruments instead of building the infrastructure for it.
       </>
     ),
   },
   {
     title: 'Cross platform & open source',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    image: require('@site/static/img/developer_scenery.png').default,
     description: (
       <>
-        ODE is available for Android and iOS. It is 100% FLOSS (Free (Libre) Open Source Software)
+        ODE is available for Android and iOS. It is 100% FLOSS (Free (Libre) Open Source Software) and focused on providing great DX
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, image, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <img src={image} className={styles.featureImg} alt={title} />
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>

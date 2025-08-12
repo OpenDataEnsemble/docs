@@ -1,0 +1,41 @@
+.newsletter {
+  padding: 4rem 0;
+  background: var(--ifm-color-emphasis-100);
+  text-align: center;
+}
+
+.newsletterContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletterTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.newsletterSubtitle {
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.newsletterForm {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 996px) {
+  .newsletter {
+    padding: 2rem 0;
+  }
+  
+  .newsletterTitle {
+    font-size: 2rem;
+  }
+  
+  .newsletterSubtitle {
+    font-size: 1.1rem;
+  }
+}

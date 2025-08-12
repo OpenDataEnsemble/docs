@@ -10,7 +10,7 @@ title: "OpenDataEnsemble (ODE)"
 ODE is not yet publicly available. Our developers are working hard to get the final touches just right!  
 This also means, this documentation is only for inspiration and used internally by the developers at this stage.
 
-The **preliminary** release date for ODE is set to August 1st 2025, so watch this space!
+The **preliminary** release date for ODE is set to August 31st 2025, so watch this space!
 
 :::
 

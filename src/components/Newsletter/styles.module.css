@@ -5,8 +5,32 @@
 }
 
 .newsletterContent {
-  max-width: 600px;
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+.newsletterGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.newsletterLeft {
+  text-align: left;
+}
+
+.newsletterRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.giraffeImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .newsletterTitle {
@@ -105,11 +129,24 @@
     padding: 2rem 0;
   }
   
+  .newsletterGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .newsletterLeft {
+    text-align: center;
+  }
+  
   .newsletterTitle {
     font-size: 2rem;
   }
   
   .newsletterSubtitle {
     font-size: 1.1rem;
+  }
+  
+  .giraffeImage {
+    max-width: 300px;
   }
 }

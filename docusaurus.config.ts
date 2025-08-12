@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'ODE - Open Data Ensemble',
-  tagline: 'An (unfinished) symphony of open data instruments.',
+  tagline: 'A symphony of data instruments to support your data collection and analysis.',
   favicon: 'img/favicon.ico',
 
   url: 'https://docs.opendataensemble.org',

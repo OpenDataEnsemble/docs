@@ -1,11 +1,129 @@
 openapi: 3.0.0
 info:
   title: Synkronus API
-  version: 1.0.0
+  version: 1.0.3
 paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: Health check endpoint
+      description: Returns the current health status of the service
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [ok]
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                    description: Current server time
+                  version:
+                    type: string
+                    description: Current API version
+        '503':
+          description: Service is unhealthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [error]
+                    example: error
+                  error:
+                    type: string
+                    description: Description of the error
+                  timestamp:
+                    type: string
+                    format: date-time
+                    description: Current server time
+
+  /version:
+    get:
+      operationId: getVersion
+      summary: Get server version and system information
+      description: Returns detailed version information about the server, including build information and system details
+      responses:
+        '200':
+          description: Successful response with version information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemVersionInfo'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /app-bundle/changes:
+    get:
+      operationId: getAppBundleChanges
+      summary: Get changes between two app bundle versions
+      description: Compares two versions of the app bundle and returns detailed changes
+      security:
+        - bearerAuth: [read-only, read-write]
+      parameters:
+        - name: current
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The current version (defaults to latest)
+        - name: target
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The target version to compare against (defaults to previous version)
+        - name: x-api-version
+          in: header
+          required: false
+          schema:
+            type: string
+            pattern: '^\d+\.\d+\.\d+$'
+            example: '1.0.0'
+          description: Optional API version header using semantic versioning (MAJOR.MINOR.PATCH)
+      responses:
+        '200':
+          description: Successfully retrieved changes between versions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChangeLog'
+        '400':
+          description: Invalid version format or parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: One or both versions not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /app-bundle/manifest:
     get:
+      operationId: getAppBundleManifest
       summary: Get the current custom app bundle manifest
       security:
         - bearerAuth: [read-only, read-write]
@@ -31,9 +149,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/AppBundleManifest'
 
-  /app-bundle/{path}:
+  /app-bundle/download/{path}:
     get:
-      summary: Get a specific file in the app bundle
+      operationId: downloadAppBundleFile
+      summary: Download a specific file from the app bundle
       security:
         - bearerAuth: [read-only, read-write]
       parameters:
@@ -78,6 +197,7 @@ paths:
 
   /app-bundle/versions:
     get:
+      operationId: getAppBundleVersions
       summary: Get a list of available app bundle versions
       security:
         - bearerAuth: [read-only, read-write]
@@ -100,6 +220,7 @@ paths:
 
   /app-bundle/push:
     post:
+      operationId: pushAppBundle
       summary: Upload a new app bundle (admin only)
       security:
         - bearerAuth: [admin]
@@ -157,6 +278,7 @@ paths:
 
   /app-bundle/switch/{version}:
     post:
+      operationId: switchAppBundleVersion
       summary: Switch to a specific app bundle version (admin only)
       security:
         - bearerAuth: [admin]
@@ -213,7 +335,8 @@ paths:
 
   /auth/login:
     post:
-      summary: Authenticate with the API
+      operationId: login
+      summary: Authenticate user and return JWT tokens
       description: Obtain a JWT token by providing username and password
       parameters:
         - name: x-api-version
@@ -261,7 +384,8 @@ paths:
 
   /auth/refresh:
     post:
-      summary: Refresh authentication token
+      operationId: refreshToken
+      summary: Refresh JWT token
       description: Obtain a new JWT token using a refresh token
       parameters:
         - name: x-api-version
@@ -302,9 +426,10 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/ProblemDetail'
-                
+
   /users/create:
     post:
+      operationId: createUser
       summary: Create a new user (admin only)
       description: Create a new user with specified username, password, and role
       security:
@@ -371,6 +496,7 @@ paths:
 
   /users:
     get:
+      operationId: listUsers
       summary: List all users (admin only)
       description: Retrieve a list of all users in the system. Admin access required.
       security:
@@ -405,9 +531,10 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/ProblemDetail'
-                
+
   /users/{username}:
     delete:
+      operationId: deleteUser
       summary: Delete a user (admin only)
       description: Delete a user by username
       security:
@@ -462,10 +589,11 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/ProblemDetail'
-                
+
   /users/reset-password:
     post:
-      summary: Reset a user's password (admin only)
+      operationId: resetUserPassword
+      summary: Reset user password (admin only)
       description: Reset password for a specified user
       security:
         - bearerAuth: [admin]
@@ -528,10 +656,11 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/ProblemDetail'
-                
+
   /users/change-password:
     post:
-      summary: Change current user's password
+      operationId: changePassword
+      summary: Change user password (authenticated user)'s password
       description: Change password for the currently authenticated user
       security:
         - bearerAuth: [read-only, read-write, admin]
@@ -586,7 +715,20 @@ paths:
 
   /sync/pull:
     post:
+      operationId: syncPull
       summary: Pull updated records since last sync
+      description: |
+        Retrieves records that have changed since a specified version.
+        
+        **Pagination Pattern:**
+        1. Send initial request with `since.version` (or omit for all records)
+        2. Process returned records
+        3. If `has_more` is true, make next request using `change_cutoff` as the new `since.version`
+        4. Repeat until `has_more` is false
+        
+        Example pagination flow:
+        - Request 1: `since: {version: 100}` → Response: `change_cutoff: 150, has_more: true`
+        - Request 2: `since: {version: 150}` → Response: `change_cutoff: 200, has_more: false`
       security:
         - bearerAuth: [read-only, read-write]
       parameters:
@@ -603,11 +745,7 @@ paths:
             maximum: 500
             default: 50
           description: Maximum number of records to return
-        - name: page_token
-          in: query
-          schema:
-            type: string
-          description: Pagination token from previous response
+
         - name: x-api-version
           in: header
           required: false
@@ -632,6 +770,7 @@ paths:
 
   /sync/push:
     post:
+      operationId: syncPush
       summary: Push new or updated records to the server
       security:
         - bearerAuth: [read-write]
@@ -658,15 +797,285 @@ paths:
               schema:
                 $ref: '#/components/schemas/SyncPushResponse'
 
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-      description: 'JWT token obtained from /auth/login'
+  /attachments/manifest:
+    post:
+      operationId: getAttachmentManifest
+      summary: Get attachment manifest for incremental sync
+      description: Returns a manifest of attachment changes (new, updated, deleted) since a specified data version
+      security:
+        - bearerAuth: [read-only, read-write]
+      parameters:
+        - name: x-api-version
+          in: header
+          required: false
+          schema:
+            type: string
+            pattern: '^\d+\.\d+\.\d+$'
+            example: '1.0.0'
+          description: Optional API version header using semantic versioning (MAJOR.MINOR.PATCH)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttachmentManifestRequest'
+      responses:
+        '200':
+          description: Attachment manifest with changes since specified version
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentManifestResponse'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
+  /attachments/{attachment_id}:
+    put:
+      operationId: uploadAttachment
+      summary: Upload a new attachment with specified ID
+      security:
+        - bearerAuth: [read-write]
+      parameters:
+        - name: attachment_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "abc123.jpg"
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The binary file to upload
+      responses:
+        '200':
+          description: Successful upload
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+        '400':
+          description: Bad request (missing or invalid file)
+        '401':
+          description: Unauthorized
+        '409':
+          description: Conflict (attachment already exists and cannot be overwritten)
+
+    get:
+      operationId: downloadAttachment
+      summary: Download an attachment by ID
+      security:
+        - bearerAuth: [read-only, read-write]
+      parameters:
+        - name: attachment_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "abc123.jpg"
+      responses:
+        '200':
+          description: The binary attachment content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unauthorized
+        '404':
+          description: Attachment not found
+
+    head:
+      operationId: checkAttachmentExists
+      summary: Check if an attachment exists
+      security:
+        - bearerAuth: [read-only, read-write]
+      parameters:
+        - name: attachment_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "abc123.jpg"
+      responses:
+        '200':
+          description: Attachment exists
+        '401':
+          description: Unauthorized
+        '404':
+          description: Attachment not found
+
+  /dataexport/parquet:
+    get:
+      summary: Download a ZIP archive of Parquet exports
+      description: >
+        Returns a ZIP file containing multiple Parquet files,
+        each representing a flattened export of observations per form type.
+        Supports downloading the entire dataset as separate Parquet files bundled together.
+      operationId: getParquetExportZip
+      tags:
+        - DataExport
+      responses:
+        '200':
+          description: ZIP archive stream containing Parquet files
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - bearerAuth: [read-only, read-write]
+
+components:
   schemas:
+    SystemVersionInfo:
+      type: object
+      properties:
+        server:
+          $ref: '#/components/schemas/ServerInfo'
+        database:
+          $ref: '#/components/schemas/DatabaseInfo'
+        system:
+          $ref: '#/components/schemas/SystemInfo'
+        build:
+          $ref: '#/components/schemas/BuildInfo'
+    ServerInfo:
+      type: object
+      properties:
+        version:
+          type: string
+          example: "1.0.0"
+    DatabaseInfo:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "PostgreSQL"
+        version:
+          type: string
+          example: "15.3"
+        database_name:
+          type: string
+          example: "synkronus_db"
+    SystemInfo:
+      type: object
+      properties:
+        os:
+          type: string
+          example: "linux"
+        architecture:
+          type: string
+          example: "amd64"
+        cpus:
+          type: integer
+          example: 4
+    BuildInfo:
+      type: object
+      properties:
+        commit:
+          type: string
+          example: "a1b2c3d4e5f6"
+        build_time:
+          type: string
+          example: "2023-01-01T12:00:00Z"
+        go_version:
+          type: string
+          example: "go1.20.1"
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "Failed to get version information"
+    ChangeLog:
+      type: object
+      properties:
+        compare_version_a:
+          type: string
+        compare_version_b:
+          type: string
+        form_changes:
+          type: boolean
+        ui_changes:
+          type: boolean
+        new_forms:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormDiff'
+        removed_forms:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormDiff'
+        modified_forms:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormModification'
+    FormDiff:
+      type: object
+      properties:
+        form:
+          type: string
+    FieldChange:
+      type: object
+      properties:
+        field:
+          type: string
+        type:
+          type: string
+    FormModification:
+      type: object
+      properties:
+        form:
+          type: string
+        schema_changed:
+          type: boolean
+        ui_changed:
+          type: boolean
+        core_changed:
+          type: boolean
+        added_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldChange'
+        removed_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldChange'
     AppBundleManifest:
       type: object
       required: [files, version, generatedAt, hash]
@@ -675,39 +1084,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AppBundleFile'
-          description: List of files in the app bundle
         version:
           type: string
-          description: Version of the app bundle
         generatedAt:
           type: string
           format: date-time
-          description: Timestamp when the manifest was generated
         hash:
           type: string
-          description: Hash of the entire manifest for ETag
-
     AppBundleFile:
       type: object
       required: [path, size, hash, mimeType, modTime]
       properties:
         path:
           type: string
-          description: Relative path of the file
         size:
           type: integer
-          description: Size of the file in bytes
         hash:
           type: string
-          description: Hash of the file content
         mimeType:
           type: string
-          description: MIME type of the file
         modTime:
           type: string
           format: date-time
-          description: Last modification time
-
     AppBundleVersions:
       type: object
       required: [versions]
@@ -716,163 +1114,61 @@ components:
           type: array
           items:
             type: string
-          description: List of available app bundle versions (timestamp-based identifiers)
-
     AppBundleChangeLog:
       type: object
       required: [compare_version_a, compare_version_b, form_changes, ui_changes]
       properties:
         compare_version_a:
           type: string
-          description: The first version being compared (usually the current version)
         compare_version_b:
           type: string
-          description: The second version being compared (previous or preview version)
         form_changes:
           type: boolean
-          description: Whether there are any form changes between the versions
         ui_changes:
           type: boolean
-          description: Whether there are any UI changes between the versions
         new_forms:
           type: array
           items:
             $ref: '#/components/schemas/FormDiff'
-          description: List of forms that were added in the new version
         removed_forms:
           type: array
           items:
             $ref: '#/components/schemas/FormDiff'
-          description: List of forms that were removed in the new version
         modified_forms:
           type: array
           items:
             $ref: '#/components/schemas/FormModification'
-          description: List of forms that were modified between versions
-
-    FormDiff:
-      type: object
-      required: [form]
-      properties:
-        form:
-          type: string
-          description: Name/identifier of the form
-
-    FormModification:
-      type: object
-      required: [form_name, schema_changed, ui_changed, core_changed]
-      properties:
-        form_name:
-          type: string
-          description: Name of the modified form
-        schema_changed:
-          type: boolean
-          description: Whether the form schema was modified
-        ui_changed:
-          type: boolean
-          description: Whether the form UI was modified
-        core_changed:
-          type: boolean
-          description: Whether the core form properties were modified
-        added_fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldChange'
-          description: Fields that were added to the form
-        removed_fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldChange'
-          description: Fields that were removed from the form
-
-    FieldChange:
-      type: object
-      required: [field, type]
-      properties:
-        field:
-          type: string
-          description: Name of the field
-        type:
-          type: string
-          description: Type of the field
-
     AppBundlePushResponse:
       type: object
       required: [message, manifest]
       properties:
         message:
           type: string
-          example: "App bundle successfully pushed"
         manifest:
           $ref: '#/components/schemas/AppBundleManifest'
-
     AuthResponse:
       type: object
       required: [token, refreshToken, expiresAt]
       properties:
         token:
           type: string
-          description: JWT token for API authentication
         refreshToken:
           type: string
-          description: Token that can be used to obtain a new JWT token when the current one expires
         expiresAt:
           type: integer
           format: int64
-          description: Unix timestamp (in seconds) when the token expires
-          
-    UserResponse:
+    UserResponse:    
       type: object
       required: [username, role, createdAt]
       properties:
         username:
           type: string
-          description: User's username
         role:
           type: string
           enum: [read-only, read-write, admin]
-          description: User's role
         createdAt:
           type: string
           format: date-time
-          description: Timestamp when the user was created
-
-    ProblemDetail:
-      type: object
-      required: [type, title, status, detail]
-      properties:
-        type:
-          type: string
-          format: uri
-          description: A URI reference that identifies the problem type
-          example: "https://example.com/problems/validation-error"
-        title:
-          type: string
-          description: A short, human-readable summary of the problem type
-          example: "Validation Error"
-        status:
-          type: integer
-          description: The HTTP status code
-          example: 400
-        detail:
-          type: string
-          description: A human-readable explanation specific to this occurrence of the problem
-          example: "Invalid request format"
-        instance:
-          type: string
-          format: uri
-          description: A URI reference that identifies the specific occurrence of the problem
-          example: "/problems/validation-error/12345"
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              field:
-                type: string
-              message:
-                type: string
-          description: Validation errors for specific fields
 
     SyncPullRequest:
       type: object
@@ -880,38 +1176,39 @@ components:
       properties:
         client_id:
           type: string
-          description: Unique identifier for the client
-        after_change_id:
-          type: integer
-          description: Return records with change_id greater than this value
+        since:
+          type: object
+          description: Optional pagination cursor indicating the last seen change
+          properties:
+            version:
+              type: integer
+            id:
+              type: string
         schema_types:
           type: array
           items:
             type: string
-          description: Optional filter to specific schema types
 
     SyncPullResponse:
       type: object
-      required: [server_time, records, change_cutoff]
+      required: [current_version, records, change_cutoff]
       properties:
-        server_time:
-          type: string
-          format: date-time
-          description: Server timestamp when this response was generated
+        current_version:
+          type: integer
+          description: Current database version number that increments with each update
         records:
           type: array
           items:
-            $ref: '#/components/schemas/Record'
-          description: Array of changed records
+            $ref: '#/components/schemas/Observation'
         change_cutoff:
           type: integer
-          description: Highest change_id included in this response
-        next_page_token:
-          type: string
-          description: Token for retrieving the next page of results, if any
+          description: Version number of the last change included in this response. Use this as the next 'since.version' for pagination.
         has_more:
           type: boolean
-          description: Indicates if more records are available
+          description: Indicates if there are more records available beyond this response
+        sync_format_version:
+          type: string
+          example: "1.0"
 
     SyncPushRequest:
       type: object
@@ -920,32 +1217,26 @@ components:
         transmission_id:
           type: string
           format: uuid
-          description: Unique identifier for this transmission (for idempotency)
         client_id:
           type: string
-          description: Unique identifier for the client
         records:
           type: array
           items:
-            $ref: '#/components/schemas/Record'
-          description: Array of records to push
+            $ref: '#/components/schemas/Observation'
 
     SyncPushResponse:
       type: object
-      required: [server_time, success_count]
+      required: [current_version, success_count]
       properties:
-        server_time:
-          type: string
-          format: date-time
-          description: Server timestamp when this response was generated
+        current_version:
+          type: integer
+          description: Current database version number after processing the push
         success_count:
           type: integer
-          description: Number of records successfully processed
         failed_records:
           type: array
           items:
             type: object
-          description: Records that failed to synchronize
         warnings:
           type: array
           items:
@@ -958,41 +1249,175 @@ components:
                 type: string
               message:
                 type: string
-          description: Warnings that didn't prevent synchronization
 
-    Record:
+    Observation:
       type: object
-      required: [id, schemaType, schemaVersion, data]
+      required:
+        - observation_id
+        - form_type
+        - form_version
+        - data
+        - created_at
+        - updated_at
+        - deleted
       properties:
-        id:
+        observation_id:
           type: string
-          description: Client-generated unique identifier
-        schemaType:
+        form_type:
           type: string
-          description: Type of record schema
-        schemaVersion:
+        form_version:
           type: string
-          description: Version of record schema
         data:
           type: object
-          additionalProperties: true
-          description: Record data conforming to schema
-        hash:
-          type: string
-          description: SHA-256 hash of the data (server will verify)
-        deleted:
-          type: boolean
-          description: Flag for soft-deleted records
-        change_id:
-          type: integer
-          description: Server-assigned change identifier (read-only)
-        last_modified:
+          description: Arbitrary JSON object containing form data
+        created_at:
           type: string
           format: date-time
-          description: Server-assigned timestamp (read-only)
-        last_modified_by:
+        updated_at:
           type: string
-          description: Username who last modified the record (read-only)
-        origin_client_id:
+          format: date-time
+        synced_at:
           type: string
-          description: Client that originally created the record (read-only)
+          format: date-time
+          nullable: true
+        deleted:
+          type: boolean
+        geolocation:
+          type: object
+          nullable: true
+          description: Optional geolocation data for the observation
+          properties:
+            latitude:
+              type: number
+              format: double
+              minimum: -90
+              maximum: 90
+              description: Latitude in decimal degrees
+            longitude:
+              type: number
+              format: double
+              minimum: -180
+              maximum: 180
+              description: Longitude in decimal degrees
+            accuracy:
+              type: number
+              format: double
+              minimum: 0
+              description: Horizontal accuracy in meters
+            altitude:
+              type: number
+              format: double
+              nullable: true
+              description: Elevation in meters above sea level
+            altitude_accuracy:
+              type: number
+              format: double
+              nullable: true
+              minimum: 0
+              description: Vertical accuracy in meters
+
+
+    ProblemDetail:
+      type: object
+      required: [type, title, status, detail]
+      properties:
+        type:
+          type: string
+          format: uri
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+          format: uri
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+
+    AttachmentManifestRequest:
+      type: object
+      required: [client_id, since_version]
+      properties:
+        client_id:
+          type: string
+          description: Unique identifier for the client requesting the manifest
+          example: "mobile-app-123"
+        since_version:
+          type: integer
+          description: Data version number from which to get attachment changes (0 for all attachments)
+          example: 42
+          minimum: 0
+
+    AttachmentManifestResponse:
+      type: object
+      required: [current_version, operations]
+      properties:
+        current_version:
+          type: integer
+          description: Current database version number
+          example: 45
+        operations:
+          type: array
+          description: List of attachment operations to perform
+          items:
+            $ref: '#/components/schemas/AttachmentOperation'
+        total_download_size:
+          type: integer
+          description: Total size in bytes of all attachments to download
+          example: 1048576
+        operation_count:
+          type: object
+          description: Count of operations by type
+          properties:
+            download:
+              type: integer
+              example: 3
+            delete:
+              type: integer
+              example: 1
+
+    AttachmentOperation:
+      type: object
+      required: [operation, attachment_id]
+      properties:
+        operation:
+          type: string
+          enum: [download, delete]
+          description: Operation to perform on the attachment
+        attachment_id:
+          type: string
+          description: Unique identifier for the attachment
+          example: "abc123-def4-5678-9012-345678901234.jpg"
+        download_url:
+          type: string
+          format: uri
+          description: URL to download the attachment (only present for download operations)
+          example: "https://api.example.com/attachments/abc123-def4-5678-9012-345678901234.jpg"
+        size:
+          type: integer
+          description: Size of the attachment in bytes (only present for download operations)
+          example: 524288
+        content_type:
+          type: string
+          description: MIME type of the attachment (only present for download operations)
+          example: "image/jpeg"
+        version:
+          type: integer
+          description: Version when this attachment was created/modified/deleted
+          example: 43
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token obtained from /auth/login'

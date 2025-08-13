@@ -15,7 +15,7 @@ export default function Newsletter(): ReactNode {
               <p className={styles.newsletterSubtitle}>
                 Be the first to know when OpenDataEnsemble becomes available. Get updates on features and release dates
               </p>
-              <div className={styles.newsletterForm}>
+              {/* <div className={styles.newsletterForm}>
                 <form 
                   action="https://app.kit.com/forms/8427451/subscriptions" 
                   method="post" 
@@ -42,7 +42,7 @@ export default function Newsletter(): ReactNode {
                     </p>
                   </div>
                 </form>
-              </div>
+              </div> */}
             </div>
             
             <div className={styles.newsletterRight}>

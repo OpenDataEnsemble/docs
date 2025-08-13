@@ -124,6 +124,41 @@
   text-align: center;
 }
 
+.thankYouMessage {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.thankYouContent {
+  padding: 2rem;
+  text-align: center;
+}
+
+.thankYouTitle {
+  color: var(--ifm-color-success);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.thankYouText {
+  color: var(--ifm-color-emphasis-800);
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.thankYouHint {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
 @media screen and (max-width: 996px) {
   .newsletter {
     padding: 2rem 0;

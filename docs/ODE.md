@@ -5,12 +5,21 @@ title: "OpenDataEnsemble (ODE)"
 
 # Welcome to OpenDataEnsemble (ODE)
 
-:::danger[Take care]
+:::info[Pre-release Available]
 
-ODE is not yet publicly available. Our developers are working hard to get the final touches just right!  
-This also means, this documentation is only for inspiration and used internally by the developers at this stage.
+The source code for the pre-release version of ODE is now publicly available! While we're still working toward the full 1.0 release in November 2025, we welcome anyone willing to help with testing, development, or getting involved in the project.
 
-The **updated** release date for version 1.0 ODE is set to November 2025 with a pre-release coming during September 2025, so watch this space!
+**Get involved:** Reach out to us at [hello@opendataensemble.org](mailto:hello@opendataensemble.org) - we'd love to hear from you!
+
+**Source Code:** Our mono repo on GitHub contains the source code for:
+- **formulus**: React Native application for mobile data collection
+- **formplayer**: React project for form interaction
+- **synkronus**: Go-based server backend
+- **synkronus-cli**: Go-based command-line interface
+
+Visit our repository: [https://github.com/OpenDataEnsemble/ode](https://github.com/OpenDataEnsemble/ode)
+
+*Reference implementation projects will be added as they become available.*
 
 :::
 

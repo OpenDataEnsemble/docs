@@ -99,12 +99,12 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/opendataensemble',
+              label: 'Forum (new!)',
+              href: 'https://forum.opendataensemble.org',
             },
             {
-              label: 'Discord',
-              href: 'https://discord.gg/B6FautU5',
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/questions/tagged/opendataensemble',
             },
           ],
         },

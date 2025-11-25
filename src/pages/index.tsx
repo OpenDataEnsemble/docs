@@ -49,7 +49,7 @@ export default function Home(): ReactNode {
               <Link
                 className="button button--secondary button--lg"
                 to="/docs/ODE">
-                ODE Documentation (work in progress) - 3min ⏱️
+                Read documentation
               </Link>
             </div>
           </div>

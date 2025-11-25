@@ -35,36 +35,36 @@ This guide will walk you through installing the pre-release version of the Formu
 5. Complete the F-Droid installation
 6. Open F-Droid and let it update its repository list (this may take a few minutes on first launch)
 
-![F-Droid in app store](/img/alpha-install/1_install_fdroid.png)
+<img src="/img/alpha-install/1_install_fdroid.png" alt="F-Droid in app store" width="50%" />
 
 ### Step 2: Install Obtainium
 
 1. Open the **F-Droid** app
 2. Tap the search icon and search for **"Obtainium"**
 
-   ![Search for Obtainium in F-Droid](/img/alpha-install/2_fdroid_search_obtainium.png)
+<img src="/img/alpha-install/2_fdroid_search_obtainium.png" alt="Search for Obtainium in F-Droid" width="50%" />
 
 3. Select **Obtainium** from the search results
 4. Tap **"Install"** and wait for the installation to complete
 
-   ![Install Obtainium](/img/alpha-install/3_fdroid_install_obtainium.png)
+<img src="/img/alpha-install/3_fdroid_install_obtainium.png" alt="Install Obtainium" width="50%" />
 
 5. Once installed, open **Obtainium**
 
-   ![Open Obtainium](/img/alpha-install/4_open_obtainium.png)
+<img src="/img/alpha-install/4_open_obtainium.png" alt="Open Obtainium" width="50%" />
 
 ### Step 3: Add Formulus to Obtainium
 
 1. In Obtainium, tap the **"Add App"** button (usually a + icon)
 
-   ![Obtainium empty state](/img/alpha-install/5_obtainium_empty.png)
+<img src="/img/alpha-install/5_obtainium_empty.png" alt="Obtainium empty state" width="50%" />
 
 2. In the app URL or search field, type: **`OpenDataEnsemble/ode`**
 3. Obtainium will automatically detect the GitHub repository
 4. **Enable pre-releases** by toggling the pre-release option (this is important to access the beta versions)
 5. Tap **"Add"** or **"OK"** to confirm
 
-   ![Add app in Obtainium](/img/alpha-install/6_obtainium_add_app.png)
+<img src="/img/alpha-install/6_obtainium_add_app.png" alt="Add app in Obtainium" width="50%" />
 
 6. Obtainium will fetch the latest pre-release version of Formulus
 
@@ -73,26 +73,26 @@ This guide will walk you through installing the pre-release version of the Formu
 1. Once Obtainium has added Formulus, tap on the Formulus entry in your app list
 2. Tap the **"Install"** button
 
-   ![App added, ready to install](/img/alpha-install/7_app_added_install.png)
+<img src="/img/alpha-install/7_app_added_install.png" alt="App added, ready to install" width="50%" />
 
 3. Wait for the APK to download
 4. When prompted, allow installation from Obtainium if needed
 
-   ![Allow installation](/img/alpha-install/8a_allow_install.png)
+<img src="/img/alpha-install/8a_allow_install.png" alt="Allow installation" width="50%" />
 
 5. Tap **"Install"** to install Formulus
 
-   ![Install Formulus](/img/alpha-install/8b_install.png)
+<img src="/img/alpha-install/8b_install.png" alt="Install Formulus" width="50%" />
 
 6. Once installed, you can launch Formulus directly from Obtainium or from your app drawer
 
-   ![Formulus installed](/img/alpha-install/9_installed.png)
+<img src="/img/alpha-install/9_installed.png" alt="Formulus installed" width="50%" />
 
 ## First Launch
 
 When you first open Formulus, you'll see the welcome screen. To get started, tap **"Settings"** to configure your server connection.
 
-![Formulus welcome screen](/img/alpha-install/X_formulus_welcome.png)
+<img src="/img/alpha-install/X_formulus_welcome.png" alt="Formulus welcome screen" width="50%" />
 
 ## Keeping Formulus Updated
 

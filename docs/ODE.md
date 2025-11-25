@@ -39,6 +39,10 @@ Whether you're capturing health data in remote clinics, conducting longitudianl 
 
 ## Current Members of the Ensemble
 
+Here's an overview of the current members of the ensemble:
+
+<img src="/img/component_overview.png" alt="Component overview" width="100%" />
+
 * [formulus](./documentation/formulus/formulus.md): The Android and iOS app for data collection and form interaction.
 * [synkronus](./documentation/synkronus/synkronus.md): The robust server backend managing synchronization and data storage.
 * [synkronus-cli](./documentation/synkronus-cli/cli.md): Command-line interface for convenient server management and administrative tasks.

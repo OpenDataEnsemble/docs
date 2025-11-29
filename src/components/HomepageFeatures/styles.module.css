@@ -1,3 +1,7 @@
+/**
+ * Homepage Features Component Styles
+ */
+
 .features {
   display: flex;
   align-items: center;
@@ -8,4 +12,37 @@
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 1.5rem 0;
+  }
+  
+  .featureSvg {
+    height: 160px;
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .features {
+    padding: 1.25rem 0;
+  }
+  
+  .featureSvg {
+    height: 140px;
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .features {
+    padding: 1rem 0;
+  }
+  
+  .featureSvg {
+    height: 120px;
+    width: 120px;
+  }
 }

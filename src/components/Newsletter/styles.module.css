@@ -1,3 +1,7 @@
+/**
+ * Newsletter Component Styles
+ */
+
 .newsletter {
   padding: 4rem 0;
   background: var(--ifm-color-emphasis-100);
@@ -161,7 +165,7 @@
 
 @media screen and (max-width: 996px) {
   .newsletter {
-    padding: 2rem 0;
+    padding: 2.5rem 0;
   }
   
   .newsletterGrid {
@@ -183,5 +187,106 @@
   
   .giraffeImage {
     max-width: 300px;
+  }
+  
+  .formContent {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .newsletter {
+    padding: 2rem 0;
+  }
+  
+  .newsletterGrid {
+    gap: 1.5rem;
+  }
+  
+  .newsletterTitle {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .newsletterSubtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .newsletterForm {
+    margin-top: 1.5rem;
+  }
+  
+  .form {
+    max-width: 100%;
+  }
+  
+  .formContent {
+    padding: 1.25rem;
+  }
+  
+  .formHeader h3 {
+    font-size: 1.25rem;
+  }
+  
+  .giraffeImage {
+    max-width: 250px;
+  }
+  
+  .thankYouContent {
+    padding: 1.5rem;
+  }
+  
+  .thankYouTitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .newsletter {
+    padding: 1.5rem 0;
+  }
+  
+  .newsletterTitle {
+    font-size: 1.5rem;
+  }
+  
+  .newsletterSubtitle {
+    font-size: 0.95rem;
+  }
+  
+  .formContent {
+    padding: 1rem;
+  }
+  
+  .emailInput {
+    font-size: 0.9rem;
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .submitButton {
+    font-size: 0.9rem;
+    padding: 0.625rem 1.5rem;
+    width: 100%;
+  }
+  
+  .formFields {
+    gap: 0.75rem;
+  }
+  
+  .giraffeImage {
+    max-width: 200px;
+  }
+  
+  .thankYouContent {
+    padding: 1.25rem;
+  }
+  
+  .thankYouTitle {
+    font-size: 1.125rem;
+  }
+  
+  .thankYouText {
+    font-size: 0.9rem;
   }
 }

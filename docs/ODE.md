@@ -9,7 +9,7 @@ title: "OpenDataEnsemble (ODE)"
 
 The source code for the pre-release version of ODE is now publicly available! While we're still working toward the full 1.0 release in November 2025, we welcome anyone willing to help with testing, development, or getting involved in the project.
 
-**Try the pre-release:** [Install Formulus pre-release on Android](./quick-start/formulus-prerelease-android.md)
+**Try the pre-release:** [Install Formulus pre-release on Android](/docs/quick-start/formulus-prerelease-android)
 
 **Get involved:** Reach out to us at [hello@opendataensemble.org](mailto:hello@opendataensemble.org) - we'd love to hear from you!
 
@@ -43,13 +43,13 @@ Here's an overview of the current members of the ensemble:
 
 <img src="/img/component_overview.png" alt="Component overview" width="100%" />
 
-* [formulus](./documentation/formulus/formulus.md): The Android and iOS app for data collection and form interaction.
-* [synkronus](./documentation/synkronus/synkronus.md): The robust server backend managing synchronization and data storage.
-* [synkronus-cli](./documentation/synkronus-cli/cli.md): Command-line interface for convenient server management and administrative tasks.
+* [formulus](/docs/documentation/formulus/): The Android and iOS app for data collection and form interaction.
+* [synkronus](/docs/documentation/synkronus/): The robust server backend managing synchronization and data storage.
+* [synkronus-cli](/docs/documentation/synkronus-cli/cli): Command-line interface for convenient server management and administrative tasks.
 
 :::tip[Ready to get started?]
 
-Check out the [Quick Start guide](./quick-start/index.md)!
+Check out the [Quick Start guide](/docs/quick-start)!
 
 :::
 

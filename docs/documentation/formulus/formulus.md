@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # ODE Formulus
 
 Formulus is an offline-first mobile app available for Android and iOS that enables seamless data collection in environments with limited connectivity. It allows users to collect data offline and synchronize it with a `synkronus` server when connectivity is restored. The app also displays your custom application as the main entry point, providing a tailored user experience.

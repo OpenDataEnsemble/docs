@@ -62,25 +62,29 @@ const config: Config = {
       hideOnScroll: false,
       items: [
         {
+          type: 'doc',
+          docId: 'ODE',
           label: 'Documentation',
           position: 'right',
-          to: '/docs/ODE',
         },
         {
           label: 'Product',
           position: 'right',
           items: [
             {
+              type: 'doc',
+              docId: 'documentation/synkronus/synkronus',
               label: 'Synkronus',
-              to: '/docs/documentation/synkronus/synkronus',
             },
             {
+              type: 'doc',
+              docId: 'documentation/formulus/formulus',
               label: 'Formulus',
-              to: '/docs/documentation/formulus/formulus',
             },
             {
+              type: 'doc',
+              docId: 'documentation/synkronus-cli/cli',
               label: 'Synkronus CLI',
-              to: '/docs/documentation/synkronus-cli/cli',
             },
           ],
         },
@@ -107,16 +111,19 @@ const config: Config = {
           position: 'right',
           items: [
             {
+              type: 'doc',
+              docId: 'ODE',
               label: 'Overview',
-              to: '/docs/ODE',
             },
             {
+              type: 'doc',
+              docId: 'quick-start/index',
               label: 'Quick Start',
-              to: '/docs/quick-start/index',
             },
             {
+              type: 'doc',
+              docId: 'For-developers/docusaurus/intro',
               label: 'For Developers',
-              to: '/docs/For-developers/docusaurus/intro',
             },
           ],
         },

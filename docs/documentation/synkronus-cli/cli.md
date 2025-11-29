@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Synkronus CLI
 
 The Synkronus CLI is a tool for interacting with the Synkronus server.

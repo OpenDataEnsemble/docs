@@ -66,7 +66,7 @@ export default function Home(): ReactNode {
                 </p>
                 <Link
                   className="button button--primary button--lg"
-                  to="/docs/quick-start/index"
+                  to="/docs/quick-start/"
                   style={{ marginTop: "1.5rem" }}
                 >
                   Explore Documentation
@@ -86,7 +86,7 @@ export default function Home(): ReactNode {
         {/* Features Section */}
         <section className={styles.featuresSection}>
           <div className="container">
-        <HomepageFeatures />
+            <HomepageFeatures />
           </div>
         </section>
 
@@ -136,7 +136,7 @@ export default function Home(): ReactNode {
           <div className="container">
             <Heading as="h2" className={styles.sectionTitle}>
               Creating Open Source Technology Together
-              </Heading>
+            </Heading>
             <div className={styles.sectionContent}>
               <p className={styles.descriptionText}>
                 Developers and designers in our open source community work together to build and expand the technical
@@ -151,7 +151,7 @@ export default function Home(): ReactNode {
               <div style={{ marginTop: "2rem" }}>
                 <Link className="button button--primary" to="/docs/ODE">
                   Technical Overview
-              </Link>
+                </Link>
               </div>
             </div>
           </div>

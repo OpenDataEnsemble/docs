@@ -1,28 +1,353 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Homepage Styles
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0 4rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+[data-theme='dark'] .heroBanner {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+[data-theme='dark'] .heroTitle {
+  color: #ffffff;
 }
 
 .featureImg {
   max-width: 100%;
   height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .featureImg {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.mainSection,
+.showcaseSection,
+.featuresSection,
+.communitySection,
+.opensourceSection,
+.getInvolvedSection,
+.newsletterSection {
+  padding: 5rem 0;
+}
+
+.mainSection,
+.featuresSection,
+.opensourceSection,
+.newsletterSection {
+  background: #ffffff;
+}
+
+[data-theme='dark'] .mainSection,
+[data-theme='dark'] .featuresSection,
+[data-theme='dark'] .opensourceSection,
+[data-theme='dark'] .newsletterSection {
+  background: #1e1e1e;
+}
+
+.showcaseSection,
+.communitySection,
+.getInvolvedSection {
+  background: #f8f9fa;
+}
+
+[data-theme='dark'] .showcaseSection,
+[data-theme='dark'] .communitySection,
+[data-theme='dark'] .getInvolvedSection {
+  background: #252525;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+[data-theme='dark'] .sectionTitle {
+  color: #ffffff;
+}
+
+.sectionContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.descriptionText {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme='dark'] .descriptionText {
+  color: #e2e8f0;
+}
+
+.descriptionText a {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+}
+
+[data-theme='dark'] .descriptionText a {
+  color: var(--ifm-color-primary-light);
+}
+
+.descriptionText a:hover {
+  opacity: 0.8;
+}
+
+.showcaseGrid,
+.communityGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.showcaseContent,
+.communityContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.showcaseImage,
+.communityImage {
+  text-align: center;
+}
+
+.involvedGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.involvedCard {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .involvedCard {
+  background: #2a2a2a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .cardTitle {
+  color: #ffffff;
+}
+
+.involvedList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.involvedList li {
+  padding: 0.75rem 0;
+  color: #4a5568;
+  line-height: 1.6;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+[data-theme='dark'] .involvedList li {
+  color: #e2e8f0;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.involvedList li:last-child {
+  border-bottom: none;
+}
+
+.involvedList li::before {
+  content: "• ";
+  color: var(--ifm-color-primary);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.communityLinks {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 2rem 2rem;
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .mainSection,
+  .showcaseSection,
+  .featuresSection,
+  .communitySection,
+  .opensourceSection,
+  .getInvolvedSection,
+  .newsletterSection {
+    padding: 3.5rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.875rem;
+  }
+  
+  .descriptionText {
+    font-size: 1rem;
+  }
+  
+  .showcaseGrid,
+  .communityGrid {
+    gap: 2.5rem;
+  }
+  
+  .involvedGrid {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+  
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+  
+  .mainSection,
+  .showcaseSection,
+  .featuresSection,
+  .communitySection,
+  .opensourceSection,
+  .getInvolvedSection,
+  .newsletterSection {
+    padding: 3rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .descriptionText {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  
+  .showcaseGrid,
+  .communityGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .showcaseImage,
+  .communityImage {
+    order: -1;
+  }
+  
+  .involvedGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  
+  .involvedCard {
+    padding: 1.5rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.25rem;
+  }
+  
+  .communityLinks {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .communityLinks .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heroBanner {
+    padding: 2.5rem 1rem 1rem;
+  }
+  
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+  
+  .mainSection,
+  .showcaseSection,
+  .featuresSection,
+  .communitySection,
+  .opensourceSection,
+  .getInvolvedSection,
+  .newsletterSection {
+    padding: 2.5rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .descriptionText {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .showcaseGrid,
+  .communityGrid {
+    gap: 1.5rem;
+  }
+  
+  .involvedCard {
+    padding: 1.25rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.125rem;
+  }
+  
+  .involvedList li {
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+  }
 }

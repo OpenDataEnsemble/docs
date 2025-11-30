@@ -68,8 +68,11 @@
 
 .navbar__title {
   font-size: 0;
-  line-height: 0;
+  line-height: 1;
   visibility: hidden;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navbar__title::before {
@@ -78,7 +81,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--navbar-text-color);
-  line-height: 1.4;
+  line-height: 1.2;
   visibility: visible;
   font-family: var(--navbar-font-family);
   letter-spacing: 0.02em;
@@ -325,7 +328,7 @@
   }
   
   .navbar__title::before {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .navbar__items {
@@ -362,13 +365,19 @@
   }
   
   .navbar__title::before {
-    font-size: 0.8rem;
+    font-size: 1rem;
     white-space: nowrap;
     overflow: visible;
     max-width: none;
   }
   
   .navbar__items {
+    margin-left: 0;
+    flex: 1 1 auto;
+    gap: 0.5rem;
+  }
+
+  .navbar__items--right {
     display: none;
   }
   
@@ -415,7 +424,7 @@
   }
   
   .navbar__title::before {
-    font-size: 0.7rem;
+    font-size: 0.95rem;
     letter-spacing: 0.01em;
   }
   

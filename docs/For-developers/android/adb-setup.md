@@ -331,6 +331,34 @@ Now that ADB is set up, you can:
 - Transfer files between your computer and device
 - Access device shell for advanced operations
 
+### Developing Formulus with React Native
+
+Once ADB is configured and your Android device is connected, you can develop Formulus using React Native:
+
+1. **Navigate to the Formulus folder** in your terminal:
+   ```bash
+   cd path/to/formulus
+   ```
+
+2. **Run the React Native app** on your connected Android device:
+   ```bash
+   npx react-native run-android
+   ```
+   This command will:
+   - Build the React Native app
+   - Install it on your connected Android device via ADB
+   - Start the Metro bundler
+
+3. **Enable Hot Reload** (optional): In a separate terminal window, start the Metro bundler:
+   ```bash
+   npx react-native start
+   ```
+   The app will automatically update (hot reload) whenever you modify the React Native code, just like a website would refresh in a browser.
+
+**Note:** Make sure your device is connected and visible with `adb devices` before running the React Native commands.
+
+### Other ODE Development Tasks
+
 For ODE-specific development, you can now:
 - Install Formulus APK files for testing
 - View logs from Synkronus server interactions

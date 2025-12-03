@@ -182,6 +182,8 @@ adb devices
 adb install path/to/app.apk
 ```
 
+This is particularly useful for installing Formulus APK files or other ODE applications for testing.
+
 ### Install with Replace (upgrade existing app)
 ```bash
 adb install -r path/to/app.apk
@@ -231,6 +233,13 @@ adb reboot
 ```bash
 adb reboot bootloader
 ```
+
+### Port Forwarding (Reverse)
+```bash
+adb reverse tcp:LOCAL_PORT tcp:DEVICE_PORT
+```
+
+This forwards a port from your Android device to your local machine. Very useful for connecting to local development servers (see ODE Development Workflow below).
 
 ## Troubleshooting
 
@@ -356,6 +365,34 @@ Once ADB is configured and your Android device is connected, you can develop For
    The app will automatically update (hot reload) whenever you modify the React Native code, just like a website would refresh in a browser.
 
 **Note:** Make sure your device is connected and visible with `adb devices` before running the React Native commands.
+
+### Connecting to Local Synkronus Server
+
+When developing with ODE, you often need to connect Formulus running on your Android device to a local Synkronus server running on your development machine. Use ADB port forwarding to make this seamless:
+
+1. **Start your local Synkronus server** on your development machine (e.g., on port 8080)
+
+2. **Forward the port** from your Android device to your local machine:
+   ```bash
+   adb reverse tcp:8080 tcp:8080
+   ```
+   This command forwards port 8080 on your Android device to port 8080 on your local machine.
+
+3. **Configure Formulus** to use `http://localhost:8080` as the server URL. The app will connect to your local Synkronus server through the forwarded port.
+
+**Example Workflow:**
+```bash
+# Terminal 1: Start Synkronus server locally
+./synkronus  # Running on localhost:8080
+
+# Terminal 2: Forward the port
+adb reverse tcp:8080 tcp:8080
+
+# Now Formulus on your Android device can connect to http://localhost:8080
+# and it will reach your local Synkronus server
+```
+
+This setup allows you to develop and test the full ODE stack locally without deploying to a remote server.
 
 ### Other ODE Development Tasks
 

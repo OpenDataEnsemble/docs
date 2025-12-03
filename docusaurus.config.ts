@@ -29,6 +29,10 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/opendataensemble/docs/tree/main/',
         },
+        pages: {
+          remarkPlugins: [],
+          rehypePlugins: [],
+        },
         theme: {
           customCss: './src/css/custom.css',
         },

@@ -606,3 +606,24 @@
     height: 16px;
   }
 }
+
+/* Card Components */
+.markdown .cards {
+  margin: 2rem 0;
+}
+
+.markdown .card {
+  transition: all 0.2s ease;
+}
+
+.markdown .card:hover {
+  transform: translateY(-2px);
+}
+
+.markdown > .cards:first-child {
+  margin-top: 0;
+}
+
+.markdown > .cards:last-child {
+  margin-bottom: 0;
+}

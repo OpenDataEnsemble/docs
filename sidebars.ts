@@ -20,7 +20,6 @@ const sidebars: SidebarsConfig = {
           label: 'Installation',
           items: [
             'quick-start/formulus-app',
-            'quick-start/formulus-prerelease-android',
             'quick-start/synkronus-server',
             'quick-start/custom-app',
           ],

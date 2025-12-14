@@ -9,7 +9,7 @@ title: "OpenDataEnsemble (ODE)"
 
 The source code for the pre-release version of ODE is now publicly available! While we're still working toward the full 1.0 release in November 2025, we welcome anyone willing to help with testing, development, or getting involved in the project.
 
-**Try the pre-release:** [Install Formulus pre-release on Android](/docs/quick-start/formulus-prerelease-android)
+**Try the pre-release:** [Install Formulus on Android](/docs/quick-start/formulus-app)
 
 **Get involved:** Reach out to us at [hello@opendataensemble.org](mailto:hello@opendataensemble.org) - we'd love to hear from you!
 

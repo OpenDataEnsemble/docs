@@ -1,4 +1,4 @@
- ---
+---
 sidebar_position: 1
 ---
 
@@ -6,9 +6,98 @@ sidebar_position: 1
 
 Tools and skills needed for developing ODE applications.
 
-## Test Instance
+## What is ODE?
 
-To build your own application using ODE, you will need an instance set up for testing. You can set up a local instance by following the [local setup instructions](/docs/quick-start/deploy-local-instance).
+**Open Data Ensemble (ODE)** is a comprehensive platform for mobile data collection and synchronization. It consists of:
+
+- **Formulus** - React Native mobile app for Android/iOS
+- **Formulus Formplayer** - React web application for form rendering
+- **Synkronus** - Go-based backend API server
+- **Synkronus CLI** - Command-line tool for server management
+
+## Architecture Overview
+
+```
+┌─────────────────┐
+│   Formulus      │  React Native Mobile App
+│  (Android/iOS)  │
+└────────┬────────┘
+         │
+         │ HTTP/HTTPS
+         │
+┌────────▼────────┐
+│     Nginx       │  Reverse Proxy (Port 80)
+│  (Port 80/443)  │
+└────────┬────────┘
+         │
+         │ Proxy
+         │
+┌────────▼────────┐
+│   Synkronus     │  Go API Server (Port 8080)
+│   (Port 8080)   │
+└────────┬────────┘
+         │
+         │ PostgreSQL
+         │
+┌────────▼────────┐
+│   PostgreSQL    │  Database (Port 5432)
+│  (Port 5432)    │
+└─────────────────┘
+```
+
+## Required Software
+
+Before proceeding, verify you have the following installed:
+
+### Essential Tools
+
+- [ ] **Git** (v2.30+)
+  ```bash
+  git --version
+  ```
+
+- [ ] **Node.js** (v16.0.0 or higher)
+  ```bash
+  node --version
+  npm --version
+  ```
+
+- [ ] **Go** (v1.22 or higher)
+  ```bash
+  go version
+  ```
+
+- [ ] **Docker** (v20.10+)
+  ```bash
+  docker --version
+  docker compose version
+  ```
+
+- [ ] **Android SDK** and **ADB** (for mobile development)
+  ```bash
+  adb version
+  ```
+
+### Optional but Recommended
+
+- [ ] **Android Studio** - For Android development
+- [ ] **VS Code** or your preferred IDE
+- [ ] **Physical Android Device** - For testing (recommended)
+
+## System Requirements
+
+### Minimum Requirements
+
+- **OS**: Linux, macOS, or Windows (WSL2)
+- **RAM**: 8GB (16GB recommended)
+- **Storage**: 10GB free space
+- **CPU**: Multi-core processor
+
+### Network Requirements
+
+- Internet connection for downloading dependencies
+- Local network access (for device connection)
+- Port 80 available (for nginx)
 
 ## Build Tools
 

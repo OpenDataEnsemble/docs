@@ -42,15 +42,15 @@ const config: Config = {
       'redocusaurus',
       {
         specs: [
-          {
-            id: 'synkronus-api',
-            spec: 'synkronus.yaml',
-            route: '/api',
-          },
-        ],
-        theme: {
-          primaryColor: '#3f51b5',
-        },
+      {
+        id: 'synkronus-api',
+        spec: 'synkronus.yaml',
+        route: '/api',
+      },
+    ],
+    theme: {
+      primaryColor: '#4F7F4E', // ODE brand primary color
+    },
       },
     ],
   ],

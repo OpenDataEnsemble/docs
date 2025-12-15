@@ -5,14 +5,8 @@
  */
 @import './ode-tokens.css';
 
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/NotoSans-Regular.woff2') format('woff2'),
-       url('/fonts/NotoSans-Regular.ttf') format('truetype');
-}
+/* Import Josefin Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* Docusaurus theme variables are mapped in ode-tokens.css */
@@ -24,6 +18,9 @@
   --navbar-text-color-light: var(--ode-color-neutral-600);
   --navbar-border-top: var(--ode-color-neutral-900);
   --navbar-border-bottom: var(--ifm-color-primary);
+  
+  /* Set Josefin Sans as the default font for all body text */
+  --ifm-font-family-base: var(--ode-font-family-sans);
 }
 
 [data-theme='dark'] {
@@ -809,4 +806,54 @@ html[data-theme='dark'] .alert {
 
 .markdown > .cards:last-child {
   margin-bottom: 0;
+}
+
+/* ============================================
+   TYPOGRAPHY - Apply Josefin Sans to all body text
+   ============================================ */
+
+/* Apply Josefin Sans to body and all text elements */
+body,
+html {
+  font-family: var(--ode-font-family-sans);
+}
+
+/* Apply to all common text elements */
+p,
+h1, h2, h3, h4, h5, h6,
+li,
+td,
+th,
+span,
+div,
+a,
+button,
+label,
+input,
+textarea,
+select {
+  font-family: var(--ode-font-family-sans);
+}
+
+/* Ensure code elements always use monospace fonts */
+code,
+pre,
+kbd,
+samp,
+var,
+.code-block,
+.prism-code,
+.token,
+.hljs,
+[class*="codeBlock"],
+[class*="code-block"] {
+  font-family: var(--ode-font-family-mono) !important;
+}
+
+/* Docusaurus specific code elements */
+.theme-doc-markdown code,
+.theme-doc-markdown pre code,
+.margin-top--md code,
+.margin-bottom--md code {
+  font-family: var(--ode-font-family-mono) !important;
 }

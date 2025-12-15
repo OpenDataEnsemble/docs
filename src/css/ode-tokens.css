@@ -105,9 +105,9 @@
   /* ============================================
      TYPOGRAPHY - Font Families
      ============================================ */
-  --ode-font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --ode-font-family-sans: 'Josefin Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   --ode-font-family-mono: 'Courier New', Consolas, monospace;
-  --ode-font-family-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ode-font-family-display: 'Josefin Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* ============================================
      TYPOGRAPHY - Font Sizes

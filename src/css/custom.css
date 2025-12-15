@@ -816,23 +816,46 @@ html[data-theme='dark'] .alert {
 body,
 html {
   font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-body);
 }
 
-/* Apply to all common text elements */
+/* Apply body text weight to regular text elements */
 p,
-h1, h2, h3, h4, h5, h6,
 li,
 td,
 th,
 span,
 div,
-a,
-button,
 label,
 input,
 textarea,
 select {
   font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-body);
+}
+
+/* Links use body weight */
+a {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-link);
+}
+
+/* Main headings (h1, h2, h3) use primary heading weight */
+h1, h2, h3 {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-heading-primary);
+}
+
+/* Subheadings (h4, h5, h6) use secondary heading weight */
+h4, h5, h6 {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-heading-secondary);
+}
+
+/* Buttons use button weight */
+button {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-button);
 }
 
 /* Ensure code elements always use monospace fonts */
@@ -856,4 +879,28 @@ var,
 .margin-top--md code,
 .margin-bottom--md code {
   font-family: var(--ode-font-family-mono) !important;
+}
+
+/* Ensure Docusaurus markdown content uses token-based font weights */
+.theme-doc-markdown p,
+.theme-doc-markdown li,
+.theme-doc-markdown td,
+.theme-doc-markdown span,
+.theme-doc-markdown div,
+.theme-doc-markdown a:not(.hash-link) {
+  font-weight: var(--ode-font-weight-body);
+}
+
+/* Main headings in markdown */
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3 {
+  font-weight: var(--ode-font-weight-heading-primary);
+}
+
+/* Subheadings in markdown */
+.theme-doc-markdown h4,
+.theme-doc-markdown h5,
+.theme-doc-markdown h6 {
+  font-weight: var(--ode-font-weight-heading-secondary);
 }

@@ -133,6 +133,15 @@
   --ode-font-weight-bold: 700;
 
   /* ============================================
+     TYPOGRAPHY - Font Weights by Element Type
+     ============================================ */
+  --ode-font-weight-body: var(--ode-font-weight-light);        /* 300 - Body text */
+  --ode-font-weight-heading-primary: var(--ode-font-weight-semibold);  /* 600 - h1, h2, h3 */
+  --ode-font-weight-heading-secondary: var(--ode-font-weight-medium);  /* 500 - h4, h5, h6 */
+  --ode-font-weight-button: var(--ode-font-weight-regular);   /* 400 - Buttons */
+  --ode-font-weight-link: var(--ode-font-weight-light);      /* 300 - Links */
+
+  /* ============================================
      TYPOGRAPHY - Line Heights
      ============================================ */
   --ode-line-height-none: 1;

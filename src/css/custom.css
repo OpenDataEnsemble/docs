@@ -5,13 +5,45 @@
  */
 @import './ode-tokens.css';
 
+/* Self-hosted Josefin Sans font faces */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/JosefinSans-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/NotoSans-Regular.woff2') format('woff2'),
-       url('/fonts/NotoSans-Regular.ttf') format('truetype');
+  src: url('/fonts/JosefinSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/JosefinSans-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/JosefinSans-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/JosefinSans-SemiBold.woff2') format('woff2');
 }
 
 :root {
@@ -24,6 +56,9 @@
   --navbar-text-color-light: var(--ode-color-neutral-600);
   --navbar-border-top: var(--ode-color-neutral-900);
   --navbar-border-bottom: var(--ifm-color-primary);
+  
+  /* Set Josefin Sans as the default font for all body text */
+  --ifm-font-family-base: var(--ode-font-family-sans);
 }
 
 [data-theme='dark'] {
@@ -809,4 +844,101 @@ html[data-theme='dark'] .alert {
 
 .markdown > .cards:last-child {
   margin-bottom: 0;
+}
+
+/* ============================================
+   TYPOGRAPHY - Apply Josefin Sans to all body text
+   ============================================ */
+
+/* Apply Josefin Sans to body and all text elements */
+body,
+html {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-body);
+}
+
+/* Apply body text weight to regular text elements */
+p,
+li,
+td,
+th,
+span,
+div,
+label,
+input,
+textarea,
+select {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-body);
+}
+
+/* Links use body weight */
+a {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-link);
+}
+
+/* Main headings (h1, h2, h3) use primary heading weight */
+h1, h2, h3 {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-heading-primary);
+}
+
+/* Subheadings (h4, h5, h6) use secondary heading weight */
+h4, h5, h6 {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-heading-secondary);
+}
+
+/* Buttons use button weight */
+button {
+  font-family: var(--ode-font-family-sans);
+  font-weight: var(--ode-font-weight-button);
+}
+
+/* Ensure code elements always use monospace fonts */
+code,
+pre,
+kbd,
+samp,
+var,
+.code-block,
+.prism-code,
+.token,
+.hljs,
+[class*="codeBlock"],
+[class*="code-block"] {
+  font-family: var(--ode-font-family-mono) !important;
+}
+
+/* Docusaurus specific code elements */
+.theme-doc-markdown code,
+.theme-doc-markdown pre code,
+.margin-top--md code,
+.margin-bottom--md code {
+  font-family: var(--ode-font-family-mono) !important;
+}
+
+/* Ensure Docusaurus markdown content uses token-based font weights */
+.theme-doc-markdown p,
+.theme-doc-markdown li,
+.theme-doc-markdown td,
+.theme-doc-markdown span,
+.theme-doc-markdown div,
+.theme-doc-markdown a:not(.hash-link) {
+  font-weight: var(--ode-font-weight-body);
+}
+
+/* Main headings in markdown */
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3 {
+  font-weight: var(--ode-font-weight-heading-primary);
+}
+
+/* Subheadings in markdown */
+.theme-doc-markdown h4,
+.theme-doc-markdown h5,
+.theme-doc-markdown h6 {
+  font-weight: var(--ode-font-weight-heading-secondary);
 }

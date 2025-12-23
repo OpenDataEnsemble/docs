@@ -22,4 +22,3 @@ Projects built by the ODE community.
 
 - [Examples](/docs/community/resources/examples)
 - [Contribute](/docs/community/contribute/about)
-

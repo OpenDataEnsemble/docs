@@ -22,4 +22,3 @@ Common issues and solutions for Formulus.
 
 - [Configuration](/docs/components/formulus/configuration)
 - [Synchronization Troubleshooting](/docs/build/synchronization/troubleshooting)
-

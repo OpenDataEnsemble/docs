@@ -29,4 +29,3 @@ Web-based form renderer using JSON Forms.
 Command-line interface for server management.
 
 [Learn more about Synkronus CLI](/docs/components/synkronus-cli/overview)
-

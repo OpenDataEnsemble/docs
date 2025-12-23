@@ -25,4 +25,3 @@ How data flows through the ODE system.
 
 - [Synchronization Protocol](/docs/build/synchronization/overview)
 - [Database Schema](/docs/technical-overview/database/schema)
-

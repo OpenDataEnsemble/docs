@@ -19,6 +19,7 @@ adb install formulus.apk
 ```
 
 **System Requirements:**
+
 - Android 7.0 (API level 24) or higher
 - Developer options enabled on your device
 - USB debugging enabled
@@ -68,6 +69,7 @@ Formulus can operate in standalone mode without requiring a custom application. 
 3. **Form Access**: Formulus will automatically display a list of all forms available in your synkronus instance
 
 This mode is ideal for:
+
 - **Quick prototyping** and testing form designs
 - **Simple data collection** workflows that don't require custom UI
 - **Getting started** with ODE before developing a full custom application

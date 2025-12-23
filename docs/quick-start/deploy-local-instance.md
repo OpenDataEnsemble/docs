@@ -58,4 +58,3 @@ docker-compose ps
 
 - [Upload Test Data](/docs/quick-start/upload-test-data)
 - [Connect Formulus](/docs/components/formulus/configuration)
-

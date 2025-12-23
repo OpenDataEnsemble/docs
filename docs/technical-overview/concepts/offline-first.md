@@ -24,4 +24,3 @@ ODE is designed to work seamlessly in offline environments.
 
 - [Synchronization](/docs/build/synchronization/overview)
 - [Formulus Offline Features](/docs/components/formulus/features)
-

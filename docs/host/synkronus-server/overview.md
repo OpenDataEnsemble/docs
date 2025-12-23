@@ -24,4 +24,3 @@ Host Synkronus in production environments.
 
 - [Requirements](/docs/host/synkronus-server/requirements)
 - [Production Deployment](/docs/host/synkronus-server/production)
-

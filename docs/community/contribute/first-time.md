@@ -22,4 +22,3 @@ Guide for first-time contributors to ODE.
 
 - [About Contributions](/docs/community/contribute/about)
 - [Code of Conduct](/docs/community/contribute/code-of-conduct)
-

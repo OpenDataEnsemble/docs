@@ -22,4 +22,3 @@ Deploy Synkronus in production.
 
 - [Docker Deployment](/docs/host/synkronus-server/docker)
 - [Monitoring](/docs/host/monitoring/overview)
-

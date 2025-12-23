@@ -22,4 +22,3 @@ Example ODE applications and configurations.
 
 - [Community Projects](/docs/community/resources/projects)
 - [Tutorials](/docs/tutorials/getting-started/first-form)
-

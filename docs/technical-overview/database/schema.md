@@ -22,4 +22,3 @@ Structure of the ODE database.
 
 - [Database Overview](/docs/technical-overview/database/overview)
 - [Data Management](/docs/build/data-management/overview)
-

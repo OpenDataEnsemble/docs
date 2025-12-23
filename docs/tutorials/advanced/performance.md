@@ -22,4 +22,3 @@ Optimize ODE application performance.
 
 - [Database Performance](/docs/technical-overview/database/overview)
 - [Synchronization](/docs/build/synchronization/overview)
-

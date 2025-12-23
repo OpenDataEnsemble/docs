@@ -26,4 +26,3 @@ Install Formulus on Android or iOS devices.
 
 - [Configuration](/docs/components/formulus/configuration)
 - [Quick Start](/docs/quick-start/formulus-app)
-

@@ -26,4 +26,3 @@ Synkronus CLI is a command-line tool for interacting with Synkronus servers.
 
 - [Synkronus CLI Documentation](/docs/documentation/synkronus-cli/cli)
 - [Quick Start Guide](/docs/quick-start/synkronus-server)
-

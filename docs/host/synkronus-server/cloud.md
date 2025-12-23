@@ -22,4 +22,3 @@ Deploy Synkronus on cloud platforms.
 
 - [Production Deployment](/docs/host/synkronus-server/production)
 - [Docker Deployment](/docs/host/synkronus-server/docker)
-

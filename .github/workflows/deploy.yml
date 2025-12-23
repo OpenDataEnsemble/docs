@@ -25,6 +25,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+      # Code quality checks
+      - name: Check code formatting
+        run: npm run format:check
+      - name: Run ESLint
+        run: npm run lint
       # Fast validation tests first
       - name: Run Fast Validation Tests
         run: npm run test

@@ -1,24 +1,28 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Newsletter from '@site/src/components/Newsletter';
-import AnnouncementBanner from '@site/src/components/AnnouncementBanner';
-import Heading from '@theme/Heading';
+import type { ReactNode } from "react";
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import Newsletter from "@site/src/components/Newsletter";
+import AnnouncementBanner from "@site/src/components/AnnouncementBanner";
+import Heading from "@theme/Heading";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx("hero", styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.tagline}
         </Heading>
-        <Link className="button button--primary button--lg" to="/docs/ODE" style={{ marginTop: "2rem" }}>
+        <Link
+          className="button button--primary button--lg"
+          to="/docs/ODE"
+          style={{ marginTop: "2rem" }}
+        >
           Get Started
         </Link>
       </div>
@@ -27,7 +31,7 @@ function HomepageHeader() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout title={siteConfig.title} description={siteConfig.tagline}>
       <AnnouncementBanner />
@@ -41,11 +45,12 @@ export default function Home(): ReactNode {
             </Heading>
             <div className={styles.sectionContent}>
               <p className={styles.descriptionText}>
-                The Open Data Ensemble (ODE) is a comprehensive platform for building sophisticated data collection
-                instruments. It provides a collection of open source technologies and resources that help you build and
-                deploy digital tools for mobile data collection. Together, we envision a world where data collection is
-                seamless, efficient, and accessible to everyone, enabling better decision-making through high-quality
-                data.
+                The Open Data Ensemble (ODE) is a comprehensive platform for building sophisticated
+                data collection instruments. It provides a collection of open source technologies
+                and resources that help you build and deploy digital tools for mobile data
+                collection. Together, we envision a world where data collection is seamless,
+                efficient, and accessible to everyone, enabling better decision-making through
+                high-quality data.
               </p>
             </div>
           </div>
@@ -60,9 +65,9 @@ export default function Home(): ReactNode {
                   ODE Platform Demo
                 </Heading>
                 <p className={styles.descriptionText}>
-                  ODE is flexible by design, and applications built using the ODE framework support an exceptional range
-                  of features and data collection scenarios. Explore our platform to see sample configurations, data
-                  collection workflows, and more!
+                  ODE is flexible by design, and applications built using the ODE framework support
+                  an exceptional range of features and data collection scenarios. Explore our
+                  platform to see sample configurations, data collection workflows, and more!
                 </p>
                 <Link
                   className="button button--primary button--lg"
@@ -106,13 +111,13 @@ export default function Home(): ReactNode {
                   ODE Community
                 </Heading>
                 <p className={styles.descriptionText}>
-                  The ODE Community is a space for developers, data scientists, researchers, and innovators to share
-                  knowledge, provide technical assistance to other users, and explore new opportunities for learning and
-                  collaboration.
+                  The ODE Community is a space for developers, data scientists, researchers, and
+                  innovators to share knowledge, provide technical assistance to other users, and
+                  explore new opportunities for learning and collaboration.
                 </p>
                 <p className={styles.descriptionText}>
-                  It features product updates and roadmaps, discussions about the resources included in ODE, and more.
-                  We invite you to join us and introduce yourself!
+                  It features product updates and roadmaps, discussions about the resources included
+                  in ODE, and more. We invite you to join us and introduce yourself!
                 </p>
                 <div className={styles.communityLinks}>
                   <Link
@@ -122,7 +127,10 @@ export default function Home(): ReactNode {
                   >
                     Join the Community
                   </Link>
-                  <Link className="button button--secondary" href="https://github.com/opendataensemble">
+                  <Link
+                    className="button button--secondary"
+                    href="https://github.com/opendataensemble"
+                  >
                     View on GitHub
                   </Link>
                 </div>
@@ -139,9 +147,10 @@ export default function Home(): ReactNode {
             </Heading>
             <div className={styles.sectionContent}>
               <p className={styles.descriptionText}>
-                Developers and designers in our open source community work together to build and expand the technical
-                components that power applications built with the Open Data Ensemble, explore new integrations, and
-                create reference applications that serve as templates for the creation of new data collection tools.
+                Developers and designers in our open source community work together to build and
+                expand the technical components that power applications built with the Open Data
+                Ensemble, explore new integrations, and create reference applications that serve as
+                templates for the creation of new data collection tools.
               </p>
               <p className={styles.descriptionText}>
                 Want to join us or build a new integration? Check out our{" "}
@@ -173,7 +182,10 @@ export default function Home(): ReactNode {
                     Help us improve the ODE <Link to="/docs/ODE">documentation</Link>
                   </li>
                   <li>
-                    <Link to="https://github.com/opendataensemble">Share a new idea or question</Link> on GitHub
+                    <Link to="https://github.com/opendataensemble">
+                      Share a new idea or question
+                    </Link>{" "}
+                    on GitHub
                   </li>
                   <li>Contribute to open source components</li>
                 </ul>
@@ -184,7 +196,8 @@ export default function Home(): ReactNode {
                 </Heading>
                 <ul className={styles.involvedList}>
                   <li>
-                    <Link to="https://forum.opendataensemble.org">Share your expertise</Link> on the Forum
+                    <Link to="https://forum.opendataensemble.org">Share your expertise</Link> on the
+                    Forum
                   </li>
                   <li>Sign up for the ODE newsletter to get the latest updates</li>
                   <li>Provide feedback on features and workflows</li>

@@ -22,4 +22,3 @@ Monitor production ODE deployments.
 
 - [Monitoring Setup](/docs/host/monitoring/setup)
 - [Server Monitoring](/docs/host/synkronus-server/monitoring)
-

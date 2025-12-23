@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
-import Link from '@docusaurus/Link';
-import clsx from 'clsx';
-import styles from './styles.module.css';
+import type { ReactNode } from "react";
+import Link from "@docusaurus/Link";
+import clsx from "clsx";
+import styles from "./styles.module.css";
 
 interface CardProps {
   title: string;
@@ -42,11 +42,11 @@ export default function Card({
     if (href) {
       to = href;
     } else if (link) {
-      to = link.startsWith('/') ? link : link;
+      to = link.startsWith("/") ? link : link;
     } else {
-      to = '#';
+      to = "#";
     }
-    
+
     return (
       <Link to={to} className={styles.cardLink}>
         {content}
@@ -56,4 +56,3 @@ export default function Card({
 
   return content;
 }
-

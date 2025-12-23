@@ -22,4 +22,3 @@ Backup strategies for Synkronus.
 
 - [Data Management](/docs/host/data-management)
 - [Production Deployment](/docs/host/synkronus-server/production)
-

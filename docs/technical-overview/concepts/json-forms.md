@@ -22,4 +22,3 @@ ODE uses JSON Forms for flexible form rendering.
 
 - [Form Design](/docs/build/forms/design/schema-definition)
 - [JSON Forms Documentation](https://jsonforms.io)
-

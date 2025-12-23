@@ -22,4 +22,3 @@ Configuration options for ODE clients.
 
 - [Formulus Configuration](/docs/components/formulus/configuration)
 - [Custom Applications](/docs/build/custom-applications/overview)
-

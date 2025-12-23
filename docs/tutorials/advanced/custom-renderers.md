@@ -22,4 +22,3 @@ Create custom form renderers for JSON Forms.
 
 - [Custom Renderers](/docs/build/custom-applications/custom-renderers)
 - [JSON Forms](/docs/technical-overview/concepts/json-forms)
-

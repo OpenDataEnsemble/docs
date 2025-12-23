@@ -239,4 +239,3 @@ Once everything is verified:
 2. **Explore** [Formulus Features](/docs/components/formulus/features)
 3. **Learn** about [Forms and Observations](/docs/build/forms/overview)
 4. **Deploy** your own [Custom Applications](/docs/build/custom-applications/overview)
-

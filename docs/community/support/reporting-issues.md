@@ -26,4 +26,3 @@ How to report bugs and issues.
 
 - [Getting Help](/docs/community/support/getting-help)
 - [GitHub Issues](https://github.com/OpenDataEnsemble/ode/issues)
-

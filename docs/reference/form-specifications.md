@@ -26,4 +26,3 @@ Technical specifications for ODE forms.
 
 - [Form Design](/docs/build/forms/design/schema-definition)
 - [JSON Forms](/docs/technical-overview/concepts/json-forms)
-

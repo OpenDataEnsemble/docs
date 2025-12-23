@@ -52,22 +52,26 @@ Before proceeding, verify you have the following installed:
 ### Essential Tools
 
 - [ ] **Git** (v2.30+)
+
   ```bash
   git --version
   ```
 
 - [ ] **Node.js** (v16.0.0 or higher)
+
   ```bash
   node --version
   npm --version
   ```
 
 - [ ] **Go** (v1.22 or higher)
+
   ```bash
   go version
   ```
 
 - [ ] **Docker** (v20.10+)
+
   ```bash
   docker --version
   docker compose version
@@ -146,4 +150,3 @@ Custom applications are built using JavaScript or TypeScript. A good understandi
 ### PostgreSQL
 
 ODE uses PostgreSQL for data storage. Familiarity with SQL and PostgreSQL is useful for data management and analytics.
-

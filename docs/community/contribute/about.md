@@ -22,4 +22,3 @@ How to contribute to ODE.
 
 - [First Time Contributors](/docs/community/contribute/first-time)
 - [Code of Conduct](/docs/community/contribute/code-of-conduct)
-

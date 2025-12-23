@@ -22,4 +22,3 @@ Integrate Formplayer into your custom applications.
 
 - [Formplayer Overview](/docs/components/formplayer/overview)
 - [Custom Applications](/docs/build/custom-applications/overview)
-

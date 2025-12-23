@@ -22,4 +22,3 @@ Install the Synkronus CLI tool.
 
 - [Commands Reference](/docs/components/synkronus-cli/commands-reference)
 - [Synkronus CLI Documentation](/docs/documentation/synkronus-cli/cli)
-

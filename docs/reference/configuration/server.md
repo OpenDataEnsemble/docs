@@ -22,4 +22,3 @@ Configuration options for Synkronus server.
 
 - [Synkronus Configuration](/docs/components/synkronus/configuration)
 - [Production Deployment](/docs/host/synkronus-server/production)
-

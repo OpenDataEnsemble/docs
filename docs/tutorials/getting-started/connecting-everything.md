@@ -26,4 +26,3 @@ Connect Formulus, Synkronus, and your custom application.
 
 - [Formulus Configuration](/docs/components/formulus/configuration)
 - [Synkronus Configuration](/docs/components/synkronus/configuration)
-

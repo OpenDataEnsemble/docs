@@ -26,4 +26,3 @@ Create your first data collection form in ODE.
 
 - [Form Design](/docs/build/forms/design/schema-definition)
 - [Your First Custom App](/docs/tutorials/getting-started/first-custom-app)
-

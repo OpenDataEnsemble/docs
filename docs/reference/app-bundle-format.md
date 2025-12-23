@@ -26,4 +26,3 @@ Technical specification for app bundle format.
 
 - [App Bundle Structure](/docs/build/custom-applications/app-bundle-structure)
 - [App Bundle API](/docs/reference/rest-api/app-bundle)
-

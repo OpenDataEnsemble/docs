@@ -48,6 +48,7 @@ git remote -v
 ```
 
 You should see:
+
 ```
 origin    https://github.com/YOUR_USERNAME/ode.git (fetch)
 origin    https://github.com/YOUR_USERNAME/ode.git (push)
@@ -177,6 +178,7 @@ ls -la formulus/assets/webview/
 ```
 
 You should see:
+
 - `FormulusInjectionScript.js`
 - `formulus-api.js`
 - `formulus-load.js`
@@ -271,4 +273,3 @@ Once your environment is set up:
 
 1. **Proceed to** [Synkronus Server Setup](/docs/quick-start/synkronus-server) to configure Docker and the database
 2. **Or** continue with [Deploy Local Instance](/docs/quick-start/deploy-local-instance)
-

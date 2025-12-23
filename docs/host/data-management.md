@@ -26,4 +26,3 @@ Manage data in production environments.
 
 - [Backups](/docs/host/synkronus-server/backups)
 - [Database Schema](/docs/technical-overview/database/schema)
-

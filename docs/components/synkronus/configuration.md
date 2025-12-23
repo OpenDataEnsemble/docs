@@ -26,4 +26,3 @@ Configure Synkronus server settings.
 
 - [Installation](/docs/components/synkronus/installation)
 - [API Reference](/docs/components/synkronus/api-reference)
-

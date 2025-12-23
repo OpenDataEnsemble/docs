@@ -10,14 +10,18 @@ This guide will walk you through installing the pre-release version of the Formu
 ## What You'll Need
 
 ### F-Droid
+
 **F-Droid** is an open-source app store for Android that focuses on free and open-source software (FOSS). Unlike the Google Play Store, F-Droid:
+
 - Doesn't require a Google account
 - Respects your privacy (no tracking)
 - Only hosts open-source applications
 - Provides transparent app information and build processes
 
 ### Obtainium
+
 **Obtainium** allows you to install and update apps directly from their source code repositories (like GitHub). Benefits include:
+
 - Get updates directly from developers, often faster than app stores
 - Access pre-release and beta versions
 - No intermediary app store required
@@ -97,6 +101,7 @@ When you first open Formulus, you'll see the welcome screen. To get started, tap
 ## Keeping Formulus Updated
 
 Obtainium will automatically check for new pre-release versions of Formulus. When an update is available:
+
 1. You'll receive a notification from Obtainium
 2. Open Obtainium and tap on Formulus
 3. Tap **"Update"** to download and install the latest version
@@ -106,18 +111,23 @@ You can also manually check for updates by opening Obtainium and pulling down to
 ## Troubleshooting
 
 ### Can't Install from Unknown Sources
+
 If you're unable to install F-Droid or apps from Obtainium, you may need to enable installation from unknown sources:
+
 - Go to **Settings** > **Security** (or **Apps**)
 - Find and enable **"Install unknown apps"** or **"Unknown sources"**
 - Grant permission for your browser (for F-Droid) and Obtainium
 
 ### F-Droid Repository Not Loading
+
 If F-Droid's repository isn't loading:
+
 - Ensure you have a stable internet connection
 - Try force-closing and reopening F-Droid
 - Go to **Settings** in F-Droid and tap **"Repositories"**, then pull down to refresh
 
 ### Obtainium Can't Find the App
+
 Make sure you've typed the repository name correctly: **`OpenDataEnsemble/ode`**
 
 If issues persist, you can try entering the full GitHub URL: **`https://github.com/OpenDataEnsemble/ode`**

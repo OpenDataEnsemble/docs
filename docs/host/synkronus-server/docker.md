@@ -22,4 +22,3 @@ Deploy Synkronus using Docker.
 
 - [Production Deployment](/docs/host/synkronus-server/production)
 - [Requirements](/docs/host/synkronus-server/requirements)
-

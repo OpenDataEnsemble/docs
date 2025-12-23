@@ -26,4 +26,3 @@ Install and set up Synkronus server.
 
 - [Configuration](/docs/components/synkronus/configuration)
 - [Quick Start](/docs/quick-start/synkronus-server)
-

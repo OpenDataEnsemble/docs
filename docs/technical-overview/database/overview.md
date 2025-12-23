@@ -26,4 +26,3 @@ ODE uses PostgreSQL for server-side data storage and WatermelonDB for client-sid
 
 - [Database Schema](/docs/technical-overview/database/schema)
 - [Data Synchronization](/docs/build/synchronization/overview)
-

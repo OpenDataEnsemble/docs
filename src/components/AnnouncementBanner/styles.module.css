@@ -8,7 +8,7 @@
 }
 
 .banner::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   right: -10%;
@@ -20,7 +20,7 @@
 }
 
 .banner::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -30%;
   left: -5%;
@@ -32,7 +32,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) translateX(0);
   }
   50% {
@@ -59,7 +60,8 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(-5deg);
   }
   50% {
@@ -116,16 +118,16 @@
   .banner {
     padding: 0.75rem 0;
   }
-  
+
   .birdie {
     width: 40px;
     height: 40px;
   }
-  
+
   .text {
     font-size: 0.9rem;
   }
-  
+
   .content {
     gap: 0.5rem;
   }
@@ -136,7 +138,7 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .text {
     font-size: 0.85rem;
     text-align: center;

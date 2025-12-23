@@ -22,4 +22,3 @@ Build complex forms with advanced features.
 
 - [Form Design](/docs/build/forms/design/schema-definition)
 - [Advanced Features](/docs/build/forms/advanced-features/multimedia)
-

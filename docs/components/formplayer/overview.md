@@ -25,4 +25,3 @@ Formplayer is a React-based component that renders forms using JSON Forms.
 
 - [JSON Forms](/docs/technical-overview/concepts/json-forms)
 - [Form Design](/docs/build/forms/design/ui-schema)
-

@@ -29,4 +29,3 @@ Applications are packaged as bundles containing forms, schemas, and custom code.
 ODE supports custom web applications that integrate with Formulus.
 
 [Learn more about Custom Applications](/docs/technical-overview/concepts/custom-apps)
-

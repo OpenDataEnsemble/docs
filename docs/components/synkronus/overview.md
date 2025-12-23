@@ -28,4 +28,3 @@ Synkronus is the server component of ODE, built in Go, that handles data synchro
 
 - [Synkronus Documentation](/docs/documentation/synkronus/synkronus)
 - [Quick Start Guide](/docs/quick-start/synkronus-server)
-

@@ -64,21 +64,27 @@ Edit `docker-compose.yml` and update the following values:
 ### Required Configuration
 
 1. **PostgreSQL Password** (line 78):
+
    ```yaml
    POSTGRES_PASSWORD: "YourSecurePassword"
    ```
 
 2. **Database Connection** (line 48):
+
    ```yaml
    DB_CONNECTION: "postgres://synkronus_user:YourPassword@postgres:5432/synkronus?sslmode=disable"
    ```
+
    Replace `YourPassword` with the same password you'll use for the database user.
 
 3. **JWT Secret** (line 51):
+
    ```yaml
    JWT_SECRET: "YourRandom32CharacterString"
    ```
+
    Generate a secure secret:
+
    ```bash
    openssl rand -base64 32
    ```
@@ -95,7 +101,7 @@ services:
   postgres:
     environment:
       POSTGRES_PASSWORD: "Password"
-  
+
   synkronus:
     environment:
       DB_CONNECTION: "postgres://synkronus_user:Password@postgres:5432/synkronus?sslmode=disable"
@@ -275,7 +281,7 @@ Or change nginx port in `docker-compose.yml`:
 
 ```yaml
 ports:
-  - "8080:80"  # Use port 8080 instead
+  - "8080:80" # Use port 8080 instead
 ```
 
 ### Issue: Database connection fails

@@ -26,4 +26,3 @@ System requirements for hosting Synkronus.
 
 - [Docker Deployment](/docs/host/synkronus-server/docker)
 - [Production Deployment](/docs/host/synkronus-server/production)
-

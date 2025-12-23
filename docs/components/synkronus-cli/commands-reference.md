@@ -26,4 +26,3 @@ Complete reference for Synkronus CLI commands.
 
 - [Synkronus CLI Documentation](/docs/documentation/synkronus-cli/cli)
 - [App Bundle Management](/docs/build/custom-applications/deployment)
-

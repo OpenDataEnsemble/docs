@@ -22,4 +22,3 @@ Set up monitoring for ODE.
 
 - [Monitoring Overview](/docs/host/monitoring/overview)
 - [Production Monitoring](/docs/host/monitoring/production)
-

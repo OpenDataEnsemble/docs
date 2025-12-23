@@ -22,4 +22,3 @@ Complete API reference for Synkronus.
 
 - [REST API Documentation](/docs/reference/rest-api/overview)
 - [OpenAPI Specification](/api)
-

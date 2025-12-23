@@ -27,4 +27,3 @@ ODE consists of several key components:
 
 - [Formulus Architecture](/docs/components/formulus/overview)
 - [Synkronus Architecture](/docs/components/synkronus/overview)
-

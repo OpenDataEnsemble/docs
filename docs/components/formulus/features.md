@@ -26,4 +26,3 @@ Key features of the Formulus mobile application.
 
 - [Formulus Overview](/docs/components/formulus/overview)
 - [Custom Applications](/docs/build/custom-applications/overview)
-

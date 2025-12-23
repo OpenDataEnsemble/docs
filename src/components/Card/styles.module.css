@@ -2,7 +2,9 @@
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .cardLink:hover {
@@ -25,7 +27,9 @@
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 8px;
   height: 100%;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
@@ -34,12 +38,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-[data-theme='dark'] .card {
+[data-theme="dark"] .card {
   background: var(--ifm-background-surface-color);
   border-color: var(--ifm-color-emphasis-300);
 }
 
-[data-theme='dark'] .cardLink:hover .card {
+[data-theme="dark"] .cardLink:hover .card {
   border-color: var(--ifm-color-primary);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -97,4 +101,3 @@
     font-size: 0.9rem;
   }
 }
-

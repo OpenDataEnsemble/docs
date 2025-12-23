@@ -27,4 +27,3 @@ Formulus is the mobile application component of ODE, available for Android and i
 
 - [Formulus Documentation](/docs/documentation/formulus/formulus)
 - [Quick Start Guide](/docs/quick-start/formulus-app)
-

@@ -14,6 +14,7 @@ The source code for the pre-release version of ODE is now publicly available! Wh
 **Get involved:** Reach out to us at [hello@opendataensemble.org](mailto:hello@opendataensemble.org) - we'd love to hear from you!
 
 **Source Code:** Our mono repo on GitHub contains the source code for:
+
 - **formulus**: React Native application for mobile data collection
 - **formplayer**: React project for form interaction
 - **synkronus**: Go-based server backend
@@ -21,7 +22,7 @@ The source code for the pre-release version of ODE is now publicly available! Wh
 
 Visit our repository: [https://github.com/OpenDataEnsemble/ode](https://github.com/OpenDataEnsemble/ode)
 
-*Reference implementation projects will be added as they become available.*
+_Reference implementation projects will be added as they become available._
 
 :::
 
@@ -29,9 +30,9 @@ Visit our repository: [https://github.com/OpenDataEnsemble/ode](https://github.c
 
 ODE stands out through its:
 
-* **Simplicity & Efficiency:** Quickly create complex, validated forms using a powerful yet intuitive JSON-based approach.
-* **Advanced Offline Sync:** Reliable and conflict-resilient synchronization powered by [WatermelonDB](https://watermelondb.dev).
-* **Flexible & Extensible UI:** Customize form presentation and interaction effortlessly with [JSON Forms](https://jsonforms.io), enabling rich, interactive user experiences.
+- **Simplicity & Efficiency:** Quickly create complex, validated forms using a powerful yet intuitive JSON-based approach.
+- **Advanced Offline Sync:** Reliable and conflict-resilient synchronization powered by [WatermelonDB](https://watermelondb.dev).
+- **Flexible & Extensible UI:** Customize form presentation and interaction effortlessly with [JSON Forms](https://jsonforms.io), enabling rich, interactive user experiences.
 
 Inspired by pioneering open-source projects, ODE leverages cutting-edge frameworks to deliver unparalleled ease-of-use and flexibility, especially suited for challenging environments where reliable offline performance is crucial.
 
@@ -43,9 +44,9 @@ Here's an overview of the current members of the ensemble:
 
 <img src="/img/component_overview.png" alt="Component overview" width="100%" />
 
-* [formulus](/docs/documentation/formulus/): The Android and iOS app for data collection and form interaction.
-* [synkronus](/docs/documentation/synkronus/): The robust server backend managing synchronization and data storage.
-* [synkronus-cli](/docs/documentation/synkronus-cli/cli): Command-line interface for convenient server management and administrative tasks.
+- [formulus](/docs/documentation/formulus/): The Android and iOS app for data collection and form interaction.
+- [synkronus](/docs/documentation/synkronus/): The robust server backend managing synchronization and data storage.
+- [synkronus-cli](/docs/documentation/synkronus-cli/cli): Command-line interface for convenient server management and administrative tasks.
 
 :::tip[Ready to get started?]
 
@@ -55,8 +56,7 @@ Check out the [Quick Start guide](/docs/quick-start)!
 
 ODE is a platform for building sophisticated data collection instruments.
 
-
-<!-- 
+<!--
 :::danger[Take care]
 
 This action is dangerous

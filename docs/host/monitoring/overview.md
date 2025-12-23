@@ -22,4 +22,3 @@ Monitor and alert on ODE system health.
 
 - [Server Monitoring](/docs/host/synkronus-server/monitoring)
 - [Production Monitoring](/docs/host/monitoring/production)
-

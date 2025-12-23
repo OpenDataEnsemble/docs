@@ -22,4 +22,3 @@ Applications are packaged as bundles for deployment.
 
 - [App Bundle API](/docs/reference/rest-api/app-bundle)
 - [Custom Applications](/docs/build/custom-applications/overview)
-

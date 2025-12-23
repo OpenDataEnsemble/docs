@@ -26,4 +26,3 @@ Configure Formulus to connect to your Synkronus server.
 
 - [Installation](/docs/components/formulus/installation)
 - [Features](/docs/components/formulus/features)
-

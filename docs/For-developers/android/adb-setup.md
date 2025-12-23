@@ -10,6 +10,7 @@ This guide will walk you through setting up Android Debug Bridge (ADB) on your d
 ## What is ADB?
 
 **Android Debug Bridge (ADB)** is a versatile command-line tool that lets you:
+
 - Install and debug Android applications
 - Access a Unix shell on your Android device
 - Transfer files between your computer and device
@@ -45,6 +46,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 ```
 
 4. Reload your shell configuration:
+
 ```bash
 source ~/.zshrc  # or source ~/.bash_profile
 ```
@@ -80,17 +82,20 @@ scoop install adb
 #### Option 1: Using Package Manager
 
 **Ubuntu/Debian:**
+
 ```bash
 sudo apt-get update
 sudo apt-get install android-tools-adb android-tools-fastboot
 ```
 
 **Fedora:**
+
 ```bash
 sudo dnf install android-tools
 ```
 
 **Arch Linux:**
+
 ```bash
 sudo pacman -S android-tools
 ```
@@ -108,6 +113,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 ```
 
 4. Reload your shell configuration:
+
 ```bash
 source ~/.bashrc  # or source ~/.zshrc
 ```
@@ -121,6 +127,7 @@ adb version
 ```
 
 You should see output like:
+
 ```
 Android Debug Bridge version 1.0.41
 Version 33.0.3-8952118
@@ -158,12 +165,14 @@ adb devices
 ```
 
 You should see output like:
+
 ```
 List of devices attached
 ABC123XYZ456    device
 ```
 
 If you see `unauthorized` instead of `device`, you need to:
+
 1. Check your device screen for the USB debugging authorization prompt
 2. Tap **Allow** on the prompt
 3. Run `adb devices` again
@@ -173,11 +182,13 @@ If you see `unauthorized` instead of `device`, you need to:
 Here are some useful ADB commands for development:
 
 ### Check Connected Devices
+
 ```bash
 adb devices
 ```
 
 ### Install an APK
+
 ```bash
 adb install path/to/app.apk
 ```
@@ -185,56 +196,67 @@ adb install path/to/app.apk
 This is particularly useful for installing Formulus APK files or other ODE applications for testing.
 
 ### Install with Replace (upgrade existing app)
+
 ```bash
 adb install -r path/to/app.apk
 ```
 
 ### Uninstall an App
+
 ```bash
 adb uninstall com.example.package
 ```
 
 ### View Device Logs
+
 ```bash
 adb logcat
 ```
 
 ### Filter Logs by Tag
+
 ```bash
 adb logcat -s TAG_NAME
 ```
 
 ### Clear Logs
+
 ```bash
 adb logcat -c
 ```
 
 ### Pull File from Device
+
 ```bash
 adb pull /sdcard/file.txt ~/Desktop/
 ```
 
 ### Push File to Device
+
 ```bash
 adb push ~/Desktop/file.txt /sdcard/
 ```
 
 ### Open Shell on Device
+
 ```bash
 adb shell
 ```
 
 ### Reboot Device
+
 ```bash
 adb reboot
 ```
 
 ### Reboot to Bootloader
+
 ```bash
 adb reboot bootloader
 ```
 
 ### Port Forwarding (Reverse)
+
 ```bash
 adb reverse tcp:LOCAL_PORT tcp:DEVICE_PORT
 ```
@@ -248,6 +270,7 @@ This forwards a port from your Android device to your local machine. Very useful
 **Issue:** `adb devices` shows no devices or shows `unauthorized`
 
 **Solutions:**
+
 1. **Check USB cable**: Try a different USB cable (some cables are charge-only)
 2. **Check USB port**: Try a different USB port on your computer
 3. **Check USB mode**: On your device, when connected, pull down the notification shade and ensure USB mode is set to **File Transfer** or **MTP** (not Charge only)
@@ -262,6 +285,7 @@ This forwards a port from your Android device to your local machine. Very useful
 ### macOS: "adb: command not found"
 
 **Solution:** Make sure you've added ADB to your PATH and reloaded your shell:
+
 ```bash
 echo 'export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools' >> ~/.zshrc
 source ~/.zshrc
@@ -269,7 +293,8 @@ source ~/.zshrc
 
 ### Windows: "adb is not recognized"
 
-**Solution:** 
+**Solution:**
+
 1. Verify ADB is in your PATH by checking `C:\Android\sdk\platform-tools\adb.exe` exists
 2. Open a **new** Command Prompt window (PATH changes require a new session)
 3. Try the full path: `C:\Android\sdk\platform-tools\adb.exe devices`
@@ -279,22 +304,27 @@ source ~/.zshrc
 **Solution:** Create a udev rule for your device:
 
 1. Find your device's vendor ID:
+
    ```bash
    lsusb
    ```
+
    Look for your device and note the ID (e.g., `18d1:4ee2`)
 
 2. Create a udev rule file:
+
    ```bash
    sudo nano /etc/udev/rules.d/51-android.rules
    ```
 
 3. Add a line (replace `18d1` with your vendor ID):
+
    ```
    SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0664", GROUP="plugdev"
    ```
 
 4. Set permissions:
+
    ```bash
    sudo chmod a+r /etc/udev/rules.d/51-android.rules
    sudo udevadm control --reload-rules
@@ -310,6 +340,7 @@ source ~/.zshrc
 ### Device Shows as "Offline"
 
 **Solutions:**
+
 1. Disconnect and reconnect the USB cable
 2. Restart ADB server:
    ```bash
@@ -335,6 +366,7 @@ For wireless debugging (Android 11+), you can connect via Wi-Fi:
 ## Next Steps
 
 Now that ADB is set up, you can:
+
 - Install and test Android applications
 - Debug apps using `adb logcat`
 - Transfer files between your computer and device
@@ -345,14 +377,17 @@ Now that ADB is set up, you can:
 Once ADB is configured and your Android device is connected, you can develop Formulus using React Native:
 
 1. **Navigate to the Formulus folder** in your terminal:
+
    ```bash
    cd path/to/formulus
    ```
 
 2. **Run the React Native app** on your connected Android device:
+
    ```bash
    npx react-native run-android
    ```
+
    This command will:
    - Build the React Native app
    - Install it on your connected Android device via ADB
@@ -373,14 +408,17 @@ When developing with ODE, you often need to connect Formulus running on your And
 1. **Start your local Synkronus server** on your development machine (e.g., on port 8080)
 
 2. **Forward the port** from your Android device to your local machine:
+
    ```bash
    adb reverse tcp:8080 tcp:8080
    ```
+
    This command forwards port 8080 on your Android device to port 8080 on your local machine.
 
 3. **Configure Formulus** to use `http://localhost:8080` as the server URL. The app will connect to your local Synkronus server through the forwarded port.
 
 **Example Workflow:**
+
 ```bash
 # Terminal 1: Start Synkronus server locally
 ./synkronus  # Running on localhost:8080
@@ -397,6 +435,7 @@ This setup allows you to develop and test the full ODE stack locally without dep
 ### Other ODE Development Tasks
 
 For ODE-specific development, you can now:
+
 - Install Formulus APK files for testing
 - View logs from Synkronus server interactions
 - Debug custom applications built with ODE
@@ -410,6 +449,6 @@ For ODE-specific development, you can now:
 ## Need Help?
 
 If you encounter issues not covered here, please:
+
 1. Check the [Android Developer Forums](https://developer.android.com/studio/intro/community)
 2. Reach out to the ODE community at [hello@opendataensemble.org](mailto:hello@opendataensemble.org)
-

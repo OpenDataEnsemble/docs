@@ -43,4 +43,3 @@ See the [Formulus configuration guide](/docs/components/formulus/configuration).
 ### Common issues and solutions
 
 [Answer placeholder]
-

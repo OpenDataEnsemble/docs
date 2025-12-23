@@ -24,6 +24,7 @@ npm run test
 ```
 
 This validates:
+
 - All `docId` references in `docusaurus.config.ts` point to existing files
 - Internal markdown links are valid
 - Configuration paths are correct
@@ -53,6 +54,38 @@ git push --no-verify
 ```
 
 ⚠️ **Note:** Even if you skip the hook, CI will still validate your changes and block deployment if validation fails.
+
+## Code Quality
+
+This project uses ESLint for linting and Prettier for code formatting to maintain consistent code style.
+
+### Formatting
+
+Format all files according to the Prettier configuration:
+
+```bash
+npm run format
+```
+
+Check if files are formatted correctly without modifying them:
+
+```bash
+npm run format:check
+```
+
+### Linting
+
+Check for linting issues:
+
+```bash
+npm run lint
+```
+
+Automatically fix linting issues where possible:
+
+```bash
+npm run lint:fix
+```
 
 ## Deployment
 

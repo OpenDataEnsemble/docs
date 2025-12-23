@@ -22,4 +22,3 @@ Monitor Synkronus server health and performance.
 
 - [Monitoring & Alerting](/docs/host/monitoring/overview)
 - [Production Deployment](/docs/host/synkronus-server/production)
-

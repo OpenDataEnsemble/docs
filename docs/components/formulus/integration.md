@@ -22,4 +22,3 @@ Integrate custom applications with Formulus.
 
 - [Custom Applications](/docs/build/custom-applications/overview)
 - [Formulus Features](/docs/components/formulus/features)
-

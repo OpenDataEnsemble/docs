@@ -18,6 +18,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Getting Started',
       items: [
+        'getting-started/index',
         'getting-started/what-is-ode',
         'getting-started/why-ode',
         'getting-started/key-concepts',
@@ -31,6 +32,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Using ODE',
       items: [
+        'using/index',
         'using/your-first-form',
         'using/formulus-features',
         'using/app-bundles',
@@ -45,6 +47,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Guides',
       items: [
+        'guides/index',
         'guides/form-design',
         'guides/custom-applications',
         'guides/deployment',
@@ -55,6 +58,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Reference',
       items: [
+        'reference/index',
         'reference/api',
         'reference/components',
         'reference/formulus',
@@ -70,6 +74,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Development',
       items: [
+        'development/index',
         'development/setup',
         'development/installing-formulus-dev',
         'development/architecture',
@@ -86,6 +91,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Community',
       items: [
+        'community/index',
         'community/getting-help',
         'community/examples',
       ],

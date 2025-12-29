@@ -94,7 +94,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/OpenDataEnsemble/ode',
+          href: 'https://github.com/OpenDataEnsemble/ode',
             },
             {
               type: 'doc',
@@ -149,6 +149,10 @@ const config: Config = {
             {
               label: 'Getting Started',
               to: '/docs/getting-started',
+            },
+            {
+              label: 'Using ODE',
+              to: '/docs/using',
             },
             {
               label: 'Reference',

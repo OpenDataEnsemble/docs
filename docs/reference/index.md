@@ -83,6 +83,17 @@ Complete technical reference for all ODE components, APIs, and specifications.
   <div className="col col--4 col--6-tablet col--12-mobile margin-bottom--sm">
     <div className="card card--compact">
       <div className="card__header">
+        <h4>Formplayer Contract</h4>
+      </div>
+      <div className="card__body">
+        <p>Authoritative reference for JSON Schema support, UI schema structure, and validation rules.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/reference/formplayer-contract">View Contract →</a>
+      </div>
+    </div>
+  </div>
+  <div className="col col--4 col--6-tablet col--12-mobile margin-bottom--sm">
+    <div className="card card--compact">
+      <div className="card__header">
         <h4>Synkronus Portal</h4>
       </div>
       <div className="card__body">

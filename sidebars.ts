@@ -75,6 +75,7 @@ const sidebars: SidebarsConfig = {
         'reference/components',
         'reference/formulus',
         'reference/formplayer',
+        'reference/formplayer-contract',
         'reference/synkronus-cli',
         'reference/synkronus-server',
         'reference/synkronus-portal',

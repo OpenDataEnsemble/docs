@@ -6,6 +6,12 @@ sidebar_position: 6
 
 Complete technical reference for the Formplayer form rendering component.
 
+:::info[Authoritative Reference Available]
+
+For the complete, authoritative contract defining all supported JSON Schema features, UI schema structure, validation rules, and behavioral guarantees, see the **[Formplayer Contract](/docs/reference/formplayer-contract)**.
+
+:::
+
 ## Overview
 
 Formplayer is a React web application that renders JSON Forms and provides the dynamic form interface for data collection. It runs within WebViews in the Formulus mobile app and communicates with the native app through a JavaScript bridge.

@@ -11,69 +11,69 @@ Welcome to ODE! This section will help you understand what ODE is, why you shoul
 Whether you're a researcher, developer, or data practitioner, these guides will help you get started with ODE and start collecting data efficiently.
 
 <div className="row">
-  <div className="col col--6 margin-bottom--md">
-    <div className="card">
+  <div className="col col--4 col--6-tablet col--12-mobile margin-bottom--sm">
+    <div className="card card--compact">
       <div className="card__header">
-        <h3>What is ODE?</h3>
+        <h4>What is ODE?</h4>
       </div>
       <div className="card__body">
-        <p>Learn about the Open Data Ensemble platform, its architecture, and how it can help you with mobile data collection.</p>
-        <a className="button button--primary button--block" href="/docs/getting-started/what-is-ode">Get Started →</a>
+        <p>Learn about the Open Data Ensemble platform and its architecture.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/getting-started/what-is-ode">Get Started →</a>
       </div>
     </div>
   </div>
-  <div className="col col--6 margin-bottom--md">
-    <div className="card">
+  <div className="col col--4 col--6-tablet col--12-mobile margin-bottom--sm">
+    <div className="card card--compact">
       <div className="card__header">
-        <h3>Why ODE?</h3>
+        <h4>Why ODE?</h4>
       </div>
       <div className="card__body">
-        <p>Discover the benefits and advantages of using ODE for your data collection needs.</p>
-        <a className="button button--primary button--block" href="/docs/getting-started/why-ode">Learn More →</a>
+        <p>Discover the benefits and advantages of using ODE.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/getting-started/why-ode">Learn More →</a>
       </div>
     </div>
   </div>
-  <div className="col col--6 margin-bottom--md">
-    <div className="card">
+  <div className="col col--4 col--6-tablet col--12-mobile margin-bottom--sm">
+    <div className="card card--compact">
       <div className="card__header">
-        <h3>Key Concepts</h3>
+        <h4>Key Concepts</h4>
       </div>
       <div className="card__body">
-        <p>Understand the fundamental concepts and terminology used throughout ODE.</p>
-        <a className="button button--primary button--block" href="/docs/getting-started/key-concepts">Read Guide →</a>
+        <p>Understand fundamental concepts and terminology.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/getting-started/key-concepts">Read Guide →</a>
       </div>
     </div>
   </div>
-  <div className="col col--6 margin-bottom--md">
-    <div className="card">
+  <div className="col col--4 col--6-tablet col--12-mobile margin-bottom--sm">
+    <div className="card card--compact">
       <div className="card__header">
-        <h3>Installation</h3>
+        <h4>Installation</h4>
       </div>
       <div className="card__body">
-        <p>Step-by-step instructions to install and set up ODE components on your system.</p>
-        <a className="button button--primary button--block" href="/docs/getting-started/installation">Install Now →</a>
+        <p>Step-by-step instructions to install ODE components.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/getting-started/installation">Install Now →</a>
       </div>
     </div>
   </div>
-  <div className="col col--6 margin-bottom--md">
-    <div className="card">
+  <div className="col col--4 col--6-tablet col--12-mobile margin-bottom--sm">
+    <div className="card card--compact">
       <div className="card__header">
-        <h3>Quick Start</h3>
+        <h4>Quick Start</h4>
       </div>
       <div className="card__body">
-        <p>Get up and running quickly with a simple example to see ODE in action.</p>
-        <a className="button button--primary button--block" href="/docs/getting-started/quick-start">Start Here →</a>
+        <p>Get up and running quickly with a simple example.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/getting-started/quick-start">Start Here →</a>
       </div>
     </div>
   </div>
-  <div className="col col--6 margin-bottom--md">
-    <div className="card">
+  <div className="col col--4 col--6-tablet col--12-mobile margin-bottom--sm">
+    <div className="card card--compact">
       <div className="card__header">
-        <h3>FAQ</h3>
+        <h4>FAQ</h4>
       </div>
       <div className="card__body">
-        <p>Find answers to frequently asked questions about ODE.</p>
-        <a className="button button--primary button--block" href="/docs/getting-started/faq">View FAQ →</a>
+        <p>Find answers to frequently asked questions.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/getting-started/faq">View FAQ →</a>
       </div>
     </div>
   </div>

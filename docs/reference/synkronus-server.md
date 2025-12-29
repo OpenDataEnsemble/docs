@@ -174,7 +174,7 @@ Get current app bundle manifest.
 }
 ```
 
-#### GET /app-bundle/download/{path}
+#### GET `/app-bundle/download/{path}`
 
 Download app bundle file.
 
@@ -212,7 +212,7 @@ Get attachment manifest.
 **Query Parameters:**
 - `since`: Timestamp to get changes since
 
-#### GET /attachments/{id}
+#### GET `/attachments/{id}`
 
 Download attachment file.
 
@@ -222,7 +222,7 @@ Upload attachment (multipart form).
 
 ### Form Specifications
 
-#### GET /formspecs/{formType}/{version}
+#### GET `/formspecs/{formType}/{version}`
 
 Get form specification.
 
@@ -244,15 +244,15 @@ List all users (admin only).
 
 Create new user (admin only).
 
-#### GET /users/{username}
+#### GET `/users/{username}`
 
 Get user details.
 
-#### PUT /users/{username}
+#### PUT `/users/{username}`
 
 Update user (admin only).
 
-#### DELETE /users/{username}
+#### DELETE `/users/{username}`
 
 Delete user (admin only).
 

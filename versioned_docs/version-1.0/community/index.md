@@ -12,24 +12,23 @@ Join the ODE community to contribute, get help, and stay updated.
 
 <Cards>
   <Card 
-    link="/docs/community/contribute/about" 
+    link="/docs/1.0/community/contribute/about" 
     title="Contribute" 
     subtitle="How to contribute to ODE"
   />
   <Card 
-    link="/docs/community/support/getting-help" 
+    link="/docs/1.0/community/support/getting-help" 
     title="Get Help" 
     subtitle="Where to get help with ODE"
   />
   <Card 
-    link="/docs/community/resources/examples" 
+    link="/docs/1.0/community/resources/examples" 
     title="Examples" 
     subtitle="Example ODE applications and configurations"
   />
   <Card 
-    link="/docs/community/resources/projects" 
+    link="/docs/1.0/community/resources/projects" 
     title="Community Projects" 
     subtitle="Projects built by the ODE community"
   />
 </Cards>
-

@@ -12,24 +12,23 @@ This section provides guides for hosting Synkronus servers, monitoring, and mana
 
 <Cards>
   <Card 
-    link="/docs/host/synkronus-server/overview" 
+    link="/docs/1.0/host/synkronus-server/overview" 
     title="Synkronus Server" 
     subtitle="Deploy and manage Synkronus in production environments"
   />
   <Card 
-    link="/docs/host/monitoring/overview" 
+    link="/docs/1.0/host/monitoring/overview" 
     title="Monitoring & Alerting" 
     subtitle="Monitor system health and set up alerts"
   />
   <Card 
-    link="/docs/host/data-management" 
+    link="/docs/1.0/host/data-management" 
     title="Data Management" 
     subtitle="Manage data in production environments"
   />
   <Card 
-    link="/docs/host/security" 
+    link="/docs/1.0/host/security" 
     title="Security" 
     subtitle="Security best practices for ODE deployments"
   />
 </Cards>
-

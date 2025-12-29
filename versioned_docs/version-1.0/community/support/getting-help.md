@@ -21,5 +21,5 @@ Where to get help with ODE.
 ## Related Content
 
 - [Reporting Issues](/docs/community/support/reporting-issues)
-- [FAQ](/docs/quick-start/faq)
+- [FAQ](/docs/1.0/quick-start/faq)
 

@@ -28,5 +28,5 @@ Complete REST API reference for Synkronus.
 ## Related Content
 
 - [OpenAPI Specification](/api)
-- [Synkronus API Reference](/docs/components/synkronus/api-reference)
+- [Synkronus API Reference](/docs/1.0/components/synkronus/api-reference)
 

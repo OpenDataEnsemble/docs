@@ -21,5 +21,5 @@ API endpoints for managing app bundles.
 ## Related Content
 
 - [REST API Overview](/docs/reference/rest-api/overview)
-- [App Bundle Structure](/docs/build/custom-applications/app-bundle-structure)
+- [App Bundle Structure](/docs/1.0/build/custom-applications/app-bundle-structure)
 

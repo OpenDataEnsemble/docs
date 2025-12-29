@@ -21,5 +21,5 @@ API endpoints for data synchronization.
 ## Related Content
 
 - [REST API Overview](/docs/reference/rest-api/overview)
-- [Synchronization Protocol](/docs/build/synchronization/sync-protocol)
+- [Synchronization Protocol](/docs/1.0/build/synchronization/sync-protocol)
 

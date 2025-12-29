@@ -12,17 +12,17 @@ This section will help you set up your development environment and deploy your f
 
 <Cards>
   <Card 
-    link="/docs/1.0/quick-start/prerequisites" 
+    link="prerequisites" 
     title="Prerequisites" 
     subtitle="Tools and skills needed for developing ODE applications"
   />
   <Card 
-    link="/docs/1.0/quick-start/setup-environment" 
+    link="setup-environment" 
     title="Setup Environment" 
     subtitle="Configure your development environment"
   />
   <Card 
-    link="/docs/1.0/quick-start/deploy-local-instance" 
+    link="deploy-local-instance" 
     title="Deploy Local Instance" 
     subtitle="Set up a local ODE environment for development and testing"
   />
@@ -32,17 +32,17 @@ This section will help you set up your development environment and deploy your f
 
 <Cards>
   <Card 
-    link="/docs/1.0/quick-start/formulus-app" 
+    link="formulus-app" 
     title="Formulus App" 
     subtitle="Install the mobile application for Android and iOS"
   />
   <Card 
-    link="/docs/1.0/quick-start/synkronus-server" 
+    link="synkronus-server" 
     title="Synkronus Server" 
     subtitle="Set up the server backend"
   />
   <Card 
-    link="/docs/1.0/quick-start/custom-app" 
+    link="custom-app" 
     title="Custom App" 
     subtitle="Create your first custom application"
   />

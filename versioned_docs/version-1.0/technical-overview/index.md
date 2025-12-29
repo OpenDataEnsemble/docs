@@ -8,17 +8,17 @@ Overview and architecture of ODE components.
 
 <Cards>
   <Card 
-    link="/docs/1.0/technical-overview/architecture/overview" 
+    link="architecture/overview" 
     title="Architecture" 
     subtitle="Explore the different components of ODE and how they work together"
   />
   <Card 
-    link="/docs/1.0/technical-overview/concepts/overview" 
+    link="concepts/overview" 
     title="Concepts and paradigms" 
     subtitle="Discover the key concepts and paradigms that guide ODE development"
   />
   <Card 
-    link="/docs/1.0/technical-overview/database/overview" 
+    link="database/overview" 
     title="Database" 
     subtitle="Learn about data storage, management, and synchronization in ODE"
   />

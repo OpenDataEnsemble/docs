@@ -18,7 +18,7 @@ function HomepageHeader() {
         <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.tagline}
         </Heading>
-        <Link className="button button--primary button--lg" to="/docs/ODE" style={{ marginTop: "2rem" }}>
+        <Link className="button button--primary button--lg" to="/docs" style={{ marginTop: "2rem" }}>
           Get Started
         </Link>
       </div>
@@ -66,7 +66,7 @@ export default function Home(): ReactNode {
                 </p>
                 <Link
                   className="button button--primary button--lg"
-                  to="/docs/quick-start/"
+                  to="/docs/getting-started/quick-start"
                   style={{ marginTop: "1.5rem" }}
                 >
                   Explore Documentation
@@ -122,7 +122,7 @@ export default function Home(): ReactNode {
                   >
                     Join the Community
                   </Link>
-                  <Link className="button button--secondary" href="https://github.com/opendataensemble">
+                  <Link className="button button--secondary" href="https://github.com/OpenDataEnsemble/ode">
                     View on GitHub
                   </Link>
                 </div>
@@ -145,11 +145,11 @@ export default function Home(): ReactNode {
               </p>
               <p className={styles.descriptionText}>
                 Want to join us or build a new integration? Check out our{" "}
-                <Link to="https://github.com/opendataensemble">GitHub</Link> or join us on the{" "}
+                <Link to="https://github.com/OpenDataEnsemble/ode">GitHub</Link> or join us on the{" "}
                 <Link to="https://forum.opendataensemble.org">Community Forum</Link>!
               </p>
               <div style={{ marginTop: "2rem" }}>
-                <Link className="button button--primary" to="/docs/ODE">
+                <Link className="button button--primary" to="/docs">
                   Technical Overview
                 </Link>
               </div>
@@ -170,10 +170,10 @@ export default function Home(): ReactNode {
                 </Heading>
                 <ul className={styles.involvedList}>
                   <li>
-                    Help us improve the ODE <Link to="/docs/ODE">documentation</Link>
+                    Help us improve the ODE <Link to="/docs">documentation</Link>
                   </li>
                   <li>
-                    <Link to="https://github.com/opendataensemble">Share a new idea or question</Link> on GitHub
+                    <Link to="https://github.com/OpenDataEnsemble/ode">Share a new idea or question</Link> on GitHub
                   </li>
                   <li>Contribute to open source components</li>
                 </ul>
@@ -202,3 +202,4 @@ export default function Home(): ReactNode {
     </Layout>
   );
 }
+

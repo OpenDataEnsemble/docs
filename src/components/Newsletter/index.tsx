@@ -82,3 +82,4 @@ export default function Newsletter(): ReactNode {
     </section>
   );
 }
+

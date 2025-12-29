@@ -1,11 +1,14 @@
-import type { MDXComponents } from 'mdx/types';
-import Cards from '../components/Cards';
-import Card from '../components/Card';
+import React from 'react';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import type {MDXComponents} from 'mdx/types';
 
 export default function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    Cards,
-    Card,
+    // Make Tabs and TabItem available in MDX
+    Tabs,
+    TabItem,
+    // Spread other components
     ...components,
   };
 }

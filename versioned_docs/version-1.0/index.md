@@ -1,0 +1,91 @@
+---
+sidebar_position: 1
+---
+
+# Open Data Ensemble
+
+Open Data Ensemble (ODE) is a comprehensive platform for mobile data collection and synchronization. Built for researchers, health professionals, implementers, and developers, ODE provides a robust solution for designing forms, managing data securely, and synchronizing seamlessly across devices, even in offline conditions.
+
+:::info Pre-release Available
+
+The source code for the pre-release version of ODE is now publicly available. While we're working toward the full 1.0 release, we welcome anyone willing to help with testing, development, or getting involved in the project.
+
+**Try the pre-release:** [Install Formulus on Android](/getting-started/installation)
+
+**Get involved:** Reach out to us at [hello@opendataensemble.org](mailto:hello@opendataensemble.org) - we'd love to hear from you!
+
+**Source Code:** Our monorepo on GitHub contains the source code for all components. Visit our repository: [https://github.com/OpenDataEnsemble/ode](https://github.com/OpenDataEnsemble/ode)
+
+:::
+
+## What is ODE?
+
+ODE is a modern toolkit that simplifies mobile data collection through:
+
+- **Simplicity & Efficiency**: Quickly create complex, validated forms using a powerful yet intuitive JSON-based approach
+- **Advanced Offline Sync**: Reliable and conflict-resilient synchronization powered by WatermelonDB
+- **Flexible & Extensible UI**: Customize form presentation and interaction effortlessly with JSON Forms, enabling rich, interactive user experiences
+- **Cross-platform Support**: Applications run on Android, iOS, and web platforms
+
+## Current Members of the Ensemble
+
+Here's an overview of the current members of the ensemble:
+
+<img src="/img/component_overview.png" alt="Component overview" width="100%" />
+
+* [formulus](/reference/formulus): The Android and iOS app for data collection and form interaction.
+* [synkronus](/reference/synkronus-server): The robust server backend managing synchronization and data storage.
+* [synkronus-cli](/reference/synkronus-cli): Command-line interface for convenient server management and administrative tasks.
+
+## Key Components
+
+ODE consists of four main components that work together:
+
+| Component | Description | Technology |
+|-----------|-------------|------------|
+| **Formulus** | Mobile application for Android and iOS | React Native |
+| **Formplayer** | Web-based form rendering engine | React |
+| **Synkronus** | Backend server for data synchronization | Go |
+| **Synkronus CLI** | Command-line utility for administration | Go |
+
+## Core Capabilities
+
+### Form Design
+
+Create sophisticated forms using JSON schema definitions. ODE supports various question types including text, numbers, dates, selections, multimedia capture, GPS coordinates, and custom renderers.
+
+### Offline Functionality
+
+Work seamlessly in areas with unreliable connectivity. Data is stored locally and synchronized when network connectivity is available.
+
+### Data Synchronization
+
+Reliable bidirectional synchronization ensures data consistency across devices and servers, with conflict resolution built into the protocol.
+
+### Custom Applications
+
+Build custom applications that integrate with the ODE platform, allowing for specialized workflows and user interfaces.
+
+## Getting Started
+
+New to ODE? Start with our [Getting Started guide](/getting-started/what-is-ode) to understand the platform and begin your first project.
+
+For developers looking to contribute or extend ODE, see the [Development section](/development/setup) for architecture details and contribution guidelines.
+
+## Documentation Structure
+
+This documentation is organized to help you find information quickly:
+
+- **Getting Started**: Introduction, installation, and basic concepts
+- **Using ODE**: Practical guides for creating forms and managing data
+- **Guides**: Step-by-step workflows for form design, custom apps, and deployment
+- **Reference**: Complete API documentation and configuration options
+- **Development**: Architecture details and contribution guidelines
+- **Community**: Support resources and examples
+
+## Next Steps
+
+- Read [What is ODE?](/getting-started/what-is-ode) for a detailed overview
+- Follow the [Installation guide](/getting-started/installation) to set up your environment
+- Create your [first form](/using/your-first-form) to see ODE in action
+- Explore the [API Reference](/reference/api) for technical details

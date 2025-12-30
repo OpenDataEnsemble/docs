@@ -1,320 +1,118 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 /**
- * Sidebar configuration for ODE Documentation
+ * Consolidated sidebar structure following documentation best practices:
+ * - User-focused content first
+ * - Related content grouped together
+ * - Avoid overcrowding with too many small pages
+ * - Clear separation between user and developer content
  */
 const sidebars: SidebarsConfig = {
   docs: [
-    'ODE',
+    {
+      type: 'doc',
+      id: 'index',
+      label: 'Introduction',
+    },
     {
       type: 'category',
-      label: 'Quick Start',
+      label: 'Getting Started',
+      link: {
+        type: 'doc',
+        id: 'getting-started/index',
+      },
       items: [
-        'quick-start/index',
-        'quick-start/prerequisites',
-        'quick-start/setup-environment',
-        'quick-start/deploy-local-instance',
-        'quick-start/upload-test-data',
-        {
-          type: 'category',
-          label: 'Installation',
-          items: [
-            'quick-start/formulus-app',
-            'quick-start/synkronus-server',
-            'quick-start/custom-app',
-          ],
-        },
-        'quick-start/faq',
+        'getting-started/what-is-ode',
+        'getting-started/why-ode',
+        'getting-started/key-concepts',
+        'getting-started/installation',
+        'getting-started/installing-formulus',
+        'getting-started/quick-start',
+        'getting-started/faq',
       ],
     },
     {
       type: 'category',
-      label: 'Technical Overview',
+      label: 'Using ODE',
+      link: {
+        type: 'doc',
+        id: 'using/index',
+      },
       items: [
-        'technical-overview/index',
-        {
-          type: 'category',
-          label: 'Architecture',
-          items: [
-            'technical-overview/architecture/overview',
-            'technical-overview/architecture/components',
-            'technical-overview/architecture/data-flow',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Concepts',
-          items: [
-            'technical-overview/concepts/overview',
-            'technical-overview/concepts/offline-first',
-            'technical-overview/concepts/json-forms',
-            'technical-overview/concepts/app-bundles',
-            'technical-overview/concepts/custom-apps',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Database',
-          items: [
-            'technical-overview/database/overview',
-            'technical-overview/database/schema',
-          ],
-        },
+        'using/your-first-form',
+        'using/formulus-features',
+        'using/app-bundles',
+        'using/data-management',
+        'using/synchronization',
+        'using/custom-applications',
+        'using/working-offline',
+        'using/troubleshooting',
       ],
     },
     {
       type: 'category',
-      label: 'Build',
+      label: 'Guides',
+      link: {
+        type: 'doc',
+        id: 'guides/index',
+      },
       items: [
-        'build/index',
-        {
-          type: 'category',
-          label: 'Forms',
-          items: [
-            'build/forms/overview',
-            {
-              type: 'category',
-              label: 'Form Design',
-              items: [
-                'build/forms/design/schema-definition',
-                'build/forms/design/ui-schema',
-                'build/forms/design/validation',
-                'build/forms/design/conditional-logic',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Advanced Features',
-              items: [
-                'build/forms/advanced-features/multimedia',
-                'build/forms/advanced-features/location',
-                'build/forms/advanced-features/attachments',
-              ],
-            },
-            'build/forms/versioning',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Custom Applications',
-          items: [
-            'build/custom-applications/overview',
-            'build/custom-applications/building',
-            'build/custom-applications/app-bundle-structure',
-            'build/custom-applications/deployment',
-            'build/custom-applications/custom-renderers',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Data Management',
-          items: [
-            'build/data-management/overview',
-            'build/data-management/observations',
-            'build/data-management/attachments',
-            'build/data-management/export',
-            'build/data-management/import',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Synchronization',
-          items: [
-            'build/synchronization/overview',
-            'build/synchronization/sync-protocol',
-            'build/synchronization/conflict-resolution',
-            'build/synchronization/troubleshooting',
-          ],
-        },
-        'build/users-authentication',
-        'build/translations',
-        'build/branding',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Components',
-      items: [
-        {
-          type: 'category',
-          label: 'Formulus',
-          items: [
-            'components/formulus/overview',
-            'components/formulus/installation',
-            'components/formulus/configuration',
-            'components/formulus/features',
-            'components/formulus/troubleshooting',
-            'components/formulus/integration',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Synkronus',
-          items: [
-            'components/synkronus/overview',
-            'components/synkronus/installation',
-            'components/synkronus/configuration',
-            'components/synkronus/api-reference',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Synkronus CLI',
-          items: [
-            'components/synkronus-cli/overview',
-            'components/synkronus-cli/installation',
-            'components/synkronus-cli/commands-reference',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Formplayer',
-          items: [
-            'components/formplayer/overview',
-            'components/formplayer/integration',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Documentation',
-          items: [
-            'documentation/formulus/formulus',
-            'documentation/synkronus/synkronus',
-            'documentation/synkronus/app-bundle',
-            'documentation/synkronus-cli/cli',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Host',
-      items: [
-        'host/index',
-        {
-          type: 'category',
-          label: 'Synkronus Server',
-          items: [
-            'host/synkronus-server/overview',
-            'host/synkronus-server/requirements',
-            'host/synkronus-server/production',
-            'host/synkronus-server/docker',
-            'host/synkronus-server/kubernetes',
-            'host/synkronus-server/cloud',
-            'host/synkronus-server/monitoring',
-            'host/synkronus-server/backups',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Monitoring & Alerting',
-          items: [
-            'host/monitoring/overview',
-            'host/monitoring/setup',
-            'host/monitoring/production',
-          ],
-        },
-        'host/data-management',
-        'host/security',
+        'guides/form-design',
+        'guides/custom-applications',
+        'guides/deployment',
+        'guides/configuration',
       ],
     },
     {
       type: 'category',
       label: 'Reference',
+      link: {
+        type: 'doc',
+        id: 'reference/index',
+      },
       items: [
-        'reference/index',
-        {
-          type: 'category',
-          label: 'REST API',
-          items: [
-            'reference/rest-api/overview',
-            'reference/rest-api/authentication',
-            'reference/rest-api/app-bundle',
-            'reference/rest-api/sync',
-            'reference/rest-api/attachments',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Configuration',
-          items: [
-            'reference/configuration/server',
-            'reference/configuration/client',
-          ],
-        },
+        'reference/api',
+        'reference/components',
+        'reference/formulus',
+        'reference/formplayer',
+        'reference/formplayer-contract',
+        'reference/synkronus-cli',
+        'reference/synkronus-server',
+        'reference/synkronus-portal',
         'reference/form-specifications',
         'reference/app-bundle-format',
       ],
     },
     {
       type: 'category',
-      label: 'Tutorials',
+      label: 'Development',
+      link: {
+        type: 'doc',
+        id: 'development/index',
+      },
       items: [
-        'tutorials/index',
-        {
-          type: 'category',
-          label: 'Getting Started',
-          items: [
-            'tutorials/getting-started/first-form',
-            'tutorials/getting-started/first-custom-app',
-            'tutorials/getting-started/connecting-everything',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Advanced Topics',
-          items: [
-            'tutorials/advanced/complex-forms',
-            'tutorials/advanced/custom-renderers',
-            'tutorials/advanced/performance',
-          ],
-        },
+        'development/setup',
+        'development/installing-formulus-dev',
+        'development/architecture',
+        'development/formulus-development',
+        'development/formplayer-development',
+        'development/synkronus-development',
+        'development/synkronus-portal-development',
+        'development/contributing',
+        'development/building-testing',
+        'development/extending',
       ],
     },
     {
       type: 'category',
       label: 'Community',
+      link: {
+        type: 'doc',
+        id: 'community/index',
+      },
       items: [
-        'community/index',
-        {
-          type: 'category',
-          label: 'Contribute',
-          items: [
-            'community/contribute/about',
-            'community/contribute/first-time',
-            'community/contribute/code-of-conduct',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Support',
-          items: [
-            'community/support/getting-help',
-            'community/support/reporting-issues',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Resources',
-          items: [
-            'community/resources/examples',
-            'community/resources/projects',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'For Developers',
-      items: [
-        'For-developers/docusaurus/intro',
-        {
-          type: 'category',
-          label: 'Tutorial Extras',
-          items: [
-            'For-developers/docusaurus/tutorial-extras/manage-docs-versions',
-          ],
-        },
+        'community/getting-help',
+        'community/examples',
       ],
     },
   ],

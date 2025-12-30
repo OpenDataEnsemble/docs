@@ -1,10 +1,10 @@
 .banner {
-  background: linear-gradient(135deg, var(--ode-color-brand-primary-500) 0%, var(--ode-color-brand-primary-600) 100%);
-  color: var(--ode-color-neutral-white);
-  padding: var(--ode-spacing-4) var(--ode-spacing-0);
+  background: linear-gradient(135deg, var(--ode-primary) 0%, var(--ode-primary-dark) 100%);
+  color: white;
+  padding: 1rem 0;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--ode-shadow-sm);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .banner::before {
@@ -14,9 +14,9 @@
   right: -10%;
   width: 200px;
   height: 200px;
-  background: rgba(255, 255, 255, var(--ode-opacity-100));
-  border-radius: var(--ode-border-radius-full);
-  animation: float 6s var(--ode-easing-ease-in-out) infinite;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
 }
 
 .banner::after {
@@ -26,9 +26,9 @@
   left: -5%;
   width: 150px;
   height: 150px;
-  background: rgba(255, 255, 255, var(--ode-opacity-80));
-  border-radius: var(--ode-border-radius-full);
-  animation: float 8s var(--ode-easing-ease-in-out) infinite reverse;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite reverse;
 }
 
 @keyframes float {
@@ -41,13 +41,13 @@
 }
 
 .container {
-  max-width: var(--ode-container-xl);
+  max-width: 1200px;
   margin: 0 auto;
-  padding: var(--ode-spacing-0) var(--ode-spacing-4);
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--ode-spacing-4);
+  gap: 1rem;
   position: relative;
   z-index: 1;
 }
@@ -55,7 +55,7 @@
 .birdie {
   width: 50px;
   height: 50px;
-  animation: bounce 2s var(--ode-easing-ease-in-out) infinite;
+  animation: bounce 2s ease-in-out infinite;
 }
 
 @keyframes bounce {
@@ -70,51 +70,51 @@
 .content {
   display: flex;
   align-items: center;
-  gap: var(--ode-spacing-3);
+  gap: 0.75rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .badge {
-  background: rgba(255, 255, 255, var(--ode-opacity-30));
-  padding: var(--ode-spacing-1) var(--ode-spacing-2);
-  border-radius: var(--ode-border-radius-xl);
-  font-size: var(--ode-font-size-xs);
-  font-weight: var(--ode-font-weight-bold);
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   backdrop-filter: blur(10px);
-  border: var(--ode-border-width-thin) solid rgba(255, 255, 255, var(--ode-opacity-40));
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .text {
-  font-size: var(--ode-font-size-base);
-  font-weight: var(--ode-font-weight-medium);
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .link {
-  color: var(--ode-color-neutral-white);
+  color: white;
   text-decoration: none;
-  font-weight: var(--ode-font-weight-semibold);
-  padding: var(--ode-spacing-1) var(--ode-spacing-4);
-  background: rgba(255, 255, 255, var(--ode-opacity-20));
-  border-radius: var(--ode-border-radius-full);
-  transition: all var(--ode-duration-normal) var(--ode-easing-ease-out);
-  border: var(--ode-border-width-thin) solid rgba(255, 255, 255, var(--ode-opacity-30));
+  font-weight: 600;
+  padding: 0.25rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  transition: all 0.2s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
 }
 
 .link:hover {
-  background: rgba(255, 255, 255, var(--ode-opacity-30));
-  transform: translateY(calc(var(--ode-spacing-0_5) * -1));
-  box-shadow: var(--ode-shadow-md);
-  color: var(--ode-color-neutral-white);
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
   text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
   .banner {
-    padding: var(--ode-spacing-3) var(--ode-spacing-0);
+    padding: 0.75rem 0;
   }
   
   .birdie {
@@ -123,22 +123,23 @@
   }
   
   .text {
-    font-size: var(--ode-font-size-sm);
+    font-size: 0.875rem;
   }
   
   .content {
-    gap: var(--ode-spacing-2);
+    gap: 0.5rem;
   }
 }
 
 @media screen and (max-width: 480px) {
   .container {
     flex-direction: column;
-    gap: var(--ode-spacing-2);
+    gap: 0.5rem;
   }
   
   .text {
-    font-size: var(--ode-font-size-sm);
+    font-size: 0.875rem;
     text-align: center;
   }
 }
+

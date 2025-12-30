@@ -9,19 +9,17 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featureImg {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
 }
 
 @media screen and (max-width: 996px) {
   .features {
     padding: 1.5rem 0;
-  }
-  
-  .featureSvg {
-    height: 160px;
-    width: 160px;
   }
 }
 
@@ -29,20 +27,11 @@
   .features {
     padding: 1.25rem 0;
   }
-  
-  .featureSvg {
-    height: 140px;
-    width: 140px;
-  }
 }
 
 @media screen and (max-width: 576px) {
   .features {
     padding: 1rem 0;
   }
-  
-  .featureSvg {
-    height: 120px;
-    width: 120px;
-  }
 }
+

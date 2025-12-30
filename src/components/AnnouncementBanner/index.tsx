@@ -10,7 +10,7 @@ export default function AnnouncementBanner(): React.ReactElement {
         <div className={styles.content}>
           <span className={styles.badge}>NEW</span>
           <span className={styles.text}>Try the Formulus Android app pre-release!</span>
-          <Link to="/docs/quick-start/formulus-app" className={styles.link}>
+          <Link to="/docs/getting-started/installing-formulus" className={styles.link}>
             Install Now →
           </Link>
         </div>
@@ -18,3 +18,4 @@ export default function AnnouncementBanner(): React.ReactElement {
     </div>
   );
 }
+

@@ -1,6 +1,6 @@
 {
   "name": "ode-docs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -17,23 +17,20 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.8.0",
-    "@docusaurus/preset-classic": "^3.8.0",
+    "@docusaurus/core": "^3.1.0",
+    "@docusaurus/preset-classic": "^3.1.0",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "redocusaurus": "^2.2.3"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.8.0",
-    "@docusaurus/tsconfig": "^3.8.0",
-    "@docusaurus/types": "^3.8.0",
-    "@types/node": "^20.0.0",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.20.6",
-    "typescript": "~5.6.2"
+    "@docusaurus/module-type-aliases": "^3.1.0",
+    "@docusaurus/types": "^3.1.0",
+    "@types/node": "^20.19.27",
+    "tsx": "^4.21.0",
+    "typescript": "^5.2.2"
   },
   "browserslist": {
     "production": [
@@ -44,7 +41,7 @@
     "development": [
       "last 3 chrome version",
       "last 3 firefox version",
-      "last 5 safari version"
+      "last 4 safari version"
     ]
   },
   "engines": {

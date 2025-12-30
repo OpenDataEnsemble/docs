@@ -67,24 +67,6 @@
   padding: 2rem;
 }
 
-.formHeader {
-  margin-bottom: 1.5rem;
-}
-
-.formHeader h3 {
-  color: var(--ifm-color-primary);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
-}
-
-.formHeader p {
-  color: var(--ifm-color-emphasis-700);
-  font-size: 1rem;
-  margin: 0;
-  line-height: 1.5;
-}
-
 .formFields {
   display: flex;
   flex-direction: column;
@@ -225,10 +207,6 @@
     padding: 1.25rem;
   }
   
-  .formHeader h3 {
-    font-size: 1.25rem;
-  }
-  
   .giraffeImage {
     max-width: 250px;
   }
@@ -290,3 +268,4 @@
     font-size: 0.9rem;
   }
 }
+

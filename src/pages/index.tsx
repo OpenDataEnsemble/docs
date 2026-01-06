@@ -40,6 +40,9 @@ export default function Home(): ReactNode {
               The Open Data Ensemble
             </Heading>
             <div className={styles.sectionContent}>
+              <p className={styles.descriptionText} style={{ fontStyle: 'italic', color: 'var(--ifm-color-content-secondary)', marginBottom: '0.5rem' }}>
+                ODE is pronounced like "code", without the "C."
+              </p>
               <p className={styles.descriptionText}>
                 The Open Data Ensemble (ODE) is a comprehensive platform for building sophisticated data collection
                 instruments. It provides a collection of open source technologies and resources that help you build and

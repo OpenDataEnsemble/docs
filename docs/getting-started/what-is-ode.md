@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # What is ODE?
 
+:::tip Pronunciation
+ODE is pronounced like "code", without the "C."
+:::
+
 Open Data Ensemble (ODE) is a platform designed to simplify mobile data collection and management. It provides tools and infrastructure for creating forms, collecting data in the field, and synchronizing information across devices and servers.
 
 ## Overview

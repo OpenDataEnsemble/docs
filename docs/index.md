@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # Open Data Ensemble
 
+:::tip Pronunciation
+ODE is pronounced like "code", without the "C."
+:::
+
 Open Data Ensemble (ODE) is a comprehensive platform for mobile data collection and synchronization. Built for researchers, health professionals, implementers, and developers, ODE provides a robust solution for designing forms, managing data securely, and synchronizing seamlessly across devices, even in offline conditions.
 
 :::info Pre-release Available

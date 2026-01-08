@@ -8,6 +8,10 @@ Common questions about ODE installation, usage, and development.
 
 ## General Questions
 
+### How do you pronounce ODE?
+
+ODE is pronounced like "code", without the "C."
+
 ### What is ODE?
 
 Open Data Ensemble (ODE) is a platform for mobile data collection and synchronization. It provides tools for creating forms, collecting data offline, and synchronizing data across devices and servers.

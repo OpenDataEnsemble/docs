@@ -10,9 +10,11 @@ Complete guide for installing the Formulus mobile application on Android devices
 
 Formulus is available for Android devices through multiple installation methods. Choose the method that best fits your needs:
 
-- **F-Droid** (Recommended for end users) - Official app store for free and open source Android apps
-- **Direct APK** - Download and install the APK file directly
+- **Obtainium** (Recommended) - App manager that installs Formulus directly from GitHub releases, including pre-release versions. Install Obtainium via F-Droid or direct download.
+- **Direct APK** - Download and install the APK file directly from GitHub releases
 - **Development Build** - For developers who want to build from source
+
+**Note**: F-Droid is used to install Obtainium, which then installs Formulus. F-Droid does not directly install Formulus.
 
 ## System Requirements
 
@@ -27,50 +29,108 @@ Before installing, ensure your device meets these requirements:
 
 ## Installation Methods
 
-### Method 1: F-Droid (Recommended)
+### Method 1: Obtainium (Recommended)
 
-F-Droid is the recommended installation method for end users. It provides automatic updates and ensures you're installing the official version.
+Obtainium is the recommended method for installing Formulus. It allows you to install and update Formulus directly from GitHub releases, including pre-release versions. You can install Obtainium via F-Droid or by downloading it directly.
 
-#### Step 1: Install F-Droid
+#### Step 1: Install Obtainium
 
-If you don't have F-Droid installed:
+You have two options to install Obtainium:
 
-1. **Download F-Droid** from [f-droid.org](https://f-droid.org/)
+##### Option A: Install Obtainium via F-Droid (Recommended)
+
+1. **Open your web browser** and navigate to [f-droid.org](https://f-droid.org/)
+2. **Locate the "DOWNLOAD F-DROID" button** on the main page
+3. **Tap the "DOWNLOAD F-DROID" button** to download the F-Droid APK file
+4. **Enable installation from unknown sources**:
+   - Go to **Settings** → **Security** → **Unknown Sources** (or **Apps** → **Special app access** → **Install unknown apps** on newer Android versions)
+   - Select your browser (Chrome, Firefox, etc.) from the list
+   - **Enable "Allow from this source"** toggle switch
+   - Read and acknowledge the security warning about installing apps from unknown sources
+5. **Return to your browser** and open the downloaded F-Droid APK file
+6. **Tap "Install"** when prompted
+7. **Wait for installation** to complete, then tap **"Open"** to launch F-Droid
+
+![F-Droid Download Page](/img/installation/f-droid-download.png)
+
+8. **Open F-Droid** and search for "Obtainium"
+9. **Tap on Obtainium** in the search results
+10. **Tap "Install"** to install Obtainium
+11. **Wait for installation** to complete
+
+##### Option B: Install Obtainium Directly from GitHub
+
+1. **Download Obtainium** from the [Obtainium releases page](https://github.com/ImranR98/Obtainium/releases)
 2. **Enable installation from unknown sources**:
-   - Go to Settings → Security → Unknown Sources
-   - Enable the option for your browser or file manager
-3. **Install F-Droid** by opening the downloaded APK file
+   - Go to **Settings** → **Security** → **Unknown Sources** (or **Apps** → **Special app access** → **Install unknown apps** on newer Android versions)
+   - Select your browser from the list
+   - **Enable "Allow from this source"** toggle switch
+   - Acknowledge the security warning
+3. **Install Obtainium** by opening the downloaded APK file
+4. **Tap "Install"** when prompted in the installation confirmation dialog
+5. **Wait for installation** to complete
 
-#### Step 2: Add Formulus Repository
+![Obtainium Installation](/img/installation/obtainium-install.png)
 
-1. **Open F-Droid** on your device
-2. **Navigate to Settings** → **Repositories**
-3. **Tap the "+" button** to add a new repository
-4. **Enter the Formulus repository URL** (provided by your organization)
-5. **Tap "Add"** to save the repository
+#### Step 2: Add ODE Repository to Obtainium
+
+1. **Open Obtainium** on your device
+2. **Navigate to the "Add app" tab** in the bottom navigation bar (indicated by a "+" icon)
+3. **Enter the GitHub repository URL** in the "App source URL" field:
+   - The field should contain: `https://github.com/OpenDataEnsemble/ode`
+   - Ensure the full URL is entered correctly
+4. **Configure GitHub options** (important for pre-release versions):
+   - **Enable "Include prereleases"** toggle - This is crucial for installing alpha/beta versions of Formulus
+   - **Enable "Fallback to older releases"** toggle - This allows Obtainium to use older releases if newer ones are unavailable
+5. **Tap the "Add" button** to save the repository
+6. **Wait for Obtainium to fetch** the repository information and available releases
+
+![Obtainium Add App Screen](/img/installation/obtainium-add-app.png)
+
+**Important**: Make sure "Include prereleases" is enabled (toggle switched to the right/purple) to see and install pre-release versions like `v1.0.0-alpha.12`.
 
 #### Step 3: Install Formulus
 
-1. **Open F-Droid** on your device
-2. **Navigate to the Updates tab** or search for "Formulus"
-3. **Find Formulus** in the app list
-4. **Tap on Formulus** to open the app details
-5. **Tap "Install"** to begin installation
-6. **Wait for installation** to complete
-7. **Tap "Open"** to launch the app
+1. **Open Obtainium** and navigate to the **"Apps"** tab
+2. **Find "ode"** in your apps list (it should appear after adding the repository)
+3. **Tap on "ode"** to open the app details page
+4. **Review the app information**:
+   - App name: **ode**
+   - Developer: **OpenDataEnsemble**
+   - Package: `org.opendataensemble.formulus`
+   - Latest version: `v1.0.0-alpha.12` (or current version)
+   - Status: **Not installed**
+5. **Tap the "Install" button** at the bottom of the screen
+6. **Confirm installation** when prompted:
+   - A dialog will appear showing the **Formulus** app icon and asking "Do you want to install this app?"
+   - **Tap "Install"** in the confirmation dialog (the "Cancel" button is on the left)
+7. **Wait for download and installation** to complete
+8. **Find Formulus** in your app drawer or search for it:
+   - Open your app drawer or launcher
+   - Search for "Formulus" or "formulu"
+   - The app icon shows a yellow giraffe head with a green background and white clipboard
+   - **Tap on Formulus** to launch the app
+
+![ODE App Details in Obtainium](/img/installation/obtainium-ode-details.png)
+
+![Formulus Installation Dialog](/img/installation/formulus-install-dialog.png)
+
+![Formulus App Search](/img/installation/formulus-app-search.png)
 
 #### Automatic Updates
 
-Once installed via F-Droid, Formulus will automatically update when new versions are available:
+Obtainium will automatically check for updates:
 
-1. **F-Droid checks for updates** periodically
-2. **Notifications appear** when updates are available
-3. **Tap the notification** or open F-Droid to update
-4. **Updates install automatically** through F-Droid
+1. **Open Obtainium** and navigate to the **"Apps"** tab
+2. **Apps with available updates** will be marked
+3. **Tap on "ode"** to see update details
+4. **Tap "Update"** or **"Install"** to install the new version
+5. **Confirm the update** when prompted
+6. **App data is preserved** during update
 
 ### Method 2: Direct APK Installation
 
-If F-Droid is not available or you prefer direct installation:
+If Obtainium is not available or you prefer direct installation:
 
 #### Step 1: Download the APK
 
@@ -79,9 +139,13 @@ If F-Droid is not available or you prefer direct installation:
 
 #### Step 2: Enable Unknown Sources
 
-1. **Go to Settings** → **Security** (or **Apps** on newer Android versions)
-2. **Enable "Install unknown apps"** or **"Unknown Sources"**
-3. **Select your browser or file manager** and enable installation
+1. **Go to Settings** → **Security** (or **Apps** → **Special app access** → **Install unknown apps** on newer Android versions)
+2. **Select your browser or file manager** from the list (e.g., Chrome, Firefox, Files)
+3. **Enable "Allow from this source"** toggle switch
+4. **Read and acknowledge** the security warning:
+   > "Your phone and personal data are more vulnerable to attack by unknown apps. By installing apps from this source, you agree that you are responsible for any damage to your phone or loss of data that may result from their use."
+
+![Enable Unknown Sources](/img/installation/enable-unknown-sources.png)
 
 #### Step 3: Install the APK
 
@@ -95,7 +159,7 @@ If F-Droid is not available or you prefer direct installation:
 
 ### Method 3: Development Build
 
-For developers who want to build and install from source, see the [Development Installation Guide](/development/formulus-development).
+For developers who want to build and install from source, see the [Development Installation Guide](development/formulus-development).
 
 ## Post-Installation Setup
 
@@ -177,31 +241,31 @@ To verify that Formulus is installed correctly:
 - Verify firewall settings aren't blocking the connection
 - For local development, use `10.0.2.2` instead of `localhost` on Android emulator
 
-### F-Droid Not Finding Updates
+### Obtainium Not Finding Updates
 
-**Problem**: F-Droid doesn't show Formulus updates.
+**Problem**: Obtainium doesn't show Formulus updates.
 
 **Solutions**:
-- Ensure the Formulus repository is added correctly
-- Refresh F-Droid repositories: Settings → Repositories → Tap refresh
-- Check that F-Droid has internet connection
-- Verify repository URL is correct and accessible
+- Ensure the ODE repository is added correctly in Obtainium
+- Check that "Include prereleases" is enabled if you want pre-release versions
+- Refresh Obtainium: Open the app and wait for it to check for updates
+- Check that Obtainium has internet connection
+- Verify repository URL is correct: `https://github.com/OpenDataEnsemble/ode`
 
 ## Updating Formulus
 
-### Via F-Droid
+### Via Obtainium
 
-Updates are automatic when using F-Droid:
-
-1. **F-Droid checks for updates** automatically
-2. **Notification appears** when updates are available
-3. **Open F-Droid** and navigate to Updates tab
-4. **Tap "Update"** next to Formulus
-5. **Wait for download and installation**
+1. **Open Obtainium** and navigate to the **"Apps"** tab
+2. **Find "ode"** in your apps list
+3. **Tap on "ode"** to see update information
+4. **Tap "Install"** or **"Update"** if a newer version is available
+5. **Confirm the installation** when prompted
+6. **App data is preserved** during update
 
 ### Via Direct APK
 
-1. **Download the latest APK** from the releases page
+1. **Download the latest APK** from the [releases page](https://github.com/OpenDataEnsemble/ode/releases)
 2. **Install over existing installation** (no need to uninstall)
 3. **App data is preserved** during update
 
@@ -223,10 +287,21 @@ To uninstall Formulus:
 
 **Important**: Ensure all data is synced to the server before uninstalling.
 
+## Finding Formulus After Installation
+
+After installation, you can find and launch Formulus:
+
+1. **Open your app drawer** or launcher
+2. **Search for "Formulus"** or "formulu" using your device's search function
+3. **Look for the Formulus icon**: A yellow giraffe head with a green background and white clipboard with checkmarks
+4. **Tap on the Formulus icon** to launch the app
+
+![Finding Formulus App](/img/installation/formulus-app-search.png)
+
 ## Related Documentation
 
-- [Formulus Features](/using/formulus-features) - Learn about app features and usage
-- [Your First Form](/using/your-first-form) - Get started with data collection
-- [Synchronization](/using/synchronization) - Understand how data syncs work
-- [Development Installation](/development/formulus-development) - For developers building from source
+- [Formulus Features](using/formulus-features) - Learn about app features and usage
+- [Your First Form](using/your-first-form) - Get started with data collection
+- [Synchronization](using/synchronization) - Understand how data syncs work
+- [Development Installation](development/formulus-development) - For developers building from source
 

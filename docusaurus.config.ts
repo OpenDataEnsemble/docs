@@ -7,14 +7,20 @@ const config: Config = {
   tagline: 'A symphony of data instruments to support your data collection and analysis.',
   favicon: 'img/favicon.ico',
 
-  url: 'https://docs.opendataensemble.org',
+  url: 'https://opendataensemble.org',
   baseUrl: '/',
 
   organizationName: 'opendataensemble',
   projectName: 'ode-docs',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  markdown: {
+    mermaid: false,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
@@ -29,6 +35,8 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/docs',
           editUrl: 'https://github.com/OpenDataEnsemble/ode/tree/main/ode-docs/',
+          remarkPlugins: [require('./plugins/fix-docs-links')],
+          rehypePlugins: [require('./plugins/fix-docs-links-rehype')],
         },
         pages: {
           remarkPlugins: [],

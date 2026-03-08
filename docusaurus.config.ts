@@ -56,7 +56,7 @@ const config: Config = {
       title: 'ODE',
       logo: {
         alt: 'ODE Logo',
-        src: 'img/ode-logo-clear.png',
+        src: 'img/ode-logo.png',
       },
       hideOnScroll: false,
       items: [

@@ -25,7 +25,6 @@ const sidebars: SidebarsConfig = {
         'getting-started/what-is-ode',
         'getting-started/why-ode',
         'getting-started/key-concepts',
-        'getting-started/try-ode',
         'getting-started/installing-formulus',
         'getting-started/quick-start',
         'getting-started/faq',

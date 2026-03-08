@@ -25,7 +25,7 @@ const sidebars: SidebarsConfig = {
         'getting-started/what-is-ode',
         'getting-started/why-ode',
         'getting-started/key-concepts',
-        'getting-started/installation',
+        'getting-started/try-ode',
         'getting-started/installing-formulus',
         'getting-started/quick-start',
         'getting-started/faq',
@@ -91,6 +91,7 @@ const sidebars: SidebarsConfig = {
         id: 'development/index',
       },
       items: [
+        'development/installation',
         'development/setup',
         'development/installing-formulus-dev',
         'development/architecture',

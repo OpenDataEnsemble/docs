@@ -17,8 +17,8 @@ Before installing ODE components, ensure your system meets the following require
 | Requirement | Minimum | Recommended |
 |-------------|---------|-------------|
 | **Operating System** | macOS 10.15, Windows 10, or Linux | Latest stable version |
-| **Node.js** | 18.0 or higher | 20.0 or higher |
-| **npm** | 9.0 or higher | 10.0 or higher |
+| **Node.js** | 20.0 or higher | Latest stable |
+| **npm** | 10.0 or higher | Latest stable |
 | **Android Studio** | Latest stable | Latest stable |
 | **Xcode** | 14.0 or higher (macOS only) | Latest stable |
 | **Java Development Kit** | JDK 17 | JDK 17 or higher |
@@ -28,7 +28,7 @@ Before installing ODE components, ensure your system meets the following require
 | Requirement | Minimum | Recommended |
 |-------------|---------|-------------|
 | **Operating System** | Linux, macOS, or Windows | Linux |
-| **Go** | 1.22 or higher | Latest stable |
+| **Go** | 1.24 or higher | Latest stable |
 | **PostgreSQL** | 13.0 or higher | 15.0 or higher |
 | **Docker** | 20.10 or higher (optional) | Latest stable |
 | **Memory** | 2 GB RAM | 4 GB RAM or more |
@@ -136,13 +136,9 @@ For a complete setup with PostgreSQL:
 ```bash
 # Clone the repository
 git clone https://github.com/OpenDataEnsemble/ode.git
-cd ode/synkronus
+cd ode
 
-# Copy the example configuration
-cp docker-compose.example.yml docker-compose.yml
-
-# Edit docker-compose.yml with your configuration
-# Then start the services
+# Start with Docker Compose (includes PostgreSQL)
 docker compose up -d
 ```
 
@@ -157,13 +153,15 @@ Build and run Synkronus from source:
 ```bash
 # Clone the repository
 git clone https://github.com/OpenDataEnsemble/ode.git
-cd ode/synkronus
+cd ode
 
-# Build the application
-go build -o bin/synkronus cmd/synkronus/main.go
+# Build the Synkronus portal first
+cd synkronus-portal && npm ci && npm run build && cd ..
 
-# Run the application
-./bin/synkronus
+# Build and run Synkronus
+cd synkronus
+go build -o synkronus ./cmd/synkronus
+./synkronus
 ```
 
   </TabItem>
@@ -174,21 +172,29 @@ Using PowerShell:
 ```powershell
 # Clone the repository
 git clone https://github.com/OpenDataEnsemble/ode.git
-cd ode/synkronus
+cd ode
 
-# Build the application
-go build -o bin/synkronus.exe cmd/synkronus/main.go
+# Build the Synkronus portal first
+cd synkronus-portal && npm ci && npm run build && cd ..
 
-# Run the application
-.\bin\synkronus.exe
+# Build and run Synkronus
+cd synkronus
+go build -o synkronus.exe ./cmd/synkronus
+.\synkronus.exe
 ```
 
 Or using Git Bash/WSL (same as Linux/macOS):
 
 ```bash
 git clone https://github.com/OpenDataEnsemble/ode.git
-cd ode/synkronus
-go build -o bin/synkronus cmd/synkronus/main.go
+cd ode
+
+# Build the Synkronus portal first
+cd synkronus-portal && npm ci && npm run build && cd ..
+
+# Build and run Synkronus
+cd synkronus
+go build -o bin/synkronus ./cmd/synkronus
 ./bin/synkronus
 ```
 

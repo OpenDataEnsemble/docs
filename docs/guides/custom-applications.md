@@ -8,189 +8,354 @@ Complete guide to building and deploying custom applications that integrate with
 
 ## Overview
 
-Custom applications are web-based interfaces that run within the Formulus mobile app, providing specialized workflows and user experiences. They allow you to create custom navigation, integrate with the ODE form system, and build specialized interfaces for specific use cases.
+Custom applications are React applications that run within the Formulus mobile app, providing specialized workflows and user experiences. They allow you to create custom navigation, integrate with the ODE form system, and build specialized interfaces for specific use cases.
 
-## How Custom Applications Work
+## Application Structure
 
-Custom applications are defined in app bundles, which include:
-
-- HTML, CSS, and JavaScript files
-- Form specifications
-- Custom renderers for question types
-- Configuration files
-
-The app bundle is uploaded to the Synkronus server and downloaded by mobile devices during synchronization. When a user opens a custom application, it runs in a WebView within the Formulus app.
-
-## Formulus JavaScript Interface
-
-Custom applications interact with Formulus through a JavaScript interface. The API is injected automatically when your app loads.
-
-### Getting the Formulus API
-
-Always use the `getFormulus()` helper function to ensure the API is ready:
-
-```html
-<!-- Include the load script -->
-<script src="formulus-load.js"></script>
-
-<script>
-  async function initializeMyApp() {
-    try {
-      const api = await getFormulus();
-      
-      // Now it's safe to use the API
-      const version = await api.getVersion();
-      console.log('Formulus Host Version:', version);
-    } catch (error) {
-      console.error('Failed to load Formulus API:', error);
-    }
-  }
-  
-  initializeMyApp();
-</script>
-```
-
-### Available Methods
-
-The Formulus interface provides methods for:
-
-- **Form Operations**: Create, edit, and delete observations
-- **Data Access**: Query observations and form specifications
-- **Device Features**: Access camera, GPS, file system, etc.
-- **Synchronization**: Trigger sync operations
-
-### Creating Observations
-
-```javascript
-// Create a new observation
-await formulus.addObservation(formType, initializationData);
-```
-
-### Editing Observations
-
-```javascript
-// Edit an existing observation
-await formulus.editObservation(formType, observationId);
-```
-
-### Deleting Observations
-
-```javascript
-// Delete an observation
-await formulus.deleteObservation(formType, observationId);
-```
-
-## App Bundle Structure
-
-An app bundle is a ZIP file containing:
+Custom applications follow a standardized structure for consistency and maintainability:
 
 ```
-app-bundle/
-├── index.html          # Main entry point
-├── assets/
-│   ├── css/
-│   ├── js/
-│   └── images/
-├── forms/              # Form specifications (optional)
-└── manifest.json       # Bundle metadata
+my-app/
+├── app.config.json          # App configuration and theme
+├── forms/                   # Form definitions
+│   ├── survey/
+│   │   ├── schema.json      # JSON Schema (draft-07)
+│   │   └── ui.json          # Formulus UI schema
+│   └── forms-manifest.json  # Form registry
+├── src/
+│   ├── components/          # Reusable components
+│   ├── screens/             # Main screens
+│   ├── utils/               # Utility functions
+│   └── theme.js             # Theme generation
+├── scripts/                 # Build and validation scripts
+├── package.json
+└── vite.config.js
 ```
 
-### Manifest File
+## Configuration System
 
-The manifest defines bundle metadata:
+### app.config.json
+
+The `app.config.json` file is the single source of truth for your application's configuration:
 
 ```json
 {
+  "$schema": "https://ode.dev/schemas/app-config-v1.json",
+  "name": "My Application",
   "version": "1.0.0",
-  "name": "My Custom App",
-  "description": "Description of the app",
-  "entryPoint": "index.html"
+  "navigation": {
+    "tabs": ["Home", "Forms", "Sync", "More"]
+  },
+  "theme": {
+    "light": {
+      "primary": "#1976d2",
+      "primaryLight": "#42a5f5",
+      "primaryDark": "#1565c0",
+      "onPrimary": "#ffffff",
+      "background": "#fafafa",
+      "surface": "#ffffff",
+      "onBackground": "#212121",
+      "onSurface": "#424242"
+    },
+    "dark": {
+      "primary": "#42a5f5",
+      "primaryLight": "#90caf9",
+      "primaryDark": "#1976d2",
+      "onPrimary": "#000000",
+      "background": "#121212",
+      "surface": "#1e1e1e",
+      "onBackground": "#ffffff",
+      "onSurface": "#e0e0e0"
+    }
+  }
 }
 ```
 
-## Building Custom Applications
+### Theme Integration
 
-### Development Setup
+Themes are automatically generated from your configuration:
 
-1. **Reference the API**: Copy `formulus-api.js` into your project for autocompletion
-2. **Include the Load Script**: Add `formulus-load.js` to your HTML
-3. **Use getFormulus()**: Always await the API before using it
+```javascript
+// src/theme.js
+import { createTheme } from '@mui/material/styles';
+import appConfig from '../public/app.config.json';
 
-### Example Application
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>My Custom App</title>
-  <script src="formulus-load.js"></script>
-</head>
-<body>
-  <h1>My Custom App</h1>
-  <button id="createForm">Create Observation</button>
+export function buildTheme(mode = 'light') {
+  const colors = appConfig.theme[mode] ?? appConfig.theme.light;
   
-  <script>
-    async function init() {
-      const api = await getFormulus();
-      
-      document.getElementById('createForm').addEventListener('click', async () => {
-        try {
-          await api.addObservation('my-form-type', {});
-          alert('Observation created!');
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      });
+  return createTheme({
+    palette: {
+      mode,
+      primary: {
+        main: colors.primary,
+        light: colors.primaryLight,
+        dark: colors.primaryDark,
+        contrastText: colors.onPrimary,
+      },
+      background: {
+        default: colors.background,
+        paper: colors.surface,
+      },
+      // ... complete theme configuration
+    },
+  });
+}
+```
+
+## Form Development
+
+### Form Structure
+
+Each form consists of two files:
+
+1. **schema.json**: JSON Schema (draft-07) defining data structure
+2. **ui.json**: Formulus UI schema defining form layout and behavior
+
+### Example Form
+
+**schema.json:**
+```json
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Full Name"
+    },
+    "age": {
+      "type": "integer",
+      "title": "Age",
+      "minimum": 0,
+      "maximum": 120
+    },
+    "email": {
+      "type": "string",
+      "title": "Email",
+      "format": "email"
     }
+  },
+  "required": ["name", "age"]
+}
+```
+
+**ui.json:**
+```json
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/name"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/age"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/email"
+    }
+  ]
+}
+```
+
+## Form Integration
+
+### Opening Forms
+
+Use the Formulus API to open forms:
+
+```javascript
+import { openForm } from './utils/formulusApi';
+
+async function handleFormSubmit() {
+  try {
+    const result = await openForm('survey', {
+      mode: 'create',
+      initialData: {}
+    });
     
-    init();
-  </script>
-</body>
-</html>
+    if (result.status === 'completed') {
+      console.log('Form data:', result.data);
+      // Handle successful submission
+    }
+  } catch (error) {
+    console.error('Form error:', error);
+  }
+}
+```
+
+### Mock API for Development
+
+During development, a mock API provides realistic behavior without needing the mobile app:
+
+```javascript
+// src/utils/mockFormulusApi.js
+export class MockFormulusAPI {
+  async openForm(formId, options = {}) {
+    // Simulate form opening with mock data
+    return {
+      status: 'completed',
+      data: { /* mock form data */ }
+    };
+  }
+}
+```
+
+## Build Process
+
+### Package.json Scripts
+
+```json
+{
+  "scripts": {
+    "copy-forms": "node scripts/copy-forms.js",
+    "dev": "npm run copy-forms && vite",
+    "build": "npm run copy-forms && vite build",
+    "zip": "node scripts/build-zip.js",
+    "validate:forms": "node scripts/validate-forms.js"
+  }
+}
+```
+
+### Build Scripts
+
+**scripts/copy-forms.js:**
+```javascript
+import fs from 'fs-extra';
+import path from 'path';
+
+const sourceDir = path.join(process.cwd(), '..', 'forms');
+const targetDir = path.join(process.cwd(), 'public', 'forms');
+
+fs.copy(sourceDir, targetDir)
+  .then(() => console.log('Forms copied successfully'))
+  .catch(err => console.error('Error copying forms:', err));
+```
+
+**scripts/build-zip.js:**
+```javascript
+import AdmZip from 'adm-zip';
+import path from 'path';
+
+const zip = new AdmZip();
+const buildDir = path.join(process.cwd(), '..', 'app-bundles', 'app');
+const formsDir = path.join(process.cwd(), '..', 'forms');
+
+zip.addLocalFolder(buildDir, 'app');
+zip.addLocalFolder(formsDir, 'forms');
+
+zip.writeZip(path.join(process.cwd(), '..', 'bundle-v1.0.0.zip'));
+```
+
+## Form Validation
+
+### Validation Script
+
+**scripts/validate-forms.js:**
+```javascript
+import Ajv from 'ajv';
+import fs from 'fs-extra';
+
+const ajv = new Ajv();
+
+function validateForm(formPath) {
+  const schema = fs.readJsonSync(path.join(formPath, 'schema.json'));
+  const uiSchema = fs.readJsonSync(path.join(formPath, 'ui.json'));
+  
+  // Validate JSON Schema
+  const validate = ajv.compile(schema);
+  
+  // Validate UI schema references
+  // ... validation logic
+  
+  return { valid: true, errors: [] };
+}
+```
+
+## Development Workflow
+
+### Local Development
+
+1. **Setup**: `npm install`
+2. **Development**: `npm run dev` (includes form copying)
+3. **Validation**: `npm run validate:forms`
+4. **Build**: `npm run build && npm run zip`
+
+### Testing Forms
+
+Use the built-in form explorer to test forms locally:
+
+```javascript
+// Navigate to http://localhost:5173/#/forms
+// Browse and test all forms with mock data
 ```
 
 ## Deployment
 
-### Uploading App Bundles
+### Bundle Creation
 
-Upload app bundles using the Synkronus CLI:
-
-```bash
-synk app-bundle upload bundle.zip --activate
-```
-
-Or use the API:
-
-```bash
-curl -X POST http://your-server:8080/api/app-bundle/upload \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -F "bundle=@bundle.zip"
-```
+1. Build the application: `npm run build`
+2. Create deployment bundle: `npm run zip`
+3. Upload bundle to Synkronus server
+4. Deploy to mobile devices via sync
 
 ### Version Management
 
-App bundles support versioning:
+Update the version in `app.config.json` and `package.json`:
 
-- Each upload creates a new version
-- Versions are identified by timestamp
-- Switch between versions using the CLI or API
-- Mobile devices download the active version during sync
+```json
+{
+  "version": "1.1.0"
+}
+```
 
-## Custom Renderers
-
-Custom applications can include custom renderers for question types. See the [Form Design guide](/guides/form-design) for details on creating custom renderers.
+Bundle filename will automatically reflect the version: `bundle-v1.1.0.zip`
 
 ## Best Practices
 
-1. **Wait for API**: Always use `getFormulus()` before accessing the API
-2. **Error Handling**: Implement proper error handling for all API calls
-3. **Offline Support**: Design apps to work gracefully when offline
-4. **Performance**: Optimize for mobile devices and slower networks
-5. **Testing**: Test thoroughly in both development and production environments
+### Form Design
+- Use clear, descriptive field titles
+- Implement proper validation rules
+- Provide helpful error messages
+- Consider offline usage scenarios
 
-## Related Documentation
+### Performance
+- Optimize bundle size (target < 200KB)
+- Use lazy loading for large forms
+- Implement efficient data structures
+- Test on target devices
 
-- [Form Design Guide](/guides/form-design)
-- [Formulus Interface Documentation](https://github.com/OpenDataEnsemble/ode/tree/main/formulus/src/webview)
-- [App Bundle Format Reference](/reference/app-bundle-format)
+### User Experience
+- Follow Material Design 3 guidelines
+- Implement consistent navigation
+- Provide clear feedback for actions
+- Handle errors gracefully
+
+### Code Organization
+- Separate concerns (UI, logic, data)
+- Use TypeScript for type safety
+- Implement proper error handling
+- Write maintainable, documented code
+
+## Troubleshooting
+
+### Common Issues
+
+**Forms not appearing:**
+- Verify forms are copied to `public/forms/`
+- Check `forms-manifest.json` format
+- Validate form schemas
+
+**Build failures:**
+- Ensure all dependencies are installed
+- Check form validation errors
+- Verify configuration syntax
+
+**Deployment issues:**
+- Confirm bundle size limits
+- Validate app configuration
+- Test bundle extraction
+
+This guide provides the foundation for building robust custom applications that integrate seamlessly with the ODE ecosystem.
 

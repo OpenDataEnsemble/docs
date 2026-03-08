@@ -10,9 +10,9 @@ Complete guide to setting up a development environment for ODE.
 
 Before setting up the development environment, ensure you have:
 
-- **Node.js** 18.0 or higher
-- **npm** 9.0 or higher
-- **Go** 1.22 or higher (for server and CLI development)
+- **Node.js** 20.0 or higher
+- **npm** 10.0 or higher
+- **Go** 1.24 or higher (for server and CLI development)
 - **PostgreSQL** 13.0 or higher (for server development)
 - **Git** for version control
 - **Docker** and **Docker Compose** (optional, for containerized development)

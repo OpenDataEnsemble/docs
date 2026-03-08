@@ -51,7 +51,7 @@ Go backend server providing:
 - **App Bundle Management**: Versioning and distribution
 
 **Technology Stack:**
-- Go 1.22+
+- Go 1.24+
 - PostgreSQL
 - Chi router
 - JWT authentication
@@ -80,7 +80,7 @@ Go command-line utility providing:
 - **App Bundle Management**: Upload, download, version management
 
 **Technology Stack:**
-- Go 1.22+
+- Go 1.24+
 - Cobra CLI framework
 
 ## Data Flow

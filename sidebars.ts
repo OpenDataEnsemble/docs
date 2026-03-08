@@ -26,7 +26,6 @@ const sidebars: SidebarsConfig = {
         'getting-started/why-ode',
         'getting-started/key-concepts',
         'getting-started/installing-formulus',
-        'getting-started/quick-start',
         'getting-started/faq',
       ],
     },
@@ -91,6 +90,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'development/installation',
+        'development/quick-start',
         'development/setup',
         'development/installing-formulus-dev',
         'development/architecture',

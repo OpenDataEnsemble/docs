@@ -1,0 +1,110 @@
+{
+  "docs": [
+    {
+      "type": "doc",
+      "id": "index",
+      "label": "Introduction"
+    },
+    {
+      "type": "category",
+      "label": "Getting Started",
+      "link": {
+        "type": "doc",
+        "id": "getting-started/index"
+      },
+      "items": [
+        "getting-started/what-is-ode",
+        "getting-started/why-ode",
+        "getting-started/key-concepts",
+        "getting-started/installation",
+        "getting-started/installing-formulus",
+        "getting-started/quick-start",
+        "getting-started/faq"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Using ODE",
+      "link": {
+        "type": "doc",
+        "id": "using/index"
+      },
+      "items": [
+        "using/your-first-form",
+        "using/formulus-features",
+        "using/app-bundles",
+        "using/data-management",
+        "using/synchronization",
+        "using/custom-applications",
+        "using/working-offline",
+        "using/troubleshooting"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Guides",
+      "link": {
+        "type": "doc",
+        "id": "guides/index"
+      },
+      "items": [
+        "guides/form-design",
+        "guides/custom-applications",
+        "guides/deployment",
+        "guides/configuration"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Reference",
+      "link": {
+        "type": "doc",
+        "id": "reference/index"
+      },
+      "items": [
+        "reference/api",
+        "reference/components",
+        "reference/formulus",
+        "reference/formplayer",
+        "reference/formplayer-contract",
+        "reference/synkronus-cli",
+        "reference/synkronus-server",
+        "reference/synkronus-portal",
+        "reference/form-specifications",
+        "reference/app-bundle-format"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Development",
+      "link": {
+        "type": "doc",
+        "id": "development/index"
+      },
+      "items": [
+        "development/setup",
+        "development/installing-formulus-dev",
+        "development/architecture",
+        "development/formulus-development",
+        "development/formplayer-development",
+        "development/synkronus-development",
+        "development/synkronus-portal-development",
+        "development/contributing",
+        "development/building-testing",
+        "development/extending"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Community",
+      "link": {
+        "type": "doc",
+        "id": "community/index"
+      },
+      "items": [
+        "community/getting-help",
+        "community/examples"
+      ]
+    }
+  ]
+}

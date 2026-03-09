@@ -62,7 +62,7 @@ Whether you're a researcher, developer, or data practitioner, these guides will 
       </div>
       <div className="card__body">
         <p>Get up and running quickly with a simple example.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/getting-started/quick-start">Start Here →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/development/quick-start">Start Here →</a>
       </div>
     </div>
   </div>

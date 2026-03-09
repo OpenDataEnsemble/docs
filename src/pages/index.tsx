@@ -69,7 +69,7 @@ export default function Home(): ReactNode {
                 </p>
                 <Link
                   className="button button--primary button--lg"
-                  to="/docs/getting-started/quick-start"
+                  to="/docs/development/quick-start"
                   style={{ marginTop: "1.5rem" }}
                 >
                   Explore Documentation

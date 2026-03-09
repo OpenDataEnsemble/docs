@@ -1,0 +1,367 @@
+---
+sidebar_position: 5
+---
+
+# Formulus Component Reference
+
+Complete technical reference for the Formulus mobile application component.
+
+## Overview
+
+Formulus is a React Native mobile application that serves as the client-side component of ODE. It provides offline-first data collection capabilities, custom application hosting, and bidirectional synchronization with the Synkronus server.
+
+## Architecture
+
+### Technology Stack
+
+- **Framework**: React Native
+- **Language**: TypeScript
+- **Database**: WatermelonDB (SQLite-based)
+- **State Management**: React Context API
+- **Navigation**: React Navigation
+- **WebView**: React Native WebView (for custom apps)
+
+### Component Structure
+
+```
+formulus/
+├── src/
+│   ├── api/              # Synkronus API client (auto-generated)
+│   ├── components/       # React Native UI components
+│   ├── contexts/         # React Context providers
+│   ├── database/         # WatermelonDB schema and models
+│   ├── hooks/            # Custom React hooks
+│   ├── navigation/       # Navigation configuration
+│   ├── screens/          # Screen components
+│   ├── services/         # Business logic services
+│   ├── webview/          # WebView integration and bridge
+│   └── utils/            # Utility functions
+├── android/              # Android native code
+├── ios/                  # iOS native code
+└── assets/               # Static assets
+```
+
+## Core Features
+
+### Offline-First Data Storage
+
+Formulus uses WatermelonDB for local data storage:
+
+- **Observations**: All form submissions stored locally
+- **Attachments**: Binary files stored in local filesystem
+- **App Bundles**: Custom application files cached locally
+- **Sync State**: Tracks synchronization status
+
+### Custom Application Hosting
+
+Formulus hosts custom web applications in WebViews:
+
+- **WebView Integration**: React Native WebView component
+- **JavaScript Bridge**: Communication between native and web
+- **Formulus API**: Injected JavaScript interface for custom apps
+- **Asset Loading**: Serves app bundle files from local storage
+
+### Synchronization Engine
+
+Two-phase synchronization protocol:
+
+1. **Observation Sync**: JSON metadata synchronization
+2. **Attachment Sync**: Binary file synchronization
+
+### Form Rendering
+
+Integration with Formplayer for form rendering:
+
+- **Formplayer WebView**: Renders forms using JSON Forms
+- **Question Types**: Supports various input types
+- **Validation**: Client-side and schema-based validation
+- **Data Binding**: Connects form data to observations
+
+## JavaScript Interface
+
+Formulus exposes a JavaScript API to custom applications running in WebViews.
+
+### API Access
+
+The API is automatically injected into WebViews. Use the helper function to ensure it's ready:
+
+```javascript
+// Wait for API to be ready
+const api = await getFormulus();
+
+// Now use the API
+const version = await api.getVersion();
+```
+
+### Core Methods
+
+#### getVersion()
+
+Get the Formulus host version.
+
+```javascript
+const version = await api.getVersion();
+// Returns: "1.0.0"
+```
+
+#### addObservation(formType, initializationData)
+
+Create a new observation by opening a form.
+
+```javascript
+await api.addObservation('survey', {
+  participantId: '123',
+  location: 'Field Site A'
+});
+```
+
+**Parameters:**
+- `formType` (string): The form type identifier
+- `initializationData` (object): Optional data to pre-populate the form
+
+**Returns:** Promise that resolves when form is opened
+
+#### editObservation(formType, observationId)
+
+Edit an existing observation.
+
+```javascript
+await api.editObservation('survey', 'obs-123');
+```
+
+**Parameters:**
+- `formType` (string): The form type identifier
+- `observationId` (string): The observation ID to edit
+
+**Returns:** Promise that resolves when form is opened
+
+#### deleteObservation(formType, observationId)
+
+Delete an observation.
+
+```javascript
+await api.deleteObservation('survey', 'obs-123');
+```
+
+**Parameters:**
+- `formType` (string): The form type identifier
+- `observationId` (string): The observation ID to delete
+
+**Returns:** Promise that resolves when deletion is complete
+
+#### getObservations(formType, filters)
+
+Query observations from local database.
+
+```javascript
+const observations = await api.getObservations('survey', {
+  status: 'synced',
+  limit: 10
+});
+```
+
+**Parameters:**
+- `formType` (string): The form type identifier
+- `filters` (object): Optional query filters
+
+**Returns:** Promise resolving to array of observations
+
+#### sync()
+
+Trigger manual synchronization.
+
+```javascript
+await api.sync();
+```
+
+**Returns:** Promise that resolves when sync completes
+
+## Database Schema
+
+### Observations Table
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | string | Unique observation identifier |
+| `form_type` | string | Form type identifier |
+| `data` | JSON | Observation data (form responses) |
+| `created_at` | timestamp | Creation timestamp |
+| `updated_at` | timestamp | Last update timestamp |
+| `deleted` | boolean | Soft delete flag |
+| `_status` | string | Sync status (created, updated, deleted) |
+| `_changed` | string | Changed fields tracking |
+
+### Attachments Table
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | string | Unique attachment identifier |
+| `observation_id` | string | Reference to observation |
+| `file_path` | string | Local file path |
+| `mime_type` | string | File MIME type |
+| `size` | number | File size in bytes |
+| `synced` | boolean | Sync status |
+
+## Synchronization Protocol
+
+### Two-Phase Sync
+
+#### Phase 1: Observation Sync
+
+1. **Pull**: Request changes from server since last sync
+2. **Apply**: Apply server changes to local database
+3. **Push**: Send local changes to server
+4. **Resolve Conflicts**: Handle conflicts if any
+
+#### Phase 2: Attachment Sync
+
+1. **Download Manifest**: Get list of attachments to download
+2. **Download Files**: Download missing attachments
+3. **Upload Files**: Upload pending attachments
+4. **Update Status**: Mark attachments as synced
+
+### Sync State Management
+
+The app maintains sync state:
+
+- **Last Sync Timestamp**: When last sync completed
+- **Pending Observations**: Count of unsynced observations
+- **Sync Status**: Current sync state (idle, syncing, error)
+
+## Configuration
+
+### Server Configuration
+
+Configured through Settings screen:
+
+- **Server URL**: Synkronus server address
+- **Username**: User credentials
+- **Password**: User password
+- **Auto-login**: Enable automatic login
+
+### Sync Configuration
+
+- **Auto-sync**: Enable automatic synchronization
+- **Sync Interval**: How often to check for sync
+- **WiFi Only**: Sync only on WiFi connection
+
+## Development
+
+### Building from Source
+
+See [Formulus Development Guide](/development/formulus-development) for complete development setup.
+
+### Key Development Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Start Metro bundler
+npm start
+
+# Run on Android
+npm run android
+
+# Run on iOS
+npm run ios
+
+# Generate API client from OpenAPI spec
+npm run generate:api
+
+# Generate WebView injection script
+npm run generate
+```
+
+### Project Structure
+
+- **Android**: Native Android code in `android/` directory
+- **iOS**: Native iOS code in `ios/` directory
+- **Source**: TypeScript source in `src/` directory
+- **Assets**: Static assets in `assets/` directory
+
+## Platform-Specific Features
+
+### Android
+
+- **File System Access**: Direct access to Android storage
+- **Camera Integration**: Native camera API
+- **GPS**: Android location services
+- **Permissions**: Android permission system
+
+### iOS
+
+- **File System Access**: iOS file system access
+- **Camera Integration**: Native camera API
+- **GPS**: iOS Core Location
+- **Permissions**: iOS permission system
+
+## Security
+
+### Authentication
+
+- **JWT Tokens**: Stored securely in device keychain/keystore
+- **Token Refresh**: Automatic token refresh before expiration
+- **Secure Storage**: Credentials stored using platform secure storage
+
+### Data Protection
+
+- **Local Encryption**: Sensitive data encrypted at rest
+- **Secure Communication**: HTTPS for all server communication
+- **Permission Management**: Granular permission requests
+
+## Performance
+
+### Optimization Strategies
+
+- **Lazy Loading**: Load forms and data on demand
+- **Caching**: Aggressive caching of app bundles and assets
+- **Background Sync**: Sync in background to avoid blocking UI
+- **Database Indexing**: Optimized database queries
+
+### Memory Management
+
+- **Image Compression**: Compress images before storage
+- **Attachment Cleanup**: Remove old attachments after sync
+- **Cache Limits**: Limit cache size to prevent memory issues
+
+## Troubleshooting
+
+### Common Issues
+
+#### Sync Failures
+
+- Check network connectivity
+- Verify server URL and credentials
+- Review sync logs for errors
+- Check server status
+
+#### App Crashes
+
+- Review crash logs
+- Check memory usage
+- Verify database integrity
+- Update to latest version
+
+#### Performance Issues
+
+- Clear app cache
+- Check database size
+- Review attachment storage
+- Optimize app bundle size
+
+## API Reference
+
+For complete API documentation, see:
+
+- [Synkronus API Reference](/reference/api) - Server API endpoints
+- [Custom Applications Guide](/guides/custom-applications) - Building custom apps
+- [Form Design Guide](/guides/form-design) - Creating forms
+
+## Related Documentation
+
+- [Formulus Features](/using/formulus-features) - User-facing features
+- [Installing Formulus](/getting-started/installing-formulus) - Installation guide
+- [Formulus Development](/development/formulus-development) - Development setup
+- [Synchronization](/using/synchronization) - Sync protocol details
+

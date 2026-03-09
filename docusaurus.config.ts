@@ -127,12 +127,12 @@ const config: Config = {
             },
             {
               type: 'doc',
-              docId: 'getting-started/quick-start',
+              docId: 'development/quick-start',
               label: 'Quick Start',
             },
             {
               type: 'doc',
-              docId: 'getting-started/installation',
+              docId: 'development/installation',
               label: 'Installation',
             },
             {

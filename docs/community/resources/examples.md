@@ -21,5 +21,5 @@ Example ODE applications and configurations.
 ## Related Content
 
 - [Community Projects](/docs/community/resources/projects)
-- [Tutorials](/docs/tutorials/getting-started/first-form)
+- [Tutorials](/guides/quick-start-custom-app)
 

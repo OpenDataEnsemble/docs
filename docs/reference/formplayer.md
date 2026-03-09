@@ -8,7 +8,7 @@ Complete technical reference for the Formplayer form rendering component.
 
 :::info[Authoritative Reference Available]
 
-For the complete, authoritative contract defining all supported JSON Schema features, UI schema structure, validation rules, and behavioral guarantees, see the **[Formplayer Contract](/docs/reference/formplayer-contract)**.
+For the complete, authoritative contract defining all supported JSON Schema features, UI schema structure, validation rules, and behavioral guarantees, see the **[Formplayer Contract](/reference/formplayer-contract)**.
 
 :::
 

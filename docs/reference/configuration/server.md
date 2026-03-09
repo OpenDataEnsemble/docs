@@ -20,6 +20,6 @@ Configuration options for Synkronus server.
 
 ## Related Content
 
-- [Synkronus Configuration](/docs/components/synkronus/configuration)
-- [Production Deployment](/docs/host/synkronus-server/production)
+- [Synkronus Configuration](/guides/configuration)
+- [Production Deployment](/guides/deployment)
 

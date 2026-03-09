@@ -80,7 +80,7 @@ Synkronus provides a RESTful API for data synchronization, app bundle management
 
 ### Installation
 
-See the [Installation guide](/getting-started/installation) for detailed installation instructions.
+See the [Installation guide](/development/installation) for detailed installation instructions.
 
 ### Configuration
 
@@ -173,7 +173,7 @@ All components work together to provide a complete data collection solution:
 
 ## Related Documentation
 
-- [Installation Guide](/getting-started/installation)
+- [Installation Guide](/development/installation)
 - [API Reference](/reference/api)
 - [Form Design Guide](/guides/form-design)
 - [Custom Applications Guide](/guides/custom-applications)

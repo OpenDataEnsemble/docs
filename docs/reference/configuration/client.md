@@ -20,6 +20,6 @@ Configuration options for ODE clients.
 
 ## Related Content
 
-- [Formulus Configuration](/docs/components/formulus/configuration)
-- [Custom Applications](/docs/build/custom-applications/overview)
+- [Formulus Configuration](/guides/configuration)
+- [Custom Applications](/guides/custom-applications)
 

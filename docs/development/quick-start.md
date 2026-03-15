@@ -189,7 +189,7 @@ If data is not synchronizing:
 
 ## Related Documentation
 
-- [Installation Guide](/getting-started/installation)
+- [Installation Guide](/docs/getting-started/installation)
 - [Your First Form](/using/your-first-form)
 - [Form Design Guide](/guides/form-design)
 

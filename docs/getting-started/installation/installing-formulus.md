@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 # Installing Formulus App
@@ -159,7 +159,7 @@ If Obtainium is not available or you prefer direct installation:
 
 ### Method 3: Development Build
 
-For developers who want to build and install from source, see the [Development Installation Guide](development/formulus-development).
+For developers who want to build and install from source, see the [Development Installation Guide](/docs/development/formulus-development).
 
 ## Post-Installation Setup
 
@@ -300,8 +300,7 @@ After installation, you can find and launch Formulus:
 
 ## Related Documentation
 
-- [Formulus Features](using/formulus-features) - Learn about app features and usage
-- [Your First Form](using/your-first-form) - Get started with data collection
-- [Synchronization](using/synchronization) - Understand how data syncs work
-- [Development Installation](development/formulus-development) - For developers building from source
-
+- [Formulus Features](/docs/using/formulus-features) - Learn about app features and usage
+- [Your First Form](/docs/using/your-first-form) - Get started with data collection
+- [Synchronization](/docs/using/synchronization) - Understand how data syncs work
+- [Development Installation](/docs/development/formulus-development) - For developers building from source

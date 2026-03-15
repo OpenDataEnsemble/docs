@@ -25,7 +25,15 @@ const sidebars: SidebarsConfig = {
         'getting-started/what-is-ode',
         'getting-started/why-ode',
         'getting-started/key-concepts',
-        'getting-started/installing-formulus',
+        {
+          type: 'category',
+          label: 'Installation',
+          link: { type: 'doc', id: 'getting-started/installation' },
+          items: [
+            'getting-started/installation/installing-synkronus',
+            'getting-started/installation/installing-formulus',
+          ],
+        },
         'getting-started/faq',
       ],
     },

@@ -361,7 +361,7 @@ For complete API documentation, see:
 ## Related Documentation
 
 - [Formulus Features](/using/formulus-features) - User-facing features
-- [Installing Formulus](/getting-started/installing-formulus) - Installation guide
+- [Installing Formulus](/docs/getting-started/installation/installing-formulus) - Installation guide
 - [Formulus Development](/development/formulus-development) - Development setup
 - [Synchronization](/using/synchronization) - Sync protocol details
 

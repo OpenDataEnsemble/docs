@@ -14,7 +14,7 @@ Open Data Ensemble (ODE) is a comprehensive platform for mobile data collection 
 
 The source code for the pre-release version of ODE is now publicly available. While we're working toward the full 1.0 release, we welcome anyone willing to help with testing, development, or getting involved in the project.
 
-**Try the pre-release:** [Install Formulus on Android](/getting-started/installation)
+**Try the pre-release:** [Install Formulus on Android](/docs/getting-started/installation)
 
 **Get involved:** Reach out to us at [hello@opendataensemble.org](mailto:hello@opendataensemble.org) - we'd love to hear from you!
 
@@ -90,6 +90,6 @@ This documentation is organized to help you find information quickly:
 ## Next Steps
 
 - Read [What is ODE?](/getting-started/what-is-ode) for a detailed overview
-- Follow the [Installation guide](/getting-started/installation) to set up your environment
+- Follow the [Installation guide](/docs/getting-started/installation) to set up your environment
 - Create your [first form](/using/your-first-form) to see ODE in action
 - Explore the [API Reference](/reference/api) for technical details

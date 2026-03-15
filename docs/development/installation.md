@@ -317,14 +317,14 @@ Verify the installation:
 
 Formulus is the mobile application component of ODE, available for Android and iOS devices.
 
-For detailed installation instructions, see the [Installing Formulus guide](/getting-started/installing-formulus) which covers:
+For detailed installation instructions, see the [Installing Formulus guide](/docs/getting-started/installation/installing-formulus) which covers:
 
 - F-Droid installation (recommended for end users)
 - Direct APK installation
 - System requirements
 - Post-installation setup
 
-For developers who want to install via ADB or emulator, see the [Development Installation guide](/development/installing-formulus-dev).
+For developers who want to install via ADB or emulator, see the [Development Installation guide](/docs/development/installing-formulus-dev).
 
 ### Quick Installation Summary
 
@@ -333,7 +333,7 @@ For developers who want to install via ADB or emulator, see the [Development Ins
 1. **F-Droid** (Recommended): Install via F-Droid app store
 2. **Direct APK**: Download and install APK file directly
 
-See [Installing Formulus](/getting-started/installing-formulus) for complete instructions.
+See [Installing Formulus](/docs/getting-started/installation/installing-formulus) for complete instructions.
 
 #### For Developers
 
@@ -341,7 +341,7 @@ See [Installing Formulus](/getting-started/installing-formulus) for complete ins
 2. **Emulator**: Run on Android emulator
 3. **Development Build**: Build from source with hot reload
 
-See [Installing Formulus for Development](/development/installing-formulus-dev) for complete instructions.
+See [Installing Formulus for Development](/docs/development/installing-formulus-dev) for complete instructions.
 
 ### App Configuration
 

@@ -555,6 +555,6 @@ Before going live:
 
 ## Related Documentation
 
-- [Installation Guide](/getting-started/installation)
+- [Installation Guide](/docs/getting-started/installation)
 - [Configuration Guide](/guides/configuration)
 - [API Reference](/reference/api)

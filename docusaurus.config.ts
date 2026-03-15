@@ -37,6 +37,19 @@ const config: Config = {
           editUrl: 'https://github.com/OpenDataEnsemble/ode/tree/main/ode-docs/',
           remarkPlugins: [require('./plugins/fix-docs-links')],
           rehypePlugins: [require('./plugins/fix-docs-links-rehype')],
+          // Version dropdown shows ODE product versions (not "docs site" version).
+          // "Next" = current docs/ folder (unreleased); 1.1.2, 1.1.0, 1.0 = frozen snapshots per ODE release.
+          includeCurrentVersion: true,
+          versions: {
+            current: {
+              label: 'Next (unreleased)',
+              path: 'next',
+            },
+            '1.1.2': { label: 'ODE 1.1.2' },
+            '1.1.1': { label: 'ODE 1.1.1' },
+            '1.1.0': { label: 'ODE 1.1.0' },
+            '1.0': { label: 'ODE 1.0' },
+          },
         },
         pages: {
           remarkPlugins: [],
@@ -65,6 +78,12 @@ const config: Config = {
           sidebarId: 'docs',
           label: 'Documentation',
           position: 'right',
+        },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownItemsBefore: [],
+          dropdownItemsAfter: [],
         },
         {
           label: 'Components',

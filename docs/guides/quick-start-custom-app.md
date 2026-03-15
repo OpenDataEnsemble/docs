@@ -9,7 +9,7 @@ Create and deploy a custom ODE application in 30 minutes using this step-by-step
 ## What You'll Need
 
 **Prerequisites:**
-- ODE server running (see [Installation Guide](/getting-started/installation))
+- ODE server running (see [Installation Guide](/docs/getting-started/installation))
 - Node.js 20+ and npm 10+
 - Basic knowledge of React/JavaScript
 - Text editor (VS Code recommended)

@@ -1,66 +1,128 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 /**
- * Consolidated sidebar structure following documentation best practices:
- * - User-focused content first
- * - Related content grouped together
- * - Avoid overcrowding with too many small pages
- * - Clear separation between user and developer content
+ * Persona-based sidebar structure for Open Data Ensemble documentation.
+ * 
+ * This structure prioritizes three main user personas:
+ * 1. Data Collectors - Non-technical field workers using Formulus
+ * 2. Implementers - Form designers and project managers
+ * 3. Developers - Engineers contributing to or extending ODE
+ * 
+ * Documentation best practices applied:
+ * - User-focused content organized by role
+ * - Clear entry points for each persona
+ * - Shared reference materials (API, Components)
+ * - Community resources for all users
  */
 const sidebars: SidebarsConfig = {
   docs: [
+    // Main landing page
     {
       type: 'doc',
       id: 'index',
-      label: 'Introduction',
+      label: 'Welcome to ODE',
     },
+    
+    // Welcome & Getting Started (for all users)
     {
       type: 'category',
-      label: 'Getting Started',
+      label: 'Welcome',
       link: {
         type: 'doc',
-        id: 'getting-started/index',
+        id: 'welcome/what-is-ode',
       },
       items: [
-        'getting-started/what-is-ode',
+        'welcome/what-is-ode',
         'getting-started/why-ode',
         'getting-started/key-concepts',
-        'getting-started/installing-formulus',
         'getting-started/faq',
+        'getting-started/architecture-overview',
       ],
     },
+    
+    // PERSONA 1: Data Collectors (Non-technical field workers)
     {
       type: 'category',
-      label: 'Using ODE',
+      label: 'For Data Collectors',
       link: {
         type: 'doc',
-        id: 'using/index',
+        id: 'collector/collector-index',
       },
       items: [
+        {
+          type: 'doc',
+          id: 'collector/collector-index',
+          label: 'Overview',
+        },
+        'collector/collector-getting-started',
+        'getting-started/installing-formulus',
         'using/your-first-form',
         'using/formulus-features',
-        'using/app-bundles',
-        'using/data-management',
         'using/synchronization',
-        'using/custom-applications',
         'using/working-offline',
         'using/troubleshooting',
       ],
     },
+    
+    // PERSONA 2: Implementers (Form designers & project managers)
     {
       type: 'category',
-      label: 'Guides',
+      label: 'For Implementers',
       link: {
         type: 'doc',
-        id: 'guides/index',
+        id: 'implementer/implementer-index',
       },
       items: [
+        {
+          type: 'doc',
+          id: 'implementer/implementer-index',
+          label: 'Overview',
+        },
+        'implementer/implementer-overview',
         'guides/form-design',
-        'guides/custom-applications',
         'guides/deployment',
         'guides/configuration',
+        'using/app-bundles',
+        'using/data-management',
+        'using/custom-applications',
       ],
     },
+    
+    // PERSONA 3: Developers (Engineers & contributors)
+    {
+      type: 'category',
+      label: 'For Developers',
+      link: {
+        type: 'doc',
+        id: 'developer/developer-index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'developer/developer-index',
+          label: 'Overview',
+        },
+        'developer/developer-getting-started',
+        'development/quick-start',
+        'development/architecture',
+        'development/setup',
+        'development/building-testing',
+        'development/contributing',
+        'development/extending',
+        {
+          type: 'category',
+          label: 'Component Development',
+          items: [
+            'development/formulus-development',
+            'development/formplayer-development',
+            'development/synkronus-development',
+            'development/synkronus-portal-development',
+          ],
+        },
+      ],
+    },
+    
+    // Shared Reference Materials
     {
       type: 'category',
       label: 'Reference',
@@ -69,40 +131,51 @@ const sidebars: SidebarsConfig = {
         id: 'reference/index',
       },
       items: [
-        'reference/api',
-        'reference/components',
-        'reference/formulus',
-        'reference/formplayer',
-        'reference/formplayer-contract',
-        'reference/synkronus-cli',
-        'reference/synkronus-server',
-        'reference/synkronus-portal',
-        'reference/form-specifications',
-        'reference/app-bundle-format',
+        {
+          type: 'category',
+          label: 'API',
+          items: [
+            'reference/api',
+            'reference/form-specifications',
+            'reference/app-bundle-format',
+            {
+              type: 'category',
+              label: 'REST API',
+              items: [
+                'reference/rest-api/overview',
+                'reference/rest-api/authentication',
+                'reference/rest-api/sync',
+                'reference/rest-api/app-bundle',
+                'reference/rest-api/attachments',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Components',
+          items: [
+            'reference/components',
+            'reference/formulus',
+            'reference/formplayer',
+            'reference/formplayer-contract',
+            'reference/synkronus-server',
+            'reference/synkronus-cli',
+            'reference/synkronus-portal',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Configuration',
+          items: [
+            'reference/configuration/client',
+            'reference/configuration/server',
+          ],
+        },
       ],
     },
-    {
-      type: 'category',
-      label: 'Development',
-      link: {
-        type: 'doc',
-        id: 'development/index',
-      },
-      items: [
-        'development/installation',
-        'development/quick-start',
-        'development/setup',
-        'development/installing-formulus-dev',
-        'development/architecture',
-        'development/formulus-development',
-        'development/formplayer-development',
-        'development/synkronus-development',
-        'development/synkronus-portal-development',
-        'development/contributing',
-        'development/building-testing',
-        'development/extending',
-      ],
-    },
+    
+    // Community & Support
     {
       type: 'category',
       label: 'Community',
@@ -113,6 +186,8 @@ const sidebars: SidebarsConfig = {
       items: [
         'community/getting-help',
         'community/examples',
+        'community/contribute/first-time',
+        'community/contribute/code-of-conduct',
       ],
     },
   ],

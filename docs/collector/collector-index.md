@@ -1,0 +1,196 @@
+---
+sidebar_position: 2
+title: 👩‍💻 For Data Collectors
+---
+
+# Data Collection with ODE
+
+Welcome to the **Data Collector** section! Whether you're a field researcher, community health worker, or survey enumerator, this guide covers everything you need to collect data using Formulus.
+
+## Who This Guide Is For
+
+This section is designed for **non-technical users** who:
+
+- Are collecting data in the field
+- Use Formulus (the mobile app)
+- Want to understand how to complete forms, sync data, and work offline
+- Need troubleshooting help
+
+:::info Not designing forms?
+If you're creating or customizing forms, see the [Implementer Guide](/docs/implementer).  
+If you're developing or extending ODE, see the [Developer Guide](/docs/developer).
+:::
+
+## Quick Start
+
+Get up and running in 5 minutes:
+
+1. **[Install Formulus](/docs/collector/install-formulus)** - Download and set up the app
+2. **[Submit Your First Form](/docs/collector/first-submission)** - Get familiar with the interface
+3. **[Sync Your Data](/docs/collector/syncing-data)** - Send data to the server
+
+## What You'll Learn
+
+<div className="row">
+  <div className="col col--6 col--12-mobile margin-bottom--md">
+    <div className="card card--compact">
+      <div className="card__header">
+        <h4>📲 Getting Started</h4>
+      </div>
+      <div className="card__body">
+        <p>Install Formulus and set up your first project.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/collector/getting-started">Get Started →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="col col--6 col--12-mobile margin-bottom--md">
+    <div className="card card--compact">
+      <div className="card__header">
+        <h4>✏️ Using the App</h4>
+      </div>
+      <div className="card__body">
+        <p>Learn form controls, data entry, and app features.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/collector/using-the-app">Learn More →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="col col--6 col--12-mobile margin-bottom--md">
+    <div className="card card--compact">
+      <div className="card__header">
+        <h4>🔄 Syncing Data</h4>
+      </div>
+      <div className="card__body">
+        <p>Upload forms and sync with the server.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/collector/syncing-data">Learn More →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="col col--6 col--12-mobile margin-bottom--md">
+    <div className="card card--compact">
+      <div className="card__header">
+        <h4>⚠️ Troubleshooting</h4>
+      </div>
+      <div className="card__body">
+        <p>Fix common issues and get help.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/collector/troubleshooting">Get Help →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="col col--6 col--12-mobile margin-bottom--md">
+    <div className="card card--compact">
+      <div className="card__header">
+        <h4>📡 Offline Mode</h4>
+      </div>
+      <div className="card__body">
+        <p>Understand how Formulus works without internet.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/collector/working-offline">Learn More →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="col col--6 col--12-mobile margin-bottom--md">
+    <div className="card card--compact">
+      <div className="card__header">
+        <h4>❓ FAQ</h4>
+      </div>
+      <div className="card__body">
+        <p>Answers to common questions.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/collector/faq">Read FAQ →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Documentation Roadmap
+
+### 📚 Learn the Basics
+- [Installation & Setup](/docs/collector/install-formulus)
+- [Your First Submission](/docs/collector/first-submission)
+- [Basic Form Navigation](/docs/collector/using-the-app)
+
+### 🎯 Practical Tasks
+- [Collecting Different Data Types](/docs/collector/using-the-app#data-types)
+- [Managing Media (Photos, Audio)](/docs/collector/using-the-app#media-capture)
+- [Working in Areas Without Internet](/docs/collector/working-offline)
+
+### 🔄 Data Management
+- [Syncing Data to the Server](/docs/collector/syncing-data)
+- [Understanding Sync Status](/docs/collector/syncing-data#sync-status)
+- [Managing Local Storage](/docs/collector/data-management)
+
+### 🆘 Troubleshooting
+- [Sync Issues](/docs/collector/troubleshooting#sync-issues)
+- [App Crashes or Freezes](/docs/collector/troubleshooting#app-issues)
+- [Device Not Connecting](/docs/collector/troubleshooting#connection-issues)
+- [Data Loss Prevention](/docs/collector/troubleshooting#data-loss)
+
+## Key Concepts
+
+### What is Formulus?
+Formulus is a mobile application available for Android and iOS. It's designed to:
+- Work in areas with poor or no internet connectivity
+- Securely store data on your device
+- Automatically sync when you connect to the internet
+- Display forms customized by your project manager
+
+### What is Sync?
+Sync is the process of sending completed forms from your phone to the server. Your data is:
+- Encrypted during transmission
+- Stored securely on the server
+- Available for your project manager to review and analyze
+
+### How Does Offline Work?
+Formulus keeps a copy of all data on your phone. You can:
+- Create new forms even without internet
+- Edit and save responses locally
+- Sync when you're back online
+- See sync status in the app
+
+## Before You Start
+
+Make sure you have:
+
+- ✅ A smartphone (Android 8.0+ or iOS 13.0+)
+- ✅ Access to internet (at least for initial setup)
+- ✅ Instructions from your project manager (server URL, project code)
+- ✅ Basic phone experience
+
+## Terminology
+
+| Term | Meaning |
+|------|---------|
+| **Form** | A survey or questionnaire you fill out |
+| **Submission** | A completed form with your responses |
+| **Sync** | Sending your data to the server |
+| **Offline** | Working without internet connection |
+| **Formulus** | The mobile app you use to collect data |
+| **Synkronus** | The server that stores your data |
+
+## Getting Help
+
+If you get stuck:
+
+1. **Check the troubleshooting guide** → [Troubleshooting](/docs/collector/troubleshooting)
+2. **Search the FAQ** → [FAQ](/docs/collector/faq)
+3. **Contact your project manager** → They can help with project-specific issues
+4. **Reach out to the community** → [Get Help](/docs/community/getting-help)
+
+## Next Steps
+
+Ready to start collecting data? Let's go!
+
+→ **[Install Formulus](/docs/collector/install-formulus)**
+
+Or if you're already installed:
+
+→ **[Submit Your First Form](/docs/collector/first-submission)**
+
+---
+
+:::note Questions?
+For questions about designing forms or running a project, see the [Implementer Guide](/docs/implementer).
+:::

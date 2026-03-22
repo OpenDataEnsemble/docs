@@ -6,6 +6,8 @@ sidebar_position: 2
 
 Complete guide to building and deploying custom applications that integrate with ODE.
 
+> **Getting started?** Start with our hands-on [Building Custom Apps](../guides/building-custom-apps.md) tutorial, which walks you through a complete example (Coffee Tracker) from scratch. This reference covers more advanced patterns.
+
 ## Overview
 
 Custom applications are React applications that run within the Formulus mobile app, providing specialized workflows and user experiences. They allow you to create custom navigation, integrate with the ODE form system, and build specialized interfaces for specific use cases.

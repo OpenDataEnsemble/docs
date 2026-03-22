@@ -6,6 +6,8 @@ sidebar_position: 8
 
 Complete technical reference for the Synkronus server component.
 
+> **Want to get a server running quickly?** See the [Synkronus Quickstart](../getting-started/synkronus-quickstart.md) guide for a simple Docker/Podman setup with automated TLS provisioning.
+
 ## Overview
 
 Synkronus is a robust synchronization API server built with Go. It provides RESTful endpoints for data synchronization, app bundle management, attachment handling, user management, and form specifications. The server uses PostgreSQL for data storage and JWT for authentication.

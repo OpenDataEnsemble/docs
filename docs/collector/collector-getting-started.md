@@ -342,15 +342,15 @@ Once submitted and synced, your data is safe on the server. Contact your project
 
 Congratulations! You've successfully submitted your first form. Now:
 
-1. **[Learn about the app features](/docs/collector/using-the-app)** - Explore what Formulus can do
-2. **[Understand working offline](/docs/collector/working-offline)** - Maximize battery and storage
-3. **[Get help with issues](/docs/collector/troubleshooting)** - Find solutions to common problems
-4. **[Check the FAQ](/docs/collector/faq)** - Common questions answered
+1. **[Learn about the app features](/docs/using/formulus-features)** - Explore what Formulus can do
+2. **[Understand working offline](/docs/using/working-offline)** - Maximize battery and storage
+3. **[Get help with issues](/docs/using/troubleshooting)** - Find solutions to common problems
+4. **[Check the FAQ](/docs/getting-started/faq)** - Common questions answered
 
 ## Need Help?
 
-- **App issue?** → [Troubleshooting Guide](/docs/collector/troubleshooting)
-- **Question about syncing?** → [Syncing Data](/docs/collector/syncing-data)
+- **App issue?** → [Troubleshooting Guide](/docs/using/troubleshooting)
+- **Question about syncing?** → [Syncing Data](/docs/using/synchronization)
 - **Need community help?** → [Get Help](/docs/community/getting-help)
 - **Contact your project manager** → They know your specific project setup
 

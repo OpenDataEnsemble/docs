@@ -21,10 +21,10 @@ You want to help improve ODE itself (Formulus, Synkronus, Formplayer, or CLI).
 **Time to first contribution:** 2-4 hours
 
 **Next Steps:**
-1. [Set up your environment](/docs/developer/setup-environment)
-2. [Read architecture overview](/docs/developer/architecture)
-3. [Choose a component](/docs/developer/components)
-4. [Follow contributing guide](/docs/developer/contributing-guide)
+1. [Set up your environment](/docs/development/setup)
+2. [Read architecture overview](/docs/development/architecture)
+3. [Choose a component](/docs/development)
+4. [Follow contributing guide](/docs/development/contributing)
 
 ### Path 2: Building Custom Applications
 
@@ -38,10 +38,10 @@ You want to build custom data collection apps using ODE APIs.
 **Time to first app:** 4-8 hours
 
 **Next Steps:**
-1. [Understand ODE architecture](/docs/developer/architecture)
-2. [Learn the REST API](/docs/api/rest-api/overview)
-3. [Review API examples](/docs/api/rest-api/authentication)
-4. [Read extending guide](/docs/developer/extending-ode)
+1. [Understand ODE architecture](/docs/development/architecture)
+2. [Learn the REST API](/docs/reference/rest-api/overview)
+3. [Review API examples](/docs/reference/rest-api/authentication)
+4. [Read extending guide](/docs/development/extending)
 
 ### Path 3: System Administration & Deployment
 
@@ -56,10 +56,10 @@ You want to deploy and manage ODE in your infrastructure.
 **Time to first deployment:** 1-2 hours
 
 **Next Steps:**
-1. [Understand system architecture](/docs/developer/architecture)
-2. [Learn server configuration](/docs/api/configuration/server)
-3. [Follow deployment guide](/docs/implementer/deployment-guide)
-4. [Set up monitoring](/docs/developer/setup-environment#monitoring)
+1. [Understand system architecture](/docs/development/architecture)
+2. [Learn server configuration](/docs/reference/configuration/server)
+3. [Follow deployment guide](/docs/guides/deployment)
+4. [Set up monitoring](/docs/development/setup#monitoring)
 
 ### Path 4: Integration & APIs
 
@@ -73,10 +73,10 @@ You want to integrate ODE with external systems (database, analytics, etc.).
 **Time to first integration:** 2-4 hours
 
 **Next Steps:**
-1. [Learn REST API](/docs/api/rest-api/overview)
-2. [Understand data formats](/docs/api/app-bundle-format)
-3. [Review sync protocol](/docs/api/rest-api/sync)
-4. [Build custom integrations](/docs/developer/extending-ode)
+1. [Learn REST API](/docs/reference/rest-api/overview)
+2. [Understand data formats](/docs/reference/app-bundle-format)
+3. [Review sync protocol](/docs/reference/rest-api/sync)
+4. [Build custom integrations](/docs/development/extending)
 
 ## Quick Prerequisites
 
@@ -162,7 +162,7 @@ cat package.json        # See scripts
 
 ### 4. Understand the Architecture
 
-Read the [Architecture Overview](/docs/developer/architecture) - it explains:
+Read the [Architecture Overview](/docs/development/architecture) - it explains:
 - How components communicate
 - The sync protocol
 - Authentication flow
@@ -170,7 +170,7 @@ Read the [Architecture Overview](/docs/developer/architecture) - it explains:
 
 ### 5. Set Up Development Environment
 
-Follow the detailed [Environment Setup](/docs/developer/setup-environment) guide for your component.
+Follow the detailed [Environment Setup](/docs/development/setup) guide for your component.
 
 ## Understanding ODE's Tech Stack
 
@@ -216,7 +216,7 @@ Follow the detailed [Environment Setup](/docs/developer/setup-environment) guide
 **Time:** 2-3 hours  
 **Impact:** Enable new data types for form designers
 
-→ [Extending ODE - Form Controls](/docs/developer/extending-ode#form-controls)
+→ [Extending ODE - Form Controls](/docs/development/extending#form-controls)
 
 ### Task 2: Fix a Bug in Formulus
 
@@ -224,7 +224,7 @@ Follow the detailed [Environment Setup](/docs/developer/setup-environment) guide
 **Time:** 1-2 hours  
 **Impact:** Improve stability for field workers
 
-→ [Formulus Development](/docs/developer/components/formulus)
+→ [Formulus Development](/docs/development/formulus-development)
 
 ### Task 3: Add a New API Endpoint
 
@@ -232,7 +232,7 @@ Follow the detailed [Environment Setup](/docs/developer/setup-environment) guide
 **Time:** 2-4 hours  
 **Impact:** Enable custom integrations
 
-→ [Synkronus Development](/docs/developer/components/synkronus)
+→ [Synkronus Development](/docs/development/synkronus-development)
 
 ### Task 4: Improve Documentation
 
@@ -240,7 +240,7 @@ Follow the detailed [Environment Setup](/docs/developer/setup-environment) guide
 **Time:** 1-2 hours  
 **Impact:** Help other developers
 
-→ [Contributing - Documentation](/docs/developer/contributing-guide#documentation)
+→ [Contributing - Documentation](/docs/development/contributing#documentation)
 
 ### Task 5: Set Up Local Development
 
@@ -248,7 +248,7 @@ Follow the detailed [Environment Setup](/docs/developer/setup-environment) guide
 **Time:** 30-60 minutes  
 **Impact:** Run ODE locally for testing
 
-→ [Setup Environment](/docs/developer/setup-environment)
+→ [Setup Environment](/docs/development/setup)
 
 ## Development Workflow
 
@@ -328,10 +328,10 @@ git commit -m "Add GPS field control for forms (Fixes #456)"
 ## Learning Resources
 
 ### ODE Specific
-- [Architecture Deep Dive](/docs/developer/architecture)
-- [Component Documentation](/docs/developer/components)
-- [Contributing Guide](/docs/developer/contributing-guide)
-- [API Reference](/docs/api/rest-api/overview)
+- [Architecture Deep Dive](/docs/development/architecture)
+- [Component Documentation](/docs/development)
+- [Contributing Guide](/docs/development/contributing)
+- [API Reference](/docs/reference/rest-api/overview)
 
 ### React Native
 - [Official Docs](https://reactnative.dev/)
@@ -353,7 +353,7 @@ git commit -m "Add GPS field control for forms (Fixes #456)"
 
 **Stuck on something?**
 
-1. **Check the docs** - Most answers are in [Architecture](/docs/developer/architecture) or [Component Guides](/docs/developer/components)
+1. **Check the docs** - Most answers are in [Architecture](/docs/development/architecture) or [Component Guides](/docs/development)
 2. **Search existing issues** - Your question might be answered
 3. **Ask in discussions** - [GitHub Discussions](https://github.com/OpenDataEnsemble/ode/discussions)
 4. **Contact maintainers** - hello@opendataensemble.org
@@ -401,5 +401,5 @@ Choose your path and dive in:
 :::tip Welcome to ODE Development!
 We're excited to have you contribute. Don't hesitate to ask questions—the community is friendly and helpful.
 
-→ **[Set Up Your Environment](/docs/developer/setup-environment)**
+→ **[Set Up Your Environment](/docs/development/setup)**
 :::

@@ -17,8 +17,8 @@ This section is designed for **non-technical users** who:
 - Need troubleshooting help
 
 :::info Not designing forms?
-If you're creating or customizing forms, see the [Implementer Guide](/docs/implementer).  
-If you're developing or extending ODE, see the [Developer Guide](/docs/developer).
+If you're creating or customizing forms, see the [Implementer Guide](/docs/implementer/implementer-index).  
+If you're developing or extending ODE, see the [Developer Guide](/docs/developer/developer-index).
 :::
 
 ## Quick Start
@@ -174,8 +174,8 @@ Make sure you have:
 
 If you get stuck:
 
-1. **Check the troubleshooting guide** → [Troubleshooting](/docs/collector/troubleshooting)
-2. **Search the FAQ** → [FAQ](/docs/collector/faq)
+1. **Check the troubleshooting guide** → [Troubleshooting](/docs/using/troubleshooting)
+2. **Search the FAQ** → [FAQ](/docs/getting-started/faq)
 3. **Contact your project manager** → They can help with project-specific issues
 4. **Reach out to the community** → [Get Help](/docs/community/getting-help)
 
@@ -183,14 +183,14 @@ If you get stuck:
 
 Ready to start collecting data? Let's go!
 
-→ **[Install Formulus](/docs/collector/install-formulus)**
+→ **[Install Formulus](/docs/getting-started/installing-formulus)**
 
 Or if you're already installed:
 
-→ **[Submit Your First Form](/docs/collector/first-submission)**
+→ **[Submit Your First Form](/docs/using/your-first-form)**
 
 ---
 
 :::note Questions?
-For questions about designing forms or running a project, see the [Implementer Guide](/docs/implementer).
+For questions about designing forms or running a project, see the [Implementer Guide](/docs/implementer/implementer-index).
 :::

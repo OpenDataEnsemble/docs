@@ -211,5 +211,5 @@ Mobile devices download app bundles during synchronization:
 ## Related Documentation
 
 - [Custom Applications Guide](/docs/guides/custom-applications)
-- [API Reference](/docs/reference/api)
+- [API Reference](/docs/reference/rest-api/overview)
 - [Form Design Guide](/docs/guides/form-design)

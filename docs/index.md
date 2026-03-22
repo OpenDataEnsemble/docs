@@ -115,4 +115,4 @@ This documentation is organized to help you find information quickly:
 - Read [Why ODE?](/docs/getting-started/why-ode) for a detailed overview
 - Follow the [Installation guide](/docs/getting-started/installing-formulus) to set up your environment
 - Create your [first form](/docs/using/your-first-form) to see ODE in action
-- Explore the [API Reference](/docs/reference/api) for technical details
+- Explore the [API Reference](/docs/reference/rest-api/overview) for technical details

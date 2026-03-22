@@ -317,14 +317,14 @@ Verify the installation:
 
 Formulus is the mobile application component of ODE, available for Android and iOS devices.
 
-For detailed installation instructions, see the [Installing Formulus guide](/getting-started/installing-formulus) which covers:
+For detailed installation instructions, see the [Installing Formulus guide](/docs/getting-started/installing-formulus) which covers:
 
 - F-Droid installation (recommended for end users)
 - Direct APK installation
 - System requirements
 - Post-installation setup
 
-For developers who want to install via ADB or emulator, see the [Development Installation guide](/development/installing-formulus-dev).
+For developers who want to install via ADB or emulator, see the [Development Installation guide](/docs/development/installing-formulus-dev).
 
 ### Quick Installation Summary
 
@@ -333,7 +333,7 @@ For developers who want to install via ADB or emulator, see the [Development Ins
 1. **F-Droid** (Recommended): Install via F-Droid app store
 2. **Direct APK**: Download and install APK file directly
 
-See [Installing Formulus](/getting-started/installing-formulus) for complete instructions.
+See [Installing Formulus](/docs/getting-started/installing-formulus) for complete instructions.
 
 #### For Developers
 
@@ -341,7 +341,7 @@ See [Installing Formulus](/getting-started/installing-formulus) for complete ins
 2. **Emulator**: Run on Android emulator
 3. **Development Build**: Build from source with hot reload
 
-See [Installing Formulus for Development](/development/installing-formulus-dev) for complete instructions.
+See [Installing Formulus for Development](/docs/development/installing-formulus-dev) for complete instructions.
 
 ### App Configuration
 
@@ -420,7 +420,7 @@ If the mobile app cannot connect to the server:
 
 ## Next Steps
 
-- Follow the [Quick Start guide](/getting-started/quick-start) for a complete setup
-- Learn how to [use the app](/using/your-first-form) for data collection
-- Review the [Deployment guide](/guides/deployment) for production setup
+- Follow the [Quick Start guide](/docs/getting-started/index) for a complete setup
+- Learn how to [use the app](/docs/using/your-first-form) for data collection
+- Review the [Deployment guide](/docs/guides/deployment) for production setup
 

@@ -23,20 +23,16 @@ const sidebars: SidebarsConfig = {
       label: 'Welcome to ODE',
     },
     
-    // Welcome & Getting Started (for all users)
+    // Getting Started
     {
       type: 'category',
-      label: 'Welcome',
-      link: {
-        type: 'doc',
-        id: 'welcome/what-is-ode',
-      },
+      label: 'Getting Started',
       items: [
-        'welcome/what-is-ode',
         'getting-started/why-ode',
         'getting-started/key-concepts',
         'getting-started/faq',
         'getting-started/architecture-overview',
+        'getting-started/installing-formulus',
       ],
     },
     

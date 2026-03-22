@@ -469,8 +469,8 @@ synk --verbose <command>
 
 ## Related Documentation
 
-- [Synkronus Server Reference](/reference/synkronus-server) - Server API documentation
-- [App Bundle Format](/reference/app-bundle-format) - Bundle structure
-- [API Reference](/reference/api) - Complete API documentation
-- [Deployment Guide](/guides/deployment) - Server deployment
+- [Synkronus Server Reference](/docs/reference/synkronus-server) - Server API documentation
+- [App Bundle Format](/docs/reference/app-bundle-format) - Bundle structure
+- [API Reference](/docs/reference/api) - Complete API documentation
+- [Deployment Guide](/docs/guides/deployment) - Server deployment
 

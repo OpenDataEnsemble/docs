@@ -26,9 +26,9 @@ If you're developing or extending ODE, see the [Developer Guide](/docs/developer
 
 Get your first form running in 30 minutes:
 
-1. **[Understand the Basics](/docs/implementer/overview)** - Learn how forms and projects work
-2. **[Design Your First Form](/docs/implementer/form-design-guide)** - Create a form using JSON schema
-3. **[Deploy Your Form](/docs/implementer/deployment-guide)** - Get it to field workers
+1. **[Understand the Basics](/docs/implementer/implementer-overview)** - Learn how forms and projects work
+2. **[Design Your First Form](/docs/guides/form-design)** - Create a form using JSON schema
+3. **[Deploy Your Form](/docs/guides/deployment)** - Get it to field workers
 
 ## What You'll Learn
 
@@ -36,11 +36,11 @@ Get your first form running in 30 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>🎯 Implementer Overview</h4>
+        <h4>Implementer Overview</h4>
       </div>
       <div className="card__body">
         <p>Understand your role and project planning basics.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/implementer/overview">Get Started →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/implementer/implementer-overview">Get Started →</a>
       </div>
     </div>
   </div>
@@ -48,11 +48,11 @@ Get your first form running in 30 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>📝 Form Design Guide</h4>
+        <h4>Form Design Guide</h4>
       </div>
       <div className="card__body">
         <p>Master JSON schema and UI design patterns.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/implementer/form-design-guide">Learn More →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/guides/form-design">Learn More →</a>
       </div>
     </div>
   </div>
@@ -60,11 +60,11 @@ Get your first form running in 30 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>🔧 JSON Forms Reference</h4>
+        <h4>JSON Forms Reference</h4>
       </div>
       <div className="card__body">
         <p>Complete reference for form controls and validation.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/implementer/json-forms-reference">Reference →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/reference/formplayer">Reference →</a>
       </div>
     </div>
   </div>
@@ -72,11 +72,11 @@ Get your first form running in 30 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>🚀 Deployment Guide</h4>
+        <h4>Deployment Guide</h4>
       </div>
       <div className="card__body">
         <p>Steps to deploy forms to field teams.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/implementer/deployment-guide">Deploy →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/guides/deployment">Deploy →</a>
       </div>
     </div>
   </div>
@@ -84,11 +84,11 @@ Get your first form running in 30 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>📊 Data Management</h4>
+        <h4>Data Management</h4>
       </div>
       <div className="card__body">
         <p>Collect, review, and export data securely.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/implementer/data-management">Learn More →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/using/data-management">Learn More →</a>
       </div>
     </div>
   </div>
@@ -96,11 +96,11 @@ Get your first form running in 30 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>⚠️ Troubleshooting</h4>
+        <h4>Troubleshooting</h4>
       </div>
       <div className="card__body">
         <p>Fix issues with forms, sync, or deployment.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/implementer/troubleshooting">Get Help →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/using/troubleshooting">Get Help →</a>
       </div>
     </div>
   </div>
@@ -109,34 +109,34 @@ Get your first form running in 30 minutes:
 ## Documentation Roadmap
 
 ### 🎓 Learn the Concepts
-- [Implementer Role Overview](/docs/implementer/overview)
-- [How ODE Works](/docs/implementer/overview#how-ode-works)
-- [Project Planning Checklist](/docs/implementer/overview#project-planning)
+- [Implementer Role Overview](/docs/implementer/implementer-overview)
+- [How ODE Works](/docs/implementer/implementer-overview#how-ode-works)
+- [Project Planning Checklist](/docs/implementer/implementer-overview#project-planning)
 
-### 📋 Design Forms
-- [Form Design Principles](/docs/implementer/form-design-guide)
-- [JSON Schema Basics](/docs/implementer/form-design-guide#json-schema)
-- [UI Schema for User Experience](/docs/implementer/form-design-guide#ui-schema)
-- [Form Controls Reference](/docs/implementer/json-forms-reference)
-- [Validation Rules](/docs/implementer/form-design-guide#validation)
+### Design Forms
+- [Form Design Principles](/docs/guides/form-design)
+- [JSON Schema Basics](/docs/guides/form-design#json-schema)
+- [UI Schema for User Experience](/docs/guides/form-design#ui-schema)
+- [Form Controls Reference](/docs/reference/formplayer)
+- [Validation Rules](/docs/guides/form-design#validation)
 
-### 🎨 Advanced Form Features
-- [Conditional Fields](/docs/implementer/form-design-guide#conditional-logic)
-- [Dynamic Choice Lists](/docs/implementer/form-design-guide#dynamic-choices)
-- [Media Capture (Photos, Audio)](/docs/implementer/form-design-guide#media)
-- [Calculated Fields](/docs/implementer/form-design-guide#calculations)
+### Advanced Form Features
+- [Conditional Fields](/docs/guides/form-design#conditional-logic)
+- [Dynamic Choice Lists](/docs/guides/form-design#dynamic-choices)
+- [Media Capture (Photos, Audio)](/docs/guides/form-design#media)
+- [Calculated Fields](/docs/guides/form-design#calculations)
 
-### 🚀 Deployment & Operations
-- [Deployment Planning](/docs/implementer/deployment-guide)
-- [Creating App Bundles](/docs/implementer/app-bundles)
-- [User Management](/docs/implementer/deployment-guide#user-management)
-- [Monitoring Form Submissions](/docs/implementer/data-management#monitoring)
+### Deployment & Operations
+- [Deployment Planning](/docs/guides/deployment)
+- [Creating App Bundles](/docs/using/app-bundles)
+- [User Management](/docs/guides/deployment#user-management)
+- [Monitoring Form Submissions](/docs/using/data-management#monitoring)
 
-### 📊 Data Management
-- [Understanding Data Structure](/docs/implementer/data-management)
-- [Exporting Data](/docs/implementer/data-management#export)
-- [Data Quality & Validation](/docs/implementer/data-management#quality)
-- [Archiving Old Data](/docs/implementer/data-management#archiving)
+### Data Management
+- [Understanding Data Structure](/docs/using/data-management)
+- [Exporting Data](/docs/using/data-management#export)
+- [Data Quality & Validation](/docs/using/data-management#quality)
+- [Archiving Old Data](/docs/using/data-management#archiving)
 
 ### 🔧 Configuration
 - [Server Configuration](/docs/api/configuration/server)
@@ -190,22 +190,22 @@ As an Implementer, you typically:
 ### Scenario 1: Health Survey
 You're conducting a community health survey with 50 field workers across a region with limited connectivity.
 
-→ [See the Health Survey Template Guide](/docs/implementer/form-design-guide#health-survey-example)
+→ [See the Health Survey Template Guide](/docs/guides/form-design#health-survey-example)
 
 ### Scenario 2: Multi-Form Campaign
 You're managing a 3-form workflow where later forms depend on earlier responses.
 
-→ [See Forms with Conditional Logic](/docs/implementer/form-design-guide#conditional-logic)
+→ [See Forms with Conditional Logic](/docs/guides/form-design#conditional-logic)
 
 ### Scenario 3: Offline Deployment
 You need workers to collect data with zero internet connectivity for extended periods.
 
-→ [See Offline Deployment Guide](/docs/implementer/deployment-guide#offline)
+→ [See Offline Deployment Guide](/docs/guides/deployment#offline)
 
 ### Scenario 4: Large-Scale Rollout
 You're deploying to 1000+ workers across multiple countries.
 
-→ [See Scaling & Infrastructure](/docs/implementer/deployment-guide#scale)
+→ [See Scaling & Infrastructure](/docs/guides/deployment#scale)
 
 ## Terminology
 
@@ -235,9 +235,9 @@ You should have:
 
 If you need assistance:
 
-1. **Check the form design guide** → [Form Design Guide](/docs/implementer/form-design-guide)
-2. **Look up a control type** → [JSON Forms Reference](/docs/implementer/json-forms-reference)
-3. **Review deployment steps** → [Deployment Guide](/docs/implementer/deployment-guide)
+1. **Check the form design guide** → [Form Design Guide](/docs/guides/form-design)
+2. **Look up a control type** → [Form Controls Reference](/docs/reference/formplayer)
+3. **Review deployment steps** → [Deployment Guide](/docs/guides/deployment)
 4. **Contact the community** → [Get Help](/docs/community/getting-help)
 5. **Report an issue** → [GitHub Issues](https://github.com/OpenDataEnsemble/ode)
 
@@ -245,11 +245,11 @@ If you need assistance:
 
 Ready to start designing? Let's begin!
 
-→ **[Implementer Overview](/docs/implementer/overview)**
+→ **[Implementer Overview](/docs/implementer/implementer-overview)**
 
 Or jump straight to form design:
 
-→ **[Form Design Guide](/docs/implementer/form-design-guide)**
+→ **[Form Design Guide](/docs/guides/form-design)**
 
 ---
 

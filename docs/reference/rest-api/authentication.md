@@ -21,5 +21,5 @@ API endpoints for authentication.
 ## Related Content
 
 - [REST API Overview](/docs/reference/rest-api/overview)
-- [Users & Authentication](/reference/api)
+- [Users & Authentication](/docs/reference/api)
 

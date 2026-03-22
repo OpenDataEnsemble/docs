@@ -210,6 +210,6 @@ Mobile devices download app bundles during synchronization:
 
 ## Related Documentation
 
-- [Custom Applications Guide](/guides/custom-applications)
-- [API Reference](/reference/api)
-- [Form Design Guide](/guides/form-design)
+- [Custom Applications Guide](/docs/guides/custom-applications)
+- [API Reference](/docs/reference/api)
+- [Form Design Guide](/docs/guides/form-design)

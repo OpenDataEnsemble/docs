@@ -363,9 +363,9 @@ For large-scale projects (1000+ users):
 ### 👉 Start Here
 
 1. **Understand your project needs** - What data do you need?
-2. **Learn form design** → [Form Design Guide](/docs/implementer/form-design-guide)
-3. **Design your first form** → [JSON Forms Reference](/docs/implementer/json-forms-reference)
-4. **Plan deployment** → [Deployment Guide](/docs/implementer/deployment-guide)
+2. **Learn form design** → [Form Design Guide](/docs/guides/form-design)
+3. **Design your first form** → [Form Controls Reference](/docs/reference/formplayer)
+4. **Plan deployment** → [Deployment Guide](/docs/guides/deployment)
 
 ### 📚 Resources
 
@@ -376,10 +376,10 @@ For large-scale projects (1000+ users):
 
 ## Getting Help
 
-- **Questions about form design?** → [Form Design Guide](/docs/implementer/form-design-guide)
-- **What controls can I use?** → [JSON Forms Reference](/docs/implementer/json-forms-reference)
-- **How do I deploy?** → [Deployment Guide](/docs/implementer/deployment-guide)
-- **Help with specific issues?** → [Troubleshooting](/docs/implementer/troubleshooting)
+- **Questions about form design?** → [Form Design Guide](/docs/guides/form-design)
+- **What controls can I use?** → [Form Controls Reference](/docs/reference/formplayer)
+- **How do I deploy?** → [Deployment Guide](/docs/guides/deployment)
+- **Help with specific issues?** → [Troubleshooting](/docs/using/troubleshooting)
 - **Need community support?** → [Get Help](/docs/community/getting-help)
 
 ---
@@ -388,5 +388,5 @@ For large-scale projects (1000+ users):
 
 Let's create a simple form to collect basic information about health clinics.
 
-→ **[Form Design Guide](/docs/implementer/form-design-guide)**
+→ **[Form Design Guide](/docs/guides/form-design)**
 :::

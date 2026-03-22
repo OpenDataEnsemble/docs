@@ -18,18 +18,18 @@ This section is designed for:
 - Contributors wanting to improve the codebase
 
 :::info Not developing?
-If you're collecting data, see the [Data Collector Guide](/docs/collector).  
-If you're designing forms, see the [Implementer Guide](/docs/implementer).
+If you're collecting data, see the [Data Collector Guide](/docs/collector/collector-index).  
+If you're designing forms, see the [Implementer Guide](/docs/implementer/implementer-index).
 :::
 
 ## Quick Start
 
 Set up your development environment in 20 minutes:
 
-1. **[Getting Started](/docs/developer/getting-started)** - Choose your path
-2. **[Architecture Overview](/docs/developer/architecture)** - Understand the system
-3. **[Set Up Environment](/docs/developer/setup-environment)** - Install dependencies
-4. **[Run Tests](/docs/developer/building-and-testing)** - Verify your setup
+1. **[Getting Started](/docs/developer/developer-getting-started)** - Choose your path
+2. **[Architecture Overview](/docs/development/architecture)** - Understand the system
+3. **[Set Up Environment](/docs/development/setup)** - Install dependencies
+4. **[Run Tests](/docs/development/building-testing)** - Verify your setup
 
 ## What You'll Learn
 
@@ -41,7 +41,7 @@ Set up your development environment in 20 minutes:
       </div>
       <div className="card__body">
         <p>Choose your development path and get started.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/developer/getting-started">Start →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/developer/developer-getting-started">Start →</a>
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@ Set up your development environment in 20 minutes:
       </div>
       <div className="card__body">
         <p>Deep dive into ODE system design and components.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/developer/architecture">Learn More →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/development/architecture">Learn More →</a>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@ Set up your development environment in 20 minutes:
       </div>
       <div className="card__body">
         <p>Configure your dev machine and install dependencies.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/developer/setup-environment">Setup →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/development/setup">Setup →</a>
       </div>
     </div>
   </div>
@@ -77,7 +77,7 @@ Set up your development environment in 20 minutes:
       </div>
       <div className="card__body">
         <p>Build projects and run test suites.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/developer/building-and-testing">Learn More →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/development/building-testing">Learn More →</a>
       </div>
     </div>
   </div>
@@ -89,7 +89,7 @@ Set up your development environment in 20 minutes:
       </div>
       <div className="card__body">
         <p>How to contribute to ODE development.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/developer/contributing-guide">Contribute →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/development/contributing">Contribute →</a>
       </div>
     </div>
   </div>
@@ -101,7 +101,7 @@ Set up your development environment in 20 minutes:
       </div>
       <div className="card__body">
         <p>Build custom extensions and integrations.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/developer/extending-ode">Learn More →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/development/extending">Learn More →</a>
       </div>
     </div>
   </div>
@@ -110,53 +110,53 @@ Set up your development environment in 20 minutes:
 ## Documentation Roadmap
 
 ### 🚀 Get Started
-- [Development Paths](/docs/developer/getting-started#paths)
-- [Prerequisites & Requirements](/docs/developer/getting-started#prerequisites)
-- [Quick Start Guide](/docs/developer/getting-started#quick-start)
+- [Development Paths](/docs/developer/developer-getting-started#paths)
+- [Prerequisites & Requirements](/docs/developer/developer-getting-started#prerequisites)
+- [Quick Start Guide](/docs/developer/developer-getting-started#quick-start)
 
 ### 🏗️ Understand Architecture
-- [System Overview](/docs/developer/architecture)
-- [Component Architecture](/docs/developer/architecture#components)
-- [Data Flow & Sync Protocol](/docs/developer/architecture#data-flow)
-- [Authentication & Security](/docs/developer/architecture#security)
+- [System Overview](/docs/development/architecture)
+- [Component Architecture](/docs/development/architecture#components)
+- [Data Flow & Sync Protocol](/docs/development/architecture#data-flow)
+- [Authentication & Security](/docs/development/architecture#security)
 
 ### 🔧 Set Up Environment
-- [macOS Setup](/docs/developer/setup-environment#macos)
-- [Linux Setup](/docs/developer/setup-environment#linux)
-- [Windows Setup](/docs/developer/setup-environment#windows)
-- [Docker Setup](/docs/developer/setup-environment#docker)
+- [macOS Setup](/docs/development/setup#macos)
+- [Linux Setup](/docs/development/setup#linux)
+- [Windows Setup](/docs/development/setup#windows)
+- [Docker Setup](/docs/development/setup#docker)
 
 ### 📚 Component Development
-- [Formulus (React Native)](/docs/developer/components/formulus)
-- [Synkronus Server (Go)](/docs/developer/components/synkronus)
-- [Formplayer (React)](/docs/developer/components/formplayer)
-- [Synkronus CLI (Go)](/docs/developer/components/synkronus-cli)
+- [Formulus (React Native)](/docs/development/formulus-development)
+- [Synkronus Server (Go)](/docs/development/synkronus-development)
+- [Formplayer (React)](/docs/development/formplayer-development)
+- [Synkronus CLI (Go)](/docs/development/setup)
 
 ### 🏗️ Building & Testing
-- [Building Projects](/docs/developer/building-and-testing#building)
-- [Running Tests](/docs/developer/building-and-testing#testing)
-- [Code Quality & Linting](/docs/developer/building-and-testing#quality)
-- [CI/CD Pipeline](/docs/developer/building-and-testing#ci-cd)
+- [Building Projects](/docs/development/building-testing#building)
+- [Running Tests](/docs/development/building-testing#testing)
+- [Code Quality & Linting](/docs/development/building-testing#quality)
+- [CI/CD Pipeline](/docs/development/building-testing#ci-cd)
 
 ### 🤝 Contributing
-- [Contributing Workflow](/docs/developer/contributing-guide#workflow)
-- [Code Standards](/docs/developer/contributing-guide#standards)
-- [Commit Messages](/docs/developer/contributing-guide#commits)
-- [Pull Request Process](/docs/developer/contributing-guide#pull-requests)
-- [Code of Conduct](/docs/community/code-of-conduct)
+- [Contributing Workflow](/docs/development/contributing#workflow)
+- [Code Standards](/docs/development/contributing#standards)
+- [Commit Messages](/docs/development/contributing#commits)
+- [Pull Request Process](/docs/development/contributing#pull-requests)
+- [Code of Conduct](/docs/community/contribute/code-of-conduct)
 
 ### ⚡ Extending ODE
-- [Custom Applications](/docs/developer/extending-ode#custom-apps)
-- [Custom Form Controls](/docs/developer/extending-ode#form-controls)
-- [Server Plugins](/docs/developer/extending-ode#plugins)
-- [Integration Patterns](/docs/developer/extending-ode#integrations)
+- [Custom Applications](/docs/development/extending#custom-apps)
+- [Custom Form Controls](/docs/development/extending#form-controls)
+- [Server Plugins](/docs/development/extending#plugins)
+- [Integration Patterns](/docs/development/extending#integrations)
 
 ### 📖 API Reference
-- [REST API Overview](/docs/api/rest-api/overview)
-- [Authentication](/docs/api/rest-api/authentication)
-- [Sync Protocol](/docs/api/rest-api/sync)
-- [App Bundle API](/docs/api/rest-api/app-bundle)
-- [Attachments](/docs/api/rest-api/attachments)
+- [REST API Overview](/docs/reference/rest-api/overview)
+- [Authentication](/docs/reference/rest-api/authentication)
+- [Sync Protocol](/docs/reference/rest-api/sync)
+- [App Bundle Format](/docs/reference/app-bundle-format)
+- [Attachments](/docs/reference/rest-api/attachments)
 
 ## Development Paths
 
@@ -165,9 +165,9 @@ Set up your development environment in 20 minutes:
 You want to help improve Formulus, Synkronus, or Formplayer.
 
 1. [Clone the monorepo](https://github.com/OpenDataEnsemble/ode)
-2. [Set up environment](/docs/developer/setup-environment)
-3. [Choose a component](/docs/developer/components)
-4. [Follow contributing guide](/docs/developer/contributing-guide)
+2. [Set up environment](/docs/development/setup)
+3. [Choose a component](/docs/development)
+4. [Follow contributing guide](/docs/development/contributing)
 
 → **Best for:** Passionate developers improving the platform
 
@@ -175,10 +175,10 @@ You want to help improve Formulus, Synkronus, or Formplayer.
 
 You want to build custom data collection applications on ODE.
 
-1. [Understand architecture](/docs/developer/architecture)
-2. [Learn the REST API](/docs/api/rest-api/overview)
-3. [Set up development environment](/docs/developer/setup-environment)
-4. [Follow extending guide](/docs/developer/extending-ode)
+1. [Understand architecture](/docs/development/architecture)
+2. [Learn the REST API](/docs/reference/rest-api/overview)
+3. [Set up development environment](/docs/development/setup)
+4. [Follow extending guide](/docs/development/extending)
 
 → **Best for:** Building organization-specific solutions
 
@@ -186,10 +186,10 @@ You want to build custom data collection applications on ODE.
 
 You want to deploy and manage ODE in your infrastructure.
 
-1. [Understand system architecture](/docs/developer/architecture)
-2. [Read deployment guide](/docs/implementer/deployment-guide)
-3. [Learn configuration options](/docs/api/configuration/server)
-4. [Set up monitoring](/docs/developer/setup-environment#monitoring)
+1. [Understand system architecture](/docs/development/architecture)
+2. [Read deployment guide](/docs/guides/deployment)
+3. [Learn configuration options](/docs/reference/configuration/server)
+4. [Set up monitoring](/docs/development/setup#monitoring)
 
 → **Best for:** SysAdmins and DevOps engineers
 
@@ -197,10 +197,10 @@ You want to deploy and manage ODE in your infrastructure.
 
 You want to integrate ODE with external systems.
 
-1. [Learn REST API](/docs/api/rest-api/overview)
-2. [Understand app bundle format](/docs/api/app-bundle-format)
-3. [Review sync protocol](/docs/api/rest-api/sync)
-4. [Build custom integrations](/docs/developer/extending-ode#integrations)
+1. [Learn REST API](/docs/reference/rest-api/overview)
+2. [Understand app bundle format](/docs/reference/app-bundle-format)
+3. [Review sync protocol](/docs/reference/rest-api/sync)
+4. [Build custom integrations](/docs/development/extending#integrations)
 
 → **Best for:** Backend developers and integrations engineers
 
@@ -257,10 +257,10 @@ Device                          Server
 
 ## Getting Help
 
-- **Architecture questions?** → [Read Architecture Guide](/docs/developer/architecture)
-- **Setup issues?** → [Setup Environment](/docs/developer/setup-environment)
-- **Contributing questions?** → [Contributing Guide](/docs/developer/contributing-guide)
-- **API documentation?** → [REST API](/docs/api/rest-api/overview)
+- **Architecture questions?** → [Read Architecture Guide](/docs/development/architecture)
+- **Setup issues?** → [Setup Environment](/docs/development/setup)
+- **Contributing questions?** → [Contributing Guide](/docs/development/contributing)
+- **API documentation?** → [REST API](/docs/reference/rest-api/overview)
 - **Need community help?** → [Community Support](/docs/community/getting-help)
 
 ## Contribution Ideas
@@ -292,13 +292,13 @@ ODE maintains high code quality:
 
 Ready to contribute or develop?
 
-→ **[Getting Started](/docs/developer/getting-started)**
+→ **[Getting Started](/docs/developer/developer-getting-started)**
 
 Or dive into a specific area:
 
-→ **[Architecture Deep Dive](/docs/developer/architecture)**  
-→ **[Set Up Environment](/docs/developer/setup-environment)**  
-→ **[Contributing Guide](/docs/developer/contributing-guide)**
+→ **[Architecture Deep Dive](/docs/development/architecture)**  
+→ **[Set Up Environment](/docs/development/setup)**  
+→ **[Contributing Guide](/docs/development/contributing)**
 
 ---
 

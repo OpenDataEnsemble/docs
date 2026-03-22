@@ -39,14 +39,86 @@ synkronus/
     └── openapi/           # OpenAPI generated code
 ```
 
+## Configuration
+
+### Required Environment Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `JWT_SECRET` | Secret key for JWT signing (generate with `openssl rand -base64 32`) | `AbCd1234=` |
+| `DB_CONNECTION` | PostgreSQL connection string | `postgres://user:pass@localhost:5432/synkronus` |
+
+### Optional Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `PORT` | `8080` | HTTP server port |
+| `LOG_LEVEL` | `info` | Logging level: `debug`, `info`, `warn`, `error` |
+| `MAX_VERSIONS_KEPT` | `5` | Number of app bundle versions to retain |
+| `ADMIN_USERNAME` | `admin` | Initial admin username |
+| `ADMIN_PASSWORD` | `admin` | Initial admin password (change after first login!) |
+
+### Database Configuration
+
+**PostgreSQL Requirements:**
+- PostgreSQL 12+ (13+ recommended)
+- Must have `uuid-ossp` extension enabled
+- Connection should support SSL (optional but recommended in production)
+
+**Example connection string:**
+```
+postgres://synkronus_user:SecurePassword123@db.example.com:5432/synkronus?sslmode=require
+```
+
+**Parameters:**
+- `sslmode=require` - Enforce SSL
+- `sslmode=disable` - No SSL (local dev only)
+- `connect_timeout=10` - Connection timeout in seconds
+
+### File Storage Configuration
+
+The server stores files at `<data_root>/app-bundle/` and `<data_root>/attachments/`:
+
+```
+/app/data/                           # Data root (from binary location)
+├── app-bundle/
+│   ├── active/                      # Active app bundle
+│   │   ├── forms/
+│   │   │   ├── household.json
+│   │   │   └── hh_person.json
+│   │   ├── question_types/
+│   │   └── metadata.json
+│   └── versions/                    # Historical versions
+│       ├── 1.0.0/
+│       ├── 0.9.0/
+│       └── ...
+└── attachments/                     # Observation attachments (photos, files)
+    ├── obs-123-photo.jpg
+    ├── obs-456-audio.m4a
+    └── ...
+```
+
+**Docker Volume Mount:**
+```yaml
+volumes:
+  - synkronus_data:/app/data  # Single volume containing all mutable data
+```
+
+**Directory Permissions (Docker):**
+- Container runs as user `synkronus` (uid=1000, gid=1000)
+- Host directory must be owned by `1000:1000`
+- Example fix: `sudo chown -R 1000:1000 /host/path/to/data`
+
 ## Core Features
 
 ### Data Synchronization
 
 - **Bidirectional Sync**: Push and pull operations
-- **Incremental Updates**: Only sync changed data
-- **Conflict Resolution**: Version-based conflict handling
-- **Client Tracking**: Track client sync state
+- **Incremental Updates**: Only sync changed data using `change_id` cursor
+- **Conflict Detection**: Hash-based conflict detection
+- **Attachment Handling**: Separate sync for binary files
+- **Idempotent Operations**: Safe to retry without duplication
+- **Client Tracking**: Track which changes each client has seen
 
 ### App Bundle Management
 

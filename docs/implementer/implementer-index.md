@@ -18,8 +18,8 @@ This section is designed for users who:
 - Are responsible for project outcomes
 
 :::info Not collecting data?
-If you're collecting data with Formulus, see the [Data Collector Guide](/docs/collector).  
-If you're developing or extending ODE, see the [Developer Guide](/docs/developer).
+If you're collecting data with Formulus, see the [Data Collector Guide](/docs/collector/collector-index).  
+If you're developing or extending ODE, see the [Developer Guide](/docs/developer/developer-index).
 :::
 
 ## Quick Start
@@ -139,9 +139,9 @@ Get your first form running in 30 minutes:
 - [Archiving Old Data](/docs/using/data-management#archiving)
 
 ### 🔧 Configuration
-- [Server Configuration](/docs/api/configuration/server)
-- [Client Configuration](/docs/api/configuration/client)
-- [App Bundle Format](/docs/api/app-bundle-format)
+- [Server Configuration](/docs/reference/configuration/server)
+- [Client Configuration](/docs/reference/configuration/client)
+- [App Bundle Format](/docs/reference/app-bundle-format)
 
 ## Key Concepts
 

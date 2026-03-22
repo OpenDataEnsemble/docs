@@ -14,13 +14,36 @@ Open Data Ensemble (ODE) is a comprehensive platform for mobile data collection 
 
 The source code for the pre-release version of ODE is now publicly available. While we're working toward the full 1.0 release, we welcome anyone willing to help with testing, development, or getting involved in the project.
 
-**Try the pre-release:** [Install Formulus on Android](/getting-started/installation)
+**Try the pre-release:** [Install Formulus on Android](/docs/getting-started/installing-formulus)
 
 **Get involved:** Reach out to us at [hello@opendataensemble.org](mailto:hello@opendataensemble.org) - we'd love to hear from you!
 
 **Source Code:** Our monorepo on GitHub contains the source code for all components. Visit our repository: [https://github.com/OpenDataEnsemble/ode](https://github.com/OpenDataEnsemble/ode)
 
 :::
+
+## The Problem ODE Solves
+
+Traditional data collection tools often have limitations:
+
+- **No offline support** - Without internet, collection stops
+- **Complexity** - Building forms requires technical expertise  
+- **Inflexibility** - Customization is difficult and expensive
+- **Lock-in** - Data is trapped in proprietary systems
+- **Cost** - Enterprise solutions are prohibitively expensive
+
+## How ODE Works
+
+ODE provides an integrated system for the complete data lifecycle:
+
+```
+┌──────────────┐      ┌──────────────┐      ┌──────────────┐
+│   Collect    │  ──► │    Sync      │  ──► │   Analyze    │
+│   Data       │      │   Offline    │      │   & Export   │
+└──────────────┘      └──────────────┘      └──────────────┘
+    Formulus         WatermelonDB +         Parquet Export
+    (App)           Synkronus (Server)      (Your Tools)
+```
 
 ## What is ODE?
 
@@ -72,9 +95,9 @@ Build custom applications that integrate with the ODE platform, allowing for spe
 
 ## Getting Started
 
-New to ODE? Start with our [Getting Started guide](/getting-started/what-is-ode) to understand the platform and begin your first project.
+New to ODE? Start with our [Getting Started guide](/docs/getting-started/why-ode) to understand the platform and begin your first project.
 
-For developers looking to contribute or extend ODE, see the [Development section](/development/setup) for architecture details and contribution guidelines.
+For developers looking to contribute or extend ODE, see the [Development section](/docs/development/setup) for architecture details and contribution guidelines.
 
 ## Documentation Structure
 
@@ -89,7 +112,7 @@ This documentation is organized to help you find information quickly:
 
 ## Next Steps
 
-- Read [What is ODE?](/getting-started/what-is-ode) for a detailed overview
-- Follow the [Installation guide](/getting-started/installation) to set up your environment
-- Create your [first form](/using/your-first-form) to see ODE in action
-- Explore the [API Reference](/reference/api) for technical details
+- Read [Why ODE?](/docs/getting-started/why-ode) for a detailed overview
+- Follow the [Installation guide](/docs/getting-started/installing-formulus) to set up your environment
+- Create your [first form](/docs/using/your-first-form) to see ODE in action
+- Explore the [API Reference](/docs/reference/api) for technical details

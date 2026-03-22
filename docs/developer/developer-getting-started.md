@@ -279,7 +279,7 @@ Follow the detailed [Environment Setup](/docs/developer/setup-environment) guide
 2. **Push to your fork**
 3. **Create a pull request** with description
 4. **Address feedback** from reviewers
-5. **Celebrate!** 🎉 when merged
+5. **Celebrate when merged**
 
 ## Code Quality Standards
 
@@ -380,20 +380,20 @@ git commit -m "Add GPS field control for forms (Fixes #456)"
 
 ## Next Steps
 
-### 🚀 Ready to Code?
+### Ready to Code?
 
 Choose your path and dive in:
 
-1. **[Core Contributor Path](/docs/developer/setup-environment)** - Set up environment
-2. **[Custom App Path](/docs/api/rest-api/overview)** - Learn the APIs
-3. **[Deployment Path](/docs/implementer/deployment-guide)** - Deploy ODE
-4. **[Integration Path](/docs/developer/extending-ode)** - Build integrations
+1. **[Core Contributor Path](/docs/development/setup)** - Set up environment
+2. **[Custom App Path](/docs/reference/rest-api/overview)** - Learn the APIs
+3. **[Deployment Path](/docs/guides/deployment)** - Deploy ODE
+4. **[Integration Path](/docs/development/extending)** - Build integrations
 
-### 📖 Read More
+### Read More
 
-- [Architecture Overview](/docs/developer/architecture)
-- [Component Development](/docs/developer/components)
-- [Contributing Guide](/docs/developer/contributing-guide)
+- [Architecture Overview](/docs/development/architecture)
+- [Component Development](/docs/reference/components)
+- [Contributing Guide](/docs/development/contributing)
 - [Community Support](/docs/community/getting-help)
 
 ---

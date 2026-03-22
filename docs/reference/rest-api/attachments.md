@@ -21,5 +21,5 @@ API endpoints for managing file attachments.
 ## Related Content
 
 - [REST API Overview](/docs/reference/rest-api/overview)
-- [Data Management](/using/data-management)
+- [Data Management](/docs/using/data-management)
 

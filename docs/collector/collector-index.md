@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: 👩‍💻 For Data Collectors
+title: For Data Collectors
 ---
 
 # Data Collection with ODE
@@ -25,9 +25,9 @@ If you're developing or extending ODE, see the [Developer Guide](/docs/developer
 
 Get up and running in 5 minutes:
 
-1. **[Install Formulus](/docs/collector/install-formulus)** - Download and set up the app
-2. **[Submit Your First Form](/docs/collector/first-submission)** - Get familiar with the interface
-3. **[Sync Your Data](/docs/collector/syncing-data)** - Send data to the server
+1. **[Install Formulus](/docs/getting-started/installing-formulus)** - Download and set up the app
+2. **[Submit Your First Form](/docs/using/your-first-form)** - Get familiar with the interface
+3. **[Sync Your Data](/docs/using/synchronization)** - Send data to the server
 
 ## What You'll Learn
 
@@ -35,11 +35,11 @@ Get up and running in 5 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>📲 Getting Started</h4>
+        <h4>Getting Started</h4>
       </div>
       <div className="card__body">
         <p>Install Formulus and set up your first project.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/collector/getting-started">Get Started →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/collector/collector-getting-started">Get Started →</a>
       </div>
     </div>
   </div>
@@ -47,11 +47,11 @@ Get up and running in 5 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>✏️ Using the App</h4>
+        <h4>Using the App</h4>
       </div>
       <div className="card__body">
         <p>Learn form controls, data entry, and app features.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/collector/using-the-app">Learn More →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/using/formulus-features">Learn More →</a>
       </div>
     </div>
   </div>
@@ -59,11 +59,11 @@ Get up and running in 5 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>🔄 Syncing Data</h4>
+        <h4>Syncing Data</h4>
       </div>
       <div className="card__body">
         <p>Upload forms and sync with the server.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/collector/syncing-data">Learn More →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/using/synchronization">Learn More →</a>
       </div>
     </div>
   </div>
@@ -71,11 +71,11 @@ Get up and running in 5 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>⚠️ Troubleshooting</h4>
+        <h4>Troubleshooting</h4>
       </div>
       <div className="card__body">
         <p>Fix common issues and get help.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/collector/troubleshooting">Get Help →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/using/troubleshooting">Get Help →</a>
       </div>
     </div>
   </div>
@@ -83,11 +83,11 @@ Get up and running in 5 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>📡 Offline Mode</h4>
+        <h4>Offline Mode</h4>
       </div>
       <div className="card__body">
         <p>Understand how Formulus works without internet.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/collector/working-offline">Learn More →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/using/working-offline">Learn More →</a>
       </div>
     </div>
   </div>
@@ -95,11 +95,11 @@ Get up and running in 5 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
-        <h4>❓ FAQ</h4>
+        <h4>FAQ</h4>
       </div>
       <div className="card__body">
         <p>Answers to common questions.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/collector/faq">Read FAQ →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/getting-started/faq">Read FAQ →</a>
       </div>
     </div>
   </div>
@@ -107,26 +107,26 @@ Get up and running in 5 minutes:
 
 ## Documentation Roadmap
 
-### 📚 Learn the Basics
-- [Installation & Setup](/docs/collector/install-formulus)
-- [Your First Submission](/docs/collector/first-submission)
-- [Basic Form Navigation](/docs/collector/using-the-app)
+### Learn the Basics
+- [Installation & Setup](/docs/getting-started/installing-formulus)
+- [Your First Submission](/docs/using/your-first-form)
+- [Basic Form Navigation](/docs/using/formulus-features)
 
-### 🎯 Practical Tasks
-- [Collecting Different Data Types](/docs/collector/using-the-app#data-types)
-- [Managing Media (Photos, Audio)](/docs/collector/using-the-app#media-capture)
-- [Working in Areas Without Internet](/docs/collector/working-offline)
+### Practical Tasks
+- [Collecting Different Data Types](/docs/using/formulus-features#form-field-types)
+- [Managing Media (Photos, Audio)](/docs/using/formulus-features#form-field-types)
+- [Working in Areas Without Internet](/docs/using/working-offline)
 
-### 🔄 Data Management
-- [Syncing Data to the Server](/docs/collector/syncing-data)
-- [Understanding Sync Status](/docs/collector/syncing-data#sync-status)
-- [Managing Local Storage](/docs/collector/data-management)
+### Data Management
+- [Syncing Data to the Server](/docs/using/synchronization)
+- [Understanding Sync Status](/docs/using/synchronization#sync-status)
+- [Managing Local Storage](/docs/using/data-management)
 
-### 🆘 Troubleshooting
-- [Sync Issues](/docs/collector/troubleshooting#sync-issues)
-- [App Crashes or Freezes](/docs/collector/troubleshooting#app-issues)
-- [Device Not Connecting](/docs/collector/troubleshooting#connection-issues)
-- [Data Loss Prevention](/docs/collector/troubleshooting#data-loss)
+### Troubleshooting
+- [Sync Issues](/docs/using/troubleshooting#synchronization-issues)
+- [App Crashes or Freezes](/docs/using/troubleshooting#form-issues)
+- [Device Not Connecting](/docs/using/troubleshooting#connection-issues)
+- [Data Loss Prevention](/docs/using/troubleshooting#data-issues)
 
 ## Key Concepts
 

@@ -19,7 +19,7 @@ function HomepageHeader() {
           {siteConfig.tagline}
         </Heading>
         <Link className="button button--primary button--lg" to="/docs" style={{ marginTop: "2rem" }}>
-          Get Started
+          Check out the documentation
         </Link>
       </div>
     </header>

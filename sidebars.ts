@@ -33,6 +33,7 @@ const sidebars: SidebarsConfig = {
         'getting-started/faq',
         'getting-started/architecture-overview',
         'getting-started/installing-formulus',
+        'getting-started/synkronus-quickstart',
       ],
     },
     
@@ -79,6 +80,9 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Guides',
           items: [
+            'guides/building-custom-apps',
+            'guides/building-custom-apps-v1',
+            'guides/building-custom-apps-v2',
             'guides/form-design',
             'guides/dynamic-choice-lists',
             'guides/custom-extensions',

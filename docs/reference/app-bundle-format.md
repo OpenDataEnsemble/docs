@@ -12,26 +12,34 @@ App bundles are ZIP archives containing custom application files, form specifica
 
 ## Bundle Structure
 
-An app bundle is a ZIP file with the following structure:
+Synkronus validates bundles that use **top-level** folders **`app/`**, **`forms/`**, and optionally **`renderers/`**. The **`app`** directory (your HTML/JS/CSS) and the **`forms`** directory (JSON Forms) are **siblings** at the root of the ZIP—they are **not** nested inside each other in the default layout.
 
 ```
 app-bundle.zip
-├── index.html              # Main entry point (required)
 ├── manifest.json           # Bundle metadata (required)
-├── assets/
-│   ├── css/
-│   │   └── styles.css
-│   ├── js/
-│   │   ├── app.js
-│   │   └── formulus-load.js
-│   └── images/
-│       └── logo.png
-├── forms/                  # Form specifications (optional)
-│   ├── survey-v1.json
-│   └── health-v1.json
-└── config/                 # Configuration files (optional)
-    └── settings.json
+├── app/                    # Web UI (required): sibling of forms/, not parent of it
+│   ├── index.html          # Main entry point (required)
+│   ├── assets/
+│   │   ├── css/
+│   │   ├── js/
+│   │   │   ├── app.js
+│   │   │   └── formulus-load.js
+│   │   └── images/
+│   └── public/             # Optional: e.g. app.config.json copied into build
+├── forms/                  # Form specs (optional; see Form specifications)
+│   ├── survey/             # Folder name = form type id
+│   │   ├── schema.json
+│   │   └── ui.json
+│   └── health/
+│       ├── schema.json
+│       └── ui.json
+├── forms/ext.json          # Optional: app-level extensions config
+└── renderers/              # Optional: custom JSON Forms renderers
+    └── myRenderer/
+        └── renderer.jsx
 ```
+
+**Alternate layout (nested forms):** Some projects put form folders under **`app/forms/<formType>/`** instead of top-level **`forms/<formType>/`**. In that case **`forms`** is a **subdirectory inside `app`** (path `app/forms/...`). That is **different** from having **`app/`** and **`forms/`** as **two separate top-level folders**. Synkronus accepts both; use one style consistently in a given bundle.
 
 ## Manifest Format
 
@@ -42,7 +50,7 @@ The `manifest.json` file defines bundle metadata:
   "version": "20250114-123456",
   "name": "My Custom App",
   "description": "Description of the custom application",
-  "entryPoint": "index.html",
+  "entryPoint": "app/index.html",
   "createdAt": "2025-01-14T10:00:00Z"
 }
 ```
@@ -59,13 +67,13 @@ The `manifest.json` file defines bundle metadata:
 
 ## Entry Point
 
-The entry point (`index.html` by default) is the main HTML file loaded when the app bundle is opened. It should:
+Validated bundles include **`app/index.html`** (path from the **ZIP root**). The manifest **`entryPoint`** should reference that file (commonly `app/index.html`). The entry HTML should:
 
 1. Include the Formulus load script
 2. Initialize the application
 3. Use the Formulus JavaScript interface
 
-**Example:**
+**Example** (paths below assume assets live under `app/assets/`):
 
 ```html
 <!DOCTYPE html>
@@ -84,38 +92,40 @@ The entry point (`index.html` by default) is the main HTML file loaded when the 
 
 ## Form Specifications
 
-Form specifications can be included in the `forms/` directory. Each form file should contain:
+Use a **one-folder-per-form** layout. The **folder name** is the **form type** identifier (for example `survey`, `registration`). Synkronus validates that each form directory contains both required files.
 
-- Schema definition
-- UI schema definition
-- Form metadata
+**Folder structure:** **`forms/<formType>/`** at the **root** of the ZIP, as a **sibling** of **`app/`**.
 
-**Example form file:**
+### Required files per form
 
-```json
-{
-  "formType": "survey",
-  "version": "1.0.0",
-  "schema": {
-    "type": "object",
-    "properties": {
-      "name": {
-        "type": "string",
-        "title": "Name"
-      }
-    }
-  },
-  "uischema": {
-    "type": "VerticalLayout",
-    "elements": [
-      {
-        "type": "Control",
-        "scope": "#/properties/name"
-      }
-    ]
-  }
-}
+| File | Role |
+|------|------|
+| **`schema.json`** | **[JSON Schema](https://json-schema.org/)** (draft-07 in ODE) for the observation payload: properties, types, validation, and ODE-specific **`format`** values for question types. Defines *what* is collected. |
+| **`ui.json`** | **[JSON Forms UI schema](https://jsonforms.io/docs/uischema/)** for layout: `VerticalLayout`, `Control` elements, `scope` pointers into the schema, rules, etc. Defines *how* the form is shown. ODE follows JSON Forms with additional rules documented in [Form specifications](/docs/reference/form-specifications). |
+
+Upstream JSON Forms concepts and UI schema structure are described at **[jsonforms.io](https://jsonforms.io/)**. Always cross-check ODE-specific behavior in [Form specifications](/docs/reference/form-specifications)—not every JSON Forms feature is available in Formulus.
+
+**Example paths (two files per form, not one combined JSON) — top-level `forms/` (sibling of `app/`):**
+
 ```
+forms/
+└── survey/
+    ├── schema.json
+    └── ui.json
+```
+
+**Same form type using nested `app/forms/` instead:**
+
+```
+app/
+├── index.html
+└── forms/
+    └── survey/
+        ├── schema.json
+        └── ui.json
+```
+
+See [Form specifications](/docs/reference/form-specifications) and [Form design](/docs/guides/form-design) for complete examples of `schema.json` and `ui.json` pairs.
 
 ## Versioning
 
@@ -143,13 +153,14 @@ synk app-bundle switch 20250114-123456
 ### Required Files
 
 - `manifest.json`: Bundle metadata
-- `index.html`: Main entry point (or file specified in `entryPoint`)
+- `app/index.html`: Main entry point (or path given by `entryPoint`)
 
 ### Optional Files
 
-- `assets/`: CSS, JavaScript, images, and other assets
-- `forms/`: Form specification files
-- `config/`: Configuration files
+- `app/assets/` (or similar under `app/`): CSS, JavaScript, images, and other assets for the web UI
+- `forms/<formType>/`: Form specifications at **ZIP root** (sibling of `app/`), **or** `app/forms/<formType>/` if you use the nested layout
+- `forms/ext.json`: Optional extensions manifest
+- `renderers/`: Optional custom JSON Forms renderers
 
 ## File Size Limits
 
@@ -157,7 +168,7 @@ synk app-bundle switch 20250114-123456
 |-----------|-------|-------|
 | **Total bundle size** | 100 MB | Maximum ZIP file size |
 | **Individual file** | 50 MB | Maximum size per file |
-| **Form specification** | 1 MB | Maximum size per form file |
+| **Form specification** | 1 MB | Maximum size per form file (`schema.json` / `ui.json`) |
 
 ## Upload Process
 
@@ -213,3 +224,4 @@ Mobile devices download app bundles during synchronization:
 - [Custom Applications Guide](/docs/guides/custom-applications)
 - [API Reference](/docs/reference/rest-api/overview)
 - [Form Design Guide](/docs/guides/form-design)
+- [custom_app on GitHub](https://github.com/OpenDataEnsemble/custom_app) — AI/agent context (`AGENTS.md`, `CONTEXT_*.md`) and **scaffolding** recipes (`npm create vite@latest`, post-build checklist)

@@ -17,6 +17,10 @@ This section is designed for users who:
 - Need guidance on deployment and data management
 - Are responsible for project outcomes
 
+:::tip AI coding assistants
+If you use an AI assistant to build **custom applications** (bundles and JSON forms) for ODE, see **[custom_app](https://github.com/OpenDataEnsemble/custom_app)** on GitHub and the **[documentation](https://opendataensemble.org/docs/)** site—no need to clone the full ODE monorepo.
+:::
+
 :::info Not collecting data?
 If you're collecting data with Formulus, see the [Data Collector Guide](/docs/collector/collector-index).  
 If you're developing or extending ODE, see the [Developer Guide](/docs/developer/developer-index).

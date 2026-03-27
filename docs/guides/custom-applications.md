@@ -10,39 +10,42 @@ Complete guide to building and deploying custom applications that integrate with
 
 ## Overview
 
-Custom applications are React applications that run within the Formulus mobile app, providing specialized workflows and user experiences. They allow you to create custom navigation, integrate with the ODE form system, and build specialized interfaces for specific use cases.
+Custom applications are **web applications** (HTML, CSS, and JavaScript) that run inside the Formulus mobile app’s WebView. You may author them with **any** stack—plain static files, **Vite**, **React**, **Vue**, **Svelte**, or another bundler—**as long as the build output** can be packaged as described in the [app bundle format](/docs/reference/app-bundle-format) (entry HTML, assets, and `forms/` layout). They provide specialized workflows, custom navigation, integration with the ODE form system, and interfaces tailored to your use case.
+
+## Scaffolding
+
+ODE does **not** require a special installer: start from a **standard** project scaffold (for example **`npm create vite@latest`** with React, Svelte, or Solid templates) and then align the **folder layout** with the app bundle spec. Copy-paste commands, a **Vite `outDir` example**, and a post-scaffold checklist are maintained in the **[custom_app](https://github.com/OpenDataEnsemble/custom_app)** repository README on GitHub (AI and author context for the Formulus API and forms live in that repo as well).
 
 ## Application Structure
 
-Custom applications follow a standardized structure for consistency and maintainability:
+There is **no single mandatory** project layout. The tree below is **one** common pattern (React + Vite + optional `app.config.json` for theming). You can use a simpler folder tree if you prefer hand-written HTML/JS or a different framework, provided the **zip** you upload matches the [bundle format](/docs/reference/app-bundle-format).
 
 ```
 my-app/
-├── app.config.json          # App configuration and theme
-├── forms/                   # Form definitions
-│   ├── survey/
+├── app.config.json          # Optional: app metadata and theme (if your template uses it)
+├── forms/                   # Form definitions (see bundle format)
+│   ├── survey/              # One folder per form type (form name)
 │   │   ├── schema.json      # JSON Schema (draft-07)
-│   │   └── ui.json          # Formulus UI schema
-│   └── forms-manifest.json  # Form registry
-├── src/
-│   ├── components/          # Reusable components
-│   ├── screens/             # Main screens
-│   ├── utils/               # Utility functions
-│   └── theme.js             # Theme generation
-├── scripts/                 # Build and validation scripts
-├── package.json
-└── vite.config.js
+│   │   └── ui.json          # JSON Forms UI schema (ODE rules)
+│   └── forms-manifest.json  # Form registry (if used by your project)
+├── src/                     # Optional: only if you use a bundler (e.g. React)
+│   ├── components/
+│   ├── screens/
+│   ├── utils/
+│   └── theme.js
+├── scripts/
+├── package.json             # Optional: if you use npm tooling
+└── vite.config.js           # Optional: example bundler config
 ```
 
 ## Configuration System
 
 ### app.config.json
 
-The `app.config.json` file is the single source of truth for your application's configuration:
+If your template uses **`app.config.json`** (common in React-based examples), it can hold application metadata and theme. Plain HTML apps may omit it and configure styling in CSS/JS instead. When present, it is typically the single place for those settings:
 
 ```json
 {
-  "$schema": "https://ode.dev/schemas/app-config-v1.json",
   "name": "My Application",
   "version": "1.0.0",
   "navigation": {
@@ -108,10 +111,12 @@ export function buildTheme(mode = 'light') {
 
 ### Form Structure
 
-Each form consists of two files:
+Each form is a **directory** named with the **form type** (for example `survey/`). Inside it, two files are required:
 
-1. **schema.json**: JSON Schema (draft-07) defining data structure
-2. **ui.json**: Formulus UI schema defining form layout and behavior
+1. **`schema.json`**: [JSON Schema](https://json-schema.org/) (draft-07) defining data shape, validation, and question types (including ODE `format` values). See [Form specifications](/docs/reference/form-specifications).
+2. **`ui.json`**: [JSON Forms](https://jsonforms.io/) **UI schema** defining layout (`VerticalLayout`, `Control`, `scope`, rules). ODE follows JSON Forms with project-specific rules—see [Form specifications](/docs/reference/form-specifications). The [app bundle format](/docs/reference/app-bundle-format) describes how these files sit inside the zip.
+
+Synkronus accepts **`forms/<formType>/schema.json`** and **`ui.json`** at the **bundle root** (with **`forms/`** as a **sibling** of **`app/`**), or the alternate path **`app/forms/<formType>/...`** where **`forms`** sits **inside** **`app`**. See [App bundle format](/docs/reference/app-bundle-format).
 
 ### Example Form
 

@@ -17,6 +17,10 @@ This section is designed for:
 - Architects evaluating ODE architecture
 - Contributors wanting to improve the codebase
 
+:::tip AI coding assistants
+Building **custom applications** (HTML, JS, CSS bundles and JSON forms) without cloning the ODE monorepo? Use the **[custom_app](https://github.com/OpenDataEnsemble/custom_app)** repository on GitHub (`AGENTS.md` and `CONTEXT_*.md` for assistants and authors), together with the main **[documentation](https://opendataensemble.org/docs/)** site.
+:::
+
 :::info Not developing?
 If you're collecting data, see the [Data Collector Guide](/docs/collector/collector-index).  
 If you're designing forms, see the [Implementer Guide](/docs/implementer/implementer-index).

@@ -46,7 +46,7 @@ Use custom_apps when you need:
 
 Custom apps use **JSONForms** extended with ODE-specific question types:
 - Standard types: text, number, date, dropdown, radio, checkbox
-- ODE extensions: photo, GPS, QR code, signature, and more
+- ODE extensions: photo, GPS, QR code, signature, **sub-observations** (embedded child payloads as JSON arrays — see [Custom Extensions](./custom-extensions.md#sub-observations-format-sub-observation)), and more
 
 ### Data relationships
 

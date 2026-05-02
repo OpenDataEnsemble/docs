@@ -19,6 +19,62 @@ The extension system enables you to:
 - **Reusable Components** - Package extensions for distribution to other implementations
 - **Automatic Distribution** - Deploy via app bundles; users get updates automatically
 
+## Sub-observations (`format: sub-observation`)
+
+:::tip Built-in Formplayer control
+Sub-observations are rendered by **Formplayer itself**. You declare them on the parent form’s JSON Schema.
+:::
+
+Use sub-observations when related answers should live **inside the parent observation** as an **embedded JSON array** of child payloads, instead of separate top-level observations per child.
+
+### Behavior
+
+- The parent schema defines one property (often `type: "array"`) with `"format": "sub-observation"` plus the configuration keys below.
+- Each completed child payload is plain JSON appended or updated in that array when the enumerator finishes the nested **child form**.
+- **Add / Edit** opens the child form through the Formulus API [`openFormplayer`](../reference/formulus.md) with `{ subObservationMode: true }`. The nested session returns child JSON **without** creating a separate synced observation for each completion.
+- **Remove** deletes one embedded payload from the parent array only (within the current parent draft or saved observation).
+
+### Schema configuration
+
+| Property | Required | Description |
+|----------|----------|-------------|
+| `format` | yes | Must be `"sub-observation"`. |
+| `linkedForm` | yes | Child **form type** opened for add/edit (non-empty string). |
+| `parentKey` | yes | Field name written on child payloads linking back to the parent (for example a foreign key into the parent entity id). |
+| `parentValuePath` | recommended | Dot path into **current parent form data** for that key’s value (falls back to parent `observationId` when absent). |
+| `columns` | optional | `{ key, label }[]` entries for the on-screen summary list; if omitted, `displayField` drives a single summary column. |
+| `displayField` | optional | Fallback field key for the summary column (default `observationId`). |
+| `orderBy` | optional | Sort embedded items by field: string field name or `{ key, direction }` (`asc` / `desc`). Without `key`, sorts by `createdAt` descending when present on payloads. |
+| `allowDelete` | optional | Default `true`. |
+| `subObservationInitValues` | optional | Map merged into **initial params** when **adding** a new embedded child. Values support templates `{{parentValue}}`, `{{currentInstanceId}}`, or `{{dot.path}}` into parent data. |
+| `subObservationEditInitValues` | optional | Map merged **on top of** the saved child payload when **opening an existing** embedded item for edit—useful when parent-derived fields must be refreshed each time (often omitted). |
+
+Example property on the parent schema:
+
+```json
+{
+  "linked_visits": {
+    "type": "array",
+    "format": "sub-observation",
+    "title": "Visits",
+    "linkedForm": "visit",
+    "parentKey": "household_id",
+    "parentValuePath": "hh_id",
+    "displayField": "visit_date",
+    "allowDelete": true,
+    "subObservationInitValues": {
+      "household_id": "{{parentValue}}"
+    }
+  }
+}
+```
+
+:::note Types in legacy forms
+Some forms use `type: ["array", "string"]` with `"format": "sub-observation"` for migration compatibility; Formplayer activates the control whenever `format` matches.
+:::
+
+See also [Form specifications](../reference/form-specifications.md) and [Formplayer](../reference/formplayer.md).
+
 ## Quick Start
 
 ### Creating a Custom Question Type

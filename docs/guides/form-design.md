@@ -506,6 +506,12 @@ ODE supports various question types through the Formplayer component. Question t
 }
 ```
 
+### Sub-observations
+
+Use **`format: sub-observation`** on an array property for **embedded repeats**: each nested completion stores JSON on the parent observation. Adding or editing opens the linked child form in **sub-observation mode**, so Synkronus still receives **one** parent observation payload.
+
+See [Custom Extensions](./custom-extensions.md#sub-observations-format-sub-observation) for schema keys (`linkedForm`, `parentKey`, `parentValuePath`, `subObservationInitValues`, templates, etc.).
+
 ## Working with Media & Special Field Types
 
 ODE Formplayer supports specialized field types for capturing media, location, signatures, and scanning codes. Each type has specific schema requirements and platform constraints.

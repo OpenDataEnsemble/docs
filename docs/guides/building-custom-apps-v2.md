@@ -40,6 +40,8 @@ In ODE terms:
 - Follow-ups include a reference to the original (e.g., `bean: "Prainema"`)
 - The app queries and displays related data
 
+Some projects instead embed related **child payloads** **inside** the parent observation using **`format: sub-observation`** (a JSON array on one observation). That pattern is documented under [Custom Extensions](./custom-extensions.md#sub-observations-format-sub-observation); this guide focuses on **separate** follow-up observations linked by queries and IDs.
+
 ---
 
 ## Part 1: Create the follow-up form

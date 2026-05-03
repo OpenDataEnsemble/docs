@@ -37,13 +37,7 @@ const config: Config = {
           editUrl: 'https://github.com/OpenDataEnsemble/ode/tree/main/ode-docs/',
           remarkPlugins: [require('./plugins/fix-docs-links')],
           rehypePlugins: [require('./plugins/fix-docs-links-rehype')],
-          // Single-version docs: versioned_docs snapshots were removed; only `docs/` (current) remains.
-          includeCurrentVersion: true,
-          versions: {
-            current: {
-              label: 'Next (unreleased)',
-            },
-          },
+          disableVersioning: true,
         },
         pages: {
           remarkPlugins: [],
@@ -72,12 +66,6 @@ const config: Config = {
           sidebarId: 'docs',
           label: 'Documentation',
           position: 'right',
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
-          dropdownItemsBefore: [],
-          dropdownItemsAfter: [],
         },
         {
           label: 'Components',

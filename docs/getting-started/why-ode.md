@@ -65,6 +65,6 @@ ODE may not be the best fit if:
 ## Next Steps
 
 - Review [Key Concepts](/getting-started/key-concepts) to understand ODE terminology
-- Check [Prerequisites](/getting-started/installation/prerequisites) for system requirements
-- Follow the [Installation guide](/getting-started/installation/quick-start) to get started
+- Check the [Installation](/docs/getting-started/installation) guide for system requirements
+- Follow the [Installation guide](/docs/getting-started/installation) to get started
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 # Installing Formulus App
@@ -304,4 +304,3 @@ After installation, you can find and launch Formulus:
 - [Your First Form](/docs/using/your-first-form) - Get started with data collection
 - [Synchronization](/docs/using/synchronization) - Understand how data syncs work
 - [Development Installation](/docs/development/formulus-development) - For developers building from source
-

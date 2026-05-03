@@ -235,6 +235,21 @@ h3 {
   margin-top: 2rem;
 }
 
+/* Doc content images: preserve aspect ratio (prevent stretching) */
+.theme-doc-markdown img,
+article img {
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+.theme-doc-markdown p img,
+article p img {
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+}
+
 /* Professional code blocks */
 .prism-code {
   border-radius: 6px;

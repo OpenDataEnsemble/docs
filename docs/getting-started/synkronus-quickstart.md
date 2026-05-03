@@ -267,7 +267,7 @@ See [upgrade-path.md](https://github.com/OpenDataEnsemble/synkronus-quickstart/b
 ## Next steps
 
 1. **[Build a custom app](../guides/building-custom-apps.md)** — Create your first data collection app
-2. **[Install Formulus](../getting-started/installing-formulus.md)** — Get the mobile app
+2. **[Install Formulus](./installation/installing-formulus.md)** — Get the mobile app
 3. **Configure mobile nodes** — Set up offline sync
 4. **Join the community** — [forum.opendataensemble.org](https://forum.opendataensemble.org)
 

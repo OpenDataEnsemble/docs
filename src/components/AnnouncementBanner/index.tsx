@@ -10,7 +10,7 @@ export default function AnnouncementBanner(): React.ReactElement {
         <div className={styles.content}>
           <span className={styles.badge}>New version released!</span>
           <span className={styles.text}>Great news! The ODE v1.0 is now available for download!</span>
-          <Link to="/docs/getting-started/installing-formulus" className={styles.link}>
+          <Link to="/docs/getting-started/installation/installing-formulus" className={styles.link}>
             Install Now →
           </Link>
         </div>

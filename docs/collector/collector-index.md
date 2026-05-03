@@ -25,7 +25,7 @@ If you're developing or extending ODE, see the [Developer Guide](/docs/developer
 
 Get up and running in 5 minutes:
 
-1. **[Install Formulus](/docs/getting-started/installing-formulus)** - Download and set up the app
+1. **[Install Formulus](/docs/getting-started/installation/installing-formulus)** - Download and set up the app
 2. **[Submit Your First Form](/docs/using/your-first-form)** - Get familiar with the interface
 3. **[Sync Your Data](/docs/using/synchronization)** - Send data to the server
 
@@ -108,7 +108,7 @@ Get up and running in 5 minutes:
 ## Documentation Roadmap
 
 ### Learn the Basics
-- [Installation & Setup](/docs/getting-started/installing-formulus)
+- [Installation & Setup](/docs/getting-started/installation/installing-formulus)
 - [Your First Submission](/docs/using/your-first-form)
 - [Basic Form Navigation](/docs/using/formulus-features)
 
@@ -183,7 +183,7 @@ If you get stuck:
 
 Ready to start collecting data? Let's go!
 
-→ **[Install Formulus](/docs/getting-started/installing-formulus)**
+→ **[Install Formulus](/docs/getting-started/installation/installing-formulus)**
 
 Or if you're already installed:
 

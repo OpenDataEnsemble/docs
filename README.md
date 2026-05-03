@@ -2,6 +2,23 @@
 
 This is the website for ODE. It is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
+## Documentation versioning
+
+The version selector in the navbar (e.g. **ODE 1.1.2**, **Next (unreleased)**) refers to **ODE product versions**, not the version of the docs site itself.
+
+- **ODE 1.1.2, 1.1.0, 1.0** — Frozen snapshots of the docs as they were when that version of ODE was released. Content lives in `versioned_docs/version-1.1.2/` etc.
+- **Next (unreleased)** — The current docs you edit in the `docs/` folder. This is what you see when working locally; it becomes the next ODE release docs when you run the versioning command.
+
+When you change files in `docs/`, switch the dropdown to **Next (unreleased)** to see your updates. The default “latest” on the site can be set to the current ODE release (e.g. ODE 1.1.2) so most visitors see stable docs.
+
+To freeze the current `docs/` for a new release (e.g. ODE 1.1.3), run:
+
+```bash
+npm run docusaurus docs:version 1.1.3
+```
+
+Then update `versions.json` and the config if you want that version to become the default.
+
 ## Local Development
 
 ```bash

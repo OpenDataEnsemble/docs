@@ -366,7 +366,7 @@ Data syncs automatically when connection returns.
 
 ## Related Documentation
 
-- [Installing Formulus](/getting-started/installing-formulus) - Installation guide
+- [Installing Formulus](/docs/getting-started/installation/installing-formulus) - Installation guide
 - [Your First Form](/using/your-first-form) - Getting started with forms
 - [Synchronization](/using/synchronization) - Detailed sync information
 - [Working Offline](/using/working-offline) - Offline capabilities

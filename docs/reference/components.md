@@ -25,8 +25,8 @@ Formulus is a React Native application that provides offline-first data collecti
 
 ### Installation
 
-- **End Users**: See [Installing Formulus](/getting-started/installing-formulus)
-- **Developers**: See [Installing Formulus for Development](/development/installing-formulus-dev)
+- **End Users**: See [Installing Formulus](/docs/getting-started/installation/installing-formulus)
+- **Developers**: See [Installing Formulus for Development](/docs/development/installing-formulus-dev)
 
 ### Configuration
 
@@ -80,7 +80,7 @@ Synkronus provides a RESTful API for data synchronization, app bundle management
 
 ### Installation
 
-See the [Installation guide](/development/installation) for detailed installation instructions.
+See the [Installation guide](/docs/development/installation) for detailed installation instructions.
 
 ### Configuration
 
@@ -173,7 +173,7 @@ All components work together to provide a complete data collection solution:
 
 ## Related Documentation
 
-- [Installation Guide](/development/installation)
+- [Installation Guide](/docs/development/installation)
 - [API Reference](/reference/api)
 - [Form Design Guide](/guides/form-design)
 - [Custom Applications Guide](/guides/custom-applications)

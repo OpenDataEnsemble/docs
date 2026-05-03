@@ -51,7 +51,7 @@ Whether you're a researcher, developer, or data practitioner, these guides will 
       </div>
       <div className="card__body">
         <p>Step-by-step instructions to install ODE components.</p>
-        <a className="button button--primary button--sm button--block" href="/docs/getting-started/installing-formulus">Install Now →</a>
+        <a className="button button--primary button--sm button--block" href="/docs/getting-started/installation/installing-formulus">Install Now →</a>
       </div>
     </div>
   </div>

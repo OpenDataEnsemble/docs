@@ -359,7 +359,7 @@ npm install
 
 ## Related Documentation
 
-- [Installing Formulus for Development](/development/installing-formulus-dev) - ADB/emulator setup
+- [Installing Formulus for Development](/docs/development/installing-formulus-dev) - ADB/emulator setup
 - [Formulus Reference](/reference/formulus) - Component reference
 - [Building and Testing](/development/building-testing) - Build procedures
 

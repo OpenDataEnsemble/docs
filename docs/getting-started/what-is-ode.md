@@ -92,5 +92,5 @@ ODE is built using modern, open-source technologies:
 
 - Learn about [Why ODE?](/getting-started/why-ode) to understand the benefits
 - Review [Key Concepts](/getting-started/key-concepts) to understand the terminology
-- Follow the [Installation guide](/getting-started/installation/prerequisites) to set up your environment
+- Follow the [Installation guide](/docs/getting-started/installation) to set up your environment
 

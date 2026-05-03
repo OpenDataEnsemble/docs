@@ -37,6 +37,7 @@ const config: Config = {
           editUrl: 'https://github.com/OpenDataEnsemble/ode/tree/main/ode-docs/',
           remarkPlugins: [require('./plugins/fix-docs-links')],
           rehypePlugins: [require('./plugins/fix-docs-links-rehype')],
+          disableVersioning: true,
         },
         pages: {
           remarkPlugins: [],

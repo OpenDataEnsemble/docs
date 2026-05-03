@@ -30,9 +30,17 @@ const sidebars: SidebarsConfig = {
       items: [
         'getting-started/why-ode',
         'getting-started/key-concepts',
+        {
+          type: 'category',
+          label: 'Installation',
+          link: { type: 'doc', id: 'getting-started/installation' },
+          items: [
+            'getting-started/installation/installing-synkronus',
+            'getting-started/installation/installing-formulus',
+          ],
+        },
         'getting-started/faq',
         'getting-started/architecture-overview',
-        'getting-started/installing-formulus',
         'getting-started/synkronus-quickstart',
       ],
     },
@@ -52,7 +60,7 @@ const sidebars: SidebarsConfig = {
           label: 'Overview',
         },
         'collector/collector-getting-started',
-        'getting-started/installing-formulus',
+        'getting-started/installation/installing-formulus',
         'using/your-first-form',
         'using/formulus-features',
         'using/synchronization',

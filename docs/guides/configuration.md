@@ -355,6 +355,6 @@ curl http://localhost:8080/health
 
 ## Related Documentation
 
-- [Installation Guide](/getting-started/installation)
+- [Installation Guide](/docs/getting-started/installation)
 - [Deployment Guide](/guides/deployment)
 - [API Reference](/reference/api)

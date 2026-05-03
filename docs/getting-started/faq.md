@@ -32,7 +32,7 @@ No, ODE is designed to work offline. Data is stored locally and synchronized whe
 
 ### What are the system requirements?
 
-See the [Prerequisites](/getting-started/installation/prerequisites) page for detailed system requirements.
+See the [Installation](/docs/getting-started/installation) page for detailed system requirements.
 
 ### Can I run ODE in the cloud?
 

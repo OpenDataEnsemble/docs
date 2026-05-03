@@ -497,6 +497,6 @@ If you cannot resolve an issue:
 ## Next Steps
 
 - Review [Synchronization](/using/synchronization) for sync-related issues
-- Check [Installation guides](/getting-started/installation/prerequisites) for setup problems
+- Check [Installation guides](/docs/getting-started/installation) for setup problems
 - Explore [API Reference](/reference/api/overview) for integration issues
 

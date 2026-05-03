@@ -43,7 +43,7 @@ At the time of writing this costs about **$6 USD per month**.
 
 When the droplet is created, note the **public IPv4 address**.
 
-<img src="/img/synkronus_install/digiocean_droplet.png" alt="DigitalOcean droplet with IPv4 address" style="max-width: 100%; height: auto; display: block;" />
+<img src="/img/synkronus_install/digiocean_droplet.png" alt="DigitalOcean droplet with IPv4 address" style={{maxWidth: '100%', height: 'auto', display: 'block'}} />
 
 Click **Console** to open the server terminal, then continue with the steps below.
 
@@ -68,7 +68,7 @@ sudo apt install -y podman podman-compose git
 
 Clone the Synkronus quickstart repository and run the installer.
 
-<img src="/img/synkronus_install/install_shell.png" alt="Install script running in shell" style="max-width: 100%; height: auto; display: block;" />
+<img src="/img/synkronus_install/install_shell.png" alt="Install script running in shell" style={{maxWidth: '100%', height: 'auto', display: 'block'}} />
 
 ```bash
 git clone --depth 1 https://github.com/OpenDataEnsemble/synkronus-quickstart.git server
@@ -118,7 +118,7 @@ Once the containers are running, open your browser and go to:
 
 You should see the **Synkronus Portal login screen**.
 
-<img src="/img/synkronus_install/portal_welcome.png" alt="Synkronus Portal login" style="max-width: 100%; height: auto; display: block;" />
+<img src="/img/synkronus_install/portal_welcome.png" alt="Synkronus Portal login" style={{maxWidth: '100%', height: 'auto', display: 'block'}} />
 
 Use the **admin username and password printed by the installer**.
 
@@ -159,7 +159,7 @@ applications (e.g. Formulus):
 2. Click **+ Create User**.
 3. Assign **Read/Write** permissions.
 
-<img src="/img/synkronus_install/portal_create_user.png" alt="Create user in portal" style="max-width: 100%; height: auto; display: block;" />
+<img src="/img/synkronus_install/portal_create_user.png" alt="Create user in portal" style={{maxWidth: '100%', height: 'auto', display: 'block'}} />
 
 This user can now be used by Synkronus clients such as **Formulus**.
 
@@ -176,6 +176,6 @@ provisioning certificates, and your tunnel can handle HTTPS externally.
 
 Your Synkronus server is now running.
 
-<p align="center">
-  <img src="/img/girrnababy_small.png" alt="" style="max-width: 120px; height: auto; width: 120px;" />
+<p style={{textAlign: 'center'}}>
+  <img src="/img/girrnababy_small.png" alt="" style={{maxWidth: '120px', height: 'auto', width: '120px'}} />
 </p>

@@ -420,7 +420,7 @@ If the mobile app cannot connect to the server:
 
 ## Next Steps
 
-- Follow the [Quick Start guide](/getting-started/quick-start) for a complete setup
-- Learn how to [use the app](/using/your-first-form) for data collection
-- Review the [Deployment guide](/guides/deployment) for production setup
+- Follow the [Quick Start guide](/docs/getting-started/index) for a complete setup
+- Learn how to [use the app](/docs/using/your-first-form) for data collection
+- Review the [Deployment guide](/docs/guides/deployment) for production setup
 

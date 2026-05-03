@@ -50,7 +50,6 @@ my-app/
 
 ```json
 {
-  "$schema": "https://ode.dev/schemas/app-config-v1.json",
   "name": "My First App",
   "version": "1.0.0",
   "navigation": {

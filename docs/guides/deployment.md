@@ -6,6 +6,8 @@ sidebar_position: 3
 
 Complete guide to deploying ODE in production environments using Docker and Docker Compose.
 
+> **Quick start?** For a fast 5-minute setup with Docker or Podman, see the [Synkronus Quickstart](../getting-started/synkronus-quickstart.md) guide. It includes an automated installer and is perfect for testing or starting a production deployment.
+
 ## Overview
 
 ODE can be deployed using Docker containers, which simplifies deployment and ensures consistency across environments. This guide covers production deployment with Docker Compose, including PostgreSQL, Nginx reverse proxy, and optional Cloudflared tunnel for secure external access.

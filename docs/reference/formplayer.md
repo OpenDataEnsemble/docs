@@ -287,6 +287,7 @@ Formplayer supports various question types through custom renderers:
 - **GPS**: Location coordinates capture
 - **Signature**: Digital signature pad
 - **QR Code**: Barcode/QR code scanner
+- **Sub-observations**: Embedded repeats — nested child forms whose payloads are stored as JSON inside a parent array property (see [Custom Extensions](../guides/custom-extensions.md#sub-observations-format-sub-observation))
 
 ## Form Rendering
 
@@ -439,7 +440,7 @@ Formplayer includes core question type renderers:
 - `AudioQuestionRenderer`: Voice recording
 - `VideoQuestionRenderer`: Video recording
 - `FileQuestionRenderer`: File attachment
-- `QrcodeQuestionRenderer`: QR code scanner
+- `SubObservationQuestionRenderer`: Embedded sub-observation repeats (`format: sub-observation`) — nested `openFormplayer` with `subObservationMode`
 
 ### Custom Renderers
 

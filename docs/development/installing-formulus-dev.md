@@ -504,7 +504,7 @@ Windows typically handles USB device permissions automatically. If you encounter
 
 ## Related Documentation
 
-- [Formulus Development Setup](/development/formulus-development) - Complete development environment setup
-- [Formulus Component Reference](/reference/formulus) - Detailed component documentation
-- [Building and Testing](/development/building-testing) - Build and test procedures
+- [Formulus Development Setup](/docs/development/formulus-development) - Complete development environment setup
+- [Formulus Component Reference](/docs/reference/formulus) - Detailed component documentation
+- [Building and Testing](/docs/development/building-testing) - Build and test procedures
 

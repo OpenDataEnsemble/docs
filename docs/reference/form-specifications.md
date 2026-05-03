@@ -195,6 +195,29 @@ Question types are specified using the `format` property in the schema:
 }
 ```
 
+### Sub-observations (embedded observations of another form type)
+
+Collect **multiple related observations as JSON objects inside one parent observation** using `"format": "sub-observation"`. Each embedded item is edited in a nested Formplayer session (`openFormplayer` with `subObservationMode`).
+
+See the full schema options and examples in [Custom Extensions](../guides/custom-extensions.md#sub-observations-format-sub-observation).
+
+```json
+{
+  "linked_children": {
+    "type": "array",
+    "format": "sub-observation",
+    "title": "Related entries",
+    "linkedForm": "child_form",
+    "parentKey": "parent_id",
+    "parentValuePath": "parent_id",
+    "displayField": "name",
+    "subObservationInitValues": {
+      "parent_id": "{{parentValue}}"
+    }
+  }
+}
+```
+
 ### Multimedia Types
 
 #### Photo

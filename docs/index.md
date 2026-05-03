@@ -22,6 +22,29 @@ The source code for the pre-release version of ODE is now publicly available. Wh
 
 :::
 
+## The Problem ODE Solves
+
+Traditional data collection tools often have limitations:
+
+- **No offline support** - Without internet, collection stops
+- **Complexity** - Building forms requires technical expertise  
+- **Inflexibility** - Customization is difficult and expensive
+- **Lock-in** - Data is trapped in proprietary systems
+- **Cost** - Enterprise solutions are prohibitively expensive
+
+## How ODE Works
+
+ODE provides an integrated system for the complete data lifecycle:
+
+```
+┌──────────────┐      ┌──────────────┐      ┌──────────────┐
+│   Collect    │  ──► │    Sync      │  ──► │   Analyze    │
+│   Data       │      │   Offline    │      │   & Export   │
+└──────────────┘      └──────────────┘      └──────────────┘
+    Formulus         WatermelonDB +         Parquet Export
+    (App)           Synkronus (Server)      (Your Tools)
+```
+
 ## What is ODE?
 
 ODE is a modern toolkit that simplifies mobile data collection through:
@@ -72,9 +95,9 @@ Build custom applications that integrate with the ODE platform, allowing for spe
 
 ## Getting Started
 
-New to ODE? Start with our [Getting Started guide](/getting-started/what-is-ode) to understand the platform and begin your first project.
+New to ODE? Start with our [Getting Started guide](/docs/getting-started/why-ode) to understand the platform and begin your first project.
 
-For developers looking to contribute or extend ODE, see the [Development section](/development/setup) for architecture details and contribution guidelines.
+For developers looking to contribute or extend ODE, see the [Development section](/docs/development/setup) for architecture details and contribution guidelines.
 
 ## Documentation Structure
 
@@ -89,7 +112,7 @@ This documentation is organized to help you find information quickly:
 
 ## Next Steps
 
-- Read [What is ODE?](/getting-started/what-is-ode) for a detailed overview
+- Read [What is ODE?](/docs/getting-started/what-is-ode) for a detailed overview
 - Follow the [Installation guide](/docs/getting-started/installation) to set up your environment
-- Create your [first form](/using/your-first-form) to see ODE in action
-- Explore the [API Reference](/reference/api) for technical details
+- Create your [first form](/docs/using/your-first-form) to see ODE in action
+- Explore the [API Reference](/docs/reference/api) for technical details

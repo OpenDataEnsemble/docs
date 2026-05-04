@@ -637,7 +637,7 @@ Records audio using device microphone.
 **Expected Schema:**
 ```json
 {
-  "type": "string",
+  "type": "object",
   "format": "audio",
   "title": "Voice Note"
 }
@@ -670,7 +670,7 @@ Records video using device camera.
 **Expected Schema:**
 ```json
 {
-  "type": "string",
+  "type": "object",
   "format": "video",
   "title": "Instructional Video"
 }
@@ -699,12 +699,12 @@ Records video using device camera.
 
 ### File Selection
 
-Allows users to select files from device storage.
+Allows users to pick an arbitrary file from device storage (documents, exports, etc.). Behaves like other **attachment** fields: the observation stores a **basename** (stable key under app `attachments/`) plus portable metadata; the binary syncs through the attachment pipeline separately from the observation JSON.
 
 **Expected Schema:**
 ```json
 {
-  "type": "string",
+  "type": "object",
   "format": "select_file",
   "title": "Upload Document"
 }
@@ -719,15 +719,15 @@ Allows users to select files from device storage.
 ```
 
 **Renderer Behavior:**
-- Opens device file picker
-- User selects file from storage
-- Stores file reference and metadata
-- File is uploaded as attachment
+- Opens the system file picker
+- Copies the file into **`attachments/draft/`** with a generated basename (mobile)
+- Persists **`filename`** (basename), **`timestamp`**, and **`metadata`** (`mimeType`, `size`, `extension`, optional **`originalFileName`** for display)
+- Shows **only the display filename** in the form (no thumbnail or inline preview)
 
 **Platform Constraints:**
-- File type restrictions depend on platform
-- Large files may take time to upload
-- Storage permissions required
+- Allowed file types depend on OS picker and Formulus configuration
+- Large files affect sync time and storage
+- Storage / privacy permissions depend on platform
 
 ### QR Code / Barcode Scanner
 
@@ -1031,7 +1031,7 @@ Show field when boolean is true:
 
 ### Multimedia Capture
 
-Forms can include fields for capturing photos, audio, and video. These are handled as attachments and synchronized separately from observation metadata.
+Forms can include fields for capturing photos, audio, and video, and for attaching generic files (`select_file`). These binaries are handled as **attachments** and synchronized separately from observation metadata (observation JSON holds basename + metadata).
 
 ### Location Capture
 

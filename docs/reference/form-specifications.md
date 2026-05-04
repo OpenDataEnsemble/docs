@@ -282,9 +282,11 @@ See the full schema options and examples in [Custom Extensions](../guides/custom
 
 #### File Selection
 
+Generic attachment via document picker. Use **`type: object`** with **`format: select_file`** (Formplayer stores basename + portable metadata; no inline preview).
+
 ```json
 {
-  "type": "string",
+  "type": "object",
   "format": "select_file",
   "title": "Upload Document"
 }

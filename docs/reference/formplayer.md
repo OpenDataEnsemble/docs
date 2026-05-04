@@ -439,7 +439,7 @@ Formplayer includes core question type renderers:
 - `SignatureQuestionRenderer`: Digital signature
 - `AudioQuestionRenderer`: Voice recording
 - `VideoQuestionRenderer`: Video recording
-- `FileQuestionRenderer`: File attachment
+- `FileQuestionRenderer`: Generic file attachment (`format: select_file`, `type: object`) — document picker, basename persistence like photos; **filename-only** UI (no preview)
 - `SubObservationQuestionRenderer`: Embedded sub-observation repeats (`format: sub-observation`) — nested `openFormplayer` with `subObservationMode`
 
 ### Custom Renderers

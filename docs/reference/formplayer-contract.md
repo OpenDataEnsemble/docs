@@ -558,13 +558,13 @@ All custom formats are registered in Ajv and have corresponding custom renderers
 | `gps` | `string` or `object` | `GPSQuestionRenderer` | GPS coordinates |
 | `signature` | `object` | `SignatureQuestionRenderer` | Signature pad |
 | `qrcode` | `string` or `object` | `QrcodeQuestionRenderer` | Barcode scanner |
-| `audio` | `string` or `object` | `AudioQuestionRenderer` | Audio recording |
-| `video` | `string` or `object` | `VideoQuestionRenderer` | Video recording |
-| `select_file` | `string` or `object` | `FileQuestionRenderer` | File picker |
+| `audio` | `object` | `AudioQuestionRenderer` | Audio recording |
+| `video` | `object` | `VideoQuestionRenderer` | Video recording |
+| `select_file` | `object` | `FileQuestionRenderer` | Generic file attachment (picker) |
 
 ### Format Registration
 
-**Ajv Registration** (App.tsx:544-551):
+**Ajv Registration** (App.tsx):
 ```typescript
 ajv.addFormat('photo', () => true);        // Accepts any value
 ajv.addFormat('qrcode', () => true);
@@ -608,6 +608,27 @@ export const customRenderers = [
 }
 ```
 
+**File (`select_file`):**
+
+Use `type: object` with `format: select_file`. The Formplayer stores **basename-only** attachment keys and portable metadata (mime type, size, extension, optional original picker display name). The native app copies the picked file into **`attachments/draft/`** (same layout as photos). The UI shows the **filename only**—there is no embedded preview.
+
+```json
+// Schema
+{
+  "supporting_doc": {
+    "type": "object",
+    "format": "select_file",
+    "title": "Supporting document"
+  }
+}
+
+// UI Schema
+{
+  "type": "Control",
+  "scope": "#/properties/supporting_doc"
+}
+```
+
 **GPS:**
 ```json
 // Schema (string format)
@@ -638,7 +659,7 @@ export const customRenderers = [
 **Key Points:**
 - ✅ No special UI schema required (standard `Control` is sufficient)
 - ✅ Format must be specified in schema
-- ✅ Type can be `string` or `object` (depends on format)
+- ✅ Attachment-backed builtins (**`photo`**, **`audio`**, **`video`**, **`select_file`**) use **`type: object`** in current Formplayer (match JSON Forms testers in `App.tsx`). Other formats may accept `string` or `object` (e.g. **`gps`**, **`qrcode`**).
 - ✅ Custom renderer handles all UI and interaction
 
 ---

@@ -98,6 +98,7 @@ Custom App Structure:
 **Key Features:**
 - **Configuration-driven**: `app.config.json` controls app behavior
 - **Form Integration**: Seamless integration with Formulus form system
+- **Local observation indexes**: Device-only index table for fast queries (never synced to Synkronus)
 - **Theme System**: Material Design 3 based theming
 - **Build Process**: Optimized bundle creation for deployment
 

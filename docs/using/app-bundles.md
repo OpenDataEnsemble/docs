@@ -167,6 +167,10 @@ For technical information about app bundle structure, format, and development, s
 - [Custom Applications Guide](/guides/custom-applications) - Building custom applications
 - [Form Design Guide](/guides/form-design) - Creating form specifications
 
+## ODE Desktop Workbench
+
+On **ODE Desktop**, Synkronus bundles download into **`bundles/active/`** in the profile workspace. To iterate on a **local** custom app build without replacing that download, use [ODE Desktop developer mode](/docs/guides/ode-desktop-developer-mode) (mirror to `bundles/dev-local/`).
+
 ## Related Documentation
 
 - [Your First Form](/using/your-first-form) - Get started with data collection

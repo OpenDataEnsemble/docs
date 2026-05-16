@@ -149,22 +149,37 @@ await api.deleteObservation('survey', 'obs-123');
 
 **Returns:** Promise that resolves when deletion is complete
 
-#### getObservations(formType, filters)
+#### getObservations(formType, isDraft?, includeDeleted?)
 
-Query observations from local database.
+List observations for a form type (no structured filter).
 
 ```javascript
-const observations = await api.getObservations('survey', {
-  status: 'synced',
-  limit: 10
+const observations = await api.getObservations('survey', false, false);
+```
+
+#### getObservationsByQuery(options)
+
+Query observations with a **structured filter AST** (preferred for custom apps). Declared `data.*` paths use a local **observation index**; other paths use `json_extract`. See [Observation queries](../guides/observation-queries.md).
+
+```javascript
+const observations = await api.getObservationsByQuery({
+  formType: 'hh_person',
+  includeDeleted: false,
+  filter: {
+    op: 'and',
+    conditions: [
+      { field: 'data.village', op: 'eq', value: 'kopria' },
+    ],
+  },
 });
 ```
 
 **Parameters:**
-- `formType` (string): The form type identifier
-- `filters` (object): Optional query filters
+- `formType` (string): Form type identifier
+- `includeDeleted` (boolean, optional): Include soft-deleted rows
+- `filter` (ObservationFilter, optional): Structured filter AST
 
-**Returns:** Promise resolving to array of observations
+**Returns:** Promise resolving to an array of observations
 
 #### sync()
 

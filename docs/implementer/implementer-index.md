@@ -64,6 +64,18 @@ Get your first form running in 30 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
+        <h4>ODE Desktop developer mode</h4>
+      </div>
+      <div className="card__body">
+        <p>Test a local custom app build in the Workbench against real profile data.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/guides/ode-desktop-developer-mode">Learn More →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="col col--6 col--12-mobile margin-bottom--md">
+    <div className="card card--compact">
+      <div className="card__header">
         <h4>JSON Forms Reference</h4>
       </div>
       <div className="card__body">

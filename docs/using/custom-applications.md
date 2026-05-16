@@ -107,6 +107,10 @@ Custom applications are suitable for:
 - Integration with external systems
 - Complex navigation requirements
 
+## Testing locally with ODE Desktop
+
+Use [ODE Desktop developer mode](/docs/guides/ode-desktop-developer-mode) to load a local build (folder with `index.html`) in the Workbench **Custom app** page against a profile’s observations, then refresh after each build.
+
 ## Next Steps
 
 - Read the [Custom Applications guide](/guides/custom-apps/overview) for detailed information

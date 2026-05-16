@@ -72,9 +72,15 @@ If your template uses **`app.config.json`** (common in React-based examples), it
       "onBackground": "#ffffff",
       "onSurface": "#e0e0e0"
     }
-  }
+  },
+  "observationIndexes": [
+    { "key": "patient_id", "path": "$.patient_id" },
+    { "key": "site_code", "path": "$.site_code", "formTypes": ["visit_*"] }
+  ]
 }
 ```
+
+`observationIndexes` declares **local-only** SQLite indexes for fast `getObservationsByQuery` filters on `data.*` fields. They are maintained on the device and are **not synced**. See [Observation queries](./observation-queries.md).
 
 ### Theme Integration
 

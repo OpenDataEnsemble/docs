@@ -92,6 +92,7 @@ const sidebars: SidebarsConfig = {
             'guides/building-custom-apps-v1',
             'guides/building-custom-apps-v2',
             'guides/form-design',
+            'guides/choice-lists',
             'guides/dynamic-choice-lists',
             'guides/observation-queries',
             'guides/ode-desktop-developer-mode',

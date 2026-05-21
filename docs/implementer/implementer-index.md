@@ -138,7 +138,8 @@ Get your first form running in 30 minutes:
 
 ### Advanced Form Features
 - [Conditional Fields](/docs/guides/form-design#conditional-logic)
-- [Dynamic Choice Lists](/docs/guides/form-design#dynamic-choices)
+- [Choice lists (shared + dynamic)](/docs/guides/choice-lists)
+- [Observation queries & indexes](/docs/guides/observation-queries)
 - [Media Capture (Photos, Audio)](/docs/guides/form-design#media)
 - [Calculated Fields](/docs/guides/form-design#calculations)
 

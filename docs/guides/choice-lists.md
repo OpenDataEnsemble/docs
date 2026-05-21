@@ -8,12 +8,8 @@ How to **use**, **add**, **update**, and **remove** dropdown options in ODE cust
 
 | Mechanism | When to use | Where you edit |
 |-----------|-------------|----------------|
-| **Shared choice lists** | Fixed study-wide options (yes/no, staff names, village codes) reused across forms | `forms/shared-choice-defs.schema.json` in your bundle + each form `schema.json` |
-| **Dynamic choice lists** | Options loaded from **observations already on the device** (person picker, households in a village, etc.) | Form `schema.json` only (`x-dynamicEnum`) |
-
-:::info Reference implementation
-[AnthroCollect](https://github.com/OpenDataEnsemble/AnthroCollect) ships both patterns. In that repo, the same content lives in `forms/CHOICE_LISTS_GUIDE.md` next to the form schemas.
-:::
+| **Shared choice lists** | Fixed options (yes/no, roles, regions) reused across many forms | `forms/shared-choice-defs.schema.json` in your bundle + each form `schema.json` |
+| **Dynamic choice lists** | Options loaded from **observations already on the device** (sites, participants, visits, etc.) | Form `schema.json` only (`x-dynamicEnum`) |
 
 **Related guides:** [Observation queries and local indexes](./observation-queries) (performance indexes for dynamic filters), [Form design](./form-design), [Custom extensions](./custom-extensions).
 
@@ -36,27 +32,34 @@ Each list is a `$defs` entry using `oneOf` with `const` (stored value) and `titl
   "$id": "forms/shared-choice-defs.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$defs": {
-    "yesno": {
+    "yes_no": {
       "oneOf": [
         { "const": "yes", "title": "Yes" },
         { "const": "no", "title": "No" }
+      ]
+    },
+    "region_list": {
+      "oneOf": [
+        { "const": "north", "title": "North region" },
+        { "const": "south", "title": "South region" },
+        { "const": "other", "title": "Other" }
       ]
     }
   }
 }
 ```
 
-Your app defines its own `$defs` keys. AnthroCollect currently includes lists such as `yesno`, `researcher_list`, `assistant_list`, `villages`, and `kopria_village` — open that file in your bundle for the full option list.
+Name each list with **snake_case** keys (`yes_no`, `region_list`, `enumerator_list`, …). Open your bundle’s catalog file to see every list your project defines.
 
 ### Reference a list in a form
 
 In the form’s `schema.json`, point the field at the shared definition:
 
 ```json
-"p_hh_res_validation": {
+"assigned_region": {
   "type": "string",
-  "title": "Household residential validation village",
-  "$ref": "forms/shared-choice-defs.schema.json#/$defs/villages"
+  "title": "Assigned region",
+  "$ref": "forms/shared-choice-defs.schema.json#/$defs/region_list"
 }
 ```
 
@@ -71,9 +74,9 @@ Keep `type`, `title`, and `description` on the property as needed. The `$ref` su
 **“Other” options:** when the list includes `other`, add a companion free-text field:
 
 ```json
-"p_hh_res_validation_other": {
+"assigned_region_other": {
   "type": "string",
-  "title": "Other village (specify)",
+  "title": "Other region (specify)",
   "maxLength": 200
 }
 ```
@@ -81,19 +84,20 @@ Keep `type`, `title`, and `description` on the property as needed. The `$ref` su
 ### Add a new shared list
 
 1. Edit **`forms/shared-choice-defs.schema.json`**.
-2. Add a new `$defs` key (use **snake_case**), for example:
+2. Add a new `$defs` key, for example:
 
 ```json
-"my_new_list": {
+"priority_level": {
   "oneOf": [
-    { "const": "option_a", "title": "Option A" },
-    { "const": "option_b", "title": "Option B" }
+    { "const": "low", "title": "Low" },
+    { "const": "medium", "title": "Medium" },
+    { "const": "high", "title": "High" }
   ]
 }
 ```
 
 3. Reference it from any form with `$ref` as above.
-4. Validate the bundle (AnthroCollect example):
+4. Validate the bundle (if your project provides a script):
 
 ```powershell
 cd app
@@ -112,7 +116,7 @@ Validation resolves shared `$ref` and fails if a form references a missing `$def
 
 ### Remove options or lists
 
-1. **One option:** remove its `oneOf` entry; search the repo for the old `const` in `forms/`.
+1. **One option:** remove its `oneOf` entry; search your `forms/` tree for the old `const`.
 2. **Whole list:** delete the `$defs` key and remove every `$ref` to `#/$defs/<list_name>`.
 3. Re-run form validation.
 
@@ -126,35 +130,35 @@ Validation resolves shared `$ref` and fails if a form references a missing `$def
 
 ### What they are
 
-Dynamic lists populate dropdowns from the **local observation database** at runtime (offline). Configure a field with **`x-dynamicEnum`** in `schema.json`. Formplayer uses the **`DynamicEnumControl`** renderer and calls **`getDynamicChoiceList`** (provided by your custom app extensions, e.g. AnthroCollect’s `queryHelpers.js`).
+Dynamic lists populate dropdowns from the **local observation database** at runtime (offline). Configure a field with **`x-dynamicEnum`** in `schema.json`. Formplayer uses the **`DynamicEnumControl`** renderer and calls **`getDynamicChoiceList`** from your custom app extensions (typically implemented in `queryHelpers.js` in the app source).
 
-Use dynamic lists when choices depend on data already collected. Use **shared** lists when options are fixed by the protocol.
+Use dynamic lists when choices depend on data already collected. Use **shared** lists when options are fixed by the study protocol.
 
 :::tip Performance
-Filters run through **`getObservationsByQuery`** with a structured filter AST. Declare hot filter fields in **`app.config.json`** → `observationIndexes` so queries use the local index table instead of scanning JSON. See [Observation queries](./observation-queries).
+Filters run through **`getObservationsByQuery`** with a structured filter AST. Declare frequently filtered fields in **`app.config.json`** → `observationIndexes` so queries use the local index table instead of scanning JSON. See [Observation queries](./observation-queries).
 :::
 
 ### Prerequisites
 
 - Field type **`string`** (saved value is usually `observationId` or a `data.*` value).
-- Custom app includes **`getDynamicChoiceList`** on `window.formulus.functions` (via extensions in the app WebView bundle).
+- Custom app exposes **`getDynamicChoiceList`** on `window.formulus.functions`.
 - Observations exist on the device for the `query` form type.
 
 ### Configuration
 
 ```json
-"my_field": {
+"selected_participant": {
   "type": "string",
-  "title": "Select person",
+  "title": "Select participant",
   "x-dynamicEnum": {
     "function": "getDynamicChoiceList",
-    "query": "hh_person",
+    "query": "participant",
     "params": {
-      "sex": "male",
-      "p_hh_res_validation": "{{data.section_1.test_village}}"
+      "status": "active",
+      "site_name": "{{data.location.site_name}}"
     },
     "valueField": "observationId",
-    "labelField": "data.names",
+    "labelField": "data.display_name",
     "distinct": false
   }
 }
@@ -163,10 +167,10 @@ Filters run through **`getObservationsByQuery`** with a structured filter AST. D
 | Property | Required | Description |
 |----------|----------|-------------|
 | `function` | No (default `getDynamicChoiceList`) | Extension function name |
-| `query` | **Yes** | Form type to query (folder name under `forms/`, e.g. `household`, `hh_person`) |
+| `query` | **Yes** | Form type to query — the folder name under `forms/` (e.g. `site`, `participant`, `visit`) |
 | `params` | No | Equality filters on observation `data.*` fields; optional `whereClause` |
 | `valueField` | No (default `observationId`) | Saved value path (`observationId` or `data.field`) |
-| `labelField` | No (default `data.names`) | Display label path |
+| `labelField` | No (default varies by app) | Display label path |
 | `distinct` | No (default `false`) | `true` = unique values of `valueField` only |
 
 ### Filter `params`
@@ -176,30 +180,26 @@ Keys in `params` are **field names on observation JSON** (without a `data.` pref
 **Cascading / dependent dropdowns** use template values from the current form:
 
 ```json
-"hh_village_name": "{{data.section_1_cascading.test_village}}"
+"site_name": "{{data.location.site_name}}"
 ```
 
 - Syntax: `{{data.<path>}}` with dots for nested objects.
 - If the template resolves empty, that filter is **skipped** (broader result set).
 - The control reloads when templated parent fields change.
 
-**Indexed param keys** (fast when declared in `app.config.json` — AnthroCollect example):
+**Indexed params (recommended for performance):** declare matching keys in `app.config.json` → `observationIndexes`. Example pattern (your keys will match your form design):
 
-| Param key | Typical `query` | Meaning |
-|-----------|-----------------|---------|
-| `hh_id` | any | Household ID |
-| `p_id` | any | Person ID |
-| `hh_village_name` | `household` | Household village |
-| `village` | `hh_person` | Person `village` |
-| `p_hh_res_validation` | `hh_person` | Person residential validation village |
-| `sex` | `hh_person` | `male` / `female` |
+| Example param key | Example `query` form | Typical meaning |
+|-------------------|----------------------|-----------------|
+| `parent_id` | any | Link to a parent record |
+| `record_id` | any | Stable record identifier |
+| `site_name` | `site` | Site or location name |
+| `region` | `participant` | Region on a participant record |
+| `status` | `participant` | Status flag (`active`, `inactive`, …) |
 
-**Aliases** (AnthroCollect registry):
+Any param key can work; undeclared keys fall back to slower `json_extract` queries until you add an index entry.
 
-- `household` + param `village` → same as `hh_village_name`
-- `hh_person` + param `hh_village_name` → filters `p_hh_res_validation`
-
-Other keys still work but may use slower `json_extract` until an index is added.
+Some custom apps also map **aliases** (e.g. filtering `participant` records by a field name that differs from the param key). Check your app’s query registry or extension code if filters behave unexpectedly.
 
 ### `whereClause` in `params`
 
@@ -207,95 +207,119 @@ For extra conditions, add a SQL-style fragment:
 
 ```json
 "params": {
-  "sex": "female",
-  "whereClause": "data.p_age_participant_estimate >= 18"
+  "status": "active",
+  "whereClause": "data.age_years >= 18"
 }
 ```
 
 - Simple equalities like `data.field = 'value'` are parsed into the filter AST.
 - **`age_from_dob(...)`** is evaluated in **JavaScript after** the query (not in SQL).
-- Numeric comparisons (`>=`, `<=`) on arbitrary fields may fall back to post-query behavior depending on the parser — prefer indexed equality `params` when possible.
+- Numeric comparisons (`>=`, `<=`) on arbitrary fields may not use the index table — prefer indexed equality `params` when possible.
 
 ### `distinct: true`
 
-Use for categorical values (e.g. all village names from households):
+Use when you only need unique values of one field (e.g. every site name already registered):
 
 ```json
 "x-dynamicEnum": {
-  "query": "household",
+  "query": "site",
   "params": {},
-  "valueField": "data.hh_village_name",
-  "labelField": "data.hh_village_name",
+  "valueField": "data.site_name",
+  "labelField": "data.site_name",
   "distinct": true
 }
 ```
 
 ### Examples
 
-**Distinct villages from households**
+The examples below use **fictional** form types and fields. Replace them with names from your own bundle.
+
+**Example A — Distinct site names**
+
+Form type `site` stores `data.site_name`. Show each name once in the dropdown.
 
 ```json
-"test_village": {
+"site_name": {
   "type": "string",
-  "title": "Select village",
+  "title": "Site",
   "x-dynamicEnum": {
-    "query": "household",
+    "query": "site",
     "params": {},
-    "valueField": "data.hh_village_name",
-    "labelField": "data.hh_village_name",
+    "valueField": "data.site_name",
+    "labelField": "data.site_name",
     "distinct": true
   }
 }
 ```
 
-**Subvillages filtered by selected village**
+**Example B — Districts filtered by selected site (cascading)**
+
+After the user picks a site, list districts only for that site.
 
 ```json
-"test_subvillage": {
+"district": {
   "type": "string",
-  "title": "Select subvillage",
+  "title": "District",
   "x-dynamicEnum": {
-    "query": "household",
+    "query": "site",
     "params": {
-      "hh_village_name": "{{data.test_village}}"
+      "site_name": "{{data.site_name}}"
     },
-    "valueField": "data.hh_subvillage",
-    "labelField": "data.hh_subvillage",
+    "valueField": "data.district",
+    "labelField": "data.district",
     "distinct": true
   }
 }
 ```
 
-**All persons**
+**Example C — Pick any participant (no filter)**
 
 ```json
-"test_person": {
+"participant_id": {
   "type": "string",
-  "title": "Select person",
+  "title": "Participant",
   "x-dynamicEnum": {
-    "query": "hh_person",
+    "query": "participant",
     "params": {},
     "valueField": "observationId",
-    "labelField": "data.names",
+    "labelField": "data.display_name",
     "distinct": false
   }
 }
 ```
 
-**Males in a village**
+**Example D — Active participants at one site**
 
 ```json
-"test_male_in_village": {
+"participant_at_site": {
   "type": "string",
-  "title": "Select male in village",
+  "title": "Participant at this site",
   "x-dynamicEnum": {
-    "query": "hh_person",
+    "query": "participant",
     "params": {
-      "sex": "male",
-      "p_hh_res_validation": "{{data.test_village}}"
+      "status": "active",
+      "site_name": "{{data.site_name}}"
     },
     "valueField": "observationId",
-    "labelField": "data.names",
+    "labelField": "data.display_name",
+    "distinct": false
+  }
+}
+```
+
+**Example E — Adults only (numeric filter in whereClause)**
+
+```json
+"adult_participant": {
+  "type": "string",
+  "title": "Adult participant (18+)",
+  "x-dynamicEnum": {
+    "query": "participant",
+    "params": {
+      "whereClause": "data.age_years >= 18"
+    },
+    "valueField": "observationId",
+    "labelField": "data.display_name",
     "distinct": false
   }
 }
@@ -308,7 +332,7 @@ No special control type. Use a normal **Control** with the correct `scope`; the 
 ```json
 {
   "type": "Control",
-  "scope": "#/properties/my_field"
+  "scope": "#/properties/selected_participant"
 }
 ```
 
@@ -316,8 +340,8 @@ No special control type. Use a normal **Control** with the correct `scope`; the 
 
 1. Add `x-dynamicEnum` on the property in `schema.json`.
 2. Add a `Control` in `ui.json`.
-3. Confirm `query` matches a form type in the bundle.
-4. Validate JSON; test on device with real synced observations.
+3. Confirm `query` matches a form type folder under `forms/`.
+4. Validate JSON; test on device with synced observations.
 5. For a new heavily used filter key, add **`observationIndexes`** in `app.config.json` and re-sync the bundle.
 
 ### Troubleshooting
@@ -326,9 +350,9 @@ No special control type. Use a normal **Control** with the correct `scope`; the 
 |---------|----------------|
 | Empty dropdown | Observations for `query`? Filters too strict? Template path correct? |
 | Dropdown does not update | Parent field in `{{data....}}` must be set first |
-| Slow loading | Use indexed `params`; avoid unfiltered queries on large tables |
+| Slow loading | Add `observationIndexes` for hot param keys; avoid unfiltered queries on large tables |
 | `Function not found` | Rebuild custom app with extensions |
-| Wrong labels | `labelField` path (`data.names` vs `data.hoh_male`, etc.) |
+| Wrong labels | `labelField` path matches your observation JSON (`data.display_name`, etc.) |
 
 ---
 
@@ -343,7 +367,7 @@ No special control type. Use a normal **Control** with the correct `scope`; the 
 
 ## Checklist before release
 
-- [ ] Form validation passes (`validate:forms` or equivalent)
+- [ ] Form validation passes (`validate:forms` or your project’s equivalent)
 - [ ] Shared: new `const` values coordinated with exports / analysis
 - [ ] Dynamic: `query` form type exists; `params` keys match real observation fields
 - [ ] Dynamic: hot filters covered by `observationIndexes` where needed
@@ -351,24 +375,13 @@ No special control type. Use a normal **Control** with the correct `scope`; the 
 
 ---
 
-## ODK-X mapping
-
-| ODK-X | ODE |
-|-------|-----|
-| Choice lists in CSV | Shared `$defs` or inline `oneOf` |
-| Linked table / select person | `x-dynamicEnum` + `query` |
-| Choice filters | `params` and/or `whereClause` |
-| Cascading selects | `params` with `{{data.field}}` templates |
-
----
-
 ## Implementation (developers)
 
-| Layer | Location |
-|-------|----------|
-| Shared `$ref` resolution | `formulus` → `sharedChoiceSchema.ts`; bundle validation → `shared-choice-schema.cjs` |
-| Dynamic renderer | `formulus-formplayer` → `DynamicEnumControl` |
-| Query + filters | Custom app → `getDynamicChoiceList` → `buildDynamicChoiceFilter` → `getObservationsByQuery` |
+| Layer | Role |
+|-------|------|
+| Shared `$ref` resolution | Formulus `sharedChoiceSchema.ts`; bundle validation helpers |
+| Dynamic renderer | Formplayer `DynamicEnumControl` |
+| Query + filters | Custom app `getDynamicChoiceList` → `buildDynamicChoiceFilter` → `getObservationsByQuery` |
 | Indexes | `app.config.json` → `observationIndexes` |
 
 Legacy URL: [Dynamic choice lists](./dynamic-choice-lists) redirects here.

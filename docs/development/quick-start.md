@@ -33,9 +33,10 @@ The server will be available at `http://localhost:8080`.
 Download and install the APK from the [releases page](https://github.com/OpenDataEnsemble/ode/releases), or build from source:
 
 ```bash
+cd ode/packages/tokens && pnpm install && pnpm run build && cd ../..
 cd ode/formulus
-npm install
-npm run android
+pnpm install
+pnpm run android
 ```
 
   </TabItem>
@@ -44,10 +45,11 @@ npm run android
 Build from source (requires macOS and Xcode):
 
 ```bash
+cd ode/packages/tokens && pnpm install && pnpm run build && cd ../..
 cd ode/formulus
-npm install
+pnpm install
 cd ios && bundle install && bundle exec pod install && cd ..
-npm run ios
+pnpm run ios
 ```
 
   </TabItem>

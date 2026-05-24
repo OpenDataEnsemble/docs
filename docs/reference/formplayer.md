@@ -371,23 +371,24 @@ Themes can be customized:
 ### Development Build
 
 ```bash
-# Install dependencies
-npm install
+# Install dependencies (build @ode/tokens first)
+cd ../packages/tokens && pnpm install && pnpm run build && cd ../formulus-formplayer
+pnpm install
 
 # Start development server
-npm start
+pnpm start
 
-# Opens at http://localhost:3000
+# Opens at http://localhost:3000 (or Vite's printed port)
 ```
 
 ### Production Build
 
 ```bash
-# Build for React Native (Formulus)
-npm run build:rn
+# Build and copy into Formulus (and ODE Desktop)
+pnpm run build:copy
 
-# Build for web
-npm run build
+# Build for web only
+pnpm run build
 ```
 
 ### Build Output
@@ -488,7 +489,7 @@ Error handling for:
 
 ### Local Development
 
-1. **Start Dev Server**: `npm start`
+1. **Start Dev Server**: `pnpm start`
 2. **Open Browser**: Navigate to `http://localhost:3000`
 3. **Hot Reload**: Changes reflect automatically
 

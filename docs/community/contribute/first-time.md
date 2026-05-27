@@ -38,7 +38,7 @@ corepack enable
 corepack prepare pnpm@10.33.2 --activate
 ```
 
-Build `@ode/tokens` before Formulus or Formplayer. See [Development Setup](/docs/development/setup#package-manager-pnpm). AI/agent context for the ODE repo lives in [`AGENTS.md`](https://github.com/OpenDataEnsemble/ode/blob/dev/AGENTS.md) and per-package `AGENTS.md` files (all use **pnpm** commands).
+Build `@ode/tokens` before Formulus or Formplayer. See [Development Setup](/docs/development/setup#package-manager-pnpm).
 
 **For mobile app (Formulus):**
 ```bash

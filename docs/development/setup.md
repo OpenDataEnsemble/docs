@@ -35,7 +35,7 @@ ode/
 
 ## Package manager (pnpm)
 
-ODE JavaScript/TypeScript packages use **pnpm** (`pnpm@10.33.2` via Corepack). The monorepo declares a [pnpm workspace](https://github.com/OpenDataEnsemble/ode/blob/dev/pnpm-workspace.yaml); each package still has its own `pnpm-lock.yaml` — run `pnpm install` inside the component directory you work on.
+ODE JavaScript/TypeScript packages use **pnpm** (`pnpm@10.33.2` via Corepack) with a **per-package** `pnpm-lock.yaml` (there is no root workspace install). Run `pnpm install` inside each component directory you work on.
 
 **Recommended install order** when setting up several components:
 

@@ -10,7 +10,7 @@ Create and deploy a custom ODE application in 30 minutes using this step-by-step
 
 **Prerequisites:**
 - ODE server running (see [Installation Guide](/docs/getting-started/installation))
-- Node.js 20+ and npm 10+
+- Node.js 20+ and npm 10+ (for **your custom app** project; the ODE monorepo uses **pnpm** — see [Development Setup](/docs/development/setup#package-manager-pnpm))
 - Basic knowledge of React/JavaScript
 - Text editor (VS Code recommended)
 
@@ -541,13 +541,13 @@ synk app-bundle upload app-bundles/bundle-v1.0.0.zip --activate
 
 ### 12.1 Install Formulus App
 
-**Android:**
+**Android (build Formulus from the ODE repo):**
 ```bash
-# Install APK via ADB
-npm run android
-
-# Or install from Google Play Store (search "Formulus")
+cd ode/packages/tokens && pnpm install && pnpm run build && cd ../..
+cd ode/formulus && pnpm install && pnpm run android
 ```
+
+Or install a release APK / from an app store when available.
 
 ### 12.2 Configure App
 

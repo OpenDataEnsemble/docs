@@ -269,23 +269,24 @@ See [Formulus Development Guide](/development/formulus-development) for complete
 ### Key Development Commands
 
 ```bash
-# Install dependencies
-npm install
+# Install dependencies (build @ode/tokens first; see Development Setup)
+cd ../packages/tokens && pnpm install && pnpm run build && cd ../formulus
+pnpm install
 
 # Start Metro bundler
-npm start
+pnpm start
 
-# Run on Android
-npm run android
+# Run on Android (vendors Notifee via preandroid)
+pnpm run android
 
 # Run on iOS
-npm run ios
+pnpm run ios
 
 # Generate API client from OpenAPI spec
-npm run generate:api
+pnpm run generate:api
 
 # Generate WebView injection script
-npm run generate
+pnpm run generate
 ```
 
 ### Project Structure

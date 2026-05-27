@@ -1,6 +1,6 @@
 # ODE Desktop developer mode
 
-**Developer mode** in ODE Desktop lets you iterate on a **local custom app build** (for example `dist/` after `npm run build`) against a profile’s real observations and workspace, without replacing the bundle you downloaded from Synkronus.
+**Developer mode** in ODE Desktop lets you iterate on a **local custom app build** (for example `dist/` after your app’s build command, such as `npm run build` or `pnpm run build`) against a profile’s real observations and workspace, without replacing the bundle you downloaded from Synkronus. Building **ODE Desktop** itself uses **pnpm** — see [Development Setup](/docs/development/setup#package-manager-pnpm).
 
 ## What it is
 

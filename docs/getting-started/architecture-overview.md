@@ -53,7 +53,7 @@ The Synkronus Portal is a React application that gets **embedded directly into t
 ```
 
 **Build Process:**
-1. Portal built with `npm run build`
+1. Portal built with `pnpm run build` (in `synkronus-portal/`)
 2. Build output copied to `synkronus/portal/dist/`
 3. Go binary embeds portal using `//go:embed`
 4. Portal served at `/portal` route
@@ -129,7 +129,7 @@ Development -> Build -> ZIP Upload -> Server Storage -> Mobile Download
 - **Build Tools**: Vite for web apps
 
 ### Development Tools
-- **Package Manager**: npm
+- **Package Manager**: pnpm (per-package lockfiles in the ODE monorepo)
 - **Code Quality**: ESLint, Prettier, TypeScript
 - **Testing**: Jest for unit tests
 - **Containerization**: Docker with multi-stage builds

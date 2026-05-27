@@ -147,7 +147,7 @@ The API service handles errors:
 
 **Start Development:**
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ### Production Mode
@@ -159,7 +159,7 @@ npm run dev
 
 **Build for Production:**
 ```bash
-npm run build
+pnpm run build
 ```
 
 ### Environment Variables
@@ -187,7 +187,7 @@ docker compose up -d
 Build and serve with any static file server:
 
 ```bash
-npm run build
+pnpm run build
 # Serve dist/ directory
 ```
 
@@ -197,7 +197,7 @@ npm run build
 
 1. **Install Dependencies:**
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. **Start Backend:**
@@ -208,7 +208,7 @@ npm run build
 
 3. **Start Portal:**
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 4. **Access Portal:**

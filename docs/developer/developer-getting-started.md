@@ -97,6 +97,8 @@ brew install node go postgresql git
 ```bash
 sudo apt-get update
 sudo apt-get install nodejs npm golang postgresql git
+# Enable pnpm for the ODE monorepo (pinned in package.json files):
+# corepack enable && corepack prepare pnpm@10.33.2 --activate
 ```
 
 **Windows:**
@@ -288,13 +290,13 @@ ODE maintains high standards:
 ### JavaScript/TypeScript
 ```bash
 # Run linter
-npm run lint
+pnpm run lint
 
 # Auto-fix issues
-npm run lint:fix
+pnpm run lint:fix
 
 # Format code
-npm run format
+pnpm run format
 ```
 
 ### Go

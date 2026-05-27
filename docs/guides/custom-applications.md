@@ -10,7 +10,11 @@ Complete guide to building and deploying custom applications that integrate with
 
 ## Overview
 
-Custom applications are **web applications** (HTML, CSS, and JavaScript) that run inside the Formulus mobile app’s WebView. You may author them with **any** stack—plain static files, **Vite**, **React**, **Vue**, **Svelte**, or another bundler—**as long as the build output** can be packaged as described in the [app bundle format](/docs/reference/app-bundle-format) (entry HTML, assets, and `forms/` layout). They provide specialized workflows, custom navigation, integration with the ODE form system, and interfaces tailored to your use case.
+Custom applications are **web applications** (HTML, CSS, and JavaScript) that run inside the Formulus mobile app’s WebView.
+
+:::note ODE monorepo vs your custom app
+The **ODE repository** (Formulus, Formplayer, Synkronus Portal, design packages) uses **pnpm** — see [Development Setup](/docs/development/setup#package-manager-pnpm). **Your** custom app project can use **npm**, **pnpm**, or **yarn**; the examples below use common **npm** script names from the [custom_app](https://github.com/OpenDataEnsemble/custom_app) template.
+::: You may author them with **any** stack—plain static files, **Vite**, **React**, **Vue**, **Svelte**, or another bundler—**as long as the build output** can be packaged as described in the [app bundle format](/docs/reference/app-bundle-format) (entry HTML, assets, and `forms/` layout). They provide specialized workflows, custom navigation, integration with the ODE form system, and interfaces tailored to your use case.
 
 ## Scaffolding
 

@@ -29,27 +29,38 @@ git remote add upstream https://github.com/OpenDataEnsemble/OpenDataEnsemble.git
 
 ### 2. Set Up Your Development Environment
 
-Depending on which component you want to contribute to:
+Depending on which component you want to contribute to.
+
+ODE JavaScript packages use **pnpm** (not npm). Enable the pinned version once per machine:
+
+```bash
+corepack enable
+corepack prepare pnpm@10.33.2 --activate
+```
+
+Build `@ode/tokens` before Formulus or Formplayer. See [Development Setup](/docs/development/setup#package-manager-pnpm).
 
 **For mobile app (Formulus):**
 ```bash
+cd packages/tokens && pnpm install && pnpm run build && cd ../..
 cd formulus
-npm install
-npm run start
+pnpm install
+pnpm start
 ```
 
 **For web app (Formplayer):**
 ```bash
-cd formplayer
-npm install
-npm run start
+cd packages/tokens && pnpm install && pnpm run build && cd ../..
+cd formulus-formplayer
+pnpm install
+pnpm start
 ```
 
 **For backend server (Synkronus):**
 ```bash
 cd synkronus
 go mod download
-go run ./cmd/server
+go run ./cmd/synkronus
 ```
 
 For detailed setup instructions, see the relevant component's development guide:
@@ -109,8 +120,9 @@ Use conventional commit format:
 If your change affects functionality, write tests:
 
 ```bash
-# Run tests for your component
-cd formulus && npm test
+# Run tests for your component (from repo root)
+cd formulus && pnpm run test --ci --coverage --watchAll=false
+cd formulus-formplayer && pnpm run test run
 cd synkronus && go test ./...
 ```
 
@@ -210,9 +222,9 @@ Once your PR is approved and merged, you're officially a contributor! Your code 
 - [Mobile Development](/docs/development/formulus-development)
 
 **Contributing to Documentation:**
-- Documentation uses Markdown and Docusaurus
-- Edit files in `/docs` folder
-- Run `npm run start` to preview changes
+- Documentation lives in the separate [docs](https://github.com/OpenDataEnsemble/docs) repository (Markdown + Docusaurus)
+- That site still uses **npm** for its own tooling (`npm install`, `npm start` in the docs repo)
+- ODE application code in this monorepo uses **pnpm** (see above)
 - Follow the same PR process for doc changes
 
 ### Common Tasks for First-Time Contributors

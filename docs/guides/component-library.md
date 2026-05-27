@@ -153,20 +153,22 @@ const Button = ({ variant, size, ...props }) => {
 
 1. **Install dependencies**:
 ```bash
-cd packages/tokens && npm install
-cd ../components && npm install
+cd packages/tokens && pnpm install
+cd ../components && pnpm install
 ```
 
 2. **Build tokens**:
 ```bash
-cd packages/tokens && npm run build
+cd packages/tokens && pnpm run build
 ```
 
-3. **Link packages locally**:
+3. **Use packages in an ODE app** (Formulus, formplayer, portal use `file:` dependencies in `package.json`):
 ```bash
-# In your app directory
-npm link ../packages/tokens
-npm link ../packages/components
+# Example in package.json:
+# "@ode/tokens": "file:../packages/tokens"
+# "@ode/components": "file:../packages/components"
+# Then from that app directory:
+pnpm install
 ```
 
 ### Adding New Tokens
@@ -188,7 +190,7 @@ npm link ../packages/components
 
 2. **Build tokens**:
 ```bash
-npm run build
+pnpm run build
 ```
 
 3. **Use in components**:
@@ -371,7 +373,7 @@ export const MyButton = ({ children, onPress }) => (
 - Check that packages are installed and linked correctly
 
 **Tokens not working:**
-- Verify tokens are built: `npm run build` in tokens package
+- Verify tokens are built: `pnpm run build` in tokens package
 - Check import path: `@ode/tokens`
 
 **Theme not applying:**

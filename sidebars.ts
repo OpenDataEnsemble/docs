@@ -209,6 +209,7 @@ const sidebars: SidebarsConfig = {
         'community/contribute/code-of-conduct',
       ],
     },
+
   ],
 };
 

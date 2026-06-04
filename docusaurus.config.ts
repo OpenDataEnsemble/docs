@@ -179,6 +179,27 @@ const config: Config = {
           ],
         },
         {
+          title: 'Legal',
+          items: [
+            {
+              label: 'Formulus privacy policy',
+              to: '/docs/legal/formulus-privacy-policy',
+            },
+            {
+              label: 'Account & data deletion',
+              to: '/docs/legal/formulus-account-deletion',
+            },
+            {
+              label: 'Formulus terms of use',
+              to: '/docs/legal/formulus-terms',
+            },
+            {
+              label: 'Open source license (MIT)',
+              to: '/docs/legal/open-source-license',
+            },
+          ],
+        },
+        {
           title: 'Contact',
           items: [
             {

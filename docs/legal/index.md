@@ -25,5 +25,5 @@ Source code: [OpenDataEnsemble/ode on GitHub](https://github.com/OpenDataEnsembl
 
 ## Contact
 
-- **Email:** [hello@sapiens-solutions.com](mailto:hello@sapiens-solutions.com)
+- **Email:** [hello@opendataensemble.org](mailto:hello@opendataensemble.org)
 - **Website:** [opendataensemble.org](https://opendataensemble.org)

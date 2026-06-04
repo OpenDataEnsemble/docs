@@ -44,7 +44,7 @@ Open Data Ensemble **cannot** delete accounts or server data on third-party or c
 
 If you are unsure which server operator to contact, or you need general guidance about Formulus:
 
-- **Email:** [hello@sapiens-solutions.com](mailto:hello@sapiens-solutions.com)  
+- **Email:** [hello@opendataensemble.org](mailto:hello@opendataensemble.org)  
 - Include: app name (Formulus), your organization or server URL (if known), and whether you need **local** deletion help or **server** account deletion.
 
 ODE will respond with directions; we do not have access to delete your server-side account without your operator’s involvement.

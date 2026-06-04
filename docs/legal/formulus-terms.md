@@ -68,6 +68,6 @@ These terms are governed by the laws applicable to Open Data Ensemble’s place 
 
 ## 11. Contact
 
-- **Email:** [hello@sapiens-solutions.com](mailto:hello@sapiens-solutions.com)  
+- **Email:** [hello@opendataensemble.org](mailto:hello@opendataensemble.org)  
 - **Website:** [opendataensemble.org](https://opendataensemble.org)  
 - **Legal index:** [Legal information](./index)

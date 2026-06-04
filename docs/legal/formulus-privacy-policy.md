@@ -99,7 +99,7 @@ We may update this policy occasionally. The “Last updated” date at the top w
 
 Questions about this privacy policy:
 
-- **Email:** [hello@sapiens-solutions.com](mailto:hello@sapiens-solutions.com)
+- **Email:** [hello@opendataensemble.org](mailto:hello@opendataensemble.org)
 - **Website:** [opendataensemble.org](https://opendataensemble.org)
 
 ## Technical summary

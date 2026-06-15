@@ -268,8 +268,18 @@ Formplayer supports various question types through custom renderers:
 
 ### Selection
 
-- **Single Select**: Dropdown or radio buttons
-- **Multi Select**: Checkboxes for multiple choices
+- **Single Select**: Native `<select>` dropdown by default for `oneOf` / `$ref` lists; optional Autocomplete (`options.autocomplete`), radio, or button groups
+- **Multi Select**: Vertical checkboxes by default; optional checkbox or button groups with `options.display`
+
+### Form UX (2026)
+
+- **Inline layout**: SwipeLayout forms default to compact two-column rows (`labelLayout: "inline"`)
+- **Sticky fields**: Opt-in per-control value memory (`options.sticky`)
+- **Deferred validation**: New forms hide errors until first forward navigation
+- **Sub-observation fast path**: `skipFinalize` skips the Finalize page for nested child forms
+- **Dynamic defaults**: Schema `default: "$today"` / `"$now"` for new observations
+
+See [Form design guide](../guides/form-design) for `ui.json` examples.
 
 ### Boolean
 

@@ -170,6 +170,19 @@ The UI schema defines how form fields are presented to users. It controls layout
 - **Progress Tracking**: Shows progress bar indicating current page
 - **Auto-wrapping**: If root is not SwipeLayout, Formplayer automatically wraps it
 
+**SwipeLayout `options`:**
+
+| Option | Values | Description |
+|--------|--------|-------------|
+| `labelLayout` | `"inline"` (default) \| `"stacked"` | Compact two-column layout (title left, input right) vs classic stacked fields |
+| `headerFields` | string[] (max 2) | Read-only field keys shown under the progress bar on every page |
+| `showInnerTitle` | boolean (default `false`) | Show the form `schema.title` in the inner header (off by default to avoid duplicating the Formulus chrome) |
+| `autoFocusFirstInput` | boolean (default `true`) | Focus the first text input when a page opens (keeps the keyboard open across swipes) |
+| `nextButtonLabel` | string | Override the Next button label |
+| `finalizeButtonLabel` | string | Override the label on the last content page before Finalize |
+
+Per-field override: set `"options": { "labelLayout": "stacked" }` on a `Control` to force a full-width stacked row (useful for photo, signature, GPS, or wide button groups).
+
 **Safe Example:**
 ```json
 {
@@ -510,7 +523,70 @@ ODE supports various question types through the Formplayer component. Question t
 
 Use **`format: sub-observation`** on an array property for **embedded repeats**: each nested completion stores JSON on the parent observation. Adding or editing opens the linked child form in **sub-observation mode**, so Synkronus still receives **one** parent observation payload.
 
-See [Custom Extensions](./custom-extensions.md#sub-observations-format-sub-observation) for schema keys (`linkedForm`, `parentKey`, `parentValuePath`, `subObservationInitValues`, templates, etc.).
+See [Custom Extensions](./custom-extensions.md#sub-observations-format-sub-observation) for schema keys (`linkedForm`, `parentKey`, `parentValuePath`, `subObservationInitValues`, `skipFinalize`, templates, etc.).
+
+## Control options
+
+Form authors can tune presentation and behaviour per field via the `options` object on a `Control` in `ui.json`.
+
+### Choice display
+
+Plain `oneOf` / shared `$ref` single-select fields default to a **native HTML `<select>`** (keyboard-free, reliable in Formulus WebViews). Opt back into the searchable Autocomplete with `"autocomplete": true`.
+
+| Option | Values | Applies to |
+|--------|--------|------------|
+| `display` | `"radio"` \| `"buttons"` | Single-select |
+| `display` | `"checkboxes"` \| `"buttons"` | Multi-select (`type: array` with `uniqueItems`) |
+| `orientation` | `"vertical"` (default) \| `"horizontal"` \| `"flow"` | Radio, checkbox, and button modes |
+| `buttonGroup` | `"segmented"` (default) \| `"separated"` | Button modes |
+| `autocomplete` | `true` | Single-select — use searchable Autocomplete instead of native select |
+| `placeholder` | string | Placeholder for native select (e.g. `"Select…"`) |
+
+**Tap-to-clear:** In `radio` and `buttons` single-select modes, tapping the already-selected option clears the answer.
+
+**Example — horizontal Yes/No buttons:**
+
+```json
+{
+  "type": "Control",
+  "scope": "#/properties/consent",
+  "options": {
+    "display": "buttons",
+    "orientation": "horizontal"
+  }
+}
+```
+
+### Sticky fields
+
+Set `"sticky": true` to remember the last submitted scalar value for that field. Values are stored in device `localStorage`, keyed by form type + version + field path, and applied as the **lowest-precedence** default on **new** observations only (not edits, drafts, or sub-observation sessions).
+
+```json
+{
+  "type": "Control",
+  "scope": "#/properties/interviewer_id",
+  "options": { "sticky": true }
+}
+```
+
+### Dynamic schema defaults
+
+For new observations, Formplayer resolves a small set of **default tokens** in `schema.json` property `default` values (only when the field is still empty after params / `defaultData`):
+
+| Token | Resolves to |
+|-------|-------------|
+| `$today` | Local calendar date `YYYY-MM-DD` (`format: "date"`) |
+| `$now` | ISO 8601 date-time (`format: "date-time"`) |
+
+Static `default` literals are unchanged.
+
+### Deferred validation
+
+New observations start with validation errors hidden (`ValidateAndHide`). Errors appear after the user navigates forward or reaches Finalize. Edits and draft resumes show validation immediately. Override via `params.validationMode`: `"ValidateAndShow"`, `"ValidateAndHide"`, or `"NoValidation"`.
+
+### Number bounds
+
+`minimum` / `maximum` are **validation constraints**, not per-keystroke clamps. Users can type out-of-range values; AJV surfaces errors on blur and at finalize. Stepper +/- buttons still respect bounds.
 
 ## Working with Media & Special Field Types
 
@@ -933,6 +1009,28 @@ Show field when boolean is true:
   }
 }
 ```
+
+#### Multi-select choice check
+
+For **array** multi-select fields, use `contains` with `const` (not `const` on the array itself):
+
+```json
+{
+  "type": "Control",
+  "scope": "#/properties/other_symptoms",
+  "rule": {
+    "effect": "SHOW",
+    "condition": {
+      "scope": "#/properties/symptoms",
+      "schema": {
+        "contains": { "const": "other" }
+      }
+    }
+  }
+}
+```
+
+Custom question types (`format` renderers) and the root `SwipeLayout` element also honour `SHOW` / `HIDE` rules.
 
 ### Unsafe Patterns
 

@@ -181,15 +181,62 @@ const observations = await api.getObservationsByQuery({
 
 **Returns:** Promise resolving to an array of observations
 
-#### sync()
+#### sync(options?)
 
 Trigger manual synchronization.
 
 ```javascript
-await api.sync();
+const { version } = await api.sync();
+// Optional: include attachments (slower)
+await api.sync({ includeAttachments: true });
 ```
 
-**Returns:** Promise that resolves when sync completes
+**Returns:** `Promise<{ version: number }>` — the server's data revision after sync completes.
+
+#### getConnectivityStatus()
+
+Probe whether the configured Synkronus server answers `GET /health`. Never rejects for offline devices — returns `{ online: false }`.
+
+```javascript
+const status = await api.getConnectivityStatus();
+// { online: boolean, serverUrl: string | null, checkedAt: number }
+```
+
+Use for "verify when online, fall back when offline" workflows in custom apps.
+
+#### getCurrentDataRevisionCount()
+
+Read the device's last-known Synkronus data revision (`current_version` from the most recent successful sync).
+
+```javascript
+const revision = await api.getCurrentDataRevisionCount(); // number, 0 if never synced
+```
+
+Reflects **server-stream alignment only** — not unsynced local edits. Poll after `sync()` or on an interval to detect remote changes from other devices.
+
+#### persistObservation(input)
+
+Persist an observation **without opening Formplayer** (headless write). Uses the same path as a Formplayer submit.
+
+```javascript
+const result = await api.persistObservation({
+  formType: 'survey',
+  finalData: { name: 'Ada', age: 30 },
+  observationId: null, // omit or null to create; provide id to update
+});
+// { observationId, formData }
+```
+
+#### openFormplayer options
+
+When opening forms programmatically, `openFormplayer` accepts:
+
+| Option | Description |
+|--------|-------------|
+| `subObservationMode` | Nested child form for embedded sub-observations |
+| `skipFinalize` | Skip Finalize page; auto-submit from last content page |
+
+**Form init `params` reserved keys** (not persisted as observation data): `defaultData`, `theme`, `darkMode`, `themeColors`, `context` (read-only session context exposed in Formplayer as `window.formulusSessionContext`), `validationMode`.
 
 ## Database Schema
 

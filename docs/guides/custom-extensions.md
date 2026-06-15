@@ -48,6 +48,7 @@ Use sub-observations when related answers should live **inside the parent observ
 | `allowDelete` | optional | Default `true`. |
 | `subObservationInitValues` | optional | Map merged into **initial params** when **adding** a new embedded child. Values support templates `{{parentValue}}`, `{{currentInstanceId}}`, or `{{dot.path}}` into parent data. |
 | `subObservationEditInitValues` | optional | Map merged **on top of** the saved child payload when **opening an existing** embedded item for edit—useful when parent-derived fields must be refreshed each time (often omitted). |
+| `skipFinalize` | optional | When `true`, the nested child form skips the injected Finalize page and auto-submits from the last content page. Formulus also skips GPS `beginObservationSession()` and suppresses the success modal for this fast path. Can be set on the schema property or passed via `openFormplayer(..., { skipFinalize: true })`. |
 
 Example property on the parent schema:
 

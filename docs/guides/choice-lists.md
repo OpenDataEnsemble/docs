@@ -68,6 +68,20 @@ Example structure:
 
 Use **snake_case** names for lists (`yes_no`, `region_list`, `priority_level`).
 
+### How shared lists render on device
+
+By default, a plain `oneOf` / `$ref` field renders as a **native HTML `<select>`** inside outlined styling. This avoids opening the on-screen keyboard on tablets and works reliably inside Formulus WebViews (MUI Menu portals do not).
+
+| Goal | `ui.json` control `options` |
+|------|----------------------------|
+| Default dropdown (recommended) | Omit `display` — native select is used |
+| Searchable long list | `"autocomplete": true` |
+| Yes/No as horizontal buttons | `"display": "buttons", "orientation": "horizontal"` |
+| Radio list | `"display": "radio"` |
+| Localized placeholder | `"placeholder": "Select…"` |
+
+For multi-select array fields, use `"display": "checkboxes"` or `"display": "buttons"`. See [Form design → Control options](./form-design#control-options).
+
 ---
 
 ### Walkthrough A — Create your first shared list (step by step)

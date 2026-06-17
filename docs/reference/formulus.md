@@ -234,7 +234,8 @@ When opening forms programmatically, `openFormplayer` accepts:
 | Option | Description |
 |--------|-------------|
 | `subObservationMode` | Nested child form for embedded sub-observations |
-| `skipFinalize` | Skip Finalize page; auto-submit from last content page |
+| `skipFinalize` | Omit Finalize page; **Done** on last content page submits after child-schema validation; returns `formData` to parent |
+| `skipDraftSelection` | Skip draft picker on new root sessions (custom-app orchestration) |
 
 **Form init `params` reserved keys** (not persisted as observation data): `defaultData`, `theme`, `darkMode`, `themeColors`, `context` (read-only session context exposed in Formplayer as `window.formulusSessionContext`), `validationMode`.
 

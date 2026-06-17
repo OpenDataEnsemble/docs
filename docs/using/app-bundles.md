@@ -169,7 +169,9 @@ For technical information about app bundle structure, format, and development, s
 
 ## ODE Desktop Workbench
 
-On **ODE Desktop**, Synkronus bundles download into **`bundles/active/`** in the profile workspace. To iterate on a **local** custom app build without replacing that download, use [ODE Desktop developer mode](/docs/guides/ode-desktop-developer-mode) (mirror to `bundles/dev-local/`).
+On **ODE Desktop**, Synkronus bundles download into **`bundles/active/`** in the profile workspace. See [Bundles (Workbench)](/docs/using/ode-desktop/workbench-bundles) for download and version management.
+
+To iterate on a **local** custom app build without replacing that download, use [ODE Desktop developer mode](/docs/guides/ode-desktop-developer-mode) (mirror to `bundles/dev-local/`).
 
 ## Related Documentation
 

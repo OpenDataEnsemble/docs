@@ -142,22 +142,9 @@ pnpm run format:check
 
 ## ODE Desktop Development
 
-### Setup
+See [ODE Desktop Development](/docs/development/ode-desktop-development) for setup, scripts, and Formplayer integration.
 
-```bash
-cd packages/tokens && pnpm install && pnpm run build && cd ../..
-cd desktop
-pnpm install
-```
-
-### Running
-
-```bash
-pnpm run dev          # Vite dev server
-pnpm run build:tauri  # Build formplayer assets + desktop + Tauri app
-```
-
-See [ODE Desktop developer mode](/docs/guides/ode-desktop-developer-mode) for local custom app iteration.
+For testing a local custom app build in the Workbench, see [ODE Desktop developer mode](/docs/guides/ode-desktop-developer-mode).
 
 ## Synkronus Development
 

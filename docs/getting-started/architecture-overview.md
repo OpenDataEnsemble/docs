@@ -8,7 +8,7 @@ ODE (Open Data Ensemble) is a comprehensive platform for mobile data collection 
 
 ## Core Components
 
-ODE consists of four main components that work together to provide a complete data collection solution:
+ODE consists of these main components that work together to provide a complete data collection solution:
 
 ### Synkronus Server
 The backend server responsible for:
@@ -38,6 +38,25 @@ Command-line utility for:
 - **Data Export**: Export data to Parquet format
 - **User Administration**: Manage users and permissions
 - **Server Administration**: Maintenance and monitoring tasks
+
+### ODE Desktop
+
+Desktop application (Tauri + React + Rust) for data stewardship and app development:
+
+- **Data management**: Pull, inspect, edit, import, and sync observations against Synkronus
+- **Forms / app workbench**: Download app bundles, preview forms, and test custom apps
+- **Developer mode**: Mirror a local custom app build without replacing the Synk-downloaded bundle
+- **Same public API**: Uses Synkronus REST API — no privileged desktop channel
+
+Introduced in **ODE v1.1.0**. See [ODE Desktop reference](/docs/reference/ode-desktop) and [install guide](/docs/getting-started/installation/installing-ode-desktop).
+
+### Synkronus Portal
+
+Web-based administrative interface (also embedded in the Synkronus binary at `/portal`):
+
+- **User and bundle management**
+- **Observation viewing and export**
+- **Same API** as Formulus, CLI, and ODE Desktop
 
 ## Architecture Patterns
 

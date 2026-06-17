@@ -37,6 +37,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'getting-started/installation/installing-synkronus',
             'getting-started/installation/installing-formulus',
+            'getting-started/installation/installing-ode-desktop',
           ],
         },
         'getting-started/faq',
@@ -104,6 +105,28 @@ const sidebars: SidebarsConfig = {
         'using/app-bundles',
         'using/data-management',
         'using/custom-applications',
+        {
+          type: 'category',
+          label: 'ODE Desktop',
+          link: { type: 'doc', id: 'using/ode-desktop/index' },
+          items: [
+            'using/ode-desktop/profiles',
+            'using/ode-desktop/observations',
+            'using/ode-desktop/import',
+            'using/ode-desktop/sync',
+            'using/ode-desktop/about',
+            {
+              type: 'category',
+              label: 'Workbench',
+              items: [
+                'using/ode-desktop/workbench-bundles',
+                'using/ode-desktop/workbench-form-preview',
+                'using/ode-desktop/workbench-custom-app',
+                'using/ode-desktop/developer-mode',
+              ],
+            },
+          ],
+        },
       ],
     },
     
@@ -136,6 +159,7 @@ const sidebars: SidebarsConfig = {
             'development/formplayer-development',
             'development/synkronus-development',
             'development/synkronus-portal-development',
+            'development/ode-desktop-development',
           ],
         },
       ],
@@ -181,6 +205,7 @@ const sidebars: SidebarsConfig = {
             'reference/synkronus-server',
             'reference/synkronus-cli',
             'reference/synkronus-portal',
+            'reference/ode-desktop',
           ],
         },
         {

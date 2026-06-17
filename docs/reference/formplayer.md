@@ -276,7 +276,11 @@ Formplayer supports various question types through custom renderers:
 - **Inline layout**: SwipeLayout forms default to compact two-column rows (`labelLayout: "inline"`)
 - **Sticky fields**: Opt-in per-control value memory (`options.sticky`)
 - **Deferred validation**: New forms hide errors until first forward navigation
-- **Sub-observation fast path**: `skipFinalize` skips the Finalize page for nested child forms
+- **Sub-observation fast path**: `skipFinalize` omits the Finalize page; child still validates on Done before returning data to the parent
+- **Nested validators**: Custom validators are per Formplayer session — deep embedded trees need validators on each nesting level (see [Custom Extensions](../guides/custom-extensions.md#nested-sessions-and-custom-validators))
+- **Optional `parentKey`**: Sub-observation arrays require only `linkedForm`; parent id injection is optional
+- **Mutating custom validators**: In-place `data` updates from bundle validators refresh the UI automatically
+- **Draft bypass**: `openFormplayer(..., { skipDraftSelection: true })` for orchestrated root sessions
 - **Dynamic defaults**: Schema `default: "$today"` / `"$now"` for new observations
 
 See [Form design guide](../guides/form-design) for `ui.json` examples.
@@ -335,9 +339,10 @@ Formplayer validates form responses against:
 
 Custom validation rules can be added:
 
+- **Bundle validators**: `ui.json` → `options.customValidators` referencing `validators/<name>/` modules in the app bundle (see [Custom Extensions](../guides/custom-extensions.md#custom-validators-validators))
+- **In-place updates**: Validators may mutate form `data` (for example auto-numbering repeat rows); Formplayer refreshes state when mutations are detected
 - **Conditional Validation**: Rules based on other field values
 - **Cross-field Validation**: Validation across multiple fields
-- **Async Validation**: Server-side validation support
 
 ## Draft Management
 
@@ -350,6 +355,8 @@ Formplayer can save incomplete forms as drafts:
 3. **Local Storage**: Drafts stored in WebView storage
 
 ### Loading Drafts
+
+When opening a **new** root observation, Formplayer may show a **draft selector** if local drafts exist. Custom apps can bypass this with `openFormplayer(formType, params, savedData, { skipDraftSelection: true })` when they orchestrate the session (for example after preparing `defaultData` programmatically). Sub-observation sessions and edits with `savedData` never show the picker.
 
 When editing an observation:
 

@@ -49,7 +49,7 @@ Use sub-observations when related answers should live **inside the parent observ
 | `allowDelete` | optional | Default `true`. |
 | `subObservationInitValues` | optional | Map merged into **initial params** when **adding** a new embedded child. Values support templates `{{parentValue}}`, `{{currentInstanceId}}`, or `{{dot.path}}` into parent data. |
 | `subObservationEditInitValues` | optional | Map merged **on top of** the saved child payload when **opening an existing** embedded item for edit—useful when parent-derived fields must be refreshed each time (often omitted). |
-| `skipFinalize` | optional | When `true`, the nested child form **omits the Finalize page**; **Done** on the last content page runs the same submit path as Finalize. The child is still validated against **its own** `schema.json` (AJV + that form’s custom validators) before `formData` is returned to the parent. Formulus also skips GPS `beginObservationSession()` and suppresses the success modal for this fast path. Can be set on the schema property or passed via `openFormplayer(..., { skipFinalize: true })`. |
+| `skipFinalize` | optional | When `true`, the nested child form **omits the Finalize page**; **Done** on the last content page runs the same submit path as Finalize. The child is still validated against **its own** `schema.json` (AJV + that form's custom validators) before `formData` is returned to the parent. Formulus also skips GPS `beginObservationSession()` and suppresses the success modal for this fast path. Can be set on the schema property or passed via `openFormplayer(..., { skipFinalize: true })`. |
 
 **`openFormplayer` options (custom apps):** `{ subObservationMode?, skipFinalize?, skipDraftSelection? }`. Use `skipDraftSelection: true` on **root** forms when the custom app orchestrates the session and must not show the draft picker (for example headless follow-up after `persistObservation`). Sub-observation sessions never offer the draft picker.
 
@@ -70,7 +70,7 @@ On success, `SubObservationQuestionRenderer` merges `result.formData` into the p
 
 Custom validators run in the **active Formplayer session only**. For a multi-level embedded tree (for example `household → rooms[] → beds[] → persons[]`):
 
-- A validator on the **root** form’s `rooms` control runs when **root** `data` changes — not when the enumerator adds a bed inside an open **room** sub-form.
+- A validator on the **root** form's `rooms` control runs when **root** `data` changes — not when the enumerator adds a bed inside an open **room** sub-form.
 - Put validators on **each form** where rows are added if numbering or summary columns must update as soon as the child returns (typical with `skipFinalize`).
 - Use **config** (for example `scope: "household" | "quarto" | "cama"`) so one validator module can serve multiple form types.
 

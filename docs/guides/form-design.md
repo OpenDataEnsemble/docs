@@ -589,7 +589,6 @@ Static `default` literals are unchanged.
 New observations start with validation errors hidden (`ValidateAndHide`). Errors appear after the user navigates forward or reaches Finalize. Edits and draft resumes show validation immediately. Override via `params.validationMode`: `"ValidateAndShow"`, `"ValidateAndHide"`, or `"NoValidation"`.
 
 **Draft picker:** On a new root form, Formplayer offers to resume local drafts when any exist. Custom apps pass `skipDraftSelection: true` in `openFormplayer` options to open directly (see [Formulus bridge API](../reference/formulus.md#openformplayer-options)).
-
 ### Number bounds
 
 `minimum` / `maximum` are **validation constraints**, not per-keystroke clamps. Users can type out-of-range values; AJV surfaces errors on blur and at finalize. Stepper +/- buttons still respect bounds.

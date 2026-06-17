@@ -8,10 +8,10 @@ export default function AnnouncementBanner(): React.ReactElement {
       <div className={styles.container}>
         <img src={require("@site/static/img/birdie.png").default} alt="Birdie" className={styles.birdie} />
         <div className={styles.content}>
-          <span className={styles.badge}>New version released!</span>
-          <span className={styles.text}>Great news! The ODE v1.0 is now available for download!</span>
-          <Link to="/docs/getting-started/installation/installing-formulus" className={styles.link}>
-            Install Now →
+          <span className={styles.badge}>Community Days</span>
+          <span className={styles.text}>Join us for the fist ODE Community Days @ Kampala, 16th and 17th September 2026!</span>
+          <Link to="https://forum.opendataensemble.org/c/community/5" className={styles.link}>
+            Read more on the Forum
           </Link>
         </div>
       </div>

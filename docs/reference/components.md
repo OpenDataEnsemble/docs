@@ -153,6 +153,39 @@ Formplayer is a React application that renders JSON Forms and communicates with 
 - **Complete Reference**: [Formplayer Reference](/reference/formplayer)
 - **Development**: [Formplayer Development](/development/formplayer-development)
 
+## ODE Desktop
+
+ODE Desktop is the desktop application for data stewardship and app development, introduced in **ODE v1.1.0**.
+
+### Overview
+
+ODE Desktop is a Tauri application (React + Rust) with two modes:
+
+- **Data management** — pull, inspect, edit, and sync observations against Synkronus
+- **Forms / app workbench** — download app bundles, preview forms, and test custom apps
+
+It uses the same public Synkronus API as Formulus, Portal, and the CLI.
+
+### Key Features
+
+- **Profile-scoped workspaces** — SQLite, attachments, and bundle cache per server
+- **Observation editing** — search, JSON editor, conflict resolution
+- **Sync console** — pull, push, combined sync, index rebuild
+- **Bundle workbench** — download bundles from Synkronus into `bundles/active/`
+- **Developer mode** — mirror a local custom app build to `bundles/dev-local/`
+- **Form preview** — formplayer with Formulus bridge parity (device APIs stubbed)
+
+### Installation
+
+- **End users**: [Installing ODE Desktop](/docs/getting-started/installation/installing-ode-desktop)
+- **Developers**: [ODE Desktop Development](/docs/development/ode-desktop-development)
+
+### Documentation
+
+- **User guide**: [ODE Desktop](/docs/using/ode-desktop/)
+- **Component reference**: [ODE Desktop Reference](/reference/ode-desktop)
+- **Developer mode**: [ODE Desktop developer mode](/docs/guides/ode-desktop-developer-mode)
+
 ## Component Integration
 
 All components work together to provide a complete data collection solution:

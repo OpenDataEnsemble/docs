@@ -13,7 +13,7 @@ Observations, attachments, and sync still use the profile database. The Synk-dow
 
 ## Prerequisites
 
-- ODE Desktop installed (see project README for build-from-source).
+- ODE Desktop installed — see [Installing ODE Desktop](/docs/getting-started/installation/installing-ode-desktop).
 - A **profile** with a configured workspace.
 - A local folder whose root contains **`index.html`** (typical: your custom app `dist/` output).
 - Optional: download an app bundle from Synkronus on the **Bundles** page so `bundles/active/` has forms and `app.config.json` when developer mode is off.
@@ -87,6 +87,10 @@ When developer mode is on, every Workbench route shows a compact status strip **
 
 ## See also
 
+- [Bundles (Workbench)](../using/ode-desktop/workbench-bundles) — download bundles and enable developer mode
+- [Custom app (Workbench)](../using/ode-desktop/workbench-custom-app) — embedded custom app WebView
+- [Form preview (Workbench)](../using/ode-desktop/workbench-form-preview) — formplayer preview
+- [ODE Desktop reference](../reference/ode-desktop) — architecture and workspace layout
 - [Understanding app bundles](../using/app-bundles) — Synk download to `bundles/active/`
 - [Custom applications](../using/custom-applications) — custom app role in bundles
 - [Observation queries](./observation-queries) — `getObservationsByQuery` and indexes

@@ -64,6 +64,18 @@ Get your first form running in 30 minutes:
   <div className="col col--6 col--12-mobile margin-bottom--md">
     <div className="card card--compact">
       <div className="card__header">
+        <h4>ODE Desktop</h4>
+      </div>
+      <div className="card__body">
+        <p>Desktop app for data stewardship and app bundle development (v1.1.0+).</p>
+        <a className="button button--primary button--sm button--block" href="/docs/using/ode-desktop/">User Guide →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="col col--6 col--12-mobile margin-bottom--md">
+    <div className="card card--compact">
+      <div className="card__header">
         <h4>ODE Desktop developer mode</h4>
       </div>
       <div className="card__body">

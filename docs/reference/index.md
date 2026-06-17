@@ -102,6 +102,17 @@ Complete technical reference for all ODE components, APIs, and specifications.
       </div>
     </div>
   </div>
+  <div className="col col--4 col--6-tablet col--12-mobile margin-bottom--sm">
+    <div className="card card--compact">
+      <div className="card__header">
+        <h4>ODE Desktop</h4>
+      </div>
+      <div className="card__body">
+        <p>Desktop app for data stewardship and app bundle development.</p>
+        <a className="button button--primary button--sm button--block" href="/docs/reference/ode-desktop">View Docs →</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 ## Specifications

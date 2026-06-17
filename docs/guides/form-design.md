@@ -523,7 +523,11 @@ ODE supports various question types through the Formplayer component. Question t
 
 Use **`format: sub-observation`** on an array property for **embedded repeats**: each nested completion stores JSON on the parent observation. Adding or editing opens the linked child form in **sub-observation mode**, so Synkronus still receives **one** parent observation payload.
 
-See [Custom Extensions](./custom-extensions.md#sub-observations-format-sub-observation) for schema keys (`linkedForm`, `parentKey`, `parentValuePath`, `subObservationInitValues`, `skipFinalize`, templates, etc.).
+See [Custom Extensions](./custom-extensions.md#sub-observations-format-sub-observation) for schema keys (`linkedForm`, optional `parentKey`, `parentValuePath`, `subObservationInitValues`, `skipFinalize`, templates, etc.).
+
+**`skipFinalize`:** Skips only the Finalize **page**; the child form still validates on **Done** before returning `formData` to the parent. Validation is **not** deferred to the root form.
+
+**Custom validators** (for example auto-numbering embedded rows) are declared in `ui.json` via `options.customValidators`. Validators run in the **active** form session — for nested trees, attach validators on **each** level where rows are added, not only on the root array. See [Custom Extensions — nested sessions](./custom-extensions.md#nested-sessions-and-custom-validators) and [parent context](./custom-extensions.md#parent-context-across-nesting-levels).
 
 ## Control options
 
@@ -583,6 +587,8 @@ Static `default` literals are unchanged.
 ### Deferred validation
 
 New observations start with validation errors hidden (`ValidateAndHide`). Errors appear after the user navigates forward or reaches Finalize. Edits and draft resumes show validation immediately. Override via `params.validationMode`: `"ValidateAndShow"`, `"ValidateAndHide"`, or `"NoValidation"`.
+
+**Draft picker:** On a new root form, Formplayer offers to resume local drafts when any exist. Custom apps pass `skipDraftSelection: true` in `openFormplayer` options to open directly (see [Formulus bridge API](../reference/formulus.md#openformplayer-options)).
 
 ### Number bounds
 

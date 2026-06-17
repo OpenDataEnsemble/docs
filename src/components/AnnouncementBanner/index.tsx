@@ -10,7 +10,7 @@ export default function AnnouncementBanner(): React.ReactElement {
         <div className={styles.content}>
           <span className={styles.badge}>Community Days</span>
           <span className={styles.text}>Join us for the fist ODE Community Days @ Kampala, 16th and 17th September 2026!</span>
-          <Link to="https://forum.opendataensemble.org/c/community/5" className={styles.link}>
+          <Link to="https://forum.opendataensemble.org/t/community-days-26-kampala-sept-16th-17th/26" className={styles.link}>
             Read more on the Forum
           </Link>
         </div>

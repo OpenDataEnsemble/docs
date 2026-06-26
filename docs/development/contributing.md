@@ -65,13 +65,12 @@ Use descriptive branch names:
 ### 5. Test Your Changes
 
 ```bash
-# Frontend projects
-npm test
-npm run lint
-npm run format:check
+# Frontend projects (from each package directory; see Development Setup for pnpm)
+cd formulus && pnpm run lint && pnpm run format:check && pnpm run test --ci --coverage --watchAll=false
+cd formulus-formplayer && pnpm run lint && pnpm run format:check && pnpm run test run
 
 # Go projects
-go test ./...
+cd synkronus && go test ./...
 go fmt ./...
 ```
 
@@ -178,10 +177,10 @@ func (s *Service) GetUser(username string) (*User, error) {
 Ensure your code passes all quality checks:
 
 ```bash
-# Frontend
-npm run lint
-npm run format:check
-npm test
+# Frontend (pnpm, per package directory)
+pnpm run lint
+pnpm run format:check
+pnpm run test
 
 # Backend
 go test ./...

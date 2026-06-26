@@ -28,7 +28,7 @@ const people = await formulus.getObservationsByQuery({
 
 Supported comparison ops: `eq`, `neq`, `gt`, `gte`, `lt`, `lte`, `in`.
 
-**Age from date of birth** (`age_from_dob(...)`) is **not** compiled to SQL. Formplayer evaluates age in JavaScript after fetching (see [Dynamic choice lists](./dynamic-choice-lists.md)).
+**Age from date of birth** (`age_from_dob(...)`) is **not** compiled to SQL. Formplayer evaluates age in JavaScript after fetching (see [Choice lists — dynamic filters](./choice-lists#dynamic-choice-lists)).
 
 Invalid filters **fail closed** (structured error; no unfiltered fallback).
 

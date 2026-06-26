@@ -8,9 +8,16 @@ Complete guide for developing the Synkronus Portal web interface.
 
 ## Prerequisites
 
-- **Node.js** 20+ and npm
+- **Node.js** 20+ and **pnpm** 10.33.2
 - **Go** 1.22+ (for backend)
 - **PostgreSQL** 17+ (for backend)
+
+Install shared packages before the portal:
+
+```bash
+cd packages/tokens && pnpm install && pnpm run build && cd ../..
+cd packages/components && pnpm install && cd ../..
+```
 
 ## Local Development Setup
 
@@ -25,13 +32,13 @@ See [Synkronus Development](/development/synkronus-development) for backend setu
 
 ```bash
 cd synkronus-portal
-npm install
+pnpm install
 ```
 
 #### Step 3: Start Development Server
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Portal available at http://localhost:5174
@@ -49,8 +56,8 @@ docker compose up -d postgres synkronus
 
 ```bash
 cd synkronus-portal
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Portal available at http://localhost:5174
@@ -70,10 +77,10 @@ Portal available at http://localhost:5174
 ### Build
 
 ```bash
-npm run build
+pnpm run build
 ```
 
-Output in `dist/` directory.
+`prebuild` runs OpenAPI client generation from `../synkronus/openapi/synkronus.yaml`. Output is in `dist/`.
 
 ### Docker Production Build
 
@@ -97,4 +104,3 @@ See [Synkronus Portal Reference](/reference/synkronus-portal) for detailed patte
 
 - [Synkronus Portal Reference](/reference/synkronus-portal) - Component reference
 - [Deployment Guide](/guides/deployment) - Production deployment
-

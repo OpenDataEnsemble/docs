@@ -11,7 +11,7 @@ Complete guide to setting up a development environment for ODE.
 Before setting up the development environment, ensure you have:
 
 - **Node.js** 20.0 or higher
-- **npm** 10.0 or higher
+- **pnpm** 10.33.2 (ODE pins this via `packageManager` in each package; enable with [Corepack](https://nodejs.org/api/corepack.html): `corepack enable && corepack prepare pnpm@10.33.2 --activate`)
 - **Go** 1.24 or higher (for server and CLI development)
 - **PostgreSQL** 13.0 or higher (for server development)
 - **Git** for version control
@@ -29,8 +29,20 @@ ode/
 ├── synkronus-cli/        # Go command-line utility
 ├── synkronus-portal/     # React web portal
 └── packages/
-    └── tokens/           # Design tokens package
+    ├── tokens/           # Design tokens package
+    └── components/       # Shared UI components
 ```
+
+## Package manager (pnpm)
+
+ODE JavaScript/TypeScript packages use **pnpm** (`pnpm@10.33.2` via Corepack) with a **per-package** `pnpm-lock.yaml` (there is no root workspace install). Run `pnpm install` inside each component directory you work on.
+
+**Recommended install order** when setting up several components:
+
+1. `packages/tokens` — `pnpm install` then `pnpm run build`
+2. Consumers — `pnpm install` in `formulus-formplayer`, `formulus`, `packages/components`, `synkronus-portal`, or `desktop` as needed
+
+CI and Docker use `pnpm install --frozen-lockfile` for reproducible installs.
 
 ## Clone the Repository
 
@@ -44,21 +56,24 @@ cd ode
 ### Setup
 
 ```bash
+cd packages/tokens && pnpm install && pnpm run build && cd ../..
 cd formulus
-npm install
+pnpm install
 ```
+
+Android builds require the Notifee native core (gitignored). `pnpm run android` runs `preandroid` to vendor it automatically; or run `pnpm run vendor:notifee` before `./gradlew` directly.
 
 ### Running
 
 ```bash
 # Start Metro bundler
-npm start
+pnpm start
 
 # Run on Android
-npm run android
+pnpm run android
 
 # Run on iOS (macOS only)
-npm run ios
+pnpm run ios
 ```
 
 ### Code Quality
@@ -67,26 +82,26 @@ ODE enforces consistent formatting and linting:
 
 ```bash
 # Run linting
-npm run lint
+pnpm run lint
 
 # Run linting with auto-fix
-npm run lint:fix
+pnpm run lint:fix
 
 # Format code
-npm run format
+pnpm run format
 
 # Check formatting (no writes)
-npm run format:check
+pnpm run format:check
 ```
 
 ### Generating Files
 
 ```bash
 # Generate WebView injection script
-npm run generate
+pnpm run generate
 
 # Generate API client from OpenAPI spec
-npm run generate:api
+pnpm run generate:api
 ```
 
 ## Formplayer Development
@@ -94,35 +109,42 @@ npm run generate:api
 ### Setup
 
 ```bash
+cd packages/tokens && pnpm install && pnpm run build && cd ../..
 cd formulus-formplayer
-npm install
+pnpm install
 ```
 
 ### Running
 
 ```bash
 # Development server
-npm start
+pnpm start
 
-# Build for React Native
-npm run build:rn
+# Build and copy assets into Formulus (and ODE Desktop)
+pnpm run build:copy
 ```
 
 ### Code Quality
 
 ```bash
 # Run linting
-npm run lint
+pnpm run lint
 
 # Run linting with auto-fix
-npm run lint:fix
+pnpm run lint:fix
 
 # Format code
-npm run format
+pnpm run format
 
 # Check formatting (no writes)
-npm run format:check
+pnpm run format:check
 ```
+
+## ODE Desktop Development
+
+See [ODE Desktop Development](/docs/development/ode-desktop-development) for setup, scripts, and Formplayer integration.
+
+For testing a local custom app build in the Workbench, see [ODE Desktop developer mode](/docs/guides/ode-desktop-developer-mode).
 
 ## Synkronus Development
 
@@ -202,13 +224,14 @@ Make your code changes following the coding standards.
 ### 3. Test Locally
 
 ```bash
-# Run tests
-npm test  # For frontend projects
-go test ./...  # For Go projects
+# Run tests (from each package directory)
+cd formulus && pnpm run test --ci --coverage --watchAll=false
+cd formulus-formplayer && pnpm run test run
+go test ./...  # For Go projects (from synkronus/, etc.)
 
 # Check code quality
-npm run lint
-npm run format:check
+pnpm run lint
+pnpm run format:check
 ```
 
 ### 4. Commit Changes
@@ -264,13 +287,13 @@ The CI pipeline automatically:
 
 ```bash
 # Check all components
-cd formulus && npm run lint && cd ..
-cd formulus-formplayer && npm run lint && cd ..
+cd formulus && pnpm run lint && cd ..
+cd formulus-formplayer && pnpm run lint && cd ..
 cd synkronus && go test ./... && cd ..
 
 # Format all code
-cd formulus && npm run format && cd ..
-cd formulus-formplayer && npm run format && cd ..
+cd formulus && pnpm run format && cd ..
+cd formulus-formplayer && pnpm run format && cd ..
 cd synkronus && go fmt ./... && cd ..
 ```
 
@@ -279,10 +302,12 @@ cd synkronus && go fmt ./... && cd ..
 ### Node Modules Issues
 
 ```bash
-# Clear and reinstall
-rm -rf node_modules package-lock.json
-npm install
+# Clear and reinstall (run inside the package directory, e.g. formulus/)
+rm -rf node_modules
+pnpm install
 ```
+
+If dependencies are missing after clone, ensure you ran `pnpm install` in that package directory (and built `packages/tokens` first when using `@ode/tokens` or `@ode/components`).
 
 ### Go Module Issues
 

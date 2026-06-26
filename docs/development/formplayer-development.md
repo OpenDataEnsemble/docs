@@ -12,25 +12,27 @@ Formplayer is a React web application that renders JSON Forms. It runs within We
 
 ## Prerequisites
 
-- **Node.js** 18+ and npm
+- **Node.js** 20+ and **pnpm** 10.33.2
 - **React** development experience
+- **`@ode/tokens` built** — from `packages/tokens`: `pnpm install && pnpm run build` (see [Development Setup](/docs/development/setup#package-manager-pnpm))
 
 ## Local Development
 
 ### Setup
 
 ```bash
+cd packages/tokens && pnpm install && pnpm run build && cd ../..
 cd formulus-formplayer
-npm install
+pnpm install
 ```
 
 ### Development Server
 
 ```bash
-npm start
+pnpm start
 ```
 
-Opens at http://localhost:3000
+Opens at http://localhost:3000 (or the port Vite prints).
 
 ### Development Features
 
@@ -40,25 +42,30 @@ Opens at http://localhost:3000
 
 ## Building
 
-### Build for React Native
-
-Build and copy to Formulus app:
+### Build and copy to Formulus (and ODE Desktop)
 
 ```bash
-npm run build:rn
+pnpm run build:copy
 ```
 
 This:
-1. Builds the React app
-2. Copies build to Formulus app directory
-3. Updates WebView assets
 
-### Build for Web
+1. Syncs the Formulus interface definition
+2. Builds the React app (`build/`)
+3. Copies assets into Formulus Android/iOS formplayer directories
+4. Copies assets into `desktop/public/formplayer_dist/` when building the full pipeline
 
-Standard web build:
+From **ODE Desktop** only (requires an existing `formulus-formplayer/build/`):
 
 ```bash
-npm run build
+cd desktop
+pnpm copy:formplayer
+```
+
+### Build for Web only
+
+```bash
+pnpm run build
 ```
 
 Output in `build/` directory.
@@ -82,14 +89,15 @@ Output in `build/` directory.
 2. **Register in Formplayer:**
    Add to Formplayer configuration when initialized by Formulus.
 
+When you change `formulus/src/webview/FormulusInterfaceDefinition.ts`, run `pnpm run sync-interface` (or `pnpm run build`) in formulus-formplayer.
+
 ## Testing
 
 ```bash
-npm test
+pnpm run test run
 ```
 
 ## Related Documentation
 
 - [Formplayer Reference](/reference/formplayer) - Component reference
 - [Form Design Guide](/guides/form-design) - Creating forms
-

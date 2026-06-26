@@ -109,7 +109,9 @@ Custom applications are suitable for:
 
 ## Testing locally with ODE Desktop
 
-Use [ODE Desktop developer mode](/docs/guides/ode-desktop-developer-mode) to load a local build (folder with `index.html`) in the Workbench **Custom app** page against a profile’s observations, then refresh after each build.
+[Install ODE Desktop](/docs/getting-started/installation/installing-ode-desktop) and use [developer mode](/docs/guides/ode-desktop-developer-mode) to load a local build (folder with `index.html`) in the Workbench **Custom app** page against a profile's observations, then refresh after each build.
+
+See also [Custom app (Workbench)](/docs/using/ode-desktop/workbench-custom-app) and the [ODE Desktop user guide](/docs/using/ode-desktop/).
 
 ## Next Steps
 

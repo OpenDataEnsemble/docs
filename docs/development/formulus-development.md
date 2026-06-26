@@ -14,7 +14,7 @@ This guide covers local development and production building for the Formulus Rea
 
 ### Required Tools
 
-- **Node.js** 18+ and npm
+- **Node.js** 20+ and **pnpm** 10.33.2 (see [Development Setup](/docs/development/setup#package-manager-pnpm))
 - **React Native CLI** or Expo CLI
 - **Java Development Kit (JDK)** 11 or higher
 - **Android Studio** (for Android development)
@@ -48,7 +48,8 @@ cd ode/formulus
 ### Step 2: Install Dependencies
 
 ```bash
-npm install
+cd ../packages/tokens && pnpm install && pnpm run build && cd ../formulus
+pnpm install
 ```
 
 ### Step 3: Install iOS Dependencies
@@ -76,7 +77,7 @@ iOS development is only available on macOS. Skip this step if you're developing 
 Generate the Synkronus API client from OpenAPI spec:
 
 ```bash
-npm run generate:api
+pnpm run generate:api
 ```
 
 ### Step 5: Generate WebView Injection Script
@@ -84,13 +85,13 @@ npm run generate:api
 Generate the JavaScript injection script:
 
 ```bash
-npm run generate
+pnpm run generate
 ```
 
 ### Step 6: Start Metro Bundler
 
 ```bash
-npm start
+pnpm start
 ```
 
 Keep this terminal open. Metro is the JavaScript bundler.
@@ -101,7 +102,7 @@ Keep this terminal open. Metro is the JavaScript bundler.
   <TabItem value="android" label="Android">
 
 ```bash
-npm run android
+pnpm run android
 ```
 
 This will:
@@ -114,7 +115,7 @@ This will:
   <TabItem value="ios" label="iOS (macOS only)">
 
 ```bash
-npm run ios
+pnpm run ios
 ```
 
 This will:
@@ -201,11 +202,11 @@ For iOS development, Windows is not supported. Use macOS with Xcode.
 ### Testing
 
 ```bash
-# Run tests
-npm test
+# Run tests (do not use `pnpm test -- --watch`; use pnpm run test)
+pnpm run test
 
-# Run tests in watch mode
-npm test -- --watch
+# CI-style run
+pnpm run test --ci --coverage --watchAll=false
 ```
 
 ## Building for Production
@@ -291,7 +292,7 @@ AAB location: `android/app/build/outputs/bundle/release/app-release.aab`
 ### Adding Dependencies
 
 ```bash
-npm install package-name
+pnpm add package-name
 ```
 
 For native dependencies, may need to:
@@ -309,7 +310,7 @@ cd ios && pod install && cd ..
 When Synkronus API changes:
 
 ```bash
-npm run generate:api
+pnpm run generate:api
 ```
 
 ### Updating WebView Interface
@@ -317,7 +318,7 @@ npm run generate:api
 When Formulus interface changes:
 
 ```bash
-npm run generate
+pnpm run generate
 ```
 
 ### Cleaning Build
@@ -331,7 +332,7 @@ cd ios && xcodebuild clean && cd ..
 
 # Remove node_modules
 rm -rf node_modules
-npm install
+pnpm install
 ```
 
 ## Troubleshooting
@@ -339,7 +340,8 @@ npm install
 ### Common Issues
 
 **Metro Bundler Won't Start:**
-- Clear Metro cache: `npm start -- --reset-cache`
+- Clear Metro cache: `pnpm start -- --reset-cache`
+- Android: if Gradle reports missing `:notifee_core`, run `pnpm run vendor:notifee` (or use `pnpm run android`, which runs it via `preandroid`)
 - Delete `node_modules` and reinstall
 
 **Build Fails:**

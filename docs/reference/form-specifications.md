@@ -197,7 +197,9 @@ Question types are specified using the `format` property in the schema:
 
 ### Sub-observations (embedded observations of another form type)
 
-Collect **multiple related observations as JSON objects inside one parent observation** using `"format": "sub-observation"`. Each embedded item is edited in a nested Formplayer session (`openFormplayer` with `subObservationMode`).
+Collect **multiple related observations as JSON objects inside one parent observation** using `"format": "sub-observation"`. Each embedded item is edited in a nested Formplayer session (`openFormplayer` with `subObservationMode`). Only **`linkedForm`** is required; **`parentKey`** is optional. Optional **`itemLabel`** customizes add-button and empty-table copy (see [Custom Extensions](../guides/custom-extensions.md#sub-observations-format-sub-observation)).
+
+Nested sessions validate the **child** schema on submit (`skipFinalize` only skips the Finalize page). Parent-level validators and denormalized fields run in the **parent** session. For multi-level trees, use validators on each form where rows are added, or parent snapshot init fields — see [Nested sessions and custom validators](../guides/custom-extensions.md#nested-sessions-and-custom-validators).
 
 See the full schema options and examples in [Custom Extensions](../guides/custom-extensions.md#sub-observations-format-sub-observation).
 

@@ -18,7 +18,7 @@ Before installing ODE components, ensure your system meets the following require
 |-------------|---------|-------------|
 | **Operating System** | macOS 10.15, Windows 10, or Linux | Latest stable version |
 | **Node.js** | 20.0 or higher | Latest stable |
-| **npm** | 10.0 or higher | Latest stable |
+| **pnpm** | 10.33.2 (via Corepack or global install) | Match `packageManager` in ODE `package.json` files |
 | **Android Studio** | Latest stable | Latest stable |
 | **Xcode** | 14.0 or higher (macOS only) | Latest stable |
 | **Java Development Kit** | JDK 17 | JDK 17 or higher |
@@ -57,8 +57,8 @@ Verify your installation by running:
 # Check Node.js version
 node --version
 
-# Check npm version
-npm --version
+# Check pnpm version
+pnpm --version
 
 # Check Go version
 go version
@@ -79,8 +79,8 @@ Using PowerShell:
 # Check Node.js version
 node --version
 
-# Check npm version
-npm --version
+# Check pnpm version
+pnpm --version
 
 # Check Go version
 go version
@@ -96,7 +96,7 @@ Or using Git Bash/WSL (same commands as Linux/macOS):
 
 ```bash
 node --version
-npm --version
+pnpm --version
 go version
 psql --version
 docker --version
@@ -156,7 +156,9 @@ git clone https://github.com/OpenDataEnsemble/ode.git
 cd ode
 
 # Build the Synkronus portal first
-cd synkronus-portal && npm ci && npm run build && cd ..
+cd packages/tokens && pnpm install --frozen-lockfile && pnpm run build && cd ../..
+cd packages/components && pnpm install --frozen-lockfile && cd ..
+cd synkronus-portal && pnpm install --frozen-lockfile && pnpm run build && cd ..
 
 # Build and run Synkronus
 cd synkronus
@@ -175,7 +177,9 @@ git clone https://github.com/OpenDataEnsemble/ode.git
 cd ode
 
 # Build the Synkronus portal first
-cd synkronus-portal && npm ci && npm run build && cd ..
+cd packages/tokens && pnpm install --frozen-lockfile && pnpm run build && cd ../..
+cd packages/components && pnpm install --frozen-lockfile && cd ..
+cd synkronus-portal && pnpm install --frozen-lockfile && pnpm run build && cd ..
 
 # Build and run Synkronus
 cd synkronus
@@ -190,7 +194,9 @@ git clone https://github.com/OpenDataEnsemble/ode.git
 cd ode
 
 # Build the Synkronus portal first
-cd synkronus-portal && npm ci && npm run build && cd ..
+cd packages/tokens && pnpm install --frozen-lockfile && pnpm run build && cd ../..
+cd packages/components && pnpm install --frozen-lockfile && cd ..
+cd synkronus-portal && pnpm install --frozen-lockfile && pnpm run build && cd ..
 
 # Build and run Synkronus
 cd synkronus

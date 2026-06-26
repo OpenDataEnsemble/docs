@@ -10,7 +10,7 @@ ODE (Open Data Ensemble) is a comprehensive platform for mobile data collection 
 
 ## Core Components
 
-ODE consists of four main components that work together to provide a complete data collection solution:
+ODE consists of these main components that work together to provide a complete data collection solution:
 
 ### Synkronus Server
 The backend server responsible for:
@@ -41,6 +41,25 @@ Command-line utility for:
 - **User Administration**: Manage users and permissions
 - **Server Administration**: Maintenance and monitoring tasks
 
+### ODE Desktop
+
+Desktop application (Tauri + React + Rust) for data stewardship and app development:
+
+- **Data management**: Pull, inspect, edit, import, and sync observations against Synkronus
+- **Forms / app workbench**: Download app bundles, preview forms, and test custom apps
+- **Developer mode**: Mirror a local custom app build without replacing the Synk-downloaded bundle
+- **Same public API**: Uses Synkronus REST API — no privileged desktop channel
+
+Introduced in **ODE v1.1.0**. See [ODE Desktop reference](/docs/reference/ode-desktop) and [install guide](/docs/getting-started/installation/installing-ode-desktop).
+
+### Synkronus Portal
+
+Web-based administrative interface (also embedded in the Synkronus binary at `/portal`):
+
+- **User and bundle management**
+- **Observation viewing and export**
+- **Same API** as Formulus, CLI, and ODE Desktop
+
 ## Architecture Patterns
 
 ### Embedded Portal Architecture
@@ -55,7 +74,7 @@ The Synkronus Portal is a React application that gets **embedded directly into t
 ```
 
 **Build Process:**
-1. Portal built with `npm run build`
+1. Portal built with `pnpm run build` (in `synkronus-portal/`)
 2. Build output copied to `synkronus/portal/dist/`
 3. Go binary embeds portal using `//go:embed`
 4. Portal served at `/portal` route
@@ -139,7 +158,7 @@ Development -> Build -> ZIP Upload -> Server Storage -> Mobile Download
 - **Build Tools**: Vite for web apps
 
 ### Development Tools
-- **Package Manager**: npm
+- **Package Manager**: pnpm (per-package lockfiles in the ODE monorepo)
 - **Code Quality**: ESLint, Prettier, TypeScript
 - **Testing**: Jest for unit tests
 - **Containerization**: Docker with multi-stage builds

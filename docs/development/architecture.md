@@ -74,6 +74,22 @@ Go command-line utility providing:
 - Go 1.24+
 - Cobra CLI framework
 
+### ODE Desktop
+
+Tauri desktop application providing:
+
+- **Local observation store**: SQLite per profile workspace
+- **Sync console**: Pull, push, conflict visibility, index rebuild
+- **Workbench**: Bundle download, form preview, custom app embed
+- **Developer mode**: Local custom app mirror for iteration
+
+**Technology Stack:**
+- Tauri 2 (Rust)
+- React, TypeScript, Vite
+- Embedded formplayer
+
+See [ODE Desktop Development](/development/ode-desktop-development).
+
 ## Data Flow
 
 ### Observation Creation

@@ -10,11 +10,11 @@ ODE is pronounced like "code", without the "C."
 
 Open Data Ensemble (ODE) is a comprehensive platform for mobile data collection and synchronization. Built for researchers, health professionals, implementers, and developers, ODE provides a robust solution for designing forms, managing data securely, and synchronizing seamlessly across devices, even in offline conditions.
 
-:::info Pre-release Available
+:::info ODE v1.1.0
 
-The source code for the pre-release version of ODE is now publicly available. While we're working toward the full 1.0 release, we welcome anyone willing to help with testing, development, or getting involved in the project.
+**ODE v1.1.0** is available with **ODE Desktop** — a native app for data stewardship and app bundle development. [Install ODE Desktop](/docs/getting-started/installation/installing-ode-desktop) or continue with [Formulus on Android](/docs/getting-started/installation).
 
-**Try the pre-release:** [Install Formulus on Android](/docs/getting-started/installation)
+The source code for ODE is publicly available on GitHub. We welcome anyone willing to help with testing, development, or getting involved in the project.
 
 **Get involved:** Reach out to us at [hello@opendataensemble.org](mailto:hello@opendataensemble.org) - we'd love to hear from you!
 
@@ -61,19 +61,22 @@ Here's an overview of the current members of the ensemble:
 <img src="/img/component_overview.png" alt="Component overview" width="100%" />
 
 * [formulus](/reference/formulus): The Android and iOS app for data collection and form interaction.
+* [ode-desktop](/reference/ode-desktop): The desktop app for data stewardship and app bundle development (v1.1.0+).
 * [synkronus](/reference/synkronus-server): The robust server backend managing synchronization and data storage.
 * [synkronus-cli](/reference/synkronus-cli): Command-line interface for convenient server management and administrative tasks.
 
 ## Key Components
 
-ODE consists of four main components that work together:
+ODE consists of these main components that work together:
 
 | Component | Description | Technology |
 |-----------|-------------|------------|
 | **Formulus** | Mobile application for Android and iOS | React Native |
+| **ODE Desktop** | Desktop app for data management and app workbench | Tauri (React + Rust) |
 | **Formplayer** | Web-based form rendering engine | React |
 | **Synkronus** | Backend server for data synchronization | Go |
 | **Synkronus CLI** | Command-line utility for administration | Go |
+| **Synkronus Portal** | Web admin for users, bundles, and export | React |
 
 ## Core Capabilities
 

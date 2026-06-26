@@ -264,7 +264,7 @@ adb devices
 ```bash
 # Build APK first (if not already built)
 cd formulus
-npm run android
+pnpm run android
 
 # Install on emulator
 adb -s emulator-5554 install android/app/build/outputs/apk/debug/app-debug.apk
@@ -276,7 +276,7 @@ adb -s emulator-5554 install android/app/build/outputs/apk/debug/app-debug.apk
 ```powershell
 # Build APK first
 cd formulus
-npm run android
+pnpm run android
 
 # Install on emulator
 adb -s emulator-5554 install android\app\build\outputs\apk\debug\app-debug.apk
@@ -297,7 +297,7 @@ When configuring Formulus on an emulator to connect to a local server:
 
 ### Prerequisites
 
-- **Node.js** 18+ and npm
+- **Node.js** 20+ and **pnpm** 10.33.2
 - **React Native CLI** or **Expo CLI**
 - **Java Development Kit (JDK)** 11 or higher
 - **Android Studio** with Android SDK
@@ -308,8 +308,9 @@ When configuring Formulus on an emulator to connect to a local server:
   <TabItem value="all" label="All Platforms">
 
 ```bash
+cd packages/tokens && pnpm install && pnpm run build && cd ../..
 cd formulus
-npm install
+pnpm install
 ```
 
   </TabItem>
@@ -322,7 +323,7 @@ npm install
 
 ```bash
 # In formulus directory
-npm start
+pnpm start
 ```
 
 Keep this terminal open. Metro is the JavaScript bundler for React Native.
@@ -337,10 +338,10 @@ Keep this terminal open. Metro is the JavaScript bundler for React Native.
 
 ```bash
 # For Android device (connected via USB)
-npm run android
+pnpm run android
 
 # For Android emulator (must be running)
-npm run android
+pnpm run android
 ```
 
   </TabItem>

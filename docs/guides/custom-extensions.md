@@ -40,14 +40,55 @@ Use sub-observations when related answers should live **inside the parent observ
 |----------|----------|-------------|
 | `format` | yes | Must be `"sub-observation"`. |
 | `linkedForm` | yes | Child **form type** opened for add/edit (non-empty string). |
-| `parentKey` | yes | Field name written on child payloads linking back to the parent (for example a foreign key into the parent entity id). |
-| `parentValuePath` | recommended | Dot path into **current parent form data** for that key’s value (falls back to parent `observationId` when absent). |
+| `parentKey` | optional | When set, field name written on **new** child payloads linking back to the parent (for example a foreign key). When omitted, embedded repeats rely on data already nested in the parent JSON — typical when the child form does not need an injected parent id. |
+| `parentValuePath` | recommended when `parentKey` is set | Dot path into **current parent form data** for that key’s value (falls back to parent `observationId` when absent). |
 | `columns` | optional | `{ key, label }[]` entries for the on-screen summary list; if omitted, `displayField` drives a single summary column. |
 | `displayField` | optional | Fallback field key for the summary column (default `observationId`). |
+| `itemLabel` | optional | Singular name for each embedded item (for example `"room"`). When set, the add button shows `+ Add {itemLabel}`, the empty table shows `No {itemLabel}`, and delete confirmations fall back to `this {itemLabel}`. When omitted, legacy copy is unchanged (`+ Add observation`, etc.). |
 | `orderBy` | optional | Sort embedded items by field: string field name or `{ key, direction }` (`asc` / `desc`). Without `key`, sorts by `createdAt` descending when present on payloads. |
 | `allowDelete` | optional | Default `true`. |
 | `subObservationInitValues` | optional | Map merged into **initial params** when **adding** a new embedded child. Values support templates `{{parentValue}}`, `{{currentInstanceId}}`, or `{{dot.path}}` into parent data. |
 | `subObservationEditInitValues` | optional | Map merged **on top of** the saved child payload when **opening an existing** embedded item for edit—useful when parent-derived fields must be refreshed each time (often omitted). |
+| `skipFinalize` | optional | When `true`, the nested child form **omits the Finalize page**; **Done** on the last content page runs the same submit path as Finalize. The child is still validated against **its own** `schema.json` (AJV + that form's custom validators) before `formData` is returned to the parent. Formulus also skips GPS `beginObservationSession()` and suppresses the success modal for this fast path. Can be set on the schema property or passed via `openFormplayer(..., { skipFinalize: true })`. |
+
+**`openFormplayer` options (custom apps):** `{ subObservationMode?, skipFinalize?, skipDraftSelection? }`. Use `skipDraftSelection: true` on **root** forms when the custom app orchestrates the session and must not show the draft picker (for example headless follow-up after `persistObservation`). Sub-observation sessions never offer the draft picker.
+
+**UI schema override:** On the parent `ui.json` Control, `options.addButtonLabel` sets the **full** add-button text (JSON Forms array convention). It takes precedence over `itemLabel` when both are set — useful for localized phrasing (for example `"+ Adicionar quarto"`).
+
+### Validation and `skipFinalize`
+
+`skipFinalize` does **not** defer validation to the root form. Each nested session is a separate Formplayer instance with its own `ui.json` and schema:
+
+| When | What validates |
+|------|----------------|
+| Child **Done** / submit (`skipFinalize` or Finalize page) | Child form only — required fields, AJV, `options.customValidators` on **that** form |
+| Parent data change / parent Finalize | Parent form — including validators on embedded arrays at the parent level |
+
+On success, `SubObservationQuestionRenderer` merges `result.formData` into the parent array and closes the child modal immediately. Parent-level logic (denormalized indexes, cross-row rules, global sequence numbers) does **not** run inside the child session unless you duplicate it there or pass context in (see below).
+
+### Nested sessions and custom validators
+
+Custom validators run in the **active Formplayer session only**. For a multi-level embedded tree (for example `household → rooms[] → beds[] → persons[]`):
+
+- A validator on the **root** form's `rooms` control runs when **root** `data` changes — not when the enumerator adds a bed inside an open **room** sub-form.
+- Put validators on **each form** where rows are added if numbering or summary columns must update as soon as the child returns (typical with `skipFinalize`).
+- Use **config** (for example `scope: "household" | "quarto" | "cama"`) so one validator module can serve multiple form types.
+
+**Authoring checklist for auto-numbering embedded rows:**
+
+1. Root form — validator on the top-level sub-observation array; rebuild parent-only indexes (for example a flattened lookup array).
+2. Each nested child form — validator on its own sub-observation array for local sequence fields (`bed_num`, `person_num`, …).
+3. **Global** sequences across the whole tree — pass a read-only snapshot from the parent via flat `subObservationInitValues` / `subObservationEditInitValues` (single-token templates preserve JSON types), or wait for platform **parent context** (below). Strip ephemeral snapshot fields on root finalize so they are not persisted.
+
+See [Custom validators](#custom-validators-validators) and [Parent context across nesting levels](#parent-context-across-nesting-levels).
+
+### Parent context across nesting levels
+
+Nested `openFormplayer` sessions receive only the **current row** as `core.data`, not the full parent observation. That limits cross-sibling validation, global numbering, and extension helpers that need ancestor fields.
+
+**Today (workaround):** Copy needed parent slices into child **data** with flat init templates, for example `"household_rooms": "{{rooms}}"` on `subObservationInitValues`. Formplayer resolves **top-level string templates only** — not nested object maps. Mark snapshot fields `readOnly` and remove them in a root-level validator before persist. Distinct from `format: "form_context"` / `params.context`, which are better for session metadata than large tree copies.
+
+**Proposed (not yet in ODE):** `subObservationContext` — read-only parent snapshot resolved at open time, exposed to validators/extensions, **not** validated against the child schema and **not** merged into persisted child JSON. Until then, use init templates or duplicate validators per level.
 
 Example property on the parent schema:
 
@@ -72,6 +113,41 @@ Example property on the parent schema:
 :::note Types in legacy forms
 Some forms use `type: ["array", "string"]` with `"format": "sub-observation"` for migration compatibility; Formplayer activates the control whenever `format` matches.
 :::
+
+## Custom validators (`validators/`)
+
+Bundle **custom validators** alongside custom question types. Register them in the app manifest (`validators/<name>/index.js`); reference them from `ui.json` control `options.customValidators`.
+
+```json
+{
+  "type": "Control",
+  "scope": "#/properties/quartos",
+  "options": {
+    "customValidators": [
+      { "name": "assignRepeatPositions", "config": { "quartosField": "quartos" } }
+    ]
+  }
+}
+```
+
+**Mutating validators:** A validator may update `data` in place (for example auto-numbering embedded sub-observation rows or rebuilding a denormalized index array). Formplayer detects mutations after each change and before finalize, then refreshes form state so summary tables and dependent fields update immediately. Return validation errors in the usual way; returning patches is not required.
+
+**Per-session scope:** Mutations apply to the **current** form session. Nested sub-observations need validators on each level where rows are added, or a parent snapshot field (see [Parent context across nesting levels](#parent-context-across-nesting-levels)). Root-only validators are not enough for deep embedded trees.
+
+```json
+{
+  "type": "Control",
+  "scope": "#/properties/beds",
+  "options": {
+    "customValidators": [
+      {
+        "name": "assignRepeatPositions",
+        "config": { "scope": "room", "bedsField": "beds" }
+      }
+    ]
+  }
+}
+```
 
 See also [Form specifications](../reference/form-specifications.md) and [Formplayer](../reference/formplayer.md).
 

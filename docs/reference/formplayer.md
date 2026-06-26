@@ -268,8 +268,22 @@ Formplayer supports various question types through custom renderers:
 
 ### Selection
 
-- **Single Select**: Dropdown or radio buttons
-- **Multi Select**: Checkboxes for multiple choices
+- **Single Select**: Native `<select>` dropdown by default for `oneOf` / `$ref` lists; optional Autocomplete (`options.autocomplete`), radio, or button groups
+- **Multi Select**: Vertical checkboxes by default; optional checkbox or button groups with `options.display`
+
+### Form UX (2026)
+
+- **Inline layout**: SwipeLayout forms default to compact two-column rows (`labelLayout: "inline"`)
+- **Sticky fields**: Opt-in per-control value memory (`options.sticky`)
+- **Deferred validation**: New forms hide errors until first forward navigation
+- **Sub-observation fast path**: `skipFinalize` omits the Finalize page; child still validates on Done before returning data to the parent
+- **Nested validators**: Custom validators are per Formplayer session — deep embedded trees need validators on each nesting level (see [Custom Extensions](../guides/custom-extensions.md#nested-sessions-and-custom-validators))
+- **Optional `parentKey`**: Sub-observation arrays require only `linkedForm`; parent id injection is optional
+- **Mutating custom validators**: In-place `data` updates from bundle validators refresh the UI automatically
+- **Draft bypass**: `openFormplayer(..., { skipDraftSelection: true })` for orchestrated root sessions
+- **Dynamic defaults**: Schema `default: "$today"` / `"$now"` for new observations
+
+See [Form design guide](../guides/form-design) for `ui.json` examples.
 
 ### Boolean
 
@@ -325,9 +339,10 @@ Formplayer validates form responses against:
 
 Custom validation rules can be added:
 
+- **Bundle validators**: `ui.json` → `options.customValidators` referencing `validators/<name>/` modules in the app bundle (see [Custom Extensions](../guides/custom-extensions.md#custom-validators-validators))
+- **In-place updates**: Validators may mutate form `data` (for example auto-numbering repeat rows); Formplayer refreshes state when mutations are detected
 - **Conditional Validation**: Rules based on other field values
 - **Cross-field Validation**: Validation across multiple fields
-- **Async Validation**: Server-side validation support
 
 ## Draft Management
 
@@ -340,6 +355,8 @@ Formplayer can save incomplete forms as drafts:
 3. **Local Storage**: Drafts stored in WebView storage
 
 ### Loading Drafts
+
+When opening a **new** root observation, Formplayer may show a **draft selector** if local drafts exist. Custom apps can bypass this with `openFormplayer(formType, params, savedData, { skipDraftSelection: true })` when they orchestrate the session (for example after preparing `defaultData` programmatically). Sub-observation sessions and edits with `savedData` never show the picker.
 
 When editing an observation:
 
@@ -371,23 +388,24 @@ Themes can be customized:
 ### Development Build
 
 ```bash
-# Install dependencies
-npm install
+# Install dependencies (build @ode/tokens first)
+cd ../packages/tokens && pnpm install && pnpm run build && cd ../formulus-formplayer
+pnpm install
 
 # Start development server
-npm start
+pnpm start
 
-# Opens at http://localhost:3000
+# Opens at http://localhost:3000 (or Vite's printed port)
 ```
 
 ### Production Build
 
 ```bash
-# Build for React Native (Formulus)
-npm run build:rn
+# Build and copy into Formulus (and ODE Desktop)
+pnpm run build:copy
 
-# Build for web
-npm run build
+# Build for web only
+pnpm run build
 ```
 
 ### Build Output
@@ -488,7 +506,7 @@ Error handling for:
 
 ### Local Development
 
-1. **Start Dev Server**: `npm start`
+1. **Start Dev Server**: `pnpm start`
 2. **Open Browser**: Navigate to `http://localhost:3000`
 3. **Hot Reload**: Changes reflect automatically
 

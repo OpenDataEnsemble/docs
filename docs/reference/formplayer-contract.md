@@ -303,6 +303,21 @@ addFormats(ajv);          // Standard format validators (date, email, etc.)
 - Each element in `elements` becomes a page
 - Progress indicator shows current page
 - Navigation buttons (Previous/Next) provided automatically
+- Root `SwipeLayout` honours `SHOW` / `HIDE` rules (same as nested pages)
+- Default `labelLayout` is `"inline"` (compact two-column rows); set `"stacked"` for classic layout
+- Optional `headerFields` (up to two schema keys) show read-only context under the progress bar
+- `showInnerTitle` defaults to `false` (form title lives in Formulus chrome unless opted in)
+
+**SwipeLayout `options`:**
+
+| Option | Values | Notes |
+|--------|--------|-------|
+| `labelLayout` | `"inline"` \| `"stacked"` | Default `"inline"` |
+| `headerFields` | `string[]` | Max 2 field keys |
+| `showInnerTitle` | `boolean` | Default `false` |
+| `autoFocusFirstInput` | `boolean` | Default `true` |
+| `nextButtonLabel` | `string` | Custom Next label |
+| `finalizeButtonLabel` | `string` | Last content page label |
 
 #### VerticalLayout
 
@@ -394,8 +409,21 @@ addFormats(ajv);          // Standard format validators (date, email, etc.)
 
 **Optional:**
 - `label`: String or `false` (to hide label)
-- `options`: Object with renderer-specific options
+- `options`: Object with renderer-specific options (see below)
 - `rule`: Conditional display/enable rule
+
+**Common `options`:**
+
+| Option | Values | Description |
+|--------|--------|-------------|
+| `labelLayout` | `"inline"` \| `"stacked"` | Per-field layout override (inherits SwipeLayout default) |
+| `sticky` | `true` | Remember last submitted scalar value for new observations |
+| `display` | `"radio"` \| `"buttons"` \| `"checkboxes"` | Choice layout (single- or multi-select) |
+| `orientation` | `"vertical"` \| `"horizontal"` \| `"flow"` | Choice layout direction |
+| `buttonGroup` | `"segmented"` \| `"separated"` | Button-group styling |
+| `autocomplete` | `true` | Searchable Autocomplete for single-select (default is native `<select>`) |
+| `placeholder` | `string` | Native select placeholder |
+| `multi` | `true` | Multi-line text input |
 
 **Scope Format:**
 - Must start with `#/properties/`

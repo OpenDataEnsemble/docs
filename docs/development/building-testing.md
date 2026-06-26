@@ -17,9 +17,10 @@ Build the React Native mobile application:
 
 ```bash
 cd formulus
-npm install
-npm run android  # For Android
-npm run ios      # For iOS (macOS only)
+cd ../packages/tokens && pnpm install && pnpm run build && cd ../formulus
+pnpm install
+pnpm run android  # For Android
+pnpm run ios      # For iOS (macOS only)
 ```
 
   </TabItem>
@@ -54,18 +55,18 @@ Or build from Xcode:
 Build the React web form renderer:
 
 ```bash
-cd formulus-formplayer
-npm install
-npm run build
+cd ../packages/tokens && pnpm install && pnpm run build && cd ../formulus-formplayer
+pnpm install
+pnpm run build
 ```
 
-**Build for React Native:**
+**Build and copy into Formulus (and Desktop):**
 
 ```bash
-npm run build:rn
+pnpm run build:copy
 ```
 
-This builds and copies the output to the Formulus app.
+This builds and copies the output to the Formulus app (and ODE Desktop when using the full pipeline).
 
 ### Synkronus
 
@@ -125,7 +126,7 @@ go build -o bin/synk ./cmd/synkronus
 
 ```bash
 cd formulus
-npm test
+pnpm run test --ci --coverage --watchAll=false
 ```
 
 Runs Jest tests with React Native Testing Library.
@@ -134,10 +135,10 @@ Runs Jest tests with React Native Testing Library.
 
 ```bash
 cd formulus-formplayer
-npm test
+pnpm run test run
 ```
 
-Runs Jest tests for React components.
+Runs Vitest for React components.
 
 ### Backend Testing
 
@@ -187,13 +188,13 @@ E2E testing will be added as the testing infrastructure evolves.
 ```bash
 # Formulus
 cd formulus
-npm run lint
-npm run lint:fix
+pnpm run lint
+pnpm run lint:fix
 
 # Formplayer
 cd formulus-formplayer
-npm run lint
-npm run lint:fix
+pnpm run lint
+pnpm run lint:fix
 ```
 
 **Backend:**
@@ -210,10 +211,10 @@ golangci-lint run  # If configured
 
 ```bash
 # Format code
-npm run format
+pnpm run format
 
 # Check formatting
-npm run format:check
+pnpm run format:check
 ```
 
 **Backend:**
@@ -250,8 +251,8 @@ Run CI checks locally:
 
 ```bash
 # Frontend
-cd formulus && npm run lint && npm run format:check && npm test
-cd formulus-formplayer && npm run lint && npm run format:check && npm test
+cd formulus && pnpm run lint && pnpm run format:check && pnpm run test --ci --coverage --watchAll=false
+cd formulus-formplayer && pnpm run lint && pnpm run format:check && pnpm run test run
 
 # Backend
 cd synkronus && go test ./... && go fmt ./...
@@ -318,8 +319,8 @@ git push origin v1.0.0
 
 ```bash
 # Clear and reinstall
-rm -rf node_modules package-lock.json
-npm install
+rm -rf node_modules
+pnpm install
 ```
 
 ### Go Module Issues
@@ -338,7 +339,7 @@ go mod tidy
 cd android
 ./gradlew clean
 cd ..
-npm run android
+pnpm run android
 ```
 
 ### iOS Build Issues
@@ -349,7 +350,7 @@ cd ios
 rm -rf Pods Podfile.lock
 bundle exec pod install
 cd ..
-npm run ios
+pnpm run ios
 ```
 
 ## Related Documentation

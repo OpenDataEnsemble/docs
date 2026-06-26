@@ -96,6 +96,7 @@ const sidebars: SidebarsConfig = {
             'guides/observation-queries',
             'guides/ode-desktop-developer-mode',
             'guides/custom-extensions',
+            'guides/server-architecture-for-it',
             'guides/deployment',
             'guides/configuration',
           ],
@@ -188,6 +189,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'reference/configuration/client',
             'reference/configuration/server',
+            'reference/security',
           ],
         },
       ],

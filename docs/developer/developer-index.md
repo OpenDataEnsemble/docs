@@ -7,6 +7,10 @@ title: ⚙️ For Developers
 
 Welcome to the **Developer** section! Whether you're contributing to ODE, building custom extensions, or deploying the platform, this guide covers development, architecture, and contribution workflows.
 
+:::note Documentation paths
+Persona pages live under `/docs/developer/`; technical guides under `/docs/development/`. Deploying for production? Start with [Server Architecture for IT](/docs/guides/server-architecture-for-it).
+:::
+
 ## Who This Guide Is For
 
 This section is designed for:
@@ -122,7 +126,7 @@ Set up your development environment in 20 minutes:
 - [System Overview](/docs/development/architecture)
 - [Component Architecture](/docs/development/architecture#components)
 - [Data Flow & Sync Protocol](/docs/development/architecture#data-flow)
-- [Authentication & Security](/docs/development/architecture#security)
+- [Authentication & Security](/docs/reference/security)
 
 ### 🔧 Set Up Environment
 - [macOS Setup](/docs/development/setup#macos)

@@ -16,11 +16,13 @@ const config: Config = {
   onBrokenLinks: 'throw',
 
   markdown: {
-    mermaid: false,
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
   },
+
+  themes: ['@docusaurus/theme-mermaid'],
 
   i18n: {
     defaultLocale: 'en',

@@ -437,5 +437,5 @@ console.log(userInfo);
 
 - [REST API Overview](/docs/reference/rest-api/overview)
 - [Deployment Guide](/docs/guides/deployment) - Set up server credentials
-- [Security](/docs/development/security) - Security considerations
+- [Security](/docs/reference/security) - Security considerations
 

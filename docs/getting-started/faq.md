@@ -6,6 +6,8 @@ sidebar_position: 5
 
 Common questions about ODE installation, usage, and development.
 
+> **Current ODE release:** [v1.1.1](https://github.com/OpenDataEnsemble/ode/releases/tag/v1.1.1) (Synkronus container, Formulus APK, Desktop, Portal)
+
 ## General Questions
 
 ### How do you pronounce ODE?
@@ -36,7 +38,7 @@ See the [Installation](/docs/getting-started/installation) page for detailed sys
 
 ### Can I run ODE in the cloud?
 
-Yes, ODE can be deployed to cloud platforms such as AWS, Google Cloud, or Azure. See the [Deployment guide](/guides/deployment/production) for details.
+Yes, ODE can be deployed to cloud platforms such as AWS, Google Cloud, or Azure. See the [Deployment guide](/docs/guides/deployment) and [Server Architecture for IT](/docs/guides/server-architecture-for-it).
 
 ### Do I need a database?
 
@@ -46,7 +48,7 @@ Yes, ODE requires PostgreSQL for data storage. The database schema is created au
 
 ### How do I create forms?
 
-Forms are defined using JSON schema. See the [Form Design guide](/guides/forms/overview) for details.
+Forms are defined using JSON schema. See the [Form Design guide](/docs/guides/form-design) for details.
 
 ### Can I customize the user interface?
 

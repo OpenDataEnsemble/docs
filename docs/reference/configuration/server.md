@@ -8,18 +8,15 @@ Configuration options for Synkronus server.
 
 ## Overview
 
-[Description placeholder]
+Configuration options for Synkronus server are documented in the [Synkronus Server Reference](/docs/reference/synkronus-server). For production security and environment variables, see [Security reference](/docs/reference/security).
 
 ## Environment Variables
 
-[Description placeholder]
-
-## Configuration Files
-
-[Description placeholder]
+See [Synkronus Server Reference — Configuration](/docs/reference/synkronus-server#configuration).
 
 ## Related Content
 
-- [Synkronus Configuration](/guides/configuration)
-- [Production Deployment](/guides/deployment)
+- [Server Architecture for IT](/docs/guides/server-architecture-for-it)
+- [Security reference](/docs/reference/security)
+- [Deployment guide](/docs/guides/deployment)
 

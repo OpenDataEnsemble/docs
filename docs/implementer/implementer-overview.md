@@ -365,7 +365,7 @@ For large-scale projects (1000+ users):
 1. **Understand your project needs** - What data do you need?
 2. **Learn form design** → [Form Design Guide](/docs/guides/form-design)
 3. **Design your first form** → [Form Controls Reference](/docs/reference/formplayer)
-4. **Plan deployment** → [Deployment Guide](/docs/guides/deployment)
+4. **Plan deployment** → [Server Architecture for IT](/docs/guides/server-architecture-for-it) and [Deployment Guide](/docs/guides/deployment)
 
 ### 📚 Resources
 
@@ -378,7 +378,7 @@ For large-scale projects (1000+ users):
 
 - **Questions about form design?** → [Form Design Guide](/docs/guides/form-design)
 - **What controls can I use?** → [Form Controls Reference](/docs/reference/formplayer)
-- **How do I deploy?** → [Deployment Guide](/docs/guides/deployment)
+- **How do I deploy?** → [Server Architecture for IT](/docs/guides/server-architecture-for-it) and [Deployment Guide](/docs/guides/deployment)
 - **Help with specific issues?** → [Troubleshooting](/docs/using/troubleshooting)
 - **Need community support?** → [Get Help](/docs/community/getting-help)
 

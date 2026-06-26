@@ -56,10 +56,11 @@ You want to deploy and manage ODE in your infrastructure.
 **Time to first deployment:** 1-2 hours
 
 **Next Steps:**
-1. [Understand system architecture](/docs/development/architecture)
-2. [Learn server configuration](/docs/reference/configuration/server)
-3. [Follow deployment guide](/docs/guides/deployment)
-4. [Set up monitoring](/docs/development/setup#monitoring)
+1. [Server Architecture for IT](/docs/guides/server-architecture-for-it)
+2. [Understand system architecture](/docs/development/architecture)
+3. [Learn server configuration](/docs/reference/configuration/server)
+4. [Follow deployment guide](/docs/guides/deployment)
+5. [Security reference](/docs/reference/security)
 
 ### Path 4: Integration & APIs
 
@@ -388,7 +389,7 @@ Choose your path and dive in:
 
 1. **[Core Contributor Path](/docs/development/setup)** - Set up environment
 2. **[Custom App Path](/docs/reference/rest-api/overview)** - Learn the APIs
-3. **[Deployment Path](/docs/guides/deployment)** - Deploy ODE
+3. **[Deployment Path](/docs/guides/server-architecture-for-it)** - IT overview, then [deployment guide](/docs/guides/deployment)
 4. **[Integration Path](/docs/development/extending)** - Build integrations
 
 ### Read More

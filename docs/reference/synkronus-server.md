@@ -8,9 +8,21 @@ Complete technical reference for the Synkronus server component.
 
 > **Want to get a server running quickly?** See the [Synkronus Quickstart](../getting-started/synkronus-quickstart.md) guide for a simple Docker/Podman setup with automated TLS provisioning.
 
+> **IT / production hosting?** See [Server Architecture for IT](../guides/server-architecture-for-it) and [Security reference](./security).
+
 ## Overview
 
 Synkronus is a robust synchronization API server built with Go. It provides RESTful endpoints for data synchronization, app bundle management, attachment handling, user management, and form specifications. The server uses PostgreSQL for data storage and JWT for authentication.
+
+## Released container images
+
+Production deployments should pin a release tag rather than `:latest`:
+
+```
+ghcr.io/opendataensemble/synkronus:v1.1.1
+```
+
+Images are published on [GitHub Container Registry](https://github.com/OpenDataEnsemble/ode/pkgs/container/synkronus) for each [ODE release](https://github.com/OpenDataEnsemble/ode/releases).
 
 ## Architecture
 

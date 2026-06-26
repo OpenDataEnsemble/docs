@@ -10,11 +10,10 @@ Complete guide for installing the Formulus mobile application on Android devices
 
 Formulus is available for Android devices through multiple installation methods. Choose the method that best fits your needs:
 
-- **Obtainium** (Recommended) - App manager that installs Formulus directly from GitHub releases, including pre-release versions. Install Obtainium via F-Droid or direct download.
-- **Direct APK** - Download and install the APK file directly from GitHub releases
+- **Obtainium** (Recommended) - Installs Formulus from GitHub releases with automatic updates. Install Obtainium via F-Droid or direct download.
+- **F-Droid** - Install Formulus directly from [F-Droid](https://f-droid.org/packages/org.opendataensemble.formulus/)
+- **Direct APK** - Download and install the APK file directly from [GitHub releases](https://github.com/OpenDataEnsemble/ode/releases) (current: **v1.1.1**)
 - **Development Build** - For developers who want to build from source
-
-**Note**: F-Droid is used to install Obtainium, which then installs Formulus. F-Droid does not directly install Formulus.
 
 ## System Requirements
 
@@ -79,15 +78,15 @@ You have two options to install Obtainium:
 3. **Enter the GitHub repository URL** in the "App source URL" field:
    - The field should contain: `https://github.com/OpenDataEnsemble/ode`
    - Ensure the full URL is entered correctly
-4. **Configure GitHub options** (important for pre-release versions):
-   - **Enable "Include prereleases"** toggle - This is crucial for installing alpha/beta versions of Formulus
-   - **Enable "Fallback to older releases"** toggle - This allows Obtainium to use older releases if newer ones are unavailable
+4. **Configure GitHub options** (for pre-release testing only):
+   - **Enable "Include prereleases"** if you need alpha/beta builds
+   - **Enable "Fallback to older releases"** if newer releases are unavailable
 5. **Tap the "Add" button** to save the repository
 6. **Wait for Obtainium to fetch** the repository information and available releases
 
 ![Obtainium Add App Screen](/img/installation/obtainium-add-app.png)
 
-**Important**: Make sure "Include prereleases" is enabled (toggle switched to the right/purple) to see and install pre-release versions like `v1.0.0-alpha.12`.
+**Stable release:** Install **v1.1.1** (or the latest [GitHub release](https://github.com/OpenDataEnsemble/ode/releases)). Pre-release toggles are only needed for alpha/beta testing.
 
 #### Step 3: Install Formulus
 
@@ -98,7 +97,7 @@ You have two options to install Obtainium:
    - App name: **ode**
    - Developer: **OpenDataEnsemble**
    - Package: `org.opendataensemble.formulus`
-   - Latest version: `v1.0.0-alpha.12` (or current version)
+   - Latest version: **v1.1.1** (or current [release](https://github.com/OpenDataEnsemble/ode/releases))
    - Status: **Not installed**
 5. **Tap the "Install" button** at the bottom of the screen
 6. **Confirm installation** when prompted:
@@ -128,7 +127,16 @@ Obtainium will automatically check for updates:
 5. **Confirm the update** when prompted
 6. **App data is preserved** during update
 
-### Method 2: Direct APK Installation
+### Method 2: F-Droid
+
+Install Formulus directly from F-Droid (no Obtainium required):
+
+1. Install the [F-Droid](https://f-droid.org/) client if you do not already have it
+2. Open F-Droid and search for **Formulus** (package `org.opendataensemble.formulus`)
+3. Tap **Install** and wait for the download to complete
+4. Updates are available through F-Droid when a new version is published
+
+### Method 3: Direct APK Installation
 
 If Obtainium is not available or you prefer direct installation:
 
@@ -157,7 +165,7 @@ If Obtainium is not available or you prefer direct installation:
 6. **Wait for installation** to complete
 7. **Tap "Open"** to launch the app
 
-### Method 3: Development Build
+### Method 4: Development Build
 
 For developers who want to build and install from source, see the [Development Installation Guide](/docs/development/formulus-development).
 

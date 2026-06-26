@@ -176,6 +176,8 @@ provisioning certificates, and your tunnel can handle HTTPS externally.
 
 Your Synkronus server is now running.
 
+For production planning (TLS, backups, sizing, security), see **[Server Architecture for IT](/docs/guides/server-architecture-for-it)**.
+
 <p style={{textAlign: 'center'}}>
   <img src="/img/girrnababy_small.png" alt="" style={{maxWidth: '120px', height: 'auto', width: '120px'}} />
 </p>

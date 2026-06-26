@@ -20,11 +20,13 @@ const config: Config = {
   onBrokenAnchors: 'ignore',
 
   markdown: {
-    mermaid: false,
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
   },
+
+  themes: ['@docusaurus/theme-mermaid'],
 
   i18n: {
     defaultLocale: 'en',

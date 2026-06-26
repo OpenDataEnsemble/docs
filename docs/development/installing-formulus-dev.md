@@ -161,7 +161,7 @@ adb install app-debug.apk
 
 ```bash
 # Download and install in one command
-curl -L https://github.com/OpenDataEnsemble/ode/releases/download/v1.0.0/formulus.apk -o /tmp/formulus.apk
+curl -L https://github.com/OpenDataEnsemble/ode/releases/download/v1.1.1/formulus.apk -o /tmp/formulus.apk
 adb install /tmp/formulus.apk
 ```
 
@@ -170,7 +170,7 @@ adb install /tmp/formulus.apk
 
 ```powershell
 # Download and install
-Invoke-WebRequest -Uri "https://github.com/OpenDataEnsemble/ode/releases/download/v1.0.0/formulus.apk" -OutFile "$env:TEMP\formulus.apk"
+Invoke-WebRequest -Uri "https://github.com/OpenDataEnsemble/ode/releases/download/v1.1.1/formulus.apk" -OutFile "$env:TEMP\formulus.apk"
 adb install "$env:TEMP\formulus.apk"
 ```
 

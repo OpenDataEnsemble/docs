@@ -6,6 +6,8 @@ sidebar_position: 1
 
 ODE (Open Data Ensemble) is a comprehensive platform for mobile data collection and synchronization. This guide explains the core architecture and components.
 
+> **Current ODE release:** [v1.1.1](https://github.com/OpenDataEnsemble/ode/releases/tag/v1.1.1)
+
 ## Core Components
 
 ODE consists of these main components that work together to provide a complete data collection solution:
@@ -121,6 +123,14 @@ Custom App Structure:
 - **Theme System**: Material Design 3 based theming
 - **Build Process**: Optimized bundle creation for deployment
 
+Study-specific apps (for example AnthroCollect) are **app bundles** uploaded to Synkronus—not separate backend services. IT hosts only Synkronus, PostgreSQL, and a TLS reverse proxy.
+
+## Server deployment view
+
+![Installation view: reverse proxy, Synkronus container, PostgreSQL, and volumes](/img/it-architecture-installation.svg)
+
+For IT departments: see [Server Architecture for IT](/docs/guides/server-architecture-for-it) (full diagrams, security model, backups, sizing).
+
 ## Data Flow
 
 ### Form Submission Flow
@@ -156,9 +166,12 @@ Development -> Build -> ZIP Upload -> Server Storage -> Mobile Download
 ## Deployment Models
 
 ### Single Container Deployment
-- **Synkronus**: Go server with embedded portal
-- **Database**: PostgreSQL (separate container)
-- **Mobile Apps**: Deployed via app stores or direct distribution
+- **Synkronus**: Go server with embedded portal (`ghcr.io/opendataensemble/synkronus`)
+- **Database**: PostgreSQL (container or managed service)
+- **Reverse proxy**: TLS termination (Caddy in [synkronus-quickstart](https://github.com/OpenDataEnsemble/synkronus-quickstart); or your institutional proxy)
+- **Mobile apps**: Formulus on field devices via Obtainium or F-Droid
+
+See [Server Architecture for IT](/docs/guides/server-architecture-for-it) and [Deployment guide](/docs/guides/deployment).
 
 ### Development Setup
 - **Local Development**: Docker Compose with hot reload
@@ -168,7 +181,8 @@ Development -> Build -> ZIP Upload -> Server Storage -> Mobile Download
 ## Security Considerations
 
 - **Authentication**: JWT-based with configurable expiration
-- **Data Encryption**: TLS for all communications
+- **Data encryption in transit**: TLS at your reverse proxy (required in production)
+- **Data encryption at rest**: Host platform responsibility (see [Security reference](/docs/reference/security))
 - **Input Validation**: JSON Schema validation for all forms
 - **Access Control**: Role-based permissions for API endpoints
 

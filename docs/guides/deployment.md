@@ -4,24 +4,30 @@ sidebar_position: 3
 
 # Deployment
 
-Complete guide to deploying ODE in production environments using Docker and Docker Compose.
+Complete guide to deploying ODE in production environments using containers (Docker or Podman).
 
-> **Quick start?** For a fast 5-minute setup with Docker or Podman, see the [Synkronus Quickstart](../getting-started/synkronus-quickstart.md) guide. It includes an automated installer and is perfect for testing or starting a production deployment.
+> **IT overview?** See [Server Architecture for IT](./server-architecture-for-it) for a one-page infrastructure summary.  
+> **Quick start?** For a fast setup with automated TLS, see the [Synkronus Quickstart](../getting-started/synkronus-quickstart.md) (Podman/Docker + Caddy + PostgreSQL 17).
 
 ## Overview
 
-ODE can be deployed using Docker containers, which simplifies deployment and ensures consistency across environments. This guide covers production deployment with Docker Compose, including PostgreSQL, Nginx reverse proxy, and optional Cloudflared tunnel for secure external access.
+ODE production deployments center on the **Synkronus container image** (`ghcr.io/opendataensemble/synkronus`). The reference stack is [synkronus-quickstart](https://github.com/OpenDataEnsemble/synkronus-quickstart): Synkronus, PostgreSQL, and **Caddy** for TLS. Your IT team may use any hardened reverse proxy (Nginx, Apache, cloud load balancer) instead of Caddy—the requirement is **TLS termination** forwarding to Synkronus on port 8080.
+
+Pin the image tag in production (e.g. `ghcr.io/opendataensemble/synkronus:v1.1.1`), not `:latest`.
 
 ## Recommended Production Setup
 
 For production deployment, we recommend:
 
 - **Clean Linux server** (Ubuntu 22.04 LTS or Debian 12)
-- **Docker & Docker Compose** installed
-- **Cloudflared tunnel** for secure external access (no port forwarding needed)
-- **PostgreSQL** database (dockerized via docker-compose)
-- **Nginx** reverse proxy (included in docker-compose)
-- **Persistent volumes** for data storage
+- **Podman or Docker** with Compose
+- **PostgreSQL** (container via quickstart, or managed service with `sslmode=require`)
+- **TLS reverse proxy** (Caddy in quickstart; Nginx or institutional proxy equally valid)
+- **Persistent volumes** for `pgdata` and Synkronus `appdata`
+- **Backups** for database and `appdata` (see quickstart `utilities/`)
+- **Security checklist** in [Security reference](/docs/reference/security)
+
+Optional: **Cloudflared tunnel** or similar if you prefer zero-trust ingress without opening inbound ports (not required when using a standard reverse proxy).
 
 ## Quick Start
 

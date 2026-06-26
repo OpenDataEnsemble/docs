@@ -4,25 +4,16 @@ sidebar_position: 2
 
 # Architecture
 
-Complete architecture documentation for ODE, including system overview, components, data flow, and technical details.
+Complete architecture documentation for ODE, including sync protocol, database design, and extension points.
+
+:::tip Audience
+**Hosting / IT?** See [Server Architecture for IT](/docs/guides/server-architecture-for-it).  
+**Product overview?** See [Architecture Overview](/docs/getting-started/architecture-overview).
+:::
 
 ## System Overview
 
-ODE follows a client-server architecture designed for offline-first data collection:
-
-```
-┌─────────────┐         ┌──────────────┐         ┌─────────────┐
-│   Formulus  │◄───────►│  Synkronus   │◄───────►│   Formulus  │
-│  (Mobile)   │  Sync   │   (Server)   │  Sync   │  (Mobile)   │
-└─────────────┘         └──────────────┘         └─────────────┘
-      │                        │                        │
-      │                        │                        │
-      ▼                        ▼                        ▼
-┌─────────────┐         ┌──────────────┐         ┌─────────────┐
-│  Formplayer │         │   Database    │         │  Formplayer │
-│   (WebView) │         │  (PostgreSQL) │         │   (WebView) │
-└─────────────┘         └──────────────┘         └─────────────┘
-```
+ODE follows a client-server architecture designed for offline-first data collection. High-level component relationships are documented in [Architecture Overview](/docs/getting-started/architecture-overview). Server installation layout is in [Server Architecture for IT](/docs/guides/server-architecture-for-it).
 
 ## Components
 
@@ -171,7 +162,7 @@ Attachments are managed separately:
 - **Separate Sync**: Uploaded/downloaded in separate phase
 - **Manifest-based**: Server provides manifest of changes
 
-See the [Synchronization guide](/using/synchronization) for more details.
+See the [Synchronization guide](/docs/using/synchronization) for more details.
 
 ## Database Design
 
@@ -219,10 +210,12 @@ See the [Synchronization guide](/using/synchronization) for more details.
 
 ### Data Security
 
-- **Transport**: HTTPS enforced in production
-- **Storage**: Database encryption via PostgreSQL
+- **Transport**: HTTPS enforced in production (TLS terminated at your reverse proxy)
+- **Storage at rest**: Encryption is a **host platform** responsibility (volume/disk encryption, managed DB TDE)—not a separate Synkronus feature
 - **Secrets**: Environment variables for sensitive data
 - **Validation**: Input validation on all endpoints
+
+See [Security reference](/docs/reference/security) for deployment checklist and mobile storage details.
 
 ## Performance Considerations
 
@@ -273,7 +266,7 @@ Current extension points:
 
 ## Related Documentation
 
-- [Synchronization Details](/using/synchronization)
-- [Sync Protocol Technical Details](/development/architecture)
-- [Database Schema](/development/architecture)
-- [API Reference](/reference/api)
+- [Synchronization Details](/docs/using/synchronization)
+- [Server Architecture for IT](/docs/guides/server-architecture-for-it)
+- [Security reference](/docs/reference/security)
+- [API Reference](/docs/reference/api)

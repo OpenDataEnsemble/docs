@@ -10,6 +10,13 @@ Guide to contributing to ODE, including contribution process, coding standards, 
 
 ODE is an open-source project and welcomes contributions from the community. We believe that diverse perspectives and varied skill sets make our project stronger.
 
+## Documentation URL convention
+
+- **`/docs/developer/*`** — Persona landing pages (overview, getting started paths)
+- **`/docs/development/*`** — Substantive developer content (architecture, setup, component guides)
+
+When adding links in docs, use the full path prefix `/docs/...`.
+
 ## Ways to Contribute
 
 You can contribute to ODE in many ways:

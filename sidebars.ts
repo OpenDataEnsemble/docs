@@ -93,6 +93,7 @@ const sidebars: SidebarsConfig = {
             'guides/building-custom-apps-v1',
             'guides/building-custom-apps-v2',
             'guides/form-design',
+            'guides/form-translations',
             'guides/choice-lists',
             'guides/dynamic-choice-lists',
             'guides/observation-queries',

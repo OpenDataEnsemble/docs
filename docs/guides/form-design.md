@@ -8,6 +8,8 @@ Complete guide to designing forms in ODE using JSON schema and JSON Forms.
 
 ## Overview
 
+ODE forms support optional **embedded translations** in `ui.json` (form-owned copy) separate from **ODE platform locales** (Formulus Settings → Language). For multi-locale forms, put display strings on `Control.label` / `Label.text` with a `translations` block — see [Form translations](/guides/form-translations).
+
 Forms in ODE are defined using JSON schema, following the JSON Forms specification. A form consists of two main components:
 
 1. **Schema**: Defines the data structure and validation rules
@@ -43,6 +45,8 @@ UI Schema (JSON Forms UI Schema) controls the **presentation layer**:
 - **Ordering**: The sequence in which fields appear
 - **Conditional Logic**: When fields are shown or hidden
 - **Field Configuration**: Labels, placeholders, and display options
+
+For **multi-locale** forms, user-visible labels belong on `Control.label` in `ui.json` (with optional `translations`), not on `schema.json` `title`. See [Schema `title` vs UI `label`](/guides/form-translations#schema-title-vs-ui-label) in the form translations guide.
 
 ### The Role of Formplayer
 

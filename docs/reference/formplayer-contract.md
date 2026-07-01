@@ -408,9 +408,26 @@ addFormats(ajv);          // Standard format validators (date, email, etc.)
 - `scope`: JSON Pointer to schema property (must start with `#/properties/`)
 
 **Optional:**
-- `label`: String or `false` (to hide label)
+- `label`: String or `false` (to hide label). **Primary on-screen label** for multi-locale forms; merged with `translations` at init. When omitted, Formplayer falls back to `schema.title` — see [Form translations — label resolution](/guides/form-translations#how-formplayer-picks-the-displayed-label).
 - `options`: Object with renderer-specific options (see below)
 - `rule`: Conditional display/enable rule
+- `translations`: Optional per-locale overrides (see [Form translations](/guides/form-translations))
+
+**`translations` (form i18n):**
+
+```json
+{
+  "type": "Control",
+  "scope": "#/properties/name",
+  "label": "Name",
+  "translations": {
+    "fr": { "label": "Nom" },
+    "pt": { "label": "Nome" }
+  }
+}
+```
+
+Partial keys are allowed. Merged once at form init from `params.locale`. Not persisted as observation data.
 
 **Common `options`:**
 

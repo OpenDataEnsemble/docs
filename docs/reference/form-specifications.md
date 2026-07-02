@@ -568,6 +568,12 @@ Research on survey scales favours **numeric scales with verbal endpoint anchors*
 }
 ```
 
+:::note
+
+You only need `type: ["integer", "null"]` (so the field can hold the N/A value). Formplayer automatically allows the `notApplicableValue` during validation — you do **not** need to add a `null` branch to `oneOf` yourself, and the N/A choice is never shown twice.
+
+:::
+
 **Required field** — add the property name to the schema `required` array:
 
 ```json
@@ -606,7 +612,40 @@ Control the arrangement from the UI schema `options`:
 
 `options.orientation` accepts `horizontal` (default), `vertical` (stacked), `flow` (wrap), or `cols-2` … `cols-5` (a fixed multi-column grid, useful on tablets). Word and radio scales automatically stack to one option per row on narrow phones. `options.display` overrides `likert.display` for that control only.
 
+On tablets and desktop, word-label scales render as **equal-width cells** in an even grid, so long labels (e.g. "Strongly agree", "Always") never stretch to a full-width row.
+
 In review/read-only mode the selected answer stays prominent while the other options are de-emphasised.
+
+#### Translating option labels
+
+Question text is translated via `Control.label` + `translations` (see [Form translations](/guides/form-translations)). To translate the **scale option labels**, mirror the values in the UI schema `options.oneOf` and provide per-locale overrides — they are matched to the schema options by `const`:
+
+```json
+{
+  "type": "Control",
+  "scope": "#/properties/satisfaction",
+  "label": "How satisfied are you?",
+  "options": {
+    "oneOf": [
+      { "const": 1, "title": "Very dissatisfied" },
+      { "const": 5, "title": "Very satisfied" }
+    ]
+  },
+  "translations": {
+    "pt": {
+      "label": "Quão satisfeito está?",
+      "options": {
+        "oneOf": [
+          { "const": 1, "title": "Muito insatisfeito" },
+          { "const": 5, "title": "Muito satisfeito" }
+        ]
+      }
+    }
+  }
+}
+```
+
+The stored value is unchanged (`oneOf[].const`). Any option not listed in a locale keeps its `schema.json` `oneOf[].title`. The finalize summary uses the `schema.json` titles.
 
 ### Duration / Timer
 

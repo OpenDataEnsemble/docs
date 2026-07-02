@@ -298,6 +298,8 @@ Generic attachment via document picker. Use **`type: object`** with **`format: s
 
 Use **`format: "likert"`** for agreement, satisfaction, frequency, importance, likelihood, and numeric rating scales.
 
+**Display and content are independent.** There are no topic-specific Likert types (no separate "pain slider" or "satisfaction buttons"). Pick a **`likert.display`** for *how* the scale looks, and set **`title`** plus **`oneOf`** for *what* it measures — any display works with any values and labels. Presets are optional shortcuts for common label sets on standard numeric ranges.
+
 #### Quick start
 
 Add a field to **`schema.json`**, then wire it in **`ui.json`** with a standard `Control`:
@@ -421,7 +423,7 @@ Presets are a shortcut for common scales. For custom wording or non-standard val
 | Display                                | Best for                        | Label pattern                                                    |
 | -------------------------------------- | ------------------------------- | ---------------------------------------------------------------- |
 | `buttons` / `radio`                    | Opinion scales (3–5 options)    | Full label per option (`oneOf[].title`)                          |
-| `numeric`                              | NPS, pain, rating (5+ points)   | Numbers in cells; word labels on the first/last `oneOf` entries  |
+| `numeric`                              | NPS, intensity, rating (5+ points) | Numbers in cells; word labels on the first/last `oneOf` entries  |
 | `buttons` + `endpointLabelsOnly: true` | NPS 0–10 in button form         | Digits in cells; endpoint words below                            |
 | `slider`                               | Continuous 0–10 ranges          | Endpoint word anchors below; value badge always visible          |
 | `emoji`                                | Optional sentiment (low-stakes) | Emoji **and** text label on every option                         |
@@ -431,7 +433,9 @@ Research on survey scales favours **numeric scales with verbal endpoint anchors*
 
 #### Copy-paste recipes
 
-**Pain slider (0–10 with word anchors)** — stores `0` … `10`:
+**0–10 slider with endpoint anchors** — stores `0` … `10`. Change `title` and the first/last `oneOf[].title` values to rate anything; the slider UI is the same.
+
+*Example — pain intensity:*
 
 ```json
 {
@@ -450,6 +454,33 @@ Research on survey scales favours **numeric scales with verbal endpoint anchors*
     { "const": 8, "title": "8" },
     { "const": 9, "title": "9" },
     { "const": 10, "title": "Worst pain" }
+  ],
+  "likert": {
+    "display": "slider",
+    "colorMode": "spectrum"
+  }
+}
+```
+
+*Example — task difficulty (same display, different labels):*
+
+```json
+{
+  "type": "integer",
+  "format": "likert",
+  "title": "How difficult was this task?",
+  "oneOf": [
+    { "const": 0, "title": "Very easy" },
+    { "const": 1, "title": "1" },
+    { "const": 2, "title": "2" },
+    { "const": 3, "title": "3" },
+    { "const": 4, "title": "4" },
+    { "const": 5, "title": "5" },
+    { "const": 6, "title": "6" },
+    { "const": 7, "title": "7" },
+    { "const": 8, "title": "8" },
+    { "const": 9, "title": "9" },
+    { "const": 10, "title": "Extremely hard" }
   ],
   "likert": {
     "display": "slider",

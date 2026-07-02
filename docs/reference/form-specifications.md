@@ -298,7 +298,11 @@ Generic attachment via document picker. Use **`type: object`** with **`format: s
 
 Use **`format: "likert"`** for agreement, satisfaction, frequency, importance, likelihood, and numeric rating scales.
 
-**Display and content are independent.** There are no topic-specific Likert types (no separate "pain slider" or "satisfaction buttons"). Pick a **`likert.display`** for *how* the scale looks, and set **`title`** plus **`oneOf`** for *what* it measures — any display works with any values and labels. Presets are optional shortcuts for common label sets on standard numeric ranges.
+:::tip Display and content are independent
+
+There are no topic-specific Likert types (no separate "pain slider" or "satisfaction buttons"). Pick a **`likert.display`** for *how* the scale looks, and set **`title`** plus **`oneOf`** for *what* it measures — any display works with any values and labels. Presets are optional shortcuts for common label sets on standard numeric ranges.
+
+:::
 
 #### Quick start
 

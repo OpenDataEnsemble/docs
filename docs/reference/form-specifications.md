@@ -294,6 +294,123 @@ Generic attachment via document picker. Use **`type: object`** with **`format: s
 }
 ```
 
+### Rating Scales (Likert)
+
+Use **`format: "likert"`** for agreement, satisfaction, frequency, importance, likelihood, and numeric rating scales. The stored value is the selected `oneOf[].const` (typically an integer, or `null` when "Not applicable" is chosen). Labels come from each `oneOf[].title` and are fully translatable.
+
+```json
+{
+  "type": "integer",
+  "format": "likert",
+  "title": "How satisfied are you with the service?",
+  "oneOf": [
+    { "const": 1, "title": "Very dissatisfied" },
+    { "const": 2, "title": "Dissatisfied" },
+    { "const": 3, "title": "Neutral" },
+    { "const": 4, "title": "Satisfied" },
+    { "const": 5, "title": "Very satisfied" }
+  ],
+  "likert": {
+    "display": "buttons",
+    "colorMode": "spectrum",
+    "allowClear": true
+  }
+}
+```
+
+All variants share one clean look: neutral outlined option cells, with an accent border and tint on the selected option only. Every option is a touch-friendly target and the layout adapts to phone and tablet widths.
+
+#### Display modes (`likert.display`)
+
+| Value     | Presentation                                             |
+| --------- | -------------------------------------------------------- |
+| `buttons` | Equal-width labelled option cells (default)              |
+| `radio`   | Radio row with labels below (classic survey style)       |
+| `slider`  | Slider with tick marks, endpoint anchors, and value badge|
+| `numeric` | Compact number cells (NPS style)                         |
+| `stars`   | Star rating with the selected label alongside            |
+| `emoji`   | One emoji per option (`emoji` on each `oneOf` entry)     |
+
+#### Colour (`likert.colorMode`)
+
+| Value      | Selected-option accent                          |
+| ---------- | ----------------------------------------------- |
+| `neutral`  | Theme primary (default)                         |
+| `spectrum` | Semantic red → yellow → green by scale position |
+| `stars`    | Standard rating gold (used with `display: "stars"`) |
+
+Colour is only ever a secondary cue — selection is always conveyed by the border, tint, and weight as well, so scales remain readable for colour-blind respondents.
+
+#### Presets
+
+When you omit `oneOf`, set `likert.preset` to generate standard options: `agreement`, `frequency`, `satisfaction`, `importance`, `likelihood`, `numeric_0_10`, `numeric_1_5`, `numeric_1_7`.
+
+#### Choosing a scale
+
+| Display                                | Best for                        | Label pattern                                                    |
+| -------------------------------------- | ------------------------------- | ---------------------------------------------------------------- |
+| `buttons` / `radio`                    | Opinion scales (3–5 options)    | Full label per option (`oneOf[].title`)                          |
+| `numeric`                              | NPS, pain, rating (5+ points)   | Numbers in cells; word labels on the first/last `oneOf` entries  |
+| `buttons` + `endpointLabelsOnly: true` | NPS 0–10 in button form         | Digits in cells; endpoint words below                            |
+| `slider`                               | Continuous 0–10 ranges          | Endpoint word anchors below; value badge always visible          |
+| `emoji`                                | Optional sentiment (low-stakes) | Emoji **and** text label on every option                         |
+| `stars`                                | 5-point satisfaction            | Star count with the selected label beside it                     |
+
+Research on survey scales favours **numeric scales with verbal endpoint anchors** (highest reliability) and **fully-labelled word buttons** (fastest to answer). Emoji are engaging but can cluster toward the middle and vary by culture, so they always render with a text label and are best reserved for informal contexts.
+
+#### Additional options
+
+| Option                       | Description                                                                                     |
+| ---------------------------- | ----------------------------------------------------------------------------------------------- |
+| `likert.allowClear`          | Tapping the selected option again clears it (default `true`).                                    |
+| `likert.endpointLabelsOnly`  | Show word labels only at the endpoints of long numeric scales; omit for 3–4 option scales.       |
+| `likert.allowNotApplicable`  | Adds a "Not applicable" choice. Use `type: ["integer", "null"]`; stores the `notApplicableValue`. |
+| `likert.notApplicableLabel`  | Custom label for the N/A option (default "Not applicable").                                       |
+| `likert.notApplicableValue`  | Stored value for N/A (default `null`).                                                            |
+
+#### Layout (UI schema)
+
+Control the arrangement from the UI schema `options`:
+
+```json
+{
+  "type": "Control",
+  "scope": "#/properties/satisfaction",
+  "options": { "orientation": "cols-2" }
+}
+```
+
+`options.orientation` accepts `horizontal` (default), `vertical` (stacked), `flow` (wrap), or `cols-2` … `cols-5` (a fixed multi-column grid, useful on tablets). Word and radio scales automatically stack to one option per row on narrow phones. `options.display` overrides `likert.display` per placement.
+
+In review/read-only mode the selected answer stays prominent while the other options are de-emphasised, and the finalize summary shows the option's `title` (or "Not applicable").
+
+### Duration / Timer
+
+Use **`format: "duration"`** to capture an elapsed time. The stored value is always a number of **seconds**.
+
+```json
+{
+  "type": "number",
+  "format": "duration",
+  "title": "Time to complete the task",
+  "minimum": 0,
+  "duration": {
+    "mode": "stopwatch",
+    "unit": "seconds",
+    "precision": 1,
+    "allowManualEntry": true
+  }
+}
+```
+
+| `duration.mode` | Presentation                                        |
+| --------------- | --------------------------------------------------- |
+| `stopwatch`     | Start / Pause / Resume / Reset, then **Save** to commit |
+| `countdown`     | Counts down from `duration.countdownFrom` seconds   |
+| `manual`        | A plain numeric seconds field                       |
+
+Other options: `unit` (display unit), `precision` (decimal places), `allowManualEntry` (permit typing a value alongside the timer), and `countdownFrom` (starting seconds for `countdown`). The stopwatch commits only when the collector presses **Save**, so an unsaved running timer never writes a partial value. The finalize summary renders the value in a human-readable form (e.g. `1m 30s`).
+
 ## Form Versioning
 
 Forms support versioning to allow updates while maintaining compatibility:
